@@ -1,0 +1,209 @@
+
+.form-group{
+  text-align:start;
+  margin-bottom: 3rem;
+}
+
+.main{
+    text-align: center;
+    margin: 1rem;
+}
+h6{
+    font-weight:bold;
+}
+.first-letter {
+  border: 2px solid #5ff8f3;
+  border-radius: 50%;
+  background-color: white;
+  padding: 0.2rem 0.6rem 0.4rem 0.5rem;
+  text-align: center;
+  max-width: 40px;
+  max-height: 40px;
+  color: #5ff8f3;
+  margin: 0 0 0 5px!important;
+  font-weight: bold;
+  line-height: 1.2!important;
+}
+
+.WrapTheProfPic {
+  
+}
+.businnesName{
+    align-items:center;
+}
+
+.businnesName label{
+    margin: 0 10px;
+    font-size: smaller;
+    font-weight: 600;
+}
+.img-radius {
+  border-radius: 50%;
+  max-width: 40px;
+  max-height: 40px;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+}
+
+.CoverImg {
+  height: 230px;
+  overflow: hidden;
+  display: block;
+  margin: auto;
+  width: 170px;
+  width: unset;
+  height: 230px;
+}
+
+.workPic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+
+/* picture */
+.DivInBox {
+    border-style: none !important;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin-bottom: 10%;
+  }
+  
+  .RemoveBorderImg {
+    border: none !important;
+  }
+  
+  .work-img {
+    border: 1px dashed black;
+    content: none;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 4px;
+    width: 148.5px;
+    height: 148.5px;
+  }
+  
+  .uploadWorkImg {
+    float: left;
+    position: absolute;
+    left: 55px;
+    top: 35px;
+    z-index: 1000;
+    background-color: #373cf5 !important;
+    padding: 10px;
+    width: 25%;
+    height: 25%;
+    border-radius: 50%;
+  }
+  
+  .icon-close {
+    top: 3px;
+    float: left;
+    position: absolute;
+    background-color: #fff !important;
+    width: 15%;
+    height: 15%;
+    border-radius: 50%;
+  }
+  
+  .color_g {
+    color: #7e7a7a;
+    size: 0cm !important;
+    margin: 25%;
+    padding-bottom: 15% !important;
+  }
+  
+  .SpanInBox {
+    position: absolute;
+    text-align: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    left: 22px;
+    top: 75px;
+  }
+
+  
+.p-upload {
+  margin-top: 2rem;
+  margin-right: 20px;
+  max-width: 100%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#profile-img-btn {
+  margin: 5px 0 0 auto;
+  border: 2px solid #000;
+}
+
+#profile-img-btn input {
+  display: none;
+}
+
+#profpicfile,
+#coverpicfile,
+.picNone {
+  display: none;
+}
+
+
+/* new picture  */
+.dashed {
+  padding: 40px 15px;
+  border: 1px dashed #ced4da;
+  width: 100%;
+  border-radius: 5px;
+}
+.dashed:hover{
+  border-color: #2196F3;
+}
+.dashed:focus{
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #a6d5fa;
+  border-color: #2196F3;
+}
+.wrap-attach {
+  background-color: #373cf5 !important;
+  padding: 10px;
+  width: 35PX;
+  height: 35px;
+  border-radius: 50%;
+  color: #fff;
+  margin-left: 1rem;
+}
+.wrap-img {
+  display: block;
+  border: 1px dashed black;
+  content: none;
+  max-width: 500px;
+  max-height: 300px;
+  border-radius: 4px;
+}
+
+.wrap-icon-close{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  BORDER: 1px solid #7e7a7a;
+  margin: -0.9rem -1rem -1rem 0;
+  position: absolute;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 9px 15px;
+
+  font-size: 1.3rem;
+  color: #7e7a7a;
+}
+

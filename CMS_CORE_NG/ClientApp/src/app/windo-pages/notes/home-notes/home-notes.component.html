@@ -1,0 +1,49 @@
+<!-- <div class="board" *ngFor="let board of latestNotesByBoards">
+    <div class="header-board"><h4><i class="pi pi-star"></i>לוח {{board.Name}}</h4></div>
+    <a *ngFor="let note of board.Notes" [routerLink]="['/note',note.Id]">
+        <div class="note flex">
+            <app-business-template [business]="note.Business" size="50"></app-business-template>
+            <h5><mark>{{note.CategorySubCategory? note.CategorySubCategory.subCategoryName: "כללי"}}</mark>
+                {{note.Header}}
+            </h5>
+        </div>
+    </a>
+    
+    <div class="flex space-between">
+        <button class="blue-big-button"[routerLink]="['/notes',board.Id,false]">לכל המודעות</button>
+        <button class="transparent-big-button" (click)="createNote(board)" 
+        [disabled]="!(this._wrapperSearchService.LoginStatus$.value) || !(this._acct.currentBusiness | async)">
+        <i class="pi pi-plus-circle"></i>
+        ליצירת מודעה</button>
+    </div>
+</div> -->
+<br>
+<br>
+<div class="width grid-home">
+    <div class="flex space-between new-notes temech">
+        <h4>חדש בתמך</h4>
+    </div >
+    <div class="pd">
+        <app-notes-list deployment="row" [notesList]="latestTemechNote">
+        </app-notes-list>
+    </div>
+</div>
+<br>
+<br>
+<div class="width grid-home">
+    <div class="flex space-between new-notes">
+        <h4>מודעות חדשות</h4>
+    </div>
+    <div class="pd">
+        <app-notes-list deployment="row" [notesList]="latestNotesByBoards">
+        </app-notes-list>
+    </div>
+</div>
+<div class="text-center pb-3 pd-top">
+    <button class="btn-turquoise px-5" [routerLink]="['/notes']">לכל המודעות</button>
+</div>
+
+
+
+
+<br>

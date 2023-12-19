@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using ModelService
+@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Forgot password";
+}
+
+
+@section Styles {
+    <link href="~/lib/limonte-sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <style>
+        .ViewBag {
+            font-weight: bold;
+            font-size: 1.2rem;
+            /*background-color: gainsboro;*/
+            padding: 0.5rem;
+            /*border-radius:0.5rem;*/       
+        }
+    </style>
+}
+<section class="adminLogin">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="adminLoginFormDiv" id="adminLoginFormDiv">
+                    <div class="adminLoginFormDivCard card">
+                        <div class="inner">
+                            <form asp-action="ForgotPassword" method="POST" asp-route-returnurl="">
+                                <div id="login-form" class="login-form">
+                                    <h2 class="form-title mb-5">שחזור סיסמה</h2>
+                                    <div class="form-group">
+                                        <input asp-for="Email" type="email" class="form-input mb-5" id="Email" placeholder="כתובת מייל" />
+                                        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                                        <label class="ViewBag">@ViewBag.MessageStatus</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" name="Forgotsubmit" id="Forgotsubmit" class="form-submit" value="שלח לי מייל" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+@*@section Scripts
+                                {
+    <script src="~/lib/limonte-sweetalert2/sweetalert2.min.js"></script>
+    <script>
+        function makeArrayList(array) {
+            let list = document.createElement('ul');
+            list.className = "list-group";
+            for (let i = 0; i < array.length; i++) {
+
+                let item = document.createElement('li');
+                item.className = "list-group-item bg-danger text-white";
+                item.appendChild(document.createTextNode(array[i].replace(/[\[\]"]/g, '').replace(/[\[\]{]/g, '').replace(/[\[\]}]/g, '')));
+                list.appendChild(item);
+            }
+            return list;
+        }
+    </script>
+}*@

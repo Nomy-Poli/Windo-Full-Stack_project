@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+
+    <title> דף חיפוש עסק</title>
+</head>
+
+<body id="body">
+    <!--  (click)="closeSearch()" -->
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <div class="aroundBody">
+        <div class="image-container">
+                    <img src="../../../../assets/img-pages/share.png" alt="" class="img-height" [ngClass]="{'img':isDisplayForm}">
+        </div>
+        
+        <div class="overlay">
+            <h1> העסקים בקהילת תמך</h1>
+            <div style="display: flex;flex-direction: column;">
+
+                <section id="search" class="search">
+                    
+                    <form [formGroup]="parameterForm" (ngSubmit)="searchByAll()">
+                        <div class="Mytooltip" (click)="toggleSearch($event)">
+                            <input type="text" class="search-input"
+                                [ngClass]="{'search-input-close':isDisplayForm==false,'search-input-open':isDisplayForm==true}"
+                                formControlName="searchText" placeholder="חפשי לפי שם עסק">
+                            <i class="pi pi-search"></i>
+                        </div>
+                        <div class="wrap-search" *ngIf="isDisplayForm">
+                            <div class="flex">
+                                <div class="form-group w-350">
+                                    <p-dropdown #categorydropdown1 formControlName="categoryId"
+                                        styleClass="inputMultiSelect1" [(ngModel)]="selectedCategory"
+                                        (onChange)="onSelectCategory($event.value.label)"
+                                        [options]="this._wrapperSearchService.categoryOptions" placeholder="בחרי
+                                        קטגוריה" [filter]="true" optionLabel="value">
+                                    </p-dropdown>
+                                </div>
+                                <div class="form-group w-350">
+                                    <p-multiSelect #subcategorydropdown1 styleClass="inputMultiSelect1"
+                                        formControlName="subCategoryIds"
+                                        [options]="_wrapperSearchService.subCategoryForSearchPageOptions" placeholder="בחרי תת
+                                        קטגוריה" [showToggleAll]="true" [filter]="true" [maxSelectedLabels]="3"
+                                        [selectedItemsLabel]="'בחרת תתי קטגוריות מרובות'" optionLabel="name"
+                                        [(ngModel)]="this._wrapperSearchService.ListOfSubCategoryToFillter">
+                                    </p-multiSelect>
+                                </div>
+                                <div class="form-group w-350">
+                                    <p-multiSelect #areas showHeader="false" styleClass="inputMultiSelect1"
+                                        [options]="_wrapperSearchService.AreaOptionsProfile" defaultLabel="בחרי אזורי שירות"
+                                        [filter]="false" optionLabel="name" maxSelectedLabels="1" formControlName="areas">
+                                        <ng-template pTemplate="header">
+                                            <label style="position: absolute; margin: 0.2rem 2.5rem 0 1rem;" for=""> כל
+                                                הארץ</label>
+                                        </ng-template>
+                                    </p-multiSelect>
+                                </div>
+                            </div>
+                            <div class="flex_SB submit">
+                                <button type="button" class="next-button btn-light"
+                                    (click)="resetFillterList()">איפוס</button>
+                                <button class="next-button" type="submit">חפשי</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+              
+                
+                <div class="flex margin-top-1 aroundSearch" >
+                    <div>
+
+                        <span>
+                            תוצאות חיפוש: נמצאו
+                            <span *ngIf="(this._wrapperSearchService._afterFilterBuisnessListSubject|async)
+                                    !=null">
+                                <span class="bold">
+                                    {{(this._wrapperSearchService._afterFilterBuisnessListSubject|
+                                    async).length}}</span>
+                                תוצאות</span>
+                                    </span>
+                    </div>
+                    <div class="mxr-auto flex icons">
+                        <div class="cursorP" [routerLink]="['view-list']"
+                            (click)="this._wrapperSearchService.onListComponnent$.next(true)" [ngClass]="(_wrapperSearchService.onListComponnent$
+                                |async) ?
+                                'p-1':'choose p-1'"><i class="fa fa-th-list"></i></div>
+                        <div class="cursorP" [routerLink]="['view-cards']"
+                            (click)="this._wrapperSearchService.onListComponnent$.next(false)" [ngClass]="!(_wrapperSearchService.onListComponnent$
+                                |async) ?
+                                'p-1':'choose p-1'"> <i class="fa fa fa-th mxl-1"></i></div>
+    
+                        <div (click)="prevPage()" class="circle-icon cursorP">
+                            <i class="fas
+                                    fa-chevron-right"></i>
+                        </div>
+                        <span class="bold">{{_wrapperSearchService.numberOfCurrentPage}}</span>
+                        <div (click)="nextPage()" class="circle-icon cursorP">
+                            <i class="fas
+                                    fa-chevron-left"></i>
+                        </div>
+                        <span class="bold"> מתוך {{
+                            _wrapperSearchService.totalnumberOfPages
+                            }}
+                        </span>
+                    </div>
+                </div> 
+            </div>
+          
+        
+    </div>  <div class="space" [ngClass]="{'m-t6':isDisplayForm}">
+            <app-advertisment-area [makat]="1003"></app-advertisment-area>
+        </div>
+    <div class="grid-home">
+        <main >
+            <!-- <div class="imgbackgroundup">
+                <div class="image-container">
+                    <img src="../../../../assets/img-pages/share.png" alt="" style='height: 30vh;'>
+                </div> -->
+         <!-- <h1> העסקים בקהילת תמך</h1>
+            <section id="search">
+
+                <form [formGroup]="parameterForm" (ngSubmit)="searchByAll()">
+                    <div class="Mytooltip" (click)="toggleSearch($event)">
+                        <input type="text" class="search-input"
+                            [ngClass]="{'search-input-close':isDisplayForm==false,'search-input-open':isDisplayForm==true}"
+                            formControlName="searchText" placeholder="חפשי לפי שם עסק">
+                        <i class="pi pi-search"></i>
+                    </div>
+                    <div class="wrap-search" *ngIf="isDisplayForm">
+                        <div class="flex">
+                            <div class="form-group w-350">
+                                <p-dropdown #categorydropdown1 formControlName="categoryId"
+                                    styleClass="inputMultiSelect1" [(ngModel)]="selectedCategory"
+                                    (onChange)="onSelectCategory($event.value.label)"
+                                    [options]="this._wrapperSearchService.categoryOptions" placeholder="בחרי
+                                    קטגוריה" [filter]="true" optionLabel="value">
+                                </p-dropdown>
+                            </div>
+                            <div class="form-group w-350">
+                                <p-multiSelect #subcategorydropdown1 styleClass="inputMultiSelect1"
+                                    formControlName="subCategoryIds"
+                                    [options]="_wrapperSearchService.subCategoryForSearchPageOptions" placeholder="בחרי תת
+                                    קטגוריה" [showToggleAll]="true" [filter]="true" [maxSelectedLabels]="3"
+                                    [selectedItemsLabel]="'בחרת תתי קטגוריות מרובות'" optionLabel="name"
+                                    [(ngModel)]="this._wrapperSearchService.ListOfSubCategoryToFillter">
+                                </p-multiSelect>
+                            </div>
+                            <div class="form-group w-350">
+                                <p-multiSelect #areas showHeader="false" styleClass="inputMultiSelect1"
+                                    [options]="_wrapperSearchService.AreaOptionsProfile" defaultLabel="בחרי אזורי שירות"
+                                    [filter]="false" optionLabel="name" maxSelectedLabels="1" formControlName="areas">
+                                    <ng-template pTemplate="header">
+                                        <label style="position: absolute; margin: 0.2rem 2.5rem 0 1rem;" for=""> כל
+                                            הארץ</label>
+                                    </ng-template>
+                                </p-multiSelect>
+                            </div>
+                        </div>
+                        <div class="flex_SB submit">
+                            <button type="button" class="next-button btn-light"
+                                (click)="resetFillterList()">איפוס</button>
+                            <button class="next-button" type="submit">חפשי</button>
+                        </div>
+                    </div>
+                </form>
+            </section> -->
+        <!-- </div> -->
+            <!-- (onChange)="OnChooseSubCategoryFromDD();" -->
+            <!-- </div>
+
+                    </div> -->
+            <!-- <div class="flex flex_row">
+                        <div class="flex">
+                            <label class="">כל הארץ?</label>
+                            <span class="ml-2" *ngIf="this.parameterForm.get('isInAllCountry').value
+                                == true">כן</span>
+                            <span class="ml-2" *ngIf="this.parameterForm.get('isInAllCountry').value
+                                == false">לא</span>
+                            <p-inputSwitch class="" (click)="Countrycollapse.toggle()"
+                                [attr.aria-expanded]="!isCountryCollapsedOpen" aria-controls="collapseExample"
+                                formControlName="isInAllCountry"></p-inputSwitch>
+
+                        </div>
+
+                        <div #Countrycollapse="ngbCollapse" [(ngbCollapse)]="isCountryCollapsedOpen" class="width-100">
+                        </div>
+                    </div> -->
+
+          
+            <!-- the view components: cards or list -->
+           
+        
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+            <p-paginator [first]="_wrapperSearchService.numberOfCurrentPage-1" [rows]="1"
+                [totalRecords]="_wrapperSearchService.totalnumberOfPages" (onPageChange)="onPageChange($event)"
+                [showJumpToPageDropdown]="true" [showPageLinks]="false">
+            </p-paginator>
+        </main>
+    </div>
+</div>
+   
+
+
+</body>
+
+</html>

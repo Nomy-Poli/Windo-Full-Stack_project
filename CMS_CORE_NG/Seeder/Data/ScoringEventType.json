@@ -1,0 +1,14 @@
+﻿[
+  {
+    "Id": 1,
+    "EventDescription": "ידני"
+  },
+  {
+    "Id": 2,
+    "EventDescription": "פעולה"
+  },
+  {
+    "Id": 3,
+    "EventDescription": "חישוב"
+  }
+]

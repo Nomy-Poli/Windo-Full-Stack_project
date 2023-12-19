@@ -1,0 +1,153 @@
+@import "../../../../styles/_variables.scss";
+@import url(../../../../styles/_cs-cards.scss);
+
+.flex_C {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    .container_card_flex {
+        display: flex;
+        justify-content: center;
+
+
+        // flex-basis: 30% 30% 30% 65%;
+        gap: 1rem;
+        .cs_card {
+            // &:nth-child(4) {
+            //     width: 62.5% !important;
+            // }
+            height: 30rem;
+            width: 32%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background-color: $dark-blue-color;
+            // padding: 0 0.8rem 0.4rem 0.8rem;
+            .logo_img {
+                height: 40rem;
+                max-height: 65%;
+                width: 100%;
+                object-fit: cover;
+            }
+            .logo_img1{
+                height: 40rem;
+                max-height: 65%;
+                width: 100%;
+                background-color:rgb(random(255), random(255), random(255)) ;
+            }
+            .title_text {
+                margin-top: 0.5rem;
+                color: white;
+                height: 10%;
+                width: 89%;
+            }
+            .main_text {
+                color: white;
+                height: 10%;
+                width: 89%;
+                margin: 0;
+            }
+            .footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 15%;
+                color: white;
+                border-top: 1px solid;
+                padding-top: 0.5rem;
+                width: 89%;
+                margin: 0 1.5rem;
+                div{
+                    label{
+                        .small-logo{
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            border: 1px solid #fff;
+                            margin-right: -1rem;
+                            background-color: #fff;
+                        }
+                        h4.first-letter{
+                            padding: .1rem 0;
+                            font-size: 1.3rem;
+                            width: 40px;
+                            height: 40px;
+                            margin: 0 -1rem 0 0!important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .btn_getAll {
+        align-self: center;
+        margin-top: 5rem;
+        width: 9rem;
+        height: 2.5rem;
+        border: none;
+        border-radius: 19px;
+        background-color: $secendary-blue-color;
+        color: black;
+        font-size: 1.3rem;
+        font-weight: bold;
+        &:disabled {
+            opacity: 0.5;
+        }
+    }
+    .Arrows-container{
+        align-self: center;
+    }
+}
+.wrapp{
+    flex-wrap: wrap;
+}
+
+.Fcards{
+    flex-direction: column;
+}
+.Fscroll{
+    margin-bottom: 5rem;
+}
+.container_card_grid{
+    display: grid;
+    grid-template-columns: repeat(4, 295px);
+    // gap: 2%;
+    // width: max-content;
+    // margin: auto;
+
+
+}
+.card{
+    margin: 0;
+    width: 100%;
+    max-width: 295px;
+    height: 460px;
+    cursor: pointer;
+}
+
+
+@media  screen and(min-width: 1501px) {
+    .container_card_grid{
+        width: 80%;
+
+        margin: auto;
+        gap: 2%;
+        grid-template-columns:repeat(4, 23.5%) ;
+    }
+}
+
+@media  screen and(max-width: 1500px) {
+    .container_card_grid{
+        width: 90%;
+        margin: auto;
+        grid-template-columns:repeat(4, 23%) ;
+        gap: 1rem;
+    }
+}
+// @media  screen and(max-width: 1361px) {
+//     .card{
+//         width: 32%;
+//         min-width: 280px;
+//     }
+// }

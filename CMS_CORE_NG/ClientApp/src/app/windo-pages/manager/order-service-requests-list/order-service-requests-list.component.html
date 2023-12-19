@@ -1,0 +1,83 @@
+<!-- <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb> -->
+<p-table [value]="requestsList" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 120px;">
+                    <p-columnFilter type="text" field="BusinessName" display="menu"></p-columnFilter>
+                    שם עסק</th>
+                <th style="width: 145px;">
+                    <p-columnFilter type="text" field="ContactName" display="menu"></p-columnFilter>
+                    שם איש קשר</th>
+                <th style="width: 140px;">
+                    <p-columnFilter type="text" field="Phone" display="menu"></p-columnFilter>
+                    מספר טלפון</th>
+                <th style="width: 12%; max-width: 160px;">
+                    <p-columnFilter type="text" field="Email" display="menu"></p-columnFilter>
+                    אימייל</th>
+                <th  style="width: 140px;">
+                    <p-columnFilter type="text" field="Phone" display="menu"></p-columnFilter>
+                    מלל חופשי</th>
+                <th style="width: 70px;">
+                    מק"ט</th>
+                <th style="width: 140px;">תאריך הבקשה</th>
+                <th style="width: 130px;">
+                    <p-columnFilter field="RequestStatus" matchMode="equals" display="menu">
+                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                            <p-dropdown [ngModel]="value" [options]="this.statusesValueLabel" (onChange)="filter($event.value)"
+                                placeholder="Any">
+                                <ng-template let-option pTemplate="item">
+                                    <span [class]="'status-' + option.value">{{option.label}}</span>
+                                </ng-template>
+                            </p-dropdown>
+                        </ng-template>
+                    </p-columnFilter>
+                    סטטוס</th>
+                <th style="width: 16%;"></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-request>
+            <tr style="position: relative;">
+                
+                <td>{{request.BusinessName}}</td>
+                <td>{{request.ContactName}}</td>
+                <td style="direction: ltr;">{{request.Phone}}</td>
+                <td style="direction: ltr;" pTooltip="{{request.Email}}">
+                   <a href="mailto: {{request.Email}}"> {{request.Email}}</a>
+                </td>
+                <td (click)="request['showText'] = !request['showText']">{{request.Text}}
+                    <div *ngIf="request['showText']" class="position-abs long-text">
+                        {{request.Text}}
+                    </div>
+                </td>
+                <td>{{request.Makat}}</td>
+                <td>{{request.CreationDate | date: 'dd/MM/yy'}}</td>
+                <!-- <td>{{request.ServiceDate | date: 'dd/mm/yy'}}</td> -->
+                <td class="flex align-items-center">
+                    <span *ngIf="!request['showStatuses']" [class]="'status-'+request.RequestStatus">{{statuses[request.RequestStatus]}}</span>
+                    <i *ngIf="!request['showStatuses']" class="pi pi-chevron-down" (click)="request['showStatuses'] = !request['showStatuses']"></i>
+                    <i *ngIf="request['showStatuses']" class="pi pi-chevron-up" (click)="request['showStatuses'] = !request['showStatuses']"></i>
+                    <div class="position-abs statuses-options" *ngIf="request['showStatuses']">
+                     <span *ngFor="let status of statusesValueLabel" (click)="changeStatus(request,status)"
+                     [class]="'status-'+status.value">{{status.label}}</span>
+                    </div>
+                    
+                </td>
+                <td>
+                    <div class="flex space-around">
+                        <div class="action-col" (click)="openNewClientForm(request)" [ngClass]="{'disabled-col':request.RequestStatus != 1}">
+                            <img src="../../../../assets/images/contact.svg" alt="contact img" class="icon">
+                            <span class="icon_p">הוסיפי לקוחה</span>
+                        </div>
+                        <div class="action-col" (click)="openNewOrderForm(request)" [ngClass]="{'disabled-col':request.RequestStatus != 1}">
+                            <img src="../../../../assets/images/email.svg" alt="email img" class="icon">
+                            <span class="icon_p">הוסיפי הזמנה</span>
+                        </div>
+                    </div>
+                      <!-- <a  class="btn btn-primary"  (click)="openNewOrderForm(request.Id)" >הזמנה חדשה</a> -->
+                </td>
+               
+
+            </tr>
+        </ng-template>
+    </p-table>
+

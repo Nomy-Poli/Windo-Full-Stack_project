@@ -1,0 +1,76 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>טבלת משתמשים</title>
+</head>
+
+<body>
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+   <div class="fatherofall">
+    <div class="imgbackgroundup">
+        <div class="image-container">
+                    <img src="../../assets/img-pages/alphone.png" alt="" style='height: 30vh;'>
+        </div>
+        <div class="overlay">
+    <h1 class="titleDesign">אלפון תמך</h1>
+    <!-- <h4 class="titletext">כאן תראי מודעות המציאות שת"פ</h4> -->
+    </div></div>
+    <div class="boy2">
+    <div class="d-flex justify-content-center">
+        <div class="text col-10">
+            <p-table
+                [value]="(listOfUsers)| slice: (numberOfCurrentPage-1)* numberOfCardsInOnePage:
+                 (numberOfCurrentPage-1)*numberOfCardsInOnePage+numberOfCardsInOnePage"
+                responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                        <tr class="header">
+                            <th class="text-right color-design border-radius1">
+                                <p-columnFilter type="text" field="Firstname" display="menu"></p-columnFilter>
+                            שם מלא</th>
+                            <th class="text-right color-design">
+                                <p-columnFilter type="text" field="PhoneNumber" display="menu"></p-columnFilter>
+
+                            טלפון</th>
+                            <!-- <th class="text-right color-design">
+                                <p-columnFilter type="text" field="Email" display="menu"></p-columnFilter>
+                            כתובת מייל</th> -->
+                            <th class="text-right color-design">
+                                <p-columnFilter type="text" field="Firstname" display="menu"></p-columnFilter>
+                                קטגוריה</th>
+                            <th class="text-right color-design"></th>
+                            <th class="text-right color-design"></th>
+
+                            <th class="text-right color-design border-radius2"></th>
+                        </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-user>
+                    <tr>
+                        <!-- {{users.Firstname +' '+ users.Lastname ? users.Lastname: '' }} -->
+                        <td class="text-right border-botten"> {{user.Firstname +' '+ (user.Lastname ? user.Lastname: '') }}</td>
+                        <td class="text-right border-botten">{{user.PhoneNumber}}</td>
+                        <!-- <td class="text-right border-botten"></td> -->
+                        <td class="text-right border-botten"><mark>עצמאית</mark></td>
+                        <td class="text-right border-botten">
+                            <button class="btn btn-primary btn-create" (click)="sendEmail(user.Email)">  
+                                <i class="pi pi-envelope"></i>  שלחי הודעה </button>
+                        </td>
+                        <!-- <td class="text-right border-botten color-link"><a href="mailto:{{user.Email}}" class="pi-envelope">
+                           
+                        </a></td> -->
+                     
+                        <td class="text-right border-botten"></td>
+                        <td class="text-right border-botten"></td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+    <div class="text-align-center">
+        <p-paginator [first]="numberOfCurrentPage-1" [rows]="1" [totalRecords]="totalnumberOfPages"
+            (onPageChange)="onPageChange($event)" [showJumpToPageDropdown]="true" [showPageLinks]="false">
+        </p-paginator>
+    </div>
+</div>
+</div>
+</body>

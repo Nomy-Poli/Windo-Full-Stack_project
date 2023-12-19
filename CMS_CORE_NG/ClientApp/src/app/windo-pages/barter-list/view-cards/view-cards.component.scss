@@ -1,0 +1,260 @@
+@import '../../../../styles/variables';
+@import '../_business-style.scss';
+
+body,
+html {
+    padding-top: 0 !important;
+    padding-bottom: 2rem !important;
+}
+
+@media screen and (min-width: 1400px) {
+    .h3-2 {
+        color: white;
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .h3-2 {
+        color: white;
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 1399px) and (min-width: 481px) {
+    .h3-2 {
+        color: white;
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+}
+
+.tags:last-child {
+    margin-left: 0;
+}
+
+.first-letter {
+    border: 1px solid $dark-turquoise-color;
+    border-radius: 50%;
+    background-color: white;
+    padding: 0.5rem 0.5rem 0.6rem 0.5rem;
+    text-align: center;
+    min-width: 80px;
+    min-height: 75px;
+    max-width: 85px;
+    max-height: 90px;
+    color: $dark-turquoise-color;
+    margin: 0.5rem auto !important;
+    line-height: unset !important;
+}
+
+.flex_SB {
+    margin-bottom: 0.5rem;
+    justify-content: flex-end;
+    // align-self: end;
+}
+
+.CategoryOp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 70px;
+    overflow: hidden;
+}
+
+.btn-secendary-dark {
+    height: fit-content;
+    margin-bottom: 0.2rem;
+}
+
+p {
+    font-size: 0.8rem;
+    height: 34px;
+    margin: 0;
+}
+
+.container {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 40px;
+    column-gap: 1%;
+    margin-top: 1rem;
+}
+
+.outline-card {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 29%;
+    box-shadow: 2px 2px 4px rgb(182, 181, 181);
+    border: none;
+    padding: 0 0 20px 0;
+    margin: unset;
+    /* padding:15px 20px; */
+}
+
+.img {
+    width: 100%;
+}
+
+h6 {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.img-radius {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.inner-card {
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+.margin {
+    margin-bottom: 12px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.flex-profile {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    border-bottom: rgb(187, 184, 184) solid 1px;
+}
+
+.BF-100 {
+    flex-basis: 98%;
+    // margin-left: 30px;
+}
+
+.heart-icon {
+    justify-self: flex-end;
+    margin-left: 8px;
+}
+
+.btn-outline {
+    padding: 3px 10px;
+}
+
+.btn-turquoise {
+    background-color: #5ff8f3 !important;
+    color: #19294d;
+    padding: 0.6rem 1.1rem;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    width: 72%;
+}
+
+.left-btn {
+    margin-top: 1rem;
+    margin-left: -1rem;
+}
+
+.product-item {
+    position: relative;
+    padding-bottom: 1rem;
+    width: 100%;
+
+    // max-width: 32%;
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+.advertising {
+    margin-top: 1rem;
+}
+
+.Mytooltip.text-align-end {
+    height: 20%;
+    width: 100%;
+}
+
+.Mytooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 10rem;
+    // height: 6rem;
+    background-color: #ff607c;
+    color: white;
+    text-align: center;
+    border-radius: 0 12px 12px 12px;
+    /* padding: 0.5rem; */
+    position: absolute;
+    z-index: 1;
+    top: 2.5rem;
+    left: 10%;
+}
+
+.myt-1 {
+    height: 65px;
+    overflow: hidden;
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 24%);
+    grid-template-rows: auto auto;
+    gap: 1.5%;
+}
+
+.product-item-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.sc {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-right: 0.5rem;
+}
+.w-mc {
+    width: max-content;
+    margin-top: 0.2rem;
+    display: flex;
+    gap: 5px;
+}
+.width {
+    width: 48px !important;
+}
+.icon {
+    display: flex;
+}
+
+.haight-img {
+    height: 48px;
+}
+.flex {
+    display: flex;
+    align-items: center;
+}
+.size {
+    width: 24px;
+    height: 24px;
+}
+
+@media screen and (min-width: 1400px) {
+    .product-item .product-item-content .container-product-image {
+        max-height: 100%;
+        object-fit: contain;
+        img {
+            object-fit: contain;
+        }
+    }
+}

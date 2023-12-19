@@ -1,0 +1,126 @@
+<div class="container form-group">
+    <div class="Mytooltip">
+        <img (click)="close()" src="../../../../../assets/icons/x.png" class="icon_s" alt="סגירת מודעה">
+    </div>
+    <h1 *ngIf="!bannerId">הוספת באנר באתר</h1>
+    <h1 *ngIf="bannerId">עדכון באנר</h1>
+    <ng-container *ngIf="form">
+
+        <form [formGroup]="form" (ngSubmit)="submitForm()">
+            <div class="flex form-wrap">
+                <div class="form-half">
+                    <div class="form-group">
+                        <select type="text" formControlName="Makat" class="inputtext">
+                            <option *ngFor="let cat of catalogServices" value="{{cat.Makat}}">{{cat.Makat}} -
+                                {{cat.Description}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="PriceInPoints" id="Price" class="inputtext" placeholder="מחיר בנקודות "
+                            formControlName="PriceInPoints" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="PageName" class="inputtext" placeholder="שם דף">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" formControlName="Height" class="inputtext" placeholder="גובה פרסומת">
+                    </div>
+                </div>
+                <div class="form-half">
+                    <div class="form-group">
+                        <input type="text" name="Title" id="Title" class="inputtext" placeholder="כותרת באנר"
+                            formControlName="Title" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Price" id="Price" class="inputtext" placeholder="מחיר "
+                            formControlName="Price" />
+                    </div>
+                    <div class="form-group">
+                        <input type="number" formControlName="PageID" class="inputtext" placeholder="מספר דף">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" formControlName="Width" class="inputtext" placeholder="רוחב">
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <input type="url" name="DefaultLink" id="DefaultLink" class="inputtext" placeholder="לינק ברירת מחדל"
+                    formControlName="DefaultLink" />
+            </div>
+            <!-- default picture -->
+            <div class="form-group">
+                <input type="file" id="workpicfile1" class="picNone" accept="image/png,image/gif,image/jpeg"
+                    (change)="onWorkFileChanged($event,1)">
+                <div *ngIf="!hasImg[0]" class="dashed flex" appImageDrag (files)="filesDropped($event,1)">
+                    <div (click)="triggerWorkInput(1)" class="wrap-attach"><i class="pi pi-paperclip"></i></div>
+                    <div>
+                        <span>תמונה פרסומת של וינדו כאשר הבאנר לא תפוס</span>
+                        <br>
+                        <span>גררי את קובץ התמונה ושחררי אותו כאן</span>
+                        <br>
+                        <span> ניתן להעלות קבצים מסוג: png,jpg,jpeg</span>
+                    </div>
+
+                </div>
+                <br>
+                <br>
+                <div *ngIf="hasImg[0]" class="wrap-icon-close" (click)="RemoveImage(1)">
+                    <i class="fas fa-times"></i>
+                </div>
+                <img *ngIf="hasImg[0]" src="" class="wrap-img" alt="פרטים נוספים" id="img1">
+            </div>
+            <!-- example picture -->
+            <div class="form-group">
+                <input type="file" id="workpicfile2" class="picNone" accept="image/png,image/gif,image/jpeg"
+                    (change)="onWorkFileChanged($event,2)">
+                <div *ngIf="!hasImg[1]" class="dashed flex" appImageDrag (files)="filesDropped($event,2)">
+                    <div (click)="triggerWorkInput(2)" class="wrap-attach"><i class="pi pi-paperclip"></i></div>
+                    <div>
+                        <span>דוגמה של שבלונה כיצד נראית הפרסומת בדף</span>
+                        <br>
+                        <span>גררי את קובץ התמונה ושחררי אותו כאן</span>
+                        <br>
+                        <span> ניתן להעלות קבצים מסוג: png,jpg,jpeg</span>
+                    </div>
+
+                </div>
+                <br>
+                <div *ngIf="hasImg[1]" class="wrap-icon-close" (click)="RemoveImage(2)">
+                    <i class="fas fa-times"></i>
+                </div>
+                <img *ngIf="hasImg[1]" src="" class="wrap-img" alt="פרטים נוספים" id="img2">
+                <label>שימי לב, רק תמונות שפתוחות בכל חברות הסינון יכולות להתפרסם באתר</label>
+            </div>
+            <!-- format picture -->
+            <div class="form-group">
+                <input type="file" id="workpicfile3" class="picNone" accept="image/png,image/gif,image/jpeg"
+                    (change)="onWorkFileChanged($event,3)">
+                <div *ngIf="!hasImg[2]" class="dashed flex" appImageDrag (files)="filesDropped($event,3)">
+                    <div (click)="triggerWorkInput(3)" class="wrap-attach"><i class="pi pi-paperclip"></i></div>
+                    <div>
+                        <span>השבלונה שתרד ללקוחה להתאמת גדלים</span>
+                        <br>
+                        <span>גררי את קובץ התמונה ושחררי אותו כאן</span>
+                        <br>
+                        <span> ניתן להעלות קבצים מסוג: png,jpg,jpeg</span>
+                    </div>
+
+                </div>
+                <br>
+                <div *ngIf="hasImg[2]" class="wrap-icon-close" (click)="RemoveImage(3)">
+                    <i class="fas fa-times"></i>
+                </div>
+                <img *ngIf="hasImg[2]" src="" class="wrap-img" alt="פרטים נוספים" id="img3">
+            </div>
+            <br>
+
+            <div class="Mytooltip text-align-center">
+
+                <button type="submit" class="next-button" [disabled]="!form.valid || isLoading || checkValidation()">שמירה</button>
+                <span class="tooltiptextBSub" *ngIf="checkValidation()"  >{{submitToolTip}}</span>
+
+            </div>
+        </form>
+    </ng-container>
+</div>

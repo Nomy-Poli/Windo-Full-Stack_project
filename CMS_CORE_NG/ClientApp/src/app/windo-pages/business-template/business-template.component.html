@@ -1,0 +1,30 @@
+<div [routerLink]="['/business-view',business.userId]" class="Mytooltip">
+    <img target="_blank" class="img-radius-50" *ngIf="business.logoPictureId !=
+     '00000000-0000-0000-0000-000000000000'" [src]="'../../../../../assets/BusinessImages/' +
+    business.id + '/Logo/'
+    + business.logoPictureId + '/' +
+    business.logoPictureId
++ '.jpg?w='+size" [ngStyle]="{'width': size+'px', 'height': size+'px'}" alt="תמונת לוגו" />
+    <h4 *ngIf="business.logoPictureId ==
+    '00000000-0000-0000-0000-000000000000'" style="border-color:#04e6e0;color:#04e6e0"
+        class="first-letter AroundFirstLetter"
+        [ngStyle]="{'width': size+'px', 'height': size+'px', 'font-size': size-15+'px'}">
+        {{business.buisnessName
+        |firstWord}}</h4>
+    <!-- pTooltip="{{business.buisnessName}}" -->
+    <div class="tooltiptext">
+        <div style="display: flex;">
+            <img *ngIf="business.logoPictureId !=
+                         '00000000-0000-0000-0000-000000000000'" [src]="'../../../../../assets/BusinessImages/' +
+                       business.id + '/Logo/'
+                       + business.logoPictureId + '/' +
+                       business.logoPictureId
+                       + '.jpg?w='+size" class="img-radius-50" [ngStyle]="{'width': size+'px', 'height': size+'px'}"
+                alt="תמונת לוגו" />
+            <h4 class="AroundFirstLetter">
+                {{business.buisnessName}}
+            </h4>
+        </div>
+        <p style="color: rgb(14, 9, 49)">{{business.Score}} נקודות</p>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿[
+  {
+    "Id": 1,
+    "ActionName": "הרשמה לאתר",
+    "EventTypeId": 2
+  },
+  {
+    "Id": 2,
+    "ActionName": "התחברות לאתר",
+    "EventTypeId": 2
+  },
+  {
+    "Id": 3,
+    "ActionName": "דיווח שת\"פ",
+    "EventTypeId": 2
+  },
+  {
+    "Id": 4,
+    "ActionName": "פרסום פתקית בלוח המודעות",
+    "EventTypeId": 2
+  },
+  {
+    "Id": 5,
+    "ActionName": "תגובה לפתקית בלוח",
+    "EventTypeId": 2
+  },
+  {
+    "Id": 6,
+    "ActionName": "פתיחת כרטיס עסק",
+    "EventTypeId": 2
+  },
+  {
+    "Id": 7,
+    "ActionName": "הוספת/החלפת קבצי תמונות בכרטיס עסק",
+    "EventTypeId": 2
+  },
+  {
+    "Id": 8,
+    "ActionName": "הוספת לינק בכרטיס העסק לאתר/תיק עבודות",
+    "EventTypeId": 2
+  },
+  {
+    "Id": 9,
+    "ActionName": "הקלקה בכרטיס עסק שברשימת העסקים",
+    "EventTypeId": 2
+  },
+  {
+    "Id": 10,
+    "ActionName": "הקלקה על פתקית בלוח המודעות",
+    "EventTypeId": 2
+  },
+  {
+    "Id": 11,
+    "ActionName": "הקלקה על קייסטאדי",
+    "EventTypeId": 2
+  },
+  {
+    "Id": 12,
+    "ActionName": "שליחת הודעה",
+    "EventTypeId": 2
+  },
+  {
+    "Id": 13,
+    "ActionName": "מענה להודעה",
+    "EventTypeId": 2
+  }
+]

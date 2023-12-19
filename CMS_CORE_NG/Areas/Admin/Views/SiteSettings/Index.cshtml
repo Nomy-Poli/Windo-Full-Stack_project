@@ -1,0 +1,196 @@
+﻿@model ModelService.AdminBaseViewModel
+@{
+    ViewData["Title"] = "Site Settings";
+}
+
+<div class="container-fluid">
+    <section class="sec-wrapper">
+        <a href="https://analytics.google.com/analytics/web/#/a208851604p288083444/admin" target="_blank">
+            <button style="{ border: 1px solid #373CF5;
+    border-radius: .8rem;
+    background-color: white;
+    color: #373CF5;
+    padding: .5rem .8rem;
+}">Google Analytics</button>
+        </a>
+        <fieldset class="border p-4">
+            <legend class="w-auto">הגדרות האתר</legend>
+            <form id="sitewideSettingsForm">
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        <label for="websiteName">שם האתר</label>
+                        <input class="form-control" id="websiteName" placeholder="eg: Windo.com" value="@Model.SiteWideSetting.WebsiteName" type="text">
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label for="websiteAuthor">מנהל האתר</label>
+                        <input class="form-control" id="websiteAuthor" placeholder="eg: Lyoid Lopes" value="@Model.SiteWideSetting.WebsiteAuthor" type="text">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="websiteTitle">כותרת האתר (עד 50 אותיות)</label>
+                        <input class="form-control" value="@Model.SiteWideSetting.WebsiteTitle" id="websiteTitle" placeholder="eg: Learn To Code With Windo | Take Your Future to Next Level" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label for="websiteDescription">תאור האתר (עד 50 אותיות)</label>
+                        <textarea class="form-control" id="websiteDescription" placeholder="eg: Join Our Community Of 80,000 Students. Whatever Your Goal - We'll Get You There. Try It Free">@Model.SiteWideSetting.WebsiteDescription</textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label for="websiteKeywords">מילות מפתח (מקסימום 5 מילות מפתח - פסיק (,) מופרד)</label>
+                        <input class="form-control" value="@Model.SiteWideSetting.WebsiteKeywords" id="websiteKeywords" placeholder="eg: Windo tutorials, learn asp.net core, learn asp.net mvc, learn asp.net web api, learn angular" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label for="websiteFooter">כותרת תחתונה לאתר (מקסימום 50 אותיות)</label>
+                        <input class="form-control" value="@Model.SiteWideSetting.WebsiteFooter" id="websiteFooter" placeholder="eg: CMS Core Angular Admin Panel Windo©2020" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 form-group">
+                        <label for="websiteStatus">סטטוס האתר</label>
+                        <select class="form-control custom-select" id="websiteStatus">
+                            <option disabled selected>@Model.SiteWideSetting.WebsiteStatus</option>
+                            <option value="1">פעיל</option>
+                            <option value="2">מושבת</option>
+                            <option value="3">מתוחזק</option>
+                            <option value="4">בקרוב יופעל</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label for="registrationStatus">הרשמה</label>
+                        <select class="form-control custom-select" id="registrationStatus">
+                            <option disabled selected>@(Model.SiteWideSetting.WebsiteRegistration == false ? "Disabled" : "Active")</option>
+                            <option value="1">פעיל</option>
+                            <option value="2">מושבת</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label for="ageVerification">אימות גיל</label>
+                        <select class="form-control custom-select" id="ageVerification">
+                            <option disabled selected>@(Model.SiteWideSetting.AgeVerification == false ? "Disabled" : "Active")</option>
+                            <option value="1">פעיל</option>
+                            <option value="2">מושבת</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row text-right">
+                    <div class="col">
+                        <button class="btn btn-primary btn-md mt-3 d-none d-md-inline-block d-sm-none" id="btnMdUpdateSiteWideSettings">
+                            <span class="btn-text"><i class="fas fa-pen mr-2 pl-2"></i>עדכון</span>
+                        </button>
+                        <!-- Only visible on small Screen -->
+                        <button class="btn btn-primary btn-md mt-3 btn-block d-block  d-md-none" id="btnSmUpdateSiteWideSettings">
+                            <span class="btn-text"><i class="fas fa-pen mr-2 pl-2"></i>עדכון</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </fieldset>
+    </section>
+</div>
+
+<div class="modal" id="updateSuccessModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                @*<button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>*@
+                @*<button type="button" class="close ml-0" data-dismiss="modal">&times;</button>*@
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                העלה מחדש את הדף כדי לראות שינויים
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" id="reloadPageBtn">העלאה מחדש</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/limonte-sweetalert2/sweetalert2.min.js"></script>
+    <script>
+
+        $(function() {
+           $('#btnMdUpdateSiteWideSettings').click(function(e) {
+               e.preventDefault();
+               UpdateSiteWideSettings();
+           });
+
+           $('#btnSmUpdateSiteWideSettings').click(function(e) {
+                    e.preventDefault();
+                   UpdateSiteWideSettings();
+           });
+
+
+           $('#reloadPageBtn').click(function(e) {
+                e.preventDefault();
+                window.location.reload();
+           });
+        });
+
+
+        function UpdateSiteWideSettings() {
+
+          let websiteName = $("#websiteName").val();
+          let websiteTitle = $("#websiteTitle").val();
+          let websiteDescription = $("#websiteDescription").val();
+          let websiteAuthor = $("#websiteAuthor").val();
+          let websiteKeywords = $("#websiteKeywords").val();
+          let websiteFooter = $("#websiteFooter").val();
+          let websiteStatus = $('#websiteStatus :selected').text();
+          let registrationStatus = ($('#registrationStatus :selected').text() === "Active");
+          let ageVerification =  ($('#ageVerification :selected').text() === "Active");
+
+          const siteWideSettings =
+          {
+              "WebsiteName" : websiteName,
+              "WebsiteTitle" : websiteTitle,
+              "WebsiteDescription" : websiteDescription,
+              "WebsiteKeywords" : websiteKeywords,
+              "WebsiteAuthor" : websiteAuthor,
+              "WebsiteFooter" : websiteFooter,
+              "WebsiteStatus" : websiteStatus,
+              "WebsiteRegistration" : registrationStatus,
+              "AgeVerification" : ageVerification
+          };
+
+          console.log(siteWideSettings);
+
+          $.ajax({
+              type: 'POST',
+              url: "@Url.Action("UpdateSettings", "SiteSettings")",
+              contentType: "application/json; charset=utf-8",
+              dataType: "json",
+              data: JSON.stringify(siteWideSettings),
+              headers: {
+                  'X-XSRF-TOKEN': getCookie("XSRF-TOKEN"),
+              },
+              success: function (result) {
+                  console.log(result);
+                  if (result)
+                  {
+                      console.log("עבר בהצלחה");
+                      $(".container-fluid").css({ opacity: 0.5 });
+                      $("#updateSuccessModal .modal-title").text("ההגדרות של כל האתר עודכנו")
+                      $("#updateSuccessModal").show();
+                  }
+              },
+              error: function() {
+                alert("שגיאה: הבקשה יכולה להיות באמצע עיבוד, נסה שוב מאוחר יותר");
+              }
+          });
+        }
+    </script>
+}

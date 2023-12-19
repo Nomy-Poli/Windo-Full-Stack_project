@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שיתופי פעולה</title>
+</head>
+
+<body>
+
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <!-- <div class="wrappButton"></div> -->
+    <div class="grid-home">
+        <p-tabView>
+            <p-tabPanel header="עסקה בתשלום">
+                <!-- <div class="table"> -->
+                <p-table [value]="ListPaidTransactionVM">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th style="width: 70px;">מזהה</th>
+                            <th style="width: 120px;">שם המספק</th>
+                            <th style="width: 130px;">שם הלוח</th>
+                            <th style="width: 200px;">תאור</th>
+                            <th style="width: 70px;">הקיף העיסוק</th>
+                            <th style="width: 180px;">סקירה</th>
+                            <th>מחיר</th>
+                            <th>שרות</th>
+                            <th style="width: 65px;">מקצועיות</th>
+                            <th style="width: 50px;">זמינות</th>
+                            <th style="width: 115px;">מופיע ב cs?</th>
+                            <th style="width: 160px;">יצירת caseStudy ספציפי מתוך דיווח</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-PaidTransactionVM>
+                        <!-- <tr *ngFor="let item of ListPaidTransactionVM"> -->
+                        <tr>
+                            <td>{{PaidTransactionVM.Id}}</td>
+                            <td>{{PaidTransactionVM.SupplierBusiness?.buisnessName}}</td>
+                            <td>{{PaidTransactionVM.ConsumerBusiness?.buisnessName}}</td>
+                            <td>{{PaidTransactionVM.Description}}</td>
+                            <td>{{PaidTransactionVM.ScopTransactionNIS}}</td>
+                            <td>{{PaidTransactionVM.Review}}</td>
+                            <td><input type="checkBox" [checked]="PaidTransactionVM.Price"></td>
+                            <td><input type="checkBox" [checked]="PaidTransactionVM.Service"></td>
+                            <td><input type="checkBox" [checked]="PaidTransactionVM.Professionalism"></td>
+                            <td><input type="checkBox" [checked]="PaidTransactionVM.Availability"></td>
+                            <td><input type="checkBox" [checked]="PaidTransactionVM.IfDisplayedInCS"></td>
+                            <td>
+                                <button *ngIf="PaidTransactionVM.IfDisplayedInCS" class="button-link"
+                                    [routerLink]="['/create-cs/'+ PaidTransactionVM.Id +'/'+'PaidTransaction']">הצגת
+                                    case study</button>
+                                <button *ngIf="!PaidTransactionVM.IfDisplayedInCS" class="button-link"
+                                    [routerLink]="['/create-cs/'+ PaidTransactionVM.Id +'/'+'PaidTransaction']">מחיקת
+                                    case study</button>
+                                <button *ngIf="!PaidTransactionVM.IfDisplayedInCS" class="button-link"
+                                    (click)="deleteCollaboration(1,PaidTransactionVM.Id)">מחיקת case study</button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+                <!-- </div> -->
+                <p class="text" *ngIf="!ListPaidTransactionVM.length">עדיין אין עסקאות עיסקה בתשלום</p>
+            </p-tabPanel>
+            <p-tabPanel header="עסקת ברטר">
+                <div class="long-table table">
+                    <p-table [value]="ListBarterDealVM">
+                        <ng-template pTemplate="header">
+                            <!-- <table class="tableCenter1"> -->
+                            <tr>
+                                <th style="width: 75px;">מזהה</th>
+                                <th style="width: 140px;">שם עסק מדווח</th>
+                                <th style="width: 140px;">שם עסק שותף</th>
+                                <th style="width: 120px;">תאריך עדכון</th>
+                                <th style="width: 200px;">תאור עסקה</th>
+                                <th style="width: 120px;">תאור מדווח</th>
+                                <th style="width: 150px;">תאור שותף</th>
+                                <th style="width: 120px;">ציטוט מדווח</th>
+                                <th style="width: 120px;">ציטוט שותף</th>
+                                <th style="width: 130px;">הסבר משותף על העסקה</th>
+                                <th style="width: 80px;">זמינות</th>
+                                <th style="width: 80px;">שרות</th>
+                                <th style="width: 80px;">מקצועיות</th>
+                                <th style="width: 180px;">תמורה הוגנת לעסקה</th>
+                                <th style="width: 115px;">מופיע ב cs?</th>
+                                <th style="width: 160px;">יצירת caseStudy מתוך דיווח ספציפי</th>
+                            </tr>
+                        </ng-template>
+                        <!-- <tr *ngFor="let item of ListBarterDealVM"> -->
+                        <ng-template pTemplate="body" let-BarterDealVM>
+                            <tr>
+                                <td>{{BarterDealVM.Id}}</td>
+                                <td>{{BarterDealVM.ReportsBusiness?.buisnessName}}</td>
+                                <td>{{BarterDealVM.PartnerBusiness?.buisnessName}}</td>
+                                <td>{{BarterDealVM.ReportDate | date:'shortDate'}}</td>
+                                <td>{{BarterDealVM.BusinessDescription}}</td>
+                                <td>{{BarterDealVM.ReportDescriptionDeal}}</td>
+                                <td>{{BarterDealVM.PartnerDescriptionDeal}}</td>
+                                <td>{{BarterDealVM.QuoteReportsBusiness}}</td>
+                                <td>{{BarterDealVM.QuotePartnerBusiness}}</td>
+                                <td>{{BarterDealVM.JointExplanation}}</td>
+                                <td><input type="checkBox" [checked]="BarterDealVM.Availability"></td>
+                                <td><input type="checkBox" [checked]="BarterDealVM.Service"></td>
+                                <td><input type="checkBox" [checked]="BarterDealVM.Professionalism"></td>
+                                <td><input type="checkBox" [checked]="BarterDealVM.FairConsiderationForTransaction">
+                                </td>
+                                <td><input type="checkBox" [checked]="BarterDealVM.IfDisplayedInCS"></td>
+                                <td>
+                                    <button *ngIf="BarterDealVM.IfDisplayedInCS" class="button-link"
+                                        [routerLink]="['/create-cs/'+ BarterDealVM.Id +'/'+'BarterDeal']">הצגת
+                                        case study</button>
+                                    <button *ngIf="!BarterDealVM.IfDisplayedInCS" class="button-link"
+                                        [routerLink]="['/create-cs/'+ BarterDealVM.Id +'/'+'BarterDeal']">יצירת
+                                        case study</button>
+                                    <button *ngIf="!BarterDealVM.IfDisplayedInCS" class="button-link"
+                                        (click)="deleteCollaboration(2,BarterDealVM.Id)">מחיקת case study</button>
+                                </td>
+                            </tr>
+                            <!-- </table> -->
+                        </ng-template>
+                    </p-table>
+                </div>
+                <p class="text" *ngIf="!ListBarterDealVM.length">עדיין אין עסקאות ברטר </p>
+            </p-tabPanel>
+            <p-tabPanel header="מיזם משותף">
+                <div class="long-table">
+                    <p-table [value]="ListJointProjectVM">
+                        <ng-template pTemplate="header">
+                            <!-- <table class="tableCenter"> -->
+                            <tr>
+                                <th style="width: 45px;">מזהה</th>
+                                <th style="width: 120px;">תאריך עדכון</th>
+                                <th style="width: 140px;">כותרת העסקה</th>
+                                <th style="width: 180px;">הסבר משותף</th>
+                                <th style="width: 80px;">מפעל</th>
+                                <th style="width: 80px;">יצירתיות</th>
+                                <th style="width: 80px;">מקצועיות</th>
+                                <th style="width: 140px;">חשיפה לקהלים חדשים</th>
+                                <th style="width: 200px;">CollaborationType</th>
+                                <th style="width: 200px;">עסקים בשת"פ</th>
+                                <th style="width: 115px;">מופיע ב cs?</th>
+                                <th style="width: 160px;">יצירת caseStudy מתוך דיווח ספציפי</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-JointProjectVM>
+                            <tr *ngFor="let item of ListJointProjectVM">
+                                <td>{{JointProjectVM.Id}}</td>
+                                <td>{{JointProjectVM.ReportDate | date:'shortDate'}}</td>
+                                <td>{{JointProjectVM.HeaderCollaboration}}</td>
+                                <td>{{JointProjectVM.JointExplanation}}</td>
+                                <td><input type="checkBox" [checked]="JointProjectVM.Enterprise"></td>
+                                <td><input type="checkBox" [checked]="JointProjectVM.Creativity"></td>
+                                <td><input type="checkBox" [checked]="JointProjectVM.Professionalism"></td>
+                                <td><input type="checkBox" [checked]="JointProjectVM.ExposureToNewAudiences"></td>
+                                <td *ngIf="JointProjectVM.CollaborationType.Description">
+                                    {{JointProjectVM.CollaborationType.Description}}
+                                </td>
+                                <td *ngIf="!JointProjectVM.CollaborationType.Description"> אין תאור</td>
+                                <!-- <td>hfbdbjdj</td>  -->
+                                <td class="listInTd"> <span
+                                        *ngFor="let item2 of JointProjectVM.BusinessesInCollaboration" class="space">
+                                        <p> <strong> שם:</strong> {{item2.buisnessName}}</p>
+                                        <p> <strong> חלק: </strong>{{item2.PartInCollaboration}} </p>
+                                    </span></td>
+                                <td><input type="checkBox" [checked]="JointProjectVM.IfDisplayedInCS"></td>
+                                <td>
+                                    <button *ngIf="JointProjectVM.IfDisplayedInCS" class="button-link"
+                                        [routerLink]="['/create-cs/'+ JointProjectVM.Id +'/'+'JointProject']">הצגת case
+                                        study</button>
+                                    <button *ngIf="!JointProjectVM.IfDisplayedInCS" class="button-link"
+                                        [routerLink]="['/create-cs/'+ JointProjectVM.Id +'/'+'JointProject']">יצירת case
+                                        study</button>
+                                    <button *ngIf="!JointProjectVM.IfDisplayedInCS" class="button-link"
+                                        (click)="deleteCollaboration(2,JointProjectVM.Id)">מחיקת case study</button>
+                                </td>
+                            </tr>
+                            <!-- </table> -->
+                        </ng-template>
+                    </p-table>
+                </div>
+                <p class="text" *ngIf="!ListJointProjectVM.length">עדיין אין עסקאות במיזם משותף </p>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+
+
+    <!-- ListPaidTransactionVM -->
+    <!-- ListBarterDealVM -->
+    <!-- ListJointProjectVM -->
+
+</body>
+
+</html>

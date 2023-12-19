@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>איזור מנהל</title>
+</head>
+
+<body>
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <div class="grid-home text-align-center">
+        <h1>איזור מנהל</h1>
+        <br>
+        <div class="row justify-content-center">
+            <button type="button" class="blue-big-button" [routerLink]="['/collaboration-list']">ניהול CS</button>
+            <button type="button" class="blue-big-button" [routerLink]="['/services-manager-area']">שירותים</button>
+            <a [routerLink]="['/hangfire']" target="_blank"><button type="button" class="blue-big-button">Hangfire
+                    Dashboard</button></a>
+        </div>
+        <div class="row justify-content-center mb-5">
+            <button type="button" class="blue-big-button" [routerLink]="['/score-management-area']">ניהול ניקוד</button>
+            <button type="button" class="blue-big-button" [routerLink]="['/networking-managment-area']">ניהול
+                קבוצות</button>
+            <button type="button" class="blue-big-button" [routerLink]="['/business-table']">טבלת עסקים</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

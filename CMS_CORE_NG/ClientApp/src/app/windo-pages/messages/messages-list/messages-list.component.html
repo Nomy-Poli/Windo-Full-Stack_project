@@ -1,0 +1,51 @@
+<div *ngFor="let message of messageListToView" class="message" (click)="openMessage(message,$event)"
+    [ngClass]="{'not-read':!message.isCurrentUserRead,'active':currentMessage?.Id == message.Id}">
+    <div class="top flex space-between">
+        <!-- <div class="blue" *ngIf="currentMessage?.Id == message.Id"></div> -->
+
+        <div class="flex business-part">
+            <app-business-template [business]="message.BusinessFrom" size="50"></app-business-template>
+            <!-- <img class="img-radius" *ngIf="!(message.BusinessFrom.logoPictureId ==
+                '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+                message.BusinessFrom.id + '/Logo/'
+                + message.BusinessFrom.logoPictureId + '/' +
+                message.BusinessFrom.logoPictureId
+                + '.jpg?w=60'" alt="תמונת לוגו" />
+            <h4 *ngIf="message.BusinessFrom.logoPictureId ==
+                '00000000-0000-0000-0000-000000000000'"
+            style="border-color:#04e6e0;color:#04e6e0"
+            class="first-letter AroundFirstLetter">
+            {{message.BusinessFrom.buisnessName
+            |firstWord}}</h4> -->
+            <div class="wrap-businessName">
+                <span>{{message.BusinessFrom.buisnessName}}</span>
+                <h4>{{message.Subject}}</h4>
+            </div>
+        </div>
+        <div class="top-side">
+            <small>{{ message.CreatedAt | whenItWas }}</small>
+            <!-- <i *ngIf="message.Attachments?.length" class="pi pi-paperclip red"></i> -->
+            <!-- <span class="position-abs">  -->
+            <div class="cursorP" *ngIf="message.isCurrentUserRead==true" id="env"
+                (click)="markAsUnread(message,$event)">
+                <span class="fa fa-envelope-open"></span>
+            </div>
+            <div class="cursorP" *ngIf="message.isCurrentUserRead==false" id="env"
+                (click)="markAsUnread(message,$event)">
+                <span class="fa fa-envelope"></span>
+            </div>
+
+            <!-- </span> -->
+
+            <!--  class="gray-span" -->
+        </div>
+    </div>
+    <div class="text-message" [innerHTML]="message.MessageText" style="width: 29vw;"></div>
+</div>
+<div class="no-messages" *ngIf="!messageListToView.length">
+    <h3><i class="pi pi-comments" style="font-size: 5rem;"></i></h3>
+    <h4>אין לך עדיין הודעות!</h4>
+    <h5>כאן תוכלי ליצור הודעות חדשות עם החברות</h5>
+
+</div>
+<!-- | cutText:150 -->

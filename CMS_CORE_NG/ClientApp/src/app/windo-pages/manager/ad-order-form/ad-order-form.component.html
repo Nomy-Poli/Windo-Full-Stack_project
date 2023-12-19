@@ -1,0 +1,114 @@
+<div class="container form-group">
+    <div class="Mytooltip">
+        <img (click)="close()" src="../../../../../assets/icons/x.png" class="icon_s" alt="סגירת מודעה">
+    </div>
+    <h1 *ngIf="!orderId">הזמנה חדשה</h1>
+    <h1 *ngIf="orderId">עדכון הזמנה</h1>
+    <ng-container *ngIf="form">
+
+        <form [formGroup]="form" (ngSubmit)="submitForm()">
+            <div class="flex form-wrap">
+                <div class="form-half">
+                    <div class="form-group">
+                        <input type="text" formControlName="ContactName" class="inputtext">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Phone" id="Phone" class="inputtext" placeholder="פלאפון "
+                            formControlName="Phone" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="Makat" class="inputtext">
+                    </div>
+                    <div class="form-group">
+                        <p-calendar formControlName="adFromDate" dateFormat="dd-mm-yy" placeholder="בין תאריך"
+                            inputStyleClass="inputtext" [showIcon]="true" [minDate]="minDateValue"></p-calendar>
+                    </div>
+                </div>
+                <div class="form-half">
+                    <div class="form-group">
+                        <input type="text" name="BusinessName" id="BusinessName" class="inputtext"
+                            placeholder="שם הלקוח " formControlName="BusinessName" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Email" id="Email" class="inputtext" placeholder="כתובת מייל "
+                            formControlName="Email" />
+                    </div>
+                    <div class="form-group">
+                        <input type="url" formControlName="LinkToSite" class="inputtext" placeholder="קישור לאתר">
+                    </div>
+                    <div class="form-group">
+                        <p-calendar formControlName="adTillDate" dateFormat="dd-mm-yy" placeholder="לבין תאריך"
+                            inputStyleClass="inputtext" [showIcon]="true" [minDate]="minDateValue"></p-calendar>
+                    </div>
+                </div>
+
+            </div>
+            <div *ngIf="adTillDate.hasError('notAvalible')" class="errorMessage text-align-center">
+                התאריך תפוס!
+            </div>
+            <div class="form-group">
+                <input type="file" id="workpicfile" class="picNone" accept="image/png,image/gif,image/jpeg"
+                    (change)="onWorkFileChanged($event)">
+                <div *ngIf="!hasImg" class="dashed flex" appImageDrag (files)="filesDropped($event)">
+                    <div (click)="triggerWorkInput()" class="wrap-attach">
+                        <i class="pi pi-paperclip"></i>
+                    </div>
+                    <div>
+                        <span>גררי את קובץ התמונה ושחררי אותו כאן</span>
+                        <br>
+                        <span> ניתן להעלות קבצים מסוג: png,jpg,jpeg</span>
+                    </div>
+
+                </div>
+                <br>
+                <div *ngIf="hasImg" class="wrap-icon-close" (click)="RemoveImage()">
+                    <i class="fas fa-times"></i>
+                </div>
+                <img *ngIf="hasImg" src="" class="wrap-img" alt="פרטים נוספים" id="img">
+                <label>שימי לב, רק תמונות שפתוחות בכל חברות הסינון יכולות להתפרסם באתר</label>
+            </div>
+            <div class="form-group flex align-items-center">
+                <div *ngFor="let status of statuses" class="field-checkbox">
+                    <p-radioButton [inputId]="status.Id" [value]="status.Id" formControlName="StatusOrderId">
+                    </p-radioButton>
+                    <label [for]="status.Id">{{status.Description}}</label>
+                </div>
+            </div>
+            <br>
+            <div class="Mytooltip text-align-center">
+                <button type="submit" class="next-button" [disabled]="!form.valid">אשרי הזמנה</button>
+            </div>
+        </form>
+    </ng-container>
+</div>
+<!-- <div class="form-group">
+                    <label for="Name">שם</label>
+                    <input type="text" formControlName="Name" class="inputtext" placeholder="שם">
+                </div>
+                <div class="form-group">
+                    <label for="Email">אימייל</label>
+                    <input type="text" formControlName="Email" class="inputtext" placeholder="אימייל">
+                </div>
+                <div class="form-group">
+                    <label for="Phone">טלפון</label>
+                    <input type="text" formControlName="Phone" class="inputtext" placeholder="טלפון">
+                </div>
+                <div class="form-group">
+                    <label for="Phone2">טלפון נוסף</label>
+                    <input type="text" formControlName="Phone2" class="inputtext" placeholder=" טלפון נוסף">
+                </div>
+                <div class="form-group">
+                    <label for="ReturningCustomer">צרכתי בעבר מהשירותים של WINDO?</label>
+                    <input type="checkbox" formControlName="ReturningCustomer">
+                </div>
+                <div class="Mytooltip text-align-center">
+                    <button type="submit" class="next-button" [disabled]="!form.valid">אשרי הזמנה</button>
+                </div>
+                <button type="submit" class="next-button">שלח</button>
+         
+   
+ </body>
+</html> -->
+
+<!-- <input type="file" id="file" (change)="saveOrder($event)"> -->
+<!-- <button (click)="saveOrder()">Create Order</button> -->

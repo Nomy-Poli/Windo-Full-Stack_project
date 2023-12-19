@@ -1,0 +1,50 @@
+h4.first-letter.AroundFirstLetter {
+    padding: 0;
+    font-size: 2rem;
+    margin: 0 !important;
+}
+.img-radius-50{
+    border-radius: 50%;
+}
+.tooltiptext{
+    background: white;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+    border-radius: 3px;
+    padding: 0.5rem;
+    right: 1rem;
+}
+.tooltiptext h4{
+    font-size: 1rem !important;
+    align-self: center;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+.tooltiptext p{
+    font-size: 1rem !important;
+    color: blue;
+}
+
+/* tooltip */
+/* .Mytooltip {
+    position: relative;
+}
+
+.Mytooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 11rem;
+    height: auto;
+    background-color: #19294d;
+    color: white;
+    text-align: center;
+    border-radius: 0 19px 19px 19px;
+    padding: 0.9rem;
+    position: absolute;
+    z-index: 1;
+    top: 2.5rem;
+    left: 35%;
+}
+ */

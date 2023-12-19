@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAA;EACJ,YAAY,EAAC,IAAI;CAChB",
+    "sources": [
+        "manager-area.component.scss"
+    ],
+    "names": [],
+    "file": "manager-area.component.css"
+}

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>דף בית עסק</title>
+  </head>
+  <body>
+  <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+  <ng-container *ngIf="BusinnesToDisplay; else spinner">
+
+    <div class="cover-img" id="cover-img">
+      <div>
+        <img class="CoverImg" width="150" *ngIf="!(BusinnesToDisplay.coverPictureId ==
+            '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+            BusinnesToDisplay.id + '/Cover/'
+            + BusinnesToDisplay.coverPictureId + '/' +
+            BusinnesToDisplay.coverPictureId
+            + '.jpg?h=210'" alt="תמונת מעטפת" />
+      </div>
+      
+    </div>
+  
+  
+    <!-- container start -->
+    <div class="container-form flex gap-10">
+      <!-- aside start -->
+      <aside class="profile flex_C FEIc a">
+        <div id="profpic" class="WrapTheProfPic" (dblclick)="growPic(null)">
+          <img class="img-radius product-image" width="150" *ngIf="!(BusinnesToDisplay.logoPictureId ==
+              '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+              BusinnesToDisplay.id + '/Logo/'
+              + BusinnesToDisplay.logoPictureId + '/' +
+              BusinnesToDisplay.logoPictureId
+              + '.jpg?w=150'" alt="תמונת לוגו" />
+          <h1 *ngIf="BusinnesToDisplay.logoPictureId ==
+              '00000000-0000-0000-0000-000000000000'" style="border-color:#04e6e0;color:#04e6e0"
+            class="first-letter AroundFirstLetter">{{BusinnesToDisplay.buisnessName
+            |firstWord}}</h1>
+        </div>
+        <h4 class="myb-1" [style.font-size]="getFontSizeByLenght()">{{ this.BusinnesToDisplay.buisnessName }}
+          {{this.BusinnesToDisplay.ownerName && this.BusinnesToDisplay.ownerName? ' - '+
+          this.BusinnesToDisplay.ownerName:''}}</h4>
+        <!-- <p class="myb-1 wordBreak">{{ this.BusinnesToDisplay.ownerName }}</p> -->
+        <p class="myb-1 wordBreak">{{ this.BusinnesToDisplay.actionDiscription
+          }}</p>
+        <p class="myb-1 wordBreak address">{{ this.BusinnesToDisplay.address }}</p>
+        <a *ngIf="BusinnesToDisplay.buisnessWebSiteLink!=''" class="myb-1 linkBreak" href="{{
+            this.BusinnesToDisplay.buisnessWebSiteLink }}" target="_blank">
+          {{ this.BusinnesToDisplay.buisnessWebSiteLink.replace("https://",'') }}
+        </a>
+        <i *ngIf="BusinnesToDisplay.buisnessWebSiteLink" class="pi pi-globe"></i>
+        <!-- <a class="SendMessageImeditly" href="mailto:{{this.BusinnesToDisplay.userId}}"> -->
+          <div class="Mytooltip">
+            <button [disabled]="!(this._wrapperSearchService.LoginStatus$.value) || !(this._wrapperSearchService.getCurrentBusiness() | async)" class="SendMassageNow boldText" (click)="this._funcService.openNewMassage(this.BusinnesToDisplay.id)">
+            שלחי הודעה מידית</button>
+            <span *ngIf="!(this._wrapperSearchService.LoginStatus$.value) || !(this._wrapperSearchService.getCurrentBusiness() | async)" class="tooltiptextnotlogedin">רק משתמשת רשומה יכולה לשלוח הודעות לעסקים אחרים</span>
+          </div>
+        <!-- </a> -->
+        <button class="ViewDetails ExToSendAMassage boldText Mytooltip" *ngIf="isViewDetailsB1 == true"
+          [disabled]="this.BusinnesToDisplay.phoneNumber1=='' &&  this.BusinnesToDisplay.phoneNumber2==''"
+          (click)="this.isViewDetails1= true; this.isViewDetailsB1= false">
+          הציגי מספר <i class="fas fa-mobile-alt"></i>
+          <span *ngIf="this.BusinnesToDisplay.phoneNumber1=='' &&  this.BusinnesToDisplay.phoneNumber2==''"
+            class="tooltiptext">לא הוזנו מספרי טלפון</span>
+        </button>
+        <div *ngIf="isViewDetails1 == true" class="DiViewDetails textColors">
+          <span>
+            {{ this.BusinnesToDisplay.phoneNumber1 }} <span *ngIf="this.BusinnesToDisplay.phoneNumber1!=''"
+              class="phoneIcon">
+              <i class="pi pi-phone"></i></span><br />
+            {{ this.BusinnesToDisplay.phoneNumber2 }}<span *ngIf="this.BusinnesToDisplay.phoneNumber2!=''"
+              class="phoneIcon"> <i class="pi pi-phone"></i></span>
+          </span>
+        </div>
+        <button *ngIf="isViewDetailsB2 == true &&
+            (_wrapperSearchService.LoginStatus$.value)" class="ViewDetails ExToSendAMassage boldText"
+          (click)="this.isViewDetails2= true; this.isViewDetailsB2= false" dir="ltr">
+          <img class="MailImg" src="../../../assets/icons/email.png" alt="אייקון מייל">
+          הציגי דוא"ל
+          <!-- <img src="../../../assets/icons/email.png" alt=""> -->
+          <!-- <i class="pi pi-envelope"></i> -->
+        </button>
+        <div *ngIf="isViewDetails2 == true" class="DiViewDetails textColors">{{
+          this.BusinnesToDisplay.userId }}</div>
+        <div class="text-right a">
+          <p class="textColors" *ngFor="let area of ListArea"><i class="pi
+                pi-map-marker"></i>{{ area }}</p>
+        </div>
+        <p class="myb-1 wordBreak discription">{{
+          this.BusinnesToDisplay.discription }}</p>
+        <h6 class="bold">
+          אפשרויות העסקים עם
+          {{ this.BusinnesToDisplay.buisnessName }}
+        </h6>
+        <button [ngClass]="BusinnesToDisplay.ispayingBuisness == true ?
+            'turquoise-tags' : 'light-gray-tags'" class="big">
+          <img class="payIcon" src="../../../assets/icons/dolar.png" alt="בתשלום">
+          בתשלום
+        </button>
+        <button [ngClass]="BusinnesToDisplay.iscollaborationBuisness == true ?
+            'turquoise-tags' : 'light-gray-tags'" class="big">
+          <img class="CollaborationIcon" src="../../../assets/icons/collaboration-icon.png" alt="שיתוף פעולה">
+          שיתוף פעולה
+        </button>
+        <button [ngClass]="BusinnesToDisplay.isburterBuisness == true ?
+            'turquoise-tags' : 'light-gray-tags'" class="big">
+          <img class="BarterIcon" src="../../../assets/icons/handshake-icon.png" alt="בארטר">
+          ברטר
+        </button>
+
+      </aside>
+      <!-- aside end -->
+      <!-- main section start-->
+     
+       
+     
+      <div class="timeline">
+        <div class="WarrperTheSection">
+          <div class="left TimeLineContainer1" id="01">
+            <section class="outline-card sections outline-card1">
+             
+              <div class="flex_SB cursorP" (click)="ToggleAndChangeTheIcon(1,collapse1)"
+                [attr.aria-expanded]="!isCollapsed['categories']" aria-controls="collapseSection1">
+                <h1 class="">תחומי התמחות</h1>
+                <i *ngIf="isOpen1">
+                  <img class="icon" src="../../../assets/icons/down-arrow.png" alt="למטה" /> </i>
+                <a *ngIf="!isOpen1">
+                  <img class="icon" src="../../../assets/icons/up-arrow.png" alt="למעלה" />
+                </a>
+              </div>
+              <div class="collapse" #collapse1="ngbCollapse" [(ngbCollapse)]="isCollapsed['categories']">
+                <h5 class="h5 GivAndGet"> 
+                  {{BusinnesToDisplay.buisnessName}} מקצוענית ב:</h5>
+                <!-- <h5 class="h5 textInSection"></h5> -->
+                <h2 class="categoryName" *ngIf="BusinnesToDisplay.buisnessCategory1.length> 0">
+                  {{ BusinnesToDisplay.buisnessCategory1[0].categoryName }}
+                </h2>
+                <div class="DivSubCategory">
+                  <span class="SpanSubCategory" *ngFor="let subCategoty1 of
+                      BusinnesToDisplay.buisnessCategory1">
+                    {{
+                    subCategoty1.subCategoryName
+                    }}
+                  </span>
+                </div>
+                <h2 class="categoryName" *ngIf="BusinnesToDisplay.buisnessCategory2.length> 0">
+                  {{ BusinnesToDisplay.buisnessCategory2[0].categoryName }}
+                </h2>
+                <div class="DivSubCategory">
+                  <span class="SpanSubCategory" *ngFor="let subCategoty2 of
+                      BusinnesToDisplay.buisnessCategory2">{{subCategoty2.subCategoryName}}</span>
+                </div>
+                <h2 class="categoryName" *ngIf="BusinnesToDisplay.buisnessCategory3.length> 0">
+                  {{ BusinnesToDisplay.buisnessCategory3[0].categoryName }}
+                </h2>
+                <div class="DivSubCategory">
+                  <span class="SpanSubCategory" *ngFor="let subCategoty3 of
+                      BusinnesToDisplay.buisnessCategory3">
+                    {{
+                    subCategoty3.subCategoryName
+                    }}
+                  </span>
+                </div>
+                <h2 class="categoryName" *ngIf="BusinnesToDisplay.buisnessCategory4.length> 0">
+                  {{ BusinnesToDisplay.buisnessCategory4[0].categoryName }}
+                </h2>
+                <div class="DivSubCategory">
+                  <span class="SpanSubCategory" *ngFor="let subCategoty4 of
+                      BusinnesToDisplay.buisnessCategory4">
+                    {{
+                    subCategoty4.subCategoryName
+                    }}
+                  </span>
+                </div>
+              </div>
+            </section>
+          </div>
+          <!-- תיק עבודות start  -->
+          <div class="left TimeLineContainer1" id="02">
+            <section class="outline-card sections outline-card1">
+              <div class="flex_SB cursorP" (click)="ToggleAndChangeTheIcon(2,collapse2)"
+                [attr.aria-expanded]="!isCollapsed['pictures']" aria-controls="collapseSection2">
+                <h1 class="">תיק עבודות</h1>
+                <i *ngIf="isOpen2">
+                  <img class="icon" src="../../../assets/icons/down-arrow.png" alt="למטה" /></i>
+                <a *ngIf="!isOpen2">
+                  <img class="icon" src="../../../assets/icons/up-arrow.png" alt="למעלה" />
+                </a>
+              </div>
+              <div class="collapse" #collapse2="ngbCollapse" [(ngbCollapse)]="isCollapsed['pictures']">
+                <div *ngIf="BusinnesToDisplay && BusinnesToDisplay.workPictureGuide.length>0; else noPic"
+                  class="workPic" id="workPic">
+                  <div class="DivInBox" *ngFor="let pic of BusinnesToDisplay.workPictureGuide;index as i"
+                    id="{{i+1+''}}">
+                    <div class="abs-search"><i class="pi pi-search-plus" (click)="growPic(pic)"></i></div>
+                    <img [src]="'../../../../../assets/BusinessImages/'+ BusinnesToDisplay.id+'/Work/'+pic.picindex+'/'+pic.workPicGuide+'/'+ pic.workPicGuide+'.jpg?w=240'" class="work-img" (dblclick)="growPic(pic)" alt="תמונה בתקיית עבודות" />
+                  </div>
+                </div>
+                <ng-template #noPic>
+                  <p class="no-pic-p">לא הועלו תמונות לעסק</p>
+                </ng-template>
+
+              </div>
+            </section>
+          </div>
+          <!-- תיק עבודות end  -->
+
+          <!-- barter section -->
+          <!-- <img class="handshakeIcon" src="../../../assets/icons/handshake.png" alt=""> -->
+          <div class="left TimeLineContainer1" id="03">
+            <section class="outline-card sections outline-cardEnd">
+              <div class="flex_SB cursorP" (click)="ToggleAndChangeTheIcon(3,collapse3)"
+                [attr.aria-expanded]="!isCollapsed['dealOptions']" aria-controls="collapseSection3">
+                <h1 class="">אפשרויות עסקה</h1>
+                <i *ngIf="isOpen3">
+                  <img class="icon" src="../../../assets/icons/down-arrow.png" alt="למטה" />
+                </i>
+                <a *ngIf="!isOpen3">
+                  <img class="icon" src="../../../assets/icons/up-arrow.png" alt="למעלה" />
+                </a>
+
+              </div>
+              <div class="collapse" #collapse3="ngbCollapse" [(ngbCollapse)]="isCollapsed['dealOptions']">
+                <h5 class="h5 GivAndGet">מה אני נותנת:</h5>
+                <div>
+                  <!-- <i class="fas fa-redo"></i> -->
+                  <span *ngIf="BusinnesToDisplay.isburterPossibleInAllCategory
+                      == true">
+                    <img class="AllServerIcon" src="../../../assets/icons/Path11517.png" alt="כל השירותים שלי">
+                    <span class="boldText">כל השירותים שלי</span></span>
+                  <span *ngIf="BusinnesToDisplay.isburterPossibleInAllCategory
+                      == false">
+                    <img class="CategoryIcon" src="../../../assets/icons/Group3030.png" alt="קטגוריות">
+                    <span class="boldText">קטגוריות:</span></span>
+                  <div *ngIf="GetAllPossibleInBarter(1)> 0">
+                    <h2 class="categoryName boldText">{{
+                      BusinnesToDisplay.buisnessCategory1[0].categoryName }}</h2>
+                    <div class="CoverTheSpan">
+                      <span *ngFor="let subCategoty1 of
+                          BusinnesToDisplay.buisnessCategory1">
+                        <span *ngIf="subCategoty1.isPossibleInBarter == true" class="SpanSubPossibleInBarter boldText">
+                          {{
+                          subCategoty1.subCategoryName
+                          }}
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                  <div *ngIf="GetAllPossibleInBarter(2)> 0">
+                    <h2 class="categoryName boldText">{{
+                      BusinnesToDisplay.buisnessCategory2[0].categoryName }}</h2>
+                    <div class="CoverTheSpan">
+                      <span *ngFor="let subCategoty2 of
+                          BusinnesToDisplay.buisnessCategory2">
+                        <span *ngIf="subCategoty2.isPossibleInBarter == true" class="SpanSubPossibleInBarter boldText">
+                          {{
+                          subCategoty2.subCategoryName
+                          }}
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                  <div *ngIf="GetAllPossibleInBarter(3)> 0">
+                    <h2 class="categoryName boldText">{{
+                      BusinnesToDisplay.buisnessCategory3[0].categoryName }}</h2>
+                    <div class="CoverTheSpan">
+                      <span *ngFor="let subCategoty3 of
+                          BusinnesToDisplay.buisnessCategory3">
+                        <span *ngIf="subCategoty3.isPossibleInBarter == true" class="SpanSubPossibleInBarter boldText">
+                          {{
+                          subCategoty3.subCategoryName
+                          }}
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                  <div *ngIf="GetAllPossibleInBarter(4)> 0">
+                    <h2 class="categoryName boldText">{{
+                      BusinnesToDisplay.buisnessCategory4[0].categoryName }}</h2>
+                    <div class="CoverTheSpan">
+                      <span *ngFor="let subCategoty4 of
+                          BusinnesToDisplay.buisnessCategory4">
+                        <span *ngIf="subCategoty4.isPossibleInBarter == true" class="SpanSubPossibleInBarter boldText">
+                          {{
+                          subCategoty4.subCategoryName
+                          }}
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="PersonalProduct" *ngIf="BusinnesToDisplay.product1!=null ||
+                    !BusinnesToDisplay.product2!=null">
+                  <strong *ngIf="BusinnesToDisplay.product1 ||
+                      BusinnesToDisplay.product2">מוצרים
+                    אישיים</strong>
+                  <div *ngIf="BusinnesToDisplay.product1" class="PersonalProduct1 boldText">{{
+                    BusinnesToDisplay.product1 }}</div>
+                  <div *ngIf="BusinnesToDisplay.product2" class="PersonalProduct1 boldText">{{
+                    BusinnesToDisplay.product2 }}</div>
+                </div>
+                <ng-container *ngIf="BusinnesToDisplay.iscollaborationBuisness || BusinnesToDisplay.isburterBuisness">
+                  <h5 class="h5 GivAndGet GetFromBarter">מה ארצה לקבל
+                    בתמורה:</h5>
+
+                  <button class="btn-openTosugges boldText"
+                    *ngIf="BusinnesToDisplay.isopenToSuggestionsForBarter==true"><i class="pi pi-check-circle"></i>פתוחה
+                    להצעות </button>
+                  <div class="boldText mt-1" *ngIf="BusinnesToDisplay.buisnessBarterCategory1.length> 0 ||
+                      BusinnesToDisplay.buisnessBarterCategory2.length > 0"><img class="CategoryIcon"
+                      src="../../../assets/icons/Group3030.png" alt="קטגוריות"> קטגוריות: </div>
+                  <div class="textInSection">
+                    <h2 class="categoryName" *ngIf="BusinnesToDisplay.buisnessBarterCategory1.length> 0">
+                      {{ BusinnesToDisplay.buisnessBarterCategory1[0].categoryName
+                      }}
+                    </h2>
+                    <div class="DivSubCategory">
+                      <span class="SpanSubCategory" *ngFor="let GetsubCategoty1 of
+                          BusinnesToDisplay.buisnessBarterCategory1">{{GetsubCategoty1.subCategoryName}}</span>
+                    </div>
+                  </div>
+                  <div class="textInSection">
+                    <h2 class="categoryName" *ngIf="BusinnesToDisplay.buisnessBarterCategory2.length> 0">
+                      {{ BusinnesToDisplay.buisnessBarterCategory2[0].categoryName
+                      }}
+                    </h2>
+                    <div class="DivSubCategory">
+                      <span class="SpanSubCategory" *ngFor="let GetsubCategoty2 of
+                          BusinnesToDisplay.buisnessBarterCategory2">{{GetsubCategoty2.subCategoryName}}</span>
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="BusinnesToDisplay.OptionalCollaborationDescription">
+                  <h5 class="h5 GivAndGet">
+                    השת"פ שאני מחפשת עכשיו:</h5>
+                    <div><span class="boldText">{{this.BusinnesToDisplay.OptionalCollaborationDescription}}</span></div>
+                  
+                </ng-container>
+              
+                <div class="aroundButtons ">
+                    <!-- <a href="mailto:{{this.BusinnesToDisplay.userId}}">  -->
+                  <div class="Mytooltip">
+                    <button class="BarterButton"  [disabled]="!(this._wrapperSearchService.LoginStatus$.value) || !(this._wrapperSearchService.getCurrentBusiness() | async)"
+                    (click)="this._funcService.openNewMassage(this.BusinnesToDisplay.id)"><-ליצירת קשר לחצי כאן</button>
+                    <span *ngIf="!(this._wrapperSearchService.LoginStatus$.value) || !(this._wrapperSearchService.getCurrentBusiness() | async)" class="tooltiptextnotlogedin">רק משתמשת רשומה יכולה לשלוח הודעות לעסקים אחרים</span>
+
+                  </div>
+                    <!-- </a>   -->
+                      
+                        <button class="MyCollabo"  [routerLink]="['/case-study-list',this.BusinnesToDisplay.id]">השתפ"ים של {{BusinnesToDisplay.buisnessName}}</button>
+    
+
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <!-- barter end -->
+
+      </div>
+
+    </div>
+  </ng-container>
+  <ng-template #spinner>
+    <div class="container-spinner">
+      <img class="loading-spinner" src="../../assets/images/spinner.gif" alt="חושב">
+    </div>
+  </ng-template>
+  
+</body>
+
+</html>

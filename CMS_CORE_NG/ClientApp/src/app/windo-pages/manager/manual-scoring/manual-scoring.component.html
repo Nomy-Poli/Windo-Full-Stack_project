@@ -1,0 +1,34 @@
+<form class="flex" [formGroup]="formManualScore" (ngSubmit)="submit()">
+    <div class="form-half">
+        <h3>בחרי את הפעולות הרצויות </h3>
+        <ng-multiselect-dropdown placeholder="התחילי להקליד את שם הפעולה " [settings]="dropdownActonsSettings"
+            [data]="this._shaerdData.listOperition$|async" (onSelect)="onSelectActions($event)"
+            (onSelectAll)="onSelectAllActions($event)" (onDeSelect)="OnActionDeSelect($event)"
+            (onDeSelectAll)="onDeSelectAllActions($event)" formControlName="ListOfActions">
+            <ng-template #optionsTemplate let-item let-option="option" let-id="id" let-isSelected="isSelected">
+                <div>
+                    <label> {{option}} </label>
+                </div>
+
+            </ng-template>
+        </ng-multiselect-dropdown>
+    </div>
+    <div class="form-half">
+        <h3>בחרי את העסקים הרצוים </h3>
+        <ng-multiselect-dropdown placeholder="התחילי להקליד את שם העסק" [settings]="dropdownBusinessesSettings"
+            (onSelect)="onSelectBusiness($event)" (onSelectAll)="onSelectAllBuisness($event)" [data]="businessList"
+            (onDeSelect)="OnBuisnessDeSelect($event)" (onDeSelectAll)="onDeSelectAllBuisness($event)"
+            formControlName="ListOfBuisness">
+            <ng-template #optionsTemplate let-item let-option="option" let-id="id" let-isSelected="isSelected">
+                <div>
+                    <label> {{option}} </label>
+                </div>
+
+            </ng-template>
+        </ng-multiselect-dropdown>
+    </div>
+    <div class="form-break-row"></div>
+    <div class="Mytooltip text-align-center">
+        <button type="submit" class="next-button" [disabled]="!formManualScore.valid">הוספה </button>
+    </div>
+</form>

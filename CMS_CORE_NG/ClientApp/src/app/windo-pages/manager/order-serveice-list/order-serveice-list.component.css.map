@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,OAAO,CAAC,6CAAI",
+    "sources": [
+        "order-serveice-list.component.scss"
+    ],
+    "names": [],
+    "file": "order-serveice-list.component.css"
+}

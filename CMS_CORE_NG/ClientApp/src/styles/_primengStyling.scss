@@ -1,0 +1,312 @@
+//primeng breadcrunbs
+.p-breadcrumb {
+    direction: rtl;
+    text-align: right;
+    border: none !important;
+}
+.p-breadcrumb ul li.p-breadcrumb-chevron {
+    transform: rotateY(180deg);
+}
+//primeng progressbar
+.p-progressbar {
+    border-radius: 1rem !important;
+    width: 70% !important;
+}
+.p-progressbar .p-progressbar-value {
+    background-color: $dark-turquoise-color !important;
+}
+
+//prime ng dropdown
+.p-dropdown.p-dropdown-clearable {
+    border: none;
+    width: 95%;
+    margin: 15px 7px;
+    padding: 0.3rem;
+    box-shadow: 2px 2px 4px rgb(206, 204, 204);
+}
+.p-dropdown:not(.p-disabled).p-focus {
+    outline: none !important;
+    border-color: unset !important;
+    box-shadow: 2px 2px 4px rgb(206, 204, 204) !important;
+}
+.p-dropdown .p-dropdown-clear-icon {
+    right: unset !important;
+}
+
+//rounded dd
+.p-dropdown.p-dropdown-clearable.rounded-select {
+    border-radius: 1.5rem;
+    border: solid 1px rgb(170, 167, 167);
+    color: rgb(170, 167, 167);
+    width: 11rem;
+    box-shadow: unset;
+    .p-dropdown-panel {
+        border-radius: 1rem;
+    }
+}
+
+//reguler dd
+// .p-dropdown.p-dropdown-clearable.input {
+//     padding: 0.4rem 0.8rem !important;
+//     margin: 1rem 0;
+//     width: 65% !important;
+//     border-radius: 0.5rem !important;
+//     border: 1px solid #19294d !important;
+//     opacity: 1;
+//     // .p-dropdown-panel {
+//     // }
+// }
+.p-dropdown {
+    padding: 0.4rem 0.8rem !important;
+    margin: 1rem 0;
+    width: 78% !important;
+    border-radius: 0.5rem !important;
+    border: 1px solid #19294d !important;
+    opacity: 1;
+    // .p-dropdown-panel {
+} // }
+
+.p-dropdown.p-dropdown-clearable.input :focus-within {
+    border-color: $dark-turquoise-color;
+}
+//multi select
+.inputMultiSelect {
+    padding: 0.4rem 0.8rem;
+    margin: 1rem 0;
+    width: 78%;
+    max-width: 24rem;
+    border-radius: 0.5rem !important;
+    border: 1px solid #19294d !important;
+    opacity: 1;
+}
+.breadCrumbsBlue {
+    background-color: $dark-blue-color !important;
+}
+.p-paginator .p-dropdown {
+    direction: initial;
+    width: 109% !important;
+    height: 3.357rem !important;
+}
+.p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-next, .p-paginator .p-paginator-last 
+.breadCrumbsBlue ul li .p-menuitem-link .p-menuitem-text,
+.breadCrumbsBlue ul li.p-breadcrumb-chevron {
+  margin-right: 1rem !important;
+}
+.p-paginator .p-paginator-first{
+    margin-left: -1rem !important;
+    transform: rotate(180deg) !important;
+}
+.p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover, .p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover, .p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover{
+    transform: rotate(180deg) !important;
+}
+.p-paginator .p-paginator-next,.p-paginator .p-paginator-last, .p-paginator .p-paginator-prev{
+    transform: rotate(180deg) !important;
+}
+//to the barter list page
+.p-multiselect:focus {
+    border-color: $dark-turquoise-color;
+    outline: none;
+}
+//upload
+.p-fileupload-content .p-progressbar {
+    width: 100% !important;
+    height: 0.4rem;
+}
+//the header of the template
+.p-fileupload .p-fileupload-buttonbar {
+    background-color: transparent !important;
+    border: none !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+//the ng-template
+.p-fileupload .p-fileupload-content {
+    border: none !important;
+    box-shadow: 0 2px 2px rgb(204, 202, 202), 0 2px 2px rgb(204, 202, 202) !important;
+}
+//buttons of upload file
+.p-fileupload .p-fileupload-buttonbar .p-button {
+    background-color: #00c8f9 !important;
+    // color: white !important;
+    border: none !important;
+    border-radius: 1.5rem;
+    &:hover {
+        opacity: 0.7;
+        // background-color: $dark-blue-color !important;
+    }
+}
+
+.p-button .p-button-icon-left {
+    background-color: #e2e0e0 !important;
+    border-radius: 50%;
+    padding: 0.3rem;
+    margin-left: 0.3rem;
+}
+//icon x of cencel
+.p-button.p-button-icon-only {
+    background-color: $light-gray-color;
+    border: none !important;
+    border-radius: 50%;
+}
+// .p-dropdown-items-wrapper,.p-dropdown
+//prime galery
+.p-galleria .p-galleria-thumbnail-container {
+    background-color: $white-color !important;
+    padding: unset !important;
+}
+.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-prev,
+.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-next {
+    color: red !important;
+    // margin-top: -40rem !important;
+    z-index: 1000;
+}
+#pr_id_1 .p-galleria-thumbnail-item {
+    margin-right: 0.4rem;
+}
+
+//primeng carusela
+@media screen and (min-width: 1400px) {
+    .product-item {
+        width: 320px;
+        background-color: $white-color;
+        border-radius: 0.5rem;
+        border: 1px solid var(--surface-d);
+        position: relative;
+        .product-item-content {
+            // margin: 0.3rem;
+            text-align: center;
+            padding: 2rem 0;
+            padding: 1rem;
+            .container-product-image {
+                margin: auto;
+                width: 130px;
+                height: 130px;
+                padding: 1rem;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+                background-color: $white-color;
+                border-radius: 5%;
+
+                .product-image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1399px) {
+    .product-item {
+        width: 32%;
+        background-color: white;
+        border-radius: 0.5rem;
+        border: 1px solid var(--surface-d);
+        position: relative;
+
+        .product-item-content {
+            // margin: 0.3rem;
+            text-align: center;
+            padding: 2rem 0;
+            padding: 1rem;
+            .container-product-image {
+                margin: auto;
+                width: 110px;
+                height: 110px;
+                padding: 1rem;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+                background-color: $white-color;
+
+                .product-image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
+
+//p-toggle
+.p-togglebutton.p-button.p-highlight {
+    border-radius: 1.5rem;
+    background-color: #00c8f9 !important;
+    margin: 2rem 0 1rem 0;
+    border: none;
+    outline: none;
+}
+.p-togglebutton.p-button:not(.p-highlight) {
+    border-radius: 1.5rem;
+    background-color: $light-gray-color !important;
+    margin: 2rem 0 1rem 0;
+    outline: none;
+}
+.p-togglebutton.p-button.p-highlight:hover {
+    border: none;
+    opacity: 0.7;
+    outline: none;
+}
+.p-togglebutton.p-button.p-highlight:focus {
+    outline: none;
+}
+.p-togglebutton.p-button.p-highlight .p-button-icon-left,
+.p-togglebutton.p-button.p-highlight .p-button-icon-right {
+    color: $dark-blue-color;
+}
+.p-highlight > .p-button-label {
+    margin-right: 0.3rem;
+    // color: white;
+}
+//scroll bar
+::-webkit-scrollbar {
+    width: 10px;
+    margin-left: 10px;
+}
+::-webkit-scrollbar-track {
+    //-webkit-box-shadow: inset 0 0 6px red;
+    border-radius: 10px;
+    background-color: #f6f6ff;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    background-color: $scroll-bar-turquoise-color;
+}
+.p-checkbox .p-checkbox-box .p-checkbox-icon {
+    background-color: #00c8f9;
+    color: white;
+    border: none;
+}
+.p-checkbox {
+    margin-left: 1rem;
+}
+.p-checkbox .p-checkbox-box.p-highlight {
+    background-color: #00c8f9 !important;
+    border-color: #00c8f9 !important;
+}
+//float label
+.p-float-label > label {
+    left: none;
+    right: 0.6rem;
+}
+.p-float-label .input:-webkit-autofill ~ label {
+    top: 10px !important;
+    background: white;
+    padding: 0.3rem 1.5rem;
+    width: fit-content;
+    right: 0.5rem !important;
+    border-radius: 0.6rem;
+    border: solid 1px black;
+}
+
+::ng-deep.multiselect-dropdown .dropdown-btn{
+    border-radius: 7px !important;
+    border: 1px solid #19294D !important;
+    padding: 6px 25px !important;
+}
+:host ::ng-deep.multiselect-dropdown .dropdown-btn .selected-item{
+    gap: 0.5rem;
+    flex-direction: row-reverse;
+    float: right!important;
+}
+// .p-float-label label {
+// }

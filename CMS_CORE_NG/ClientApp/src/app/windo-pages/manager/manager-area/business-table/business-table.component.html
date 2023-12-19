@@ -1,0 +1,36 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>טבלת עסקים</title>
+</head>
+
+<body>
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <div class="d-flex justify-content-center">
+        <div class="text p-5 col-10">
+            <!-- <h1>רשימת עסקים</h1> -->
+            <tr>
+                <button type="button" (click)="exportExcel()" pButton pRipple icon="pi pi-file-excel" class="m-3"
+                    pTooltip="XLS" tooltipPosition="bottom">
+                </button>
+            </tr>
+            <p-table [value]="list" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th class="text-right">שם העסק</th>
+                        <th class="text-right">תאור</th>
+                        <th class="text-right">אמייל</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-business>
+                    <tr>
+                        <td class="text-right">{{business.buisnessName}}</td>
+                        <td class="text-right">{{business.actionDiscription}}</td>
+                        <td class="text-right">{{business.businessEmailAddress}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,131 @@
+@import '../../../styles/variables';
+
+.container-all {
+    padding: 1rem;
+    // gap:1rem;
+    background-color: #f0eeeed1;
+}
+.header {
+    color: $dark-blue-color;
+    font-weight: 700;
+}
+.space-between {
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    .flex {
+        gap: 0.5rem;
+    }
+}
+
+.budge {
+    color: #fff;
+    border-radius: 50%;
+    background-color: #f16b7e;
+    display: inline-block;
+    font-size: 1rem;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    padding: 0 0.4rem;
+}
+
+.budge-button {
+    background-color: #19294d;
+    color: white;
+    border: none;
+    height: 2rem;
+    width: 2rem;
+    padding: 0.4rem;
+    box-shadow: 1px 2px 6px 3px lightgrey;
+}
+.flex-1 {
+    width: 40%;
+}
+.wrap-messages {
+    background-color: white;
+    padding: 1rem 2rem;
+    height: 550px;
+    overflow-y: scroll;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+.flex-2 {
+    width: 60%;
+}
+
+.wrap-message {
+    background-color: #f0eeeed1;
+    padding: 2rem 3rem 0 0;
+    height: 550px;
+    overflow-y: scroll;
+}
+@media only screen and (min-height: 760px) {
+    .wrap-message,
+    .wrap-messages {
+        height: 600px;
+    }
+}
+@media only screen and (min-height: 860px) {
+    .wrap-message,
+    .wrap-messages {
+        height: 700px;
+    }
+}
+@media only screen and (min-height: 960px) {
+    .wrap-message,
+    .wrap-messages {
+        height: 800px;
+    }
+}
+.tooltiptext,
+.tooltiptext2 {
+    visibility: hidden;
+    padding: 0.3rem 0 0 0;
+    top: 2.4rem;
+    left: 1.4rem;
+}
+.tooltiptext {
+    width: 8rem;
+    height: 2rem;
+}
+.tooltiptext2 {
+    width: 15rem;
+    height: 4rem;
+}
+
+.space-between > h4 {
+    font-size: 1.2rem;
+    padding-top: 00.4rem;
+    font-weight: bold;
+}
+
+.loading-spinner {
+    position: absolute;
+    width: 7rem;
+    height: 7rem;
+    right: 35%;
+    top: 2rem;
+}
+:host::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link:focus,
+:host::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link:active {
+    /* border: none; */
+    box-shadow: none;
+    text-decoration: none !important;
+}
+:host::ng-deep.p-tabview .p-tabview-nav .p-tabview-nav-link:hover {
+    text-decoration: none;
+}
+:host::ng-deep.p-tabview .p-tabview-nav .p-tabview-nav-link {
+    color: $dark-blue-color;
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-family: ploni, sans-serif !important;
+    margin-top: 0;
+    padding: 0.75rem;
+    line-height: 1.5rem;
+}
+:host::ng-deep.p-tabview .p-tabview-panels {
+    padding: 0;
+}

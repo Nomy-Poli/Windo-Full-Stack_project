@@ -1,0 +1,274 @@
+<div class="flex header-container" [ngClass]="(_wrapperSearchService.HomePage$|async)&&
+            !(_wrapperSearchService.LoginStatus$ |async)
+            ?'font-color-white':'dark-font'" (click)="myFunc()">
+    <div class="img-container">
+        <a href="/">
+            <img *ngIf="(_wrapperSearchService.HomePage$|async)&&
+                !(_wrapperSearchService.LoginStatus$ |async)" class="img-windo"
+                src="../../../assets/images/Group 3472.svg" alt="לוגו ווינדו">
+            <img *ngIf="!(_wrapperSearchService.HomePage$|async) ||
+                (_wrapperSearchService.LoginStatus$ |async)" class="img-windo"
+                src="../../../assets/images/Group 3472 (1).svg" alt="לוגו ווינדו">
+        </a>
+    </div>
+    <!-- TWO LOGO IMAGES AT RIGHT SIDE START -->
+    <!--  מחוברת -->
+
+    <!-- TWO LOGO IMAGES AT RIGHT SIDE END -->
+
+    <!-- OUTSIDE MENU START -->
+    <!-- <div class="flex-column" [ngClass]="(_wrapperSearchService.HomePage$|async)&&
+                !(_wrapperSearchService.LoginStatus$ |async)
+                ?'font-color-white':'dark-font'">
+            <a [routerLink]="['/vision']" class="mxl-2 textUnderline" [ngClass]="(_wrapperSearchService.HomePage$|async)&&
+                !(_wrapperSearchService.LoginStatus$ |async)
+                ?'font-color-white':'dark-font'">החזון</a>
+            <span [ngClass]="(_wrapperSearchService.HomePage$|async)&&
+                !(_wrapperSearchService.LoginStatus$ |async)
+                ?'font-color-white':'dark-font'">תמך, WINDO ובעלות עסקים</span>
+        </div>
+        <div class="flex-column" [ngClass]="(_wrapperSearchService.HomePage$|async)&&
+                !(_wrapperSearchService.LoginStatus$ |async)
+                ?'font-color-white':'dark-font'">
+            <a [routerLink]="['/tiding']" class="mxl-2 textUnderline" [ngClass]="(_wrapperSearchService.HomePage$|async)&&
+                !(_wrapperSearchService.LoginStatus$ |async)
+                ?'font-color-white':'dark-font'">
+                הבשורה</a>
+            <span [ngClass]="(_wrapperSearchService.HomePage$|async)&&
+                !(_wrapperSearchService.LoginStatus$ |async)
+                ?'font-color-white':'dark-font'">למה שת"פ הוא עסק טוב?</span>
+
+        </div>
+        <div class="flex-column">
+            <a [routerLink]="['/practice']" [ngClass]="(_wrapperSearchService.HomePage$|async)&&
+                !(_wrapperSearchService.LoginStatus$ |async)
+                ?'font-color-white':'dark-font'" class="mxl-2 textUnderline">הפרקטיקה</a>
+            <span [ngClass]="(_wrapperSearchService.HomePage$|async)&&
+                !(_wrapperSearchService.LoginStatus$ |async)
+                ?'font-color-white':'dark-font'">שת"פ - איך זה עובד?</span>
+        </div> -->
+    <!-- class="dropdown-toggle dark-font" -->
+    <!-- <a href="vision" id="aboutDropdown" role="button" [ngClass]="{
+            'font-color-white':(_wrapperSearchService.HomePage$|async)&& !(_wrapperSearchService.LoginStatus$ |async),
+            'dark-font': !(_wrapperSearchService.HomePage$|async) || (_wrapperSearchService.LoginStatus$ |async),
+            'active-link': _router.url.includes('vision') || _router.url.includes('tiding') || _router.url.includes('practice')
+        }" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > -->
+    <!-- ירקתי אותי חיפוש על מה הוא עומד בדראפ דאון -->
+        <!-- <span [ngClass]="(_wrapperSearchService.HomePage$|async)&&
+        !(_wrapperSearchService.LoginStatus$ |async)
+        ?'font-color-white':'dark-font'" class="mr-2 d-none d-lg-inline text-gray-600
+        medium"></span> -->
+
+
+                <!-- ירקתי אותו -->
+        <!-- <i *ngIf="!aboutDropdownOpen()" class="pi pi-chevron-down"></i>
+        <i *ngIf="aboutDropdownOpen()" class="pi pi-chevron-up"></i> -->
+    <!-- </a> -->
+
+        <a (click)="scrollToTop()" [routerLink]="['/vision']" [ngClass]="{'active-link':_router.url.includes('vision')}">אודות</a> 
+
+
+    <!-- Dropdown - User Information -->
+    
+    <!-- ירקתי אותו -->
+    <!-- <div class="dropdown-menu dropdown-menu-right shadow
+    animated--grow-in" aria-labelledby="aboutDropdown" id="abouatListItems">
+
+        <a (click)="scrollToTop()" class="dropdown-item" [routerLink]="['/vision']">החזון</a>
+        <a (click)="scrollToTop()" class="dropdown-item" [routerLink]="['/tiding']">הבשורה</a>
+        <a (click)="scrollToTop()" class="dropdown-item" [routerLink]="['/practice']">הפרקטיקה</a>
+
+    </div> -->
+    <!-- </li> -->
+    <!-- <i class="cursorP" (click)="openMenu()" ><img
+        src="../../../assets/icons/line.png" /></i> -->
+    <!-- <li ngbPopover="" triggers="mouseenter:mouseleave" popoverTitle="יבוא
+בהמשך..."><i class="fa fa-print"></i></li> -->
+
+    <!-- </ul> -->
+    <!-- <div class="Mytooltip">
+        <a (click)="scrollToTop()" [routerLink]="['/messages']" class="envelope"
+            [ngClass]="{'active-link':_router.url.includes('messages')}">הודעות</a>
+
+        <span *ngIf="(_wrapperSearchService.newMessages$ |async) as newMessageCount" class="red-budge smaller">
+         {{_wrapperSearchService.newMessages$ |async}}  </span>
+        <span *ngIf="!(this._acct.currentBusiness | async)" class="tooltiptext">רק משתמשת רשומה יכולה לשלוח ולקבל
+            הודעות</span>
+    </div> -->
+    <a (click)="scrollToTop()" [routerLink]="['/notes']" [ngClass]="{'active-link':_router.url.includes('notes')}">לוח מודעות</a>
+    <!-- <a [routerLink]="['/case-study-list']" [ngClass]="{'active-link':_router.url.includes('case-study-list')}">סיפורי
+        שת"פ</a> -->
+
+
+
+
+    <!-- esti -->
+    <!-- לינק החנות שלנו -->
+    <!-- <div class="dropdown">
+        <a href="#" id="dropdownMenuLink" role="button" [ngClass]="{
+            'font-color-white':(_wrapperSearchService.HomePage$|async)&& !(_wrapperSearchService.LoginStatus$ |async),
+            'dark-font': !(_wrapperSearchService.HomePage$|async) || (_wrapperSearchService.LoginStatus$ |async),
+            'active-link': _router.url.includes('advertisments-catalog')
+        }" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span [ngClass]="(_wrapperSearchService.HomePage$|async)&&
+        !(_wrapperSearchService.LoginStatus$ |async)
+        ?'font-color-white':'dark-font'" class="mr-2 d-none d-lg-inline text-gray-600
+        medium"></span>
+            החנות שלנו
+            <i *ngIf="!servicDropdownOpen()" class="pi pi-chevron-down"></i>
+            <i *ngIf="servicDropdownOpen()" class="pi pi-chevron-up"></i>
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="servicListItems">
+            <a class="dropdown-item" [routerLink]="['/advertisments-catalog']">פרסומים</a>
+        </div>
+    </div> -->
+
+
+    <!-- end-esti -->
+
+
+    <!-- <a [routerLink]="['/advertisments-catalog']"  [ngClass]="{'active-link':_router.url.includes('advertisments-catalog')}">קטלוג</a> -->
+    <a (click)="scrollToTop()" [routerLink]="['/barter-List']" [ngClass]="{'active-link':_router.url.includes('barter-List')}">אינדקס העסקים</a>
+    <!-- <a (click)="scrollToTop()" [routerLink]="['/alphon-users']" [ngClass]="{'active-link':_router.url.includes('alphon-users')}">אלפון הקהילה</a> -->
+    <a (click)="scrollToTop()" [routerLink]="['/independent']" [ngClass]="{'active-link':_router.url.includes('independent')}">לעצמאית</a>
+    <a (click)="scrollToTop()" [routerLink]="['/hiring']" [ngClass]="{'active-link':_router.url.includes('hiring')}">לשכירה</a>
+    <a (click)="scrollToTop()" [routerLink]="['/hub']" [ngClass]="{'active-link':_router.url.includes('hub')}">hub</a>
+    <a (click)="scrollToTop()" [routerLink]="['/contact-us']" [ngClass]="{'active-link':_router.url.includes('contact-us')}">צרי קשר</a>
+    <a (click)="scrollToTop()" [routerLink]="['/FQA']" class="question"><i class="pi pi-question-circle"></i></a>
+    <div class="flex flex-align-center">
+        <div class="flex guest-part" *ngIf="!(_wrapperSearchService.LoginStatus$ |
+                async)
+                as LoginStatus">
+            <button class="btn-outline" [ngClass]="!(_wrapperSearchService.HomePage$|async)
+                    ?'dark-font':'font-color-white'" (click)="loginClick($event)">התחברי</button>
+            <button class="btn-turquoise" (click)="registerClick($event)">חדשה
+                כאן? הצטרפי</button>
+
+            <!-- OUTSIDE MENU END -->
+
+        </div>
+
+
+
+        <!--  LEFT SIDE START -->
+        <!-- for loged in user -->
+        <ng-container class="flex loged-in-part " *ngIf="_wrapperSearchService.LoginStatus$ |
+                async
+                as LoginStatus">
+            <ul class="pr-0">
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle dark-font" href="#" id="userDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        *ngIf="_wrapperSearchService.Username$ | async">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600
+                            medium"></span>
+                        <img class="img-profile rounded-circle" src="" />שלום
+                        {{this.userName |async}}
+                    </a>
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow
+                        animated--grow-in" aria-labelledby="userDropdown">
+                        <h5 class="dropdown-item">
+                            <b>
+                                שלום {{this.userName|async }}!
+                            </b>
+                        </h5>
+
+                        <a *ngIf="this._acct.openMegaMenu=='yes'" class="dropdown-item"
+                            [routerLink]="['/myaccount']">לפרופיל האישי</a>
+                        <a class="dropdown-item" [routerLink]="['/profile']">לכרטיס העסק שלך</a>
+                        <a class="dropdown-item" [routerLink]="['/contact-us']">ליצירת קשר עם תמך</a>
+                        <!-- <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> -->
+                        <!-- <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> -->
+                        <a *ngIf="this._acct.openMegaMenu=='yes'" class="dropdown-item"
+                            [routerLink]="['/myaccount/settings']">
+                            לניהול הסיסמה
+                            <!-- <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> -->
+                        </a>
+                        <!-- *ngIf="" -->
+                        <!-- <a class="dropdown-item Mytooltip" [routerLink]="['/messages']">להודעות שלך
+                            <span *ngIf="(_wrapperSearchService.newMessages$ |async) as newMessageCount "
+                                class="red-budge">
+                                {{_wrapperSearchService.newMessages$ |async}}</span>
+                        </a> -->
+                        <a class="dropdown-item" [routerLink]="['/notes']" [queryParams]="{'my':'true'}">
+                            המודעות שפרסמת
+                        </a>
+                        <a *ngIf="this.acct.isManager==true" class="dropdown-item" [routerLink]="['/manager']">איזור
+                            מנהל</a>
+                        <div class="dropdown-divider"></div>
+                        <div class="p-1">
+                            <button class="logout-btn" (click)="onLogout()">התנתקי</button>
+                        </div>
+                    </div>
+                </li>
+                <!-- <i class="cursorP" (click)="openMenu()" ><img
+                            src="../../../assets/icons/line.png" /></i> -->
+                <!-- <li ngbPopover="" triggers="mouseenter:mouseleave" popoverTitle="יבוא
+            בהמשך..."><i class="fa fa-print"></i></li> -->
+
+            </ul>
+            <!-- <div *ngIf="_wrapperSearchService.LoginStatus$ | async as LoginStatus" class="Mytooltip"  style="margin-top:.6rem;">            
+                    <a class="envelope"
+                        [disabled]="!(this._acct.currentBusiness | async)" [routerLink]="['/messages']" >
+                        <i class="pi pi-envelope" style="font-size: 1.4rem;"></i></a> 
+                    <span *ngIf="(_wrapperSearchService.newMessages$ |async) as newMessageCount " class="red-budge smaller">
+                        {{_wrapperSearchService.newMessages$ |async}}</span>
+                    <span class="tooltiptext">{{(this._acct.currentBusiness | async)? 'לאיזור ההודעות שלך':'רק משתמשת רשומה יכולה לשלוח ולקבל הודעות'}}</span>
+                </div> -->
+        </ng-container>
+
+        <!-- pTooltip="שאלות ותשובות על התנהלות באתר" -->
+    </div>
+    <!-- <div class="flex flex-align-center" style="gap: 1.6rem;"> -->
+
+    <!-- <div class="cursorP wrap-hamburger flex" (click)="openMenu()">
+        <span class="hamburgerS hamburger-1"></span>
+        <span class="hamburgerS hamburger-2"></span>
+        <span class="hamburgerS hamburger-3"></span>
+
+    </div> -->
+
+
+<!-- </div> -->
+<!--  LEFT SIDE END -->
+
+<!--  OPEND HAMBERGER MENU START -->
+<!-- <div *ngIf="this.Menu == true">
+    <div class="try" id="sidebarMenu">
+        <div class=" sidebarMenuInner">
+            <img (click)="closeMenu()" class="Close img-humburgerI cursorP" src="../../../assets/icons/x2@2x.png"
+                alt="תפריט המבורגר">
+            <div>
+                <div class="flex_C ">
+                    <ul class="flex_R">
+                        <li>
+                            <a [routerLink]="['/vision']">החזון</a>
+                        </li>
+                        <li> <a [routerLink]="['/tiding']"> הבשורה</a></li>
+                        <li>
+                            <a [routerLink]="['/practice']">הפרקטיקה</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/barter-List']">
+                                מצאי
+                                שת"פ
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/messages']">אזור ההודעות שלך</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/notes']">כל המודעות</a>
+                        </li>
+                    </ul> -->
+<!-- <a href="/"><img class="img-humburger" alt=""
+                                src="../../../assets/windo-images/Group2363@2x.png" alt="לוגו"></a>
+                        <a href="/"><img class="img-humburger" src="../../../assets/windo-images/Group2465.png"
+                                alt="לוגו ווינדו"></a> -->
+<!-- </div>
+            </div>
+        </div>
+    </div> -->
+<!-- </div> -->

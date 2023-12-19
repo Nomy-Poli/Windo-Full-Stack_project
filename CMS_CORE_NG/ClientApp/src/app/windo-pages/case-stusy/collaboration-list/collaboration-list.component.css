@@ -1,0 +1,106 @@
+/* .wrappButton {
+  margin-bottom: 10rem;
+}*/
+
+@import url("../../../../styles/_primeng-table.scss");
+
+:host::ng-deep.p-tabview .p-tabview-nav .p-tabview-nav-link:hover {
+  text-decoration: none;
+}
+
+:host::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link:focus,
+:host::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link:active {
+  /* border: none; */
+  box-shadow: none;
+  text-decoration: none !important;
+
+}
+
+:host::ng-deep.p-tabview .p-tabview-panels {
+  padding: 0 0;
+  margin: 0 0;
+  /* width: 50%; */
+}
+
+.my-checkbox {
+  background-color: #00c8f9;
+  color: white;
+  border: none;
+}
+
+/* input[type="checkbox"] {
+  background-color: green;
+
+  width: 20px;
+  height: 20px;
+} */
+
+/* 
+.tableCenter {
+  margin: auto;
+  height: 100%;
+  margin-bottom: 10rem;
+}
+
+.tableCenter1 {
+  margin: auto;
+  width: 90%;
+}
+
+.table1 {
+  overflow-x: scroll;
+}
+
+table,
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+table,
+td,
+th {
+  border: 1px solid rgb(227, 12, 12);
+  text-align: center;
+}
+
+.button {
+  border-radius: 1.9rem;
+  color: white;
+  border: none;
+  background-color: #19294d;
+  padding: 0 0.5rem 0.3rem 0.5rem;
+  width: 9rem;
+}
+
+th {
+  background-color: #04e6e0;
+}
+
+.text {
+  text-align: center;
+  margin-top: auto;
+}
+
+.space {
+  line-height: 0.5cm;
+  text-align: center !important;
+} */
+
+/* # sourceMappingURL=collaboration-list.component.css.map */
+.long-table {
+  overflow-x: scroll;
+}
+
+.button-link {
+  background-color: #fff;
+  border: none;
+  text-decoration: underline;
+  font-weight: bold;
+}

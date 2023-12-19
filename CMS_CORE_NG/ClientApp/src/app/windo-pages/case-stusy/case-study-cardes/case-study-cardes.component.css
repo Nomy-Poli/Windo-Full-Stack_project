@@ -1,0 +1,179 @@
+@import url(../../../../styles/_cs-cards.scss);
+.flex_C {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.flex_C .container_card_flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
+}
+
+.flex_C .container_card_flex .cs_card {
+  height: 30rem;
+  width: 32%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #19294d;
+}
+
+.flex_C .container_card_flex .cs_card .logo_img {
+  height: 40rem;
+  max-height: 65%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.flex_C .container_card_flex .cs_card .logo_img1 {
+  height: 40rem;
+  max-height: 65%;
+  width: 100%;
+  background-color: #a0e48f;
+}
+
+.flex_C .container_card_flex .cs_card .title_text {
+  margin-top: 0.5rem;
+  color: white;
+  height: 10%;
+  width: 89%;
+}
+
+.flex_C .container_card_flex .cs_card .main_text {
+  color: white;
+  height: 10%;
+  width: 89%;
+  margin: 0;
+}
+
+.flex_C .container_card_flex .cs_card .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 15%;
+  color: white;
+  border-top: 1px solid;
+  padding-top: 0.5rem;
+  width: 89%;
+  margin: 0 1.5rem;
+}
+
+.flex_C .container_card_flex .cs_card .footer div label .small-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  margin-right: -1rem;
+  background-color: #fff;
+}
+
+.flex_C .container_card_flex .cs_card .footer div label h4.first-letter {
+  padding: .1rem 0;
+  font-size: 1.3rem;
+  width: 40px;
+  height: 40px;
+  margin: 0 -1rem 0 0 !important;
+}
+
+.flex_C .btn_getAll {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-top: 5rem;
+  width: 9rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 19px;
+  background-color: #04e6e0;
+  color: black;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.flex_C .btn_getAll:disabled {
+  opacity: 0.5;
+}
+
+.flex_C .Arrows-container {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.wrapp {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.Fcards {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Fscroll {
+  margin-bottom: 5rem;
+}
+
+.container_card_grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (295px)[4];
+      grid-template-columns: repeat(4, 295px);
+}
+
+.card {
+  margin: 0;
+  width: 100%;
+  max-width: 295px;
+  height: 460px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1501px) {
+  .container_card_grid {
+    width: 80%;
+    margin: auto;
+    gap: 2%;
+    -ms-grid-columns: (23.5%)[4];
+        grid-template-columns: repeat(4, 23.5%);
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .container_card_grid {
+    width: 90%;
+    margin: auto;
+    -ms-grid-columns: (23%)[4];
+        grid-template-columns: repeat(4, 23%);
+    gap: 1rem;
+  }
+}
+/*# sourceMappingURL=case-study-cardes.component.css.map */

@@ -1,0 +1,10 @@
+C:\TFS\WINDO\busoftBase\ModelService\bin\Debug\netcoreapp3.1\ModelService.deps.json
+C:\TFS\WINDO\busoftBase\ModelService\bin\Debug\netcoreapp3.1\ModelService.dll
+C:\TFS\WINDO\busoftBase\ModelService\bin\Debug\netcoreapp3.1\ModelService.pdb
+C:\TFS\WINDO\busoftBase\ModelService\obj\Debug\netcoreapp3.1\ModelService.csproj.AssemblyReference.cache
+C:\TFS\WINDO\busoftBase\ModelService\obj\Debug\netcoreapp3.1\ModelService.GeneratedMSBuildEditorConfig.editorconfig
+C:\TFS\WINDO\busoftBase\ModelService\obj\Debug\netcoreapp3.1\ModelService.AssemblyInfoInputs.cache
+C:\TFS\WINDO\busoftBase\ModelService\obj\Debug\netcoreapp3.1\ModelService.AssemblyInfo.cs
+C:\TFS\WINDO\busoftBase\ModelService\obj\Debug\netcoreapp3.1\ModelService.csproj.CoreCompileInputs.cache
+C:\TFS\WINDO\busoftBase\ModelService\obj\Debug\netcoreapp3.1\ModelService.dll
+C:\TFS\WINDO\busoftBase\ModelService\obj\Debug\netcoreapp3.1\ModelService.pdb

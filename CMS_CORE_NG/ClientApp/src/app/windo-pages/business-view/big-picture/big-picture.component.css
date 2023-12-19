@@ -1,0 +1,15 @@
+.big-src{
+    width: 100%;
+    border-radius: .6rem;
+    margin-top: -3.5rem;
+}
+.close_i {
+    margin-right: -3.7rem;
+  }
+  .icon_s {
+    max-width: 3rem;
+    max-height: 3rem;
+  }
+  .x:hover {
+    border-bottom: none;
+  }

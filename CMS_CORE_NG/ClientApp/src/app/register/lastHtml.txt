@@ -1,0 +1,339 @@
+  <!-- <div class="container">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3> הרשמה</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-4">
+              <fieldset>
+                <legend>שם משתמש:</legend>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fas fa-user pl-2"></i>
+                    </span>
+                  </div>
+                  <input type="text"
+                         class="form-control"
+                         placeholder="שם משתמש"
+                         formControlName="username" />
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-md-8">
+              <fieldset>
+                <legend>שם:</legend>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-group form-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-user pl-2"></i>
+                        </span>
+                      </div>
+                      <input type="text"
+                             class="form-control"
+                             placeholder="שם פרטי"
+                             formControlName="firstname" />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group form-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-user pl-2"></i>
+                        </span>
+                      </div>
+                      <input type="text"
+                             class="form-control"
+                             placeholder="שם משפחה"
+                             formControlName="lastname" />
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mt-3">
+              <fieldset>
+                <legend>כתובת מייל:</legend>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="input-group
+                                                    form-group">
+
+
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="fas
+                                                                fa-envelope"></i>
+                            </span>
+                          </div>
+                          <input type="email"
+                                 class="form-control"
+                                 placeholder="כתובת מייל"
+                                 formControlName="email" />
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="input-group
+                                                    form-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="fas
+                                                                fa-envelope"></i>
+                            </span>
+                          </div>
+                          <input type="email"
+                                 class="form-control"
+                                 placeholder="אימות מייל"
+                                 formControlName="confirmEmail" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-md-6 mt-3">
+              <fieldset>
+                <legend>סיסמה:</legend>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="input-group
+                                                    form-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="fas
+                                                                fa-key"></i>
+                            </span>
+                          </div>
+                          <input type="password"
+                                 class="form-control"
+                                 placeholder="סיסמה"
+                                 formControlName="password" />
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="input-group
+                                                    form-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="fas
+                                                                fa-key"></i>
+                            </span>
+                          </div>
+                          <input type="password"
+                                 class="form-control"
+                                 placeholder="אימות סיסמה"
+                                 formControlName="cpassword" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <fieldset style="margin-top: 0;">
+            <legend>פרטים אישיים:</legend>
+            <div class="row mt-2">
+              <div class="col-md-4">
+                <div class="input-group form-group">
+                  <select id="inputState"
+                          class="form-control"
+                          formControlName="country">
+                    <option selected value="" disabled>
+                      בחר
+                      עיר
+                    </option>
+                    <option *ngFor="let country of countries"
+                            [ngValue]="country.twoDigitCode">
+                      {{
+                                            country.name
+                      }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="input-group form-group">
+                  <input type="text"
+                         class="form-control"
+                         placeholder="מספר פלאפון"
+                         formControlName="phone" />
+                </div>
+              </div>
+
+              <div class="col-md-5" id="gender">
+                <fieldset>
+                  <div class="form-check form-check-inline
+                                        ml-2">
+                    <label class="form-check-label"
+                           for="maleRadio">גבר</label>
+                    <input class="form-check-input"
+                           type="radio"
+                           name="gender"
+                           id="maleRadio"
+                           value="male"
+                           formControlName="gender" />
+
+                  </div>
+                  <div class="form-check form-check-inline
+                                        ml-2">
+
+                    <input class="form-check-input"
+                           type="radio"
+                           name="gender"
+                           id="femaleRadio"
+                           value="female"
+                           formControlName="gender" />
+                    <label class="form-check-label"
+                           for="femaleRadio">אישה</label>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-12">
+                <div class="input-group form-group">
+
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fas fa-calendar pl-2"></i>
+                    </span>
+                  </div>
+                  <label for="datepicker"></label>
+                  <input id="datepicker"
+                         type="text"
+                         class="form-control"
+                         placeholder="תאריך לידה"
+                         formControlName="dob" />
+
+
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="row align-items-center remember mt-3">
+            <input type="checkbox" formControlName="terms" /> אני
+            מאשרת את קבלת התנאים
+          </div>
+
+          <div class="form-group">
+            <input type="submit"
+                   value="רישום"
+                   class="btn float-start login_btn"
+                   [disabled]="registerForm.invalid" />
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div *ngIf="username.touched && username.errors"
+                   class="errorMessage">
+                <span *ngIf="username.hasError('required')">נדרש שם משתמש</span>
+                <span *ngIf="username.hasError('maxlength')">
+                  מותר עד 10 תווים לשם משתמש
+                </span>
+                <span *ngIf="username.hasError('minlength')">
+                  צריך לפחות 2 תווים לשם משתמש
+                  .
+                </span>
+              </div>
+              <div *ngIf="firstname.touched && firstname.errors"
+                   class="errorMessage">
+                <span *ngIf="firstname.hasError('required')">נדרש שם פרטי.</span>
+                <span *ngIf="firstname.hasError('maxlength')">
+                  לשם פרטי מותר עד 10 תווים.
+                </span>
+                <span *ngIf="firstname.hasError('minlength')">
+                  צריך לפחות 2 תווים לשם פרטי.
+                </span>
+              </div>
+              <div *ngIf="lastname.touched && lastname.errors"
+                   class="errorMessage">
+                <span *ngIf="lastname.hasError('required')">
+                  נדרש שם משפחה .
+                </span>
+                <span *ngIf="lastname.hasError('maxlength')">
+                  מותר עד 10 תווים לשם משפחה.
+                </span>
+                <span *ngIf="lastname.hasError('minlength')">
+                  צריך לפחות 2 תווים לשם משפחה.
+                </span>
+              </div>
+              <div *ngIf="email.touched && email.errors"
+                   class="errorMessage">
+                <span *ngIf="email.hasError('required')">הכנס כתובת מייל.</span>
+                <span *ngIf="email.hasError('email')">הכנס כתובת מיל תקינה</span>
+
+              </div>
+              <div *ngIf="confirmEmail.touched &&
+                                confirmEmail.errors" class="errorMessage">
+                <span *ngIf="confirmEmail.hasError('required')">נדרש אימות סיסמה</span>
+                <span *ngIf="confirmEmail.hasError('mustMatch')">אימות סיסמה חייב להתאים לסיסמה</span>
+              </div>
+              <div *ngIf="password.touched && password.errors"
+                   class="errorMessage">
+                <span *ngIf="password.hasError('required')">נדרש להכניס סיסמה.</span>
+                <span *ngIf="password.hasError('maxlength')">מותר עד 10 תווים לסיסמה.</span>
+                <span *ngIf="password.hasError('minlength')">
+                  צריך לפחות 5 תווים לסיסמה.
+                </span>
+              </div>
+              <div *ngIf="cpassword.touched && cpassword.errors"
+                   class="errorMessage">
+                <span *ngIf="cpassword.hasError('required')">
+                  נדרש להכניס סיסמה.
+                </span>
+                <span *ngIf="cpassword.hasError('mustMatch')">
+                  הסיסמה חייבת להתאים .
+                </span>
+              </div>
+              <div *ngIf="country.touched && country.errors"
+                   class="errorMessage">
+                <span *ngIf="country.hasError('required')">נדרש לבחור מדינה.</span>
+              </div>
+              <div *ngIf="phone.touched && phone.errors"
+                   class="errorMessage">
+                <span *ngIf="phone.hasError('required')">נדרש להכניס מספר טלפון.</span>
+                <span *ngIf="phone.hasError('pattern')">
+                  נדרש מספר טלפון תקין
+                  .
+                </span>
+              </div>
+              <div *ngIf="gender.touched && gender.errors"
+                   class="errorMessage">
+                <span *ngIf="gender.hasError('required')">חובה לבחור מין.</span>
+              </div>
+              <div *ngIf="dob.touched && dob.errors"
+                   class="errorMessage">
+                <span *ngIf="dob.hasError('required')">חובה להכניס תאריך לידה.</span>
+              </div>
+              <div *ngIf="terms.touched && terms.errors"
+                   class="errorMessage">
+                <span *ngIf="terms.hasError('required')">סקירה וקבלת תנאים.</span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <div class="d-flex justify-content-center links">
+          יש לך כבר חשבון?
+          <a class="btn bg-warning ml-2 mr-1"
+             role="button"
+             [routerLink]="['/login']">כניסה</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

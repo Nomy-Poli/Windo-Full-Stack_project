@@ -1,0 +1,939 @@
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 12:17:33 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 5812
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 12:19:38 +03:00 | Level - Error |
+----------------------------------------------------------------------
+RequestId : "0HM88IG70BR2F:00000009"
+RequestPath : "/admin"
+SpanId : "|c655d1fe-402943073a9f4034."
+TraceId : "c655d1fe-402943073a9f4034"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 5812
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 12:21:39 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Value cannot be null. (Parameter 'name')"
+StackTrace : "   at System.Globalization.RegionInfo..ctor(String name)
+   at CookieService.CookieSvc.GetUserCountry() in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CookieService\CookieSvc.cs:line 90"
+InnerException : null
+Source : "System.Private.CoreLib"
+ActionId : "35b79cf7-2d47-4571-8b38-3a2652ea48cc"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.AccountController.Login (CMS_CORE_NG)"
+RequestId : "0HM88IG70BR2I:00000001"
+RequestPath : "/Admin/Account/Login"
+SpanId : "|c655d20d-402943073a9f4034."
+TraceId : "c655d20d-402943073a9f4034"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 5812
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 12:36:58 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 22244
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 12:40:26 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "The payload was invalid."
+StackTrace : "   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions(SendGridOptions options) in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CMS_CORE_NG\Areas\Admin\Controllers\EmailSettingsController.cs:line 89"
+InnerException : null
+Source : "Microsoft.AspNetCore.DataProtection"
+ActionId : "226ef6b2-905c-45c4-9877-942bf0c157f3"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions (CMS_CORE_NG)"
+RequestId : "0HM88IR1GCA62:0000003B"
+RequestPath : "/Admin/EmailSettings/UpdateSengridOptions"
+SpanId : "|e73e97-46161e8cfbd47338."
+TraceId : "e73e97-46161e8cfbd47338"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 22244
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 12:45:48 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "The payload was invalid."
+StackTrace : "   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions(SendGridOptions options) in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CMS_CORE_NG\Areas\Admin\Controllers\EmailSettingsController.cs:line 89"
+InnerException : null
+Source : "Microsoft.AspNetCore.DataProtection"
+ActionId : "226ef6b2-905c-45c4-9877-942bf0c157f3"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions (CMS_CORE_NG)"
+RequestId : "0HM88IR1GCA63:0000001F"
+RequestPath : "/Admin/EmailSettings/UpdateSengridOptions"
+SpanId : "|e73ea7-46161e8cfbd47338."
+TraceId : "e73ea7-46161e8cfbd47338"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 22244
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 12:46:21 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "The payload was invalid."
+StackTrace : "   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions(SendGridOptions options) in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CMS_CORE_NG\Areas\Admin\Controllers\EmailSettingsController.cs:line 89"
+InnerException : null
+Source : "Microsoft.AspNetCore.DataProtection"
+ActionId : "226ef6b2-905c-45c4-9877-942bf0c157f3"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions (CMS_CORE_NG)"
+RequestId : "0HM88IR1GCA63:0000003F"
+RequestPath : "/Admin/EmailSettings/UpdateSengridOptions"
+SpanId : "|e73eb7-46161e8cfbd47338."
+TraceId : "e73eb7-46161e8cfbd47338"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 22244
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 12:46:43 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "The payload was invalid."
+StackTrace : "   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions(SendGridOptions options) in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CMS_CORE_NG\Areas\Admin\Controllers\EmailSettingsController.cs:line 89"
+InnerException : null
+Source : "Microsoft.AspNetCore.DataProtection"
+ActionId : "226ef6b2-905c-45c4-9877-942bf0c157f3"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions (CMS_CORE_NG)"
+RequestId : "0HM88IR1GCA63:0000005F"
+RequestPath : "/Admin/EmailSettings/UpdateSengridOptions"
+SpanId : "|e73ec7-46161e8cfbd47338."
+TraceId : "e73ec7-46161e8cfbd47338"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 22244
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 12:47:53 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "The payload was invalid."
+StackTrace : "   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions(SendGridOptions options) in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CMS_CORE_NG\Areas\Admin\Controllers\EmailSettingsController.cs:line 89"
+InnerException : null
+Source : "Microsoft.AspNetCore.DataProtection"
+ActionId : "1b43d45b-1c48-42cf-a880-91937eb8079a"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions (CMS_CORE_NG)"
+RequestId : "0HM88IR1GCA63:0000007F"
+RequestPath : "/Admin/EmailSettings/UpdateSengridOptions"
+SpanId : "|e73ed7-46161e8cfbd47338."
+TraceId : "e73ed7-46161e8cfbd47338"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 22244
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 12:47:59 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "The payload was invalid."
+StackTrace : "   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions(SendGridOptions options) in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CMS_CORE_NG\Areas\Admin\Controllers\EmailSettingsController.cs:line 89"
+InnerException : null
+Source : "Microsoft.AspNetCore.DataProtection"
+ActionId : "1b43d45b-1c48-42cf-a880-91937eb8079a"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions (CMS_CORE_NG)"
+RequestId : "0HM88IR1GCA63:0000009F"
+RequestPath : "/Admin/EmailSettings/UpdateSengridOptions"
+SpanId : "|e73ee7-46161e8cfbd47338."
+TraceId : "e73ee7-46161e8cfbd47338"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 22244
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 13:35:07 +03:00 | Level - Error |
+----------------------------------------------------------------------
+RequestId : "0HM88IR1GCA64:00000001"
+RequestPath : "/Admin/SiteSettings"
+SpanId : "|e73fce-46161e8cfbd47338."
+TraceId : "e73fce-46161e8cfbd47338"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 22244
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 13:35:20 +03:00 | Level - Error |
+----------------------------------------------------------------------
+RequestId : "0HM88IR1GCA65:00000001"
+RequestPath : "/Admin/Profile/Security"
+SpanId : "|e73fdd-46161e8cfbd47338."
+TraceId : "e73fdd-46161e8cfbd47338"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 22244
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 13:39:05 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 2272
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 13:40:58 +03:00 | Level - Error |
+----------------------------------------------------------------------
+RequestId : "0HM88JTO4LHQV:00000005"
+RequestPath : "/admin"
+SpanId : "|3a9a2df2-4d5cb64cce737941."
+TraceId : "3a9a2df2-4d5cb64cce737941"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 2272
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 13:41:30 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Value cannot be null. (Parameter 'name')"
+StackTrace : "   at System.Globalization.RegionInfo..ctor(String name)
+   at CookieService.CookieSvc.GetUserCountry() in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CookieService\CookieSvc.cs:line 90"
+InnerException : null
+Source : "System.Private.CoreLib"
+ActionId : "b23db793-036e-4e74-a3d7-e9c56183e4c1"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.AccountController.Login (CMS_CORE_NG)"
+RequestId : "0HM88JTO4LHR1:00000001"
+RequestPath : "/Admin/Account/Login"
+SpanId : "|3a9a2df5-4d5cb64cce737941."
+TraceId : "3a9a2df5-4d5cb64cce737941"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 2272
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 13:47:48 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 3712
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 13:59:39 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 23564
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 14:07:04 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 22076
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 14:07:25 +03:00 | Level - Error |
+----------------------------------------------------------------------
+RequestId : "0HM88KDC8N2AN:00000001"
+RequestPath : "/admin"
+SpanId : "|9f1d5a33-4c1fa7faea999d5d."
+TraceId : "9f1d5a33-4c1fa7faea999d5d"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 22076
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 14:08:11 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Value cannot be null. (Parameter 'name')"
+StackTrace : "   at System.Globalization.RegionInfo..ctor(String name)
+   at CookieService.CookieSvc.GetUserCountry() in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CookieService\CookieSvc.cs:line 90"
+InnerException : null
+Source : "System.Private.CoreLib"
+ActionId : "d080e5c6-5073-4b51-9c38-b8bc6bd5e844"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.AccountController.Login (CMS_CORE_NG)"
+RequestId : "0HM88KDC8N2AO:00000001"
+RequestPath : "/Admin/Account/Login"
+SpanId : "|9f1d5a40-4c1fa7faea999d5d."
+TraceId : "9f1d5a40-4c1fa7faea999d5d"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 22076
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 14:11:45 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 1724
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 14:17:26 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 18124
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 14:21:22 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 1612
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 15:11:50 +03:00 | Level - Error |
+----------------------------------------------------------------------
+RequestId : "0HM88KLC58JNQ:00000109"
+RequestPath : "/Admin/User"
+SpanId : "|8632f748-4d174dbb21e42be5."
+TraceId : "8632f748-4d174dbb21e42be5"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 1612
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 15:12:56 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Value cannot be null. (Parameter 'name')"
+StackTrace : "   at System.Globalization.RegionInfo..ctor(String name)
+   at CookieService.CookieSvc.GetUserCountry() in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CookieService\CookieSvc.cs:line 90"
+InnerException : null
+Source : "System.Private.CoreLib"
+ActionId : "18a0bdef-189d-407c-abb1-0513a01283ac"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.AccountController.Login (CMS_CORE_NG)"
+RequestId : "0HM88KLC58JNQ:0000014B"
+RequestPath : "/Admin/Account/Login"
+SpanId : "|8632f769-4d174dbb21e42be5."
+TraceId : "8632f769-4d174dbb21e42be5"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 1612
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 15:25:31 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 19324
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 15:54:47 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 4116
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 15:58:52 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "The payload was invalid."
+StackTrace : "   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions(SendGridOptions options) in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CMS_CORE_NG\Areas\Admin\Controllers\EmailSettingsController.cs:line 89"
+InnerException : null
+Source : "Microsoft.AspNetCore.DataProtection"
+ActionId : "6eb94aba-731e-42b1-9dfc-be9a1e841e5c"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions (CMS_CORE_NG)"
+RequestId : "0HM88M9LFAIS1:00000041"
+RequestPath : "/Admin/EmailSettings/UpdateSengridOptions"
+SpanId : "|ba246390-4d7c8849234aa22f."
+TraceId : "ba246390-4d7c8849234aa22f"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 4116
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 15:59:44 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "The payload was invalid."
+StackTrace : "   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions(SendGridOptions options) in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CMS_CORE_NG\Areas\Admin\Controllers\EmailSettingsController.cs:line 89"
+InnerException : null
+Source : "Microsoft.AspNetCore.DataProtection"
+ActionId : "046ea5ce-bd60-4d21-afc6-e0a0710b23a8"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions (CMS_CORE_NG)"
+RequestId : "0HM88M9LFAIS2:00000021"
+RequestPath : "/Admin/EmailSettings/UpdateSengridOptions"
+SpanId : "|ba2463a1-4d7c8849234aa22f."
+TraceId : "ba2463a1-4d7c8849234aa22f"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 4116
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 15:59:56 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "The payload was invalid."
+StackTrace : "   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions(SendGridOptions options) in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CMS_CORE_NG\Areas\Admin\Controllers\EmailSettingsController.cs:line 89"
+InnerException : null
+Source : "Microsoft.AspNetCore.DataProtection"
+ActionId : "046ea5ce-bd60-4d21-afc6-e0a0710b23a8"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions (CMS_CORE_NG)"
+RequestId : "0HM88M9LFAIS2:00000065"
+RequestPath : "/Admin/EmailSettings/UpdateSengridOptions"
+SpanId : "|ba2463c3-4d7c8849234aa22f."
+TraceId : "ba2463c3-4d7c8849234aa22f"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 4116
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:15:15 +03:00 | Level - Error |
+----------------------------------------------------------------------
+RequestId : "0HM88M9LFAIS7:00000001"
+RequestPath : "/Admin/Profile/Activity"
+SpanId : "|ba246428-4d7c8849234aa22f."
+TraceId : "ba246428-4d7c8849234aa22f"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 4116
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:16:21 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Value cannot be null. (Parameter 'name')"
+StackTrace : "   at System.Globalization.RegionInfo..ctor(String name)
+   at CookieService.CookieSvc.GetUserCountry() in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CookieService\CookieSvc.cs:line 90"
+InnerException : null
+Source : "System.Private.CoreLib"
+ActionId : "84b0a9c9-9e11-4617-ba0b-718f0bd9dc87"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.AccountController.Login (CMS_CORE_NG)"
+RequestId : "0HM88M9LFAIS7:00000021"
+RequestPath : "/Admin/Account/Login"
+SpanId : "|ba246438-4d7c8849234aa22f."
+TraceId : "ba246438-4d7c8849234aa22f"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 4116
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:17:26 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Value cannot be null. (Parameter 'name')"
+StackTrace : "   at System.Globalization.RegionInfo..ctor(String name)
+   at CookieService.CookieSvc.GetUserCountry() in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CookieService\CookieSvc.cs:line 90"
+InnerException : null
+Source : "System.Private.CoreLib"
+ActionId : "ba4b0e50-e328-4fe1-87c3-2c192486e334"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.ProfileController.UpdateProfile (CMS_CORE_NG)"
+RequestId : "0HM88M9LFAIS7:000000A3"
+RequestPath : "/api/v1/Profile/UpdateProfile"
+SpanId : "|ba246479-4d7c8849234aa22f."
+TraceId : "ba246479-4d7c8849234aa22f"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 4116
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:21:01 +03:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "86d31105-92ce-4ca1-98fb-9fb7371a4478"
+role : "Customer"
+EventId : { Id: 5 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "d3195450-d7e5-4a29-b3df-0d319b4c42c4"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.UserController.EditUser (CMS_CORE_NG)"
+RequestId : "0HM88M9LFAIS7:000000E7"
+RequestPath : "/api/v1/user/edituser/86d31105-92ce-4ca1-98fb-9fb7371a4478"
+SpanId : "|ba24649b-4d7c8849234aa22f."
+TraceId : "ba24649b-4d7c8849234aa22f"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 4116
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:21:02 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Value cannot be null. (Parameter 'name')"
+StackTrace : "   at System.Globalization.RegionInfo..ctor(String name)
+   at CookieService.CookieSvc.GetUserCountry() in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CookieService\CookieSvc.cs:line 90"
+InnerException : null
+Source : "System.Private.CoreLib"
+ActionId : "d3195450-d7e5-4a29-b3df-0d319b4c42c4"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.UserController.EditUser (CMS_CORE_NG)"
+RequestId : "0HM88M9LFAIS7:000000E7"
+RequestPath : "/api/v1/user/edituser/86d31105-92ce-4ca1-98fb-9fb7371a4478"
+SpanId : "|ba24649b-4d7c8849234aa22f."
+TraceId : "ba24649b-4d7c8849234aa22f"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 4116
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:22:16 +03:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "86d31105-92ce-4ca1-98fb-9fb7371a4478"
+role : "Customer"
+EventId : { Id: 5 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "d3195450-d7e5-4a29-b3df-0d319b4c42c4"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.UserController.EditUser (CMS_CORE_NG)"
+RequestId : "0HM88M9LFAIS7:0000012F"
+RequestPath : "/api/v1/user/edituser/86d31105-92ce-4ca1-98fb-9fb7371a4478"
+SpanId : "|ba2464bf-4d7c8849234aa22f."
+TraceId : "ba2464bf-4d7c8849234aa22f"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 4116
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:22:17 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Value cannot be null. (Parameter 'name')"
+StackTrace : "   at System.Globalization.RegionInfo..ctor(String name)
+   at CookieService.CookieSvc.GetUserCountry() in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CookieService\CookieSvc.cs:line 90"
+InnerException : null
+Source : "System.Private.CoreLib"
+ActionId : "d3195450-d7e5-4a29-b3df-0d319b4c42c4"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.UserController.EditUser (CMS_CORE_NG)"
+RequestId : "0HM88M9LFAIS7:0000012F"
+RequestPath : "/api/v1/user/edituser/86d31105-92ce-4ca1-98fb-9fb7371a4478"
+SpanId : "|ba2464bf-4d7c8849234aa22f."
+TraceId : "ba2464bf-4d7c8849234aa22f"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 4116
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:25:00 +03:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "f9e9ee38-a18d-4f00-807d-c22ddf2f557d"
+role : "Administrator"
+EventId : { Id: 5 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "d3195450-d7e5-4a29-b3df-0d319b4c42c4"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.UserController.EditUser (CMS_CORE_NG)"
+RequestId : "0HM88M9LFAIS7:00000177"
+RequestPath : "/api/v1/user/edituser/f9e9ee38-a18d-4f00-807d-c22ddf2f557d"
+SpanId : "|ba2464e3-4d7c8849234aa22f."
+TraceId : "ba2464e3-4d7c8849234aa22f"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 4116
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:25:00 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Value cannot be null. (Parameter 'name')"
+StackTrace : "   at System.Globalization.RegionInfo..ctor(String name)
+   at CookieService.CookieSvc.GetUserCountry() in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CookieService\CookieSvc.cs:line 90"
+InnerException : null
+Source : "System.Private.CoreLib"
+ActionId : "d3195450-d7e5-4a29-b3df-0d319b4c42c4"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.UserController.EditUser (CMS_CORE_NG)"
+RequestId : "0HM88M9LFAIS7:00000177"
+RequestPath : "/api/v1/user/edituser/f9e9ee38-a18d-4f00-807d-c22ddf2f557d"
+SpanId : "|ba2464e3-4d7c8849234aa22f."
+TraceId : "ba2464e3-4d7c8849234aa22f"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 4116
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:27:04 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 25140
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:30:47 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 24828
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:33:14 +03:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "f9e9ee38-a18d-4f00-807d-c22ddf2f557d"
+role : "Administrator"
+EventId : { Id: 5 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "ba9e9ed7-2c32-434d-b86b-055d80af5e57"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.UserController.EditUser (CMS_CORE_NG)"
+RequestId : "0HM88MTOS6RAH:00000001"
+RequestPath : "/api/v1/user/edituser/f9e9ee38-a18d-4f00-807d-c22ddf2f557d"
+SpanId : "|46212e6e-42ea7824f45799dc."
+TraceId : "46212e6e-42ea7824f45799dc"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 24828
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:33:15 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Value cannot be null. (Parameter 'name')"
+StackTrace : "   at System.Globalization.RegionInfo..ctor(String name)
+   at CookieService.CookieSvc.GetUserCountry() in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CookieService\CookieSvc.cs:line 90"
+InnerException : null
+Source : "System.Private.CoreLib"
+ActionId : "ba9e9ed7-2c32-434d-b86b-055d80af5e57"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.UserController.EditUser (CMS_CORE_NG)"
+RequestId : "0HM88MTOS6RAH:00000001"
+RequestPath : "/api/v1/user/edituser/f9e9ee38-a18d-4f00-807d-c22ddf2f557d"
+SpanId : "|46212e6e-42ea7824f45799dc."
+TraceId : "46212e6e-42ea7824f45799dc"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 24828
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:33:34 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "The payload was invalid."
+StackTrace : "   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions(SendGridOptions options) in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CMS_CORE_NG\Areas\Admin\Controllers\EmailSettingsController.cs:line 89"
+InnerException : null
+Source : "Microsoft.AspNetCore.DataProtection"
+ActionId : "e48c6206-843c-4f93-8240-210d5cc866cc"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions (CMS_CORE_NG)"
+RequestId : "0HM88MTOS6RAJ:00000001"
+RequestPath : "/Admin/EmailSettings/UpdateSengridOptions"
+SpanId : "|46212e80-42ea7824f45799dc."
+TraceId : "46212e80-42ea7824f45799dc"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 24828
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 26/04/2021 16:34:52 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "The payload was invalid."
+StackTrace : "   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions(SendGridOptions options) in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CMS_CORE_NG\Areas\Admin\Controllers\EmailSettingsController.cs:line 89"
+InnerException : null
+Source : "Microsoft.AspNetCore.DataProtection"
+ActionId : "e48c6206-843c-4f93-8240-210d5cc866cc"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.EmailSettingsController.UpdateSengridOptions (CMS_CORE_NG)"
+RequestId : "0HM88MTOS6RAK:00000001"
+RequestPath : "/Admin/EmailSettings/UpdateSengridOptions"
+SpanId : "|46212e8e-42ea7824f45799dc."
+TraceId : "46212e8e-42ea7824f45799dc"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 24828
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------

@@ -1,0 +1,17 @@
+C:\TFS\WINDO\busoftBase\EmailService\bin\Debug\netcoreapp3.1\EmailService.deps.json
+C:\TFS\WINDO\busoftBase\EmailService\bin\Debug\netcoreapp3.1\EmailService.dll
+C:\TFS\WINDO\busoftBase\EmailService\bin\Debug\netcoreapp3.1\EmailService.pdb
+C:\TFS\WINDO\busoftBase\EmailService\bin\Debug\netcoreapp3.1\FunctionalService.dll
+C:\TFS\WINDO\busoftBase\EmailService\bin\Debug\netcoreapp3.1\LoggingService.dll
+C:\TFS\WINDO\busoftBase\EmailService\bin\Debug\netcoreapp3.1\ModelService.dll
+C:\TFS\WINDO\busoftBase\EmailService\bin\Debug\netcoreapp3.1\FunctionalService.pdb
+C:\TFS\WINDO\busoftBase\EmailService\bin\Debug\netcoreapp3.1\ModelService.pdb
+C:\TFS\WINDO\busoftBase\EmailService\bin\Debug\netcoreapp3.1\LoggingService.pdb
+C:\TFS\WINDO\busoftBase\EmailService\obj\Debug\netcoreapp3.1\EmailService.csproj.AssemblyReference.cache
+C:\TFS\WINDO\busoftBase\EmailService\obj\Debug\netcoreapp3.1\EmailService.GeneratedMSBuildEditorConfig.editorconfig
+C:\TFS\WINDO\busoftBase\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfoInputs.cache
+C:\TFS\WINDO\busoftBase\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfo.cs
+C:\TFS\WINDO\busoftBase\EmailService\obj\Debug\netcoreapp3.1\EmailService.csproj.CoreCompileInputs.cache
+C:\TFS\WINDO\busoftBase\EmailService\obj\Debug\netcoreapp3.1\EmailService.csproj.CopyComplete
+C:\TFS\WINDO\busoftBase\EmailService\obj\Debug\netcoreapp3.1\EmailService.dll
+C:\TFS\WINDO\busoftBase\EmailService\obj\Debug\netcoreapp3.1\EmailService.pdb

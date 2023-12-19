@@ -1,0 +1,127 @@
+.text {
+  text-align: center;
+}
+
+.flex-banners {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 3rem 1rem;
+}
+
+.banner {
+  margin: 0 0 4rem;
+  width: 40%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.banner h3 {
+  font-weight: var(--clear-font-weight);
+}
+
+.banner .space-around {
+  margin-top: auto;
+}
+
+.banner .blue-big-button {
+  margin: 0.3rem 1rem;
+  width: auto;
+  min-width: 2rem;
+}
+
+.position-abs {
+  left: -2%;
+  top: -3%;
+}
+
+.position-abs .blue-big-button.smaller {
+  width: auto;
+  min-width: 3rem;
+}
+
+.item {
+  width: 30%;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  cursor: pointer;
+}
+
+.item:first-child {
+  width: 100%;
+  margin: 1rem 35.2%;
+}
+
+.item:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.space-around {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.example-image {
+  width: 60%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.padding-1 {
+  padding: 0 2rem;
+}
+
+.banner-example {
+  margin: 1rem;
+  border: 1px solid darkgreen;
+  background-color: lightgreen;
+  color: darkgray;
+}
+
+.publication {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.publication .bold {
+  font-weight: var(--clear-font-weight);
+}
+
+.publication a {
+  width: 10rem;
+  height: 2rem;
+  padding: 0.5rem;
+}
+
+.publication a:hover {
+  text-decoration: none;
+}
+
+.publication .grid {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: repeat(3, 1rem);
+      -ms-flex-align: repeat(3, 1rem);
+          align-items: repeat(3, 1rem);
+}
+
+.publication i.pi-check-circle {
+  color: #4ebe9a;
+}
+
+.publication button {
+  margin: 2rem 0;
+}
+/*# sourceMappingURL=baners-catalog.component.css.map */

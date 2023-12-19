@@ -1,0 +1,1032 @@
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 08:25:48 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 21808
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 08:27:12 +03:00 | Level - Error |
+----------------------------------------------------------------------
+RequestId : "0HM897JBKI4R0:00000001"
+RequestPath : "/admin"
+SpanId : "|f42f20d1-4e7e7a9d5c6f78dc."
+TraceId : "f42f20d1-4e7e7a9d5c6f78dc"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 21808
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 08:27:29 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Value cannot be null. (Parameter 'name')"
+StackTrace : "   at System.Globalization.RegionInfo..ctor(String name)
+   at CookieService.CookieSvc.GetUserCountry() in C:\TFS\4 identity-work bootstrap5 hebrew\busoftBase\CookieService\CookieSvc.cs:line 90"
+InnerException : null
+Source : "System.Private.CoreLib"
+ActionId : "245f12ea-ed4d-4c8c-9795-e1691a757c00"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.AccountController.Login (CMS_CORE_NG)"
+RequestId : "0HM897JBKI4R1:00000001"
+RequestPath : "/Admin/Account/Login"
+SpanId : "|f42f20de-4e7e7a9d5c6f78dc."
+TraceId : "f42f20de-4e7e7a9d5c6f78dc"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-4GF5G0T"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.11"
+UserName : "ruti"
+ProcessId : 21808
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 12:30:42 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "LAPTOP-1HDF8S1P"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.18363.0"
+Version : "3.1.14"
+UserName : "Hadassah Skurnik"
+ProcessId : 14204
+ProcessName : "iisexpress"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 12:32:38 +03:00 | Level - Error |
+----------------------------------------------------------------------
+elapsed : "31"
+parameters : "@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)"
+commandType : Text
+commandTimeout : 30
+newLine : "
+"
+commandText : "SET NOCOUNT ON;
+INSERT INTO [Contact] ([email], [message], [name], [phoneNumber])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [id]
+FROM [Contact]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();"
+EventId : { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }
+SourceContext : "Microsoft.EntityFrameworkCore.Database.Command"
+ActionId : "c14af268-99fe-46ed-8e61-2373f7c9e2e2"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.ContactController.Contact (CMS_CORE_NG)"
+RequestId : "80000022-0009-fe00-b63f-84710c7967bb"
+RequestPath : "/api/v1.0/Contact/Contact"
+SpanId : "|a01eda77-489ca71e20bcbe1e."
+TraceId : "a01eda77-489ca71e20bcbe1e"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "LAPTOP-1HDF8S1P"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.18363.0"
+Version : "3.1.14"
+UserName : "Hadassah Skurnik"
+ProcessId : 14204
+ProcessName : "iisexpress"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 12:32:38 +03:00 | Level - Error |
+----------------------------------------------------------------------
+contextType : "DataService.ApplicationDbContext"
+newline : "
+"
+error : "Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Contact'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:283bce78-ba34-4b21-b931-cbae8cbaf4e8
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)"
+EventId : { Id: 10000, Name: "Microsoft.EntityFrameworkCore.Update.SaveChangesFailed" }
+SourceContext : "Microsoft.EntityFrameworkCore.Update"
+ActionId : "c14af268-99fe-46ed-8e61-2373f7c9e2e2"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.ContactController.Contact (CMS_CORE_NG)"
+RequestId : "80000022-0009-fe00-b63f-84710c7967bb"
+RequestPath : "/api/v1.0/Contact/Contact"
+SpanId : "|a01eda77-489ca71e20bcbe1e."
+TraceId : "a01eda77-489ca71e20bcbe1e"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "LAPTOP-1HDF8S1P"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.18363.0"
+Version : "3.1.14"
+UserName : "Hadassah Skurnik"
+ProcessId : 14204
+ProcessName : "iisexpress"
+----------------------EXCEPTION DETAILS-------------------------------
+Exception - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Contact'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:283bce78-ba34-4b21-b931-cbae8cbaf4e8
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)StackTrace -    at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)Message - An error occurred while updating the entries. See the inner exception for details.Source - Microsoft.EntityFrameworkCore.RelationalInnerException - Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Contact'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:283bce78-ba34-4b21-b931-cbae8cbaf4e8
+Error Number:208,State:1,Class:16---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 12:36:10 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "LAPTOP-1HDF8S1P"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.18363.0"
+Version : "3.1.14"
+UserName : "Hadassah Skurnik"
+ProcessId : 30548
+ProcessName : "iisexpress"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 12:36:52 +03:00 | Level - Error |
+----------------------------------------------------------------------
+elapsed : "27"
+parameters : "@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)"
+commandType : Text
+commandTimeout : 30
+newLine : "
+"
+commandText : "SET NOCOUNT ON;
+INSERT INTO [Contact] ([email], [message], [name], [phoneNumber])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [id]
+FROM [Contact]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();"
+EventId : { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }
+SourceContext : "Microsoft.EntityFrameworkCore.Database.Command"
+ActionId : "529d5e25-cc22-4ebf-bcbf-ad76a986dfee"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.ContactController.Contact (CMS_CORE_NG)"
+RequestId : "800000ba-0002-fd00-b63f-84710c7967bb"
+RequestPath : "/api/v1.0/Contact/Contact"
+SpanId : "|7d95325d-4b9d3c78ef624e9b."
+TraceId : "7d95325d-4b9d3c78ef624e9b"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "LAPTOP-1HDF8S1P"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.18363.0"
+Version : "3.1.14"
+UserName : "Hadassah Skurnik"
+ProcessId : 30548
+ProcessName : "iisexpress"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 12:36:53 +03:00 | Level - Error |
+----------------------------------------------------------------------
+contextType : "DataService.ApplicationDbContext"
+newline : "
+"
+error : "Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Contact'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:772228c7-eb76-49c1-9c80-9c5641a046b6
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)"
+EventId : { Id: 10000, Name: "Microsoft.EntityFrameworkCore.Update.SaveChangesFailed" }
+SourceContext : "Microsoft.EntityFrameworkCore.Update"
+ActionId : "529d5e25-cc22-4ebf-bcbf-ad76a986dfee"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.ContactController.Contact (CMS_CORE_NG)"
+RequestId : "800000ba-0002-fd00-b63f-84710c7967bb"
+RequestPath : "/api/v1.0/Contact/Contact"
+SpanId : "|7d95325d-4b9d3c78ef624e9b."
+TraceId : "7d95325d-4b9d3c78ef624e9b"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "LAPTOP-1HDF8S1P"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.18363.0"
+Version : "3.1.14"
+UserName : "Hadassah Skurnik"
+ProcessId : 30548
+ProcessName : "iisexpress"
+----------------------EXCEPTION DETAILS-------------------------------
+Exception - Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Contact'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:772228c7-eb76-49c1-9c80-9c5641a046b6
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)StackTrace -    at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)Message - An error occurred while updating the entries. See the inner exception for details.Source - Microsoft.EntityFrameworkCore.RelationalInnerException - Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Contact'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+<<<<<<< HEAD
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Microsoft.AspNetCore.DataProtection.EntityFrameworkCore.EntityFrameworkCoreXmlRepository`1.GetAllElements()
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.GetAllKeys()
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider.CreateCacheableKeyRingCore(DateTimeOffset now, IKey keyJustAdded)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.ICacheableKeyRingProvider.GetCacheableKeyRing(DateTimeOffset now)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider.GetCurrentKeyRingCore(DateTime utcNow, Boolean forceRefresh)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider.GetCurrentKeyRing()
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Protect(Byte[] plaintext)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 09:35:13 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 36288
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 09:43:10 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 38332
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 09:54:50 +03:00 | Level - Error |
+----------------------------------------------------------------------
+RequestId : "0HM898UNVVEV2:000000BB"
+RequestPath : "/admin"
+SpanId : "|e76ef787-489ec770484e606d."
+TraceId : "e76ef787-489ec770484e606d"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 38332
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 09:54:58 +03:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Value cannot be null. (Parameter 'name')"
+StackTrace : "   at System.Globalization.RegionInfo..ctor(String name)
+   at CookieService.CookieSvc.GetUserCountry() in C:\TFS\identity windo\CMS_CORE_NG\CookieService\CookieSvc.cs:line 90"
+InnerException : null
+Source : "System.Private.CoreLib"
+ActionId : "cbb6fc51-6b75-4911-a4bd-9ad68ce8fd11"
+ActionName : "CMS_CORE_NG.Areas.Admin.Controllers.AccountController.Login (CMS_CORE_NG)"
+RequestId : "0HM898UNVVEV2:000000D5"
+RequestPath : "/Admin/Account/Login"
+SpanId : "|e76ef794-489ec770484e606d."
+TraceId : "e76ef794-489ec770484e606d"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 38332
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 10:04:57 +03:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "3367a57f-e0fe-45fa-99f2-39c7ea89bcc3"
+errors : "DuplicateUserName"
+EventId : { Id: 13 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "b52b481b-1fd8-4480-8ae2-34161c082d6f"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HM898UNVVEV2:000001C9"
+RequestPath : "/api/v1/account/register"
+SpanId : "|e76ef836-489ec770484e606d."
+TraceId : "e76ef836-489ec770484e606d"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 38332
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 10:05:03 +03:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "26e62eba-9805-4a90-a0c4-211a1c7b4b00"
+errors : "DuplicateUserName"
+EventId : { Id: 13 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "b52b481b-1fd8-4480-8ae2-34161c082d6f"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HM898UNVVEV2:000001CB"
+RequestPath : "/api/v1/account/register"
+SpanId : "|e76ef837-489ec770484e606d."
+TraceId : "e76ef837-489ec770484e606d"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 38332
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 10:37:19 +03:00 | Level - Error |
+----------------------------------------------------------------------
+elapsed : "15"
+parameters : ""
+commandType : Text
+commandTimeout : 30
+newLine : "
+"
+commandText : "CREATE TABLE [Cities] (
+    [cityId] int NOT NULL IDENTITY,
+    [name] int NOT NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([cityId])
+);"
+EventId : { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }
+SourceContext : "Microsoft.EntityFrameworkCore.Database.Command"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.19042.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 27420
+ProcessName : "dotnet"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 10:40:57 +03:00 | Level - Error |
+----------------------------------------------------------------------
+elapsed : "2"
+parameters : ""
+commandType : Text
+commandTimeout : 30
+newLine : "
+"
+commandText : "CREATE TABLE [Cities] (
+    [cityId] int NOT NULL IDENTITY,
+    [name] int NOT NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([cityId])
+);"
+EventId : { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }
+SourceContext : "Microsoft.EntityFrameworkCore.Database.Command"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.19042.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 28100
+ProcessName : "dotnet"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 10:41:59 +03:00 | Level - Error |
+----------------------------------------------------------------------
+elapsed : "1"
+parameters : ""
+commandType : Text
+commandTimeout : 30
+newLine : "
+"
+commandText : "CREATE TABLE [Cities] (
+    [cityId] int NOT NULL IDENTITY,
+    [name] nvarchar(max) NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([cityId])
+);"
+EventId : { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }
+SourceContext : "Microsoft.EntityFrameworkCore.Database.Command"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.19042.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 32424
+ProcessName : "dotnet"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 10:44:43 +03:00 | Level - Error |
+----------------------------------------------------------------------
+elapsed : "3"
+parameters : ""
+commandType : Text
+commandTimeout : 30
+newLine : "
+"
+commandText : "CREATE TABLE [Cities] (
+    [cityId] int NOT NULL IDENTITY,
+    [name] nvarchar(max) NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([cityId])
+);"
+EventId : { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }
+SourceContext : "Microsoft.EntityFrameworkCore.Database.Command"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.19042.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 33852
+ProcessName : "dotnet"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 10:48:43 +03:00 | Level - Error |
+----------------------------------------------------------------------
+elapsed : "2"
+parameters : ""
+commandType : Text
+commandTimeout : 30
+newLine : "
+"
+commandText : "CREATE TABLE [Cities] (
+    [cityId] int NOT NULL IDENTITY,
+    [name] nvarchar(max) NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([cityId])
+);"
+EventId : { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }
+SourceContext : "Microsoft.EntityFrameworkCore.Database.Command"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.19042.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 25700
+ProcessName : "dotnet"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 10:52:48 +03:00 | Level - Error |
+----------------------------------------------------------------------
+elapsed : "1"
+parameters : ""
+commandType : Text
+commandTimeout : 30
+newLine : "
+"
+commandText : "CREATE TABLE [Cities] (
+    [cityId] int NOT NULL IDENTITY,
+    [name] nvarchar(max) NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([cityId])
+);"
+EventId : { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }
+SourceContext : "Microsoft.EntityFrameworkCore.Database.Command"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.19042.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 38088
+ProcessName : "dotnet"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 11:15:31 +03:00 | Level - Error |
+----------------------------------------------------------------------
+elapsed : "1"
+parameters : ""
+commandType : Text
+commandTimeout : 30
+newLine : "
+"
+commandText : "CREATE TABLE [Cities] (
+    [cityId] int NOT NULL IDENTITY,
+    [name] nvarchar(max) NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([cityId])
+);"
+EventId : { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }
+SourceContext : "Microsoft.EntityFrameworkCore.Database.Command"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.19042.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 35796
+ProcessName : "dotnet"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 11:24:33 +03:00 | Level - Error |
+----------------------------------------------------------------------
+elapsed : "4"
+parameters : ""
+commandType : Text
+commandTimeout : 30
+newLine : "
+"
+commandText : "CREATE TABLE [Cities] (
+    [cityId] int NOT NULL IDENTITY,
+    [name] nvarchar(max) NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([cityId])
+);"
+EventId : { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }
+SourceContext : "Microsoft.EntityFrameworkCore.Database.Command"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.19042.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 32240
+ProcessName : "dotnet"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 11:25:24 +03:00 | Level - Error |
+----------------------------------------------------------------------
+elapsed : "1"
+parameters : ""
+commandType : Text
+commandTimeout : 30
+newLine : "
+"
+commandText : "CREATE TABLE [Cities] (
+    [cityId] int NOT NULL IDENTITY,
+    [name] nvarchar(max) NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([cityId])
+);"
+EventId : { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }
+SourceContext : "Microsoft.EntityFrameworkCore.Database.Command"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.19042.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 18916
+ProcessName : "dotnet"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 11:28:17 +03:00 | Level - Error |
+----------------------------------------------------------------------
+elapsed : "1"
+parameters : ""
+commandType : Text
+commandTimeout : 30
+newLine : "
+"
+commandText : "CREATE TABLE [Cities] (
+    [cityId] int NOT NULL IDENTITY,
+    [name] nvarchar(max) NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([cityId])
+);"
+EventId : { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }
+SourceContext : "Microsoft.EntityFrameworkCore.Database.Command"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 10.0.19042.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 14644
+ProcessName : "dotnet"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 11:51:23 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 17008
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 12:02:26 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 36032
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 12:10:30 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 36032
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 12:11:26 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 17384
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 12:15:08 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 17384
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 12:19:26 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 37252
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 12:26:21 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 32552
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 12:33:26 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 32552
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 13:05:54 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 28848
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 13:10:14 +03:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "23692117-7b32-40d9-904c-16cdbfc62a63"
+errors : "DuplicateUserName;DuplicateEmail"
+EventId : { Id: 13 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "c6e9d392-fef4-488b-897c-6dd1f82bdd2e"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HM89CG0K7K2R:0000003D"
+RequestPath : "/api/v1/account/register"
+SpanId : "|a5b3a2d4-4d02c353b0ee7581."
+TraceId : "a5b3a2d4-4d02c353b0ee7581"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 28848
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 13:12:28 +03:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "8a905f8d-872d-463e-9e12-3a6c04ce636e"
+errors : "DuplicateEmail"
+EventId : { Id: 13 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "c6e9d392-fef4-488b-897c-6dd1f82bdd2e"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HM89CG0K7K2R:00000041"
+RequestPath : "/api/v1/account/register"
+SpanId : "|a5b3a2d6-4d02c353b0ee7581."
+TraceId : "a5b3a2d6-4d02c353b0ee7581"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 28848
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 13:17:35 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 22412
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 13:18:56 +03:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "1ea31941-7ae6-433b-b996-7714e85cd4e2"
+errors : "DuplicateUserName"
+EventId : { Id: 13 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "988359f0-b14a-48dc-ae86-bf3da7df7c1a"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HM89CMHUQKDG:00000019"
+RequestPath : "/api/v1/account/register"
+SpanId : "|d258bb8e-49103e047a3fde31."
+TraceId : "d258bb8e-49103e047a3fde31"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 22412
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 13:24:03 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 22412
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 13:28:36 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 32732
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 13:45:52 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 26916
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 13:51:59 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 26916
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 14:05:35 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 35376
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 14:27:32 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 35376
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 15:46:17 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 18920
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 27/04/2021 15:51:43 +03:00 | Level - Error |
+----------------------------------------------------------------------
+SourceContext : "Microsoft.AspNetCore.SpaServices"
+Application : "CMS_CORE_NG"
+MachineName : "DESKTOP-T70OQEC"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.14"
+UserName : "hedva"
+ProcessId : 18920
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------

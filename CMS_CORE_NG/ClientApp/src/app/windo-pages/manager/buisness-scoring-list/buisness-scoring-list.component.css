@@ -1,0 +1,18 @@
+@import url("../../../../styles/_primeng-table.scss");
+
+.loading-spinner {
+  position: absolute;
+    top: 30%;
+    left: 45%;
+    width: 200px;
+    height: 200px;
+    z-index: 10;
+}
+
+.td-loading {
+  z-index: 10;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #00000021;
+}

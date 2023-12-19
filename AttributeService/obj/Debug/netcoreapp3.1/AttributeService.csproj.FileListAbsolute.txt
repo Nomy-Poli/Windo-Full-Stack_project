@@ -1,0 +1,10 @@
+C:\TFS\WINDO\busoftBase\AttributeService\bin\Debug\netcoreapp3.1\AttributeService.deps.json
+C:\TFS\WINDO\busoftBase\AttributeService\bin\Debug\netcoreapp3.1\AttributeService.dll
+C:\TFS\WINDO\busoftBase\AttributeService\bin\Debug\netcoreapp3.1\AttributeService.pdb
+C:\TFS\WINDO\busoftBase\AttributeService\obj\Debug\netcoreapp3.1\AttributeService.csproj.AssemblyReference.cache
+C:\TFS\WINDO\busoftBase\AttributeService\obj\Debug\netcoreapp3.1\AttributeService.GeneratedMSBuildEditorConfig.editorconfig
+C:\TFS\WINDO\busoftBase\AttributeService\obj\Debug\netcoreapp3.1\AttributeService.AssemblyInfoInputs.cache
+C:\TFS\WINDO\busoftBase\AttributeService\obj\Debug\netcoreapp3.1\AttributeService.AssemblyInfo.cs
+C:\TFS\WINDO\busoftBase\AttributeService\obj\Debug\netcoreapp3.1\AttributeService.csproj.CoreCompileInputs.cache
+C:\TFS\WINDO\busoftBase\AttributeService\obj\Debug\netcoreapp3.1\AttributeService.dll
+C:\TFS\WINDO\busoftBase\AttributeService\obj\Debug\netcoreapp3.1\AttributeService.pdb

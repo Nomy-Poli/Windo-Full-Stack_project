@@ -1,0 +1,9 @@
+.icon_s {
+    max-width: 2rem;
+    max-height: 2rem;
+    cursor: pointer;
+    position: absolute;
+    left: 7px;
+    top:15px;
+   
+}

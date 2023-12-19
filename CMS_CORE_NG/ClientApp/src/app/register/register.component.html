@@ -1,0 +1,200 @@
+
+  <ng-template #loading>
+    <div class="loading">
+      <img src="../../assets/images/spinner.gif" />
+    </div>
+  </ng-template>
+  <!-- register form-->
+  <section class="section">
+    <div class="container-login">
+      <h6 class="close_i"><a (click)="this._wrapperFuncService.closeDialog()" class="x"><img
+        src="../../assets/icons/x.png" class="icon_s" alt="אייקון סגירת דיאלוג"></a></h6>
+      <h2 class="h1-1 font_ploni_bold">
+        חיכינו לך!
+      </h2>
+      <h5>מה שצריך לעשות עכשיו, זה רק קצת להכיר:</h5>
+      <h5> כבר נרשמת? <a (click)="this._wrapperFuncService.openLoginDialog()" class="cursorP">היכנסי</a>
+      </h5>
+      <div class="text-center">
+        <button class="btn-google" (click)="externalLogin()">הרשמה עם
+          <img src="../../assets/icons/google.png?w=30" alt="" class="img"></button>
+      </div>
+      <h5>או <a (click)="this.showManual = !showManual" class="cursorP">הרשמה ידנית</a></h5>
+      <ng-container *ngIf="showManual">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="width-100">
+          <div class="flex_R">
+            <div class="Mytooltip input">
+              <input class="inputEmail" type="email" name="email" id="email" formControlName="email" title="כתובת מייל"
+                placeholder="כתובת אימייל">
+              <span class="tooltiptext">
+                שימי לב, כתובת האימייל שתזיני תוגדר כשם המשתמש שלך, ולא ניתן יהיה לשנותו בעתיד</span>
+            </div>
+            <div *ngIf="email.touched && email.errors">
+              <span *ngIf="email.hasError('required')" class="errorMessage">אי אפשר להירשם ל-windo ללא כתובת
+                אימייל</span>
+              <span *ngIf="email.hasError('email')" class="errorMessage">כתובת האימייל אינה תקינה
+              </span>
+              <span *ngIf="email.hasError('DuplicateEmail')" class="errorMessage">{{email.errors['DuplicateEmail']}}
+              </span>
+            </div>
+            <!-- <input class="input-field" type="email" name="confirmEmail" id="confirmEmail" formControlName="confirmEmail"
+            placeholder="אימות אמייל:"> -->
+            <!-- <input class="input-field" type="text" name="username" id="username" formControlName="username"
+            placeholder="שם משתמש :"> -->
+            <input class="input" type="text" name="firstname" id="firstname" formControlName="firstname" title="שם פרטי"
+              placeholder="שם פרטי">
+            <div *ngIf="firstname.touched && firstname.errors">
+              <span *ngIf="firstname.hasError('required')" class="errorMessage">
+                כדי להירשם לאתר יש להזין שם פרטי</span>
+              <span *ngIf="firstname.hasError('maxlength')" class="errorMessage">
+                לשם פרטי מותר עד 10 תווים.
+              </span>
+              <span *ngIf="firstname.hasError('minlength')" class="errorMessage">
+                יש להזין לפחות שני תווים
+              </span>
+            </div>
+            <input class="input" type="text" name="lastName" id="lastName" formControlName="lastname" title="שם משפחה"
+              placeholder="שם משפחה">
+            <div *ngIf="lastname.touched && lastname.errors">
+              <span *ngIf="lastname.hasError('required')" class="errorMessage">
+                כדי להירשם לאתר יש להזין שם משפחה
+              </span>
+              <span *ngIf="lastname.hasError('maxlength')" class="errorMessage">
+                מותר עד 10 תווים לשם משפחה.
+              </span>
+              <span *ngIf="lastname.hasError('minlength')" class="errorMessage">
+                יש להזין לפחות שני תווים
+              </span>
+            </div>
+            <input class="input" type="text" name="phoneNumber" formControlName="phone" id="phoneNumber" title="טלפון"
+              placeholder="מספר טלפון">
+            <div *ngIf="phone.touched && phone.errors">
+              <span *ngIf="phone.hasError('required')" class="errorMessage">כדי להירשם לאתר יש להזין מספר טלפון
+              </span>
+              <span *ngIf="phone.hasError('pattern')" class="errorMessage">
+                מספר הטלפון אינו תקין
+              </span>
+            </div>
+            <div class="position-relative width-100">
+              <input class="input" type="password" name="password" id="password" [type]="this.showPassword ? 'text' :
+              'password'" formControlName="password" title="סיסמה" placeholder="סיסמה">
+              <i *ngIf="this.showPassword==true" class="pi
+              pi-eye-slash" (click)="showInsertPassword()"></i>
+              <i *ngIf="this.showPassword==false" class="pi pi-eye" (click)="showInsertPassword()"></i>
+            </div>
+            <div *ngIf="password.touched && password.errors">
+              <span *ngIf="password.hasError('required')" class="errorMessage">לא הגדרת עדיין סיסמה
+              </span>
+              <span *ngIf="password.hasError('maxlength')" class="errorMessage">מותר עד
+                15 תווים
+                לסיסמה.</span>
+              <span *ngIf="password.hasError('minlength')" class="errorMessage">
+                צריך לפחות 5 תווים לסיסמה.
+              </span>
+              <span *ngIf="password.hasError('minlength')" class="errorMessage">
+                צריך לפחות 5 תווים לסיסמה.
+              </span>
+              <span *ngIf="password.hasError('PasswordRequiresNonAlphanumeric')" class="errorMessage">
+                {{password.errors['PasswordRequiresNonAlphanumeric']}}
+              </span>
+              <span *ngIf="password.hasError('PasswordRequiresUpper')" class="errorMessage">
+                {{password.errors['PasswordRequiresUpper']}}
+              </span>
+              <span *ngIf="password.hasError('PasswordRequiresDigit')" class="errorMessage">
+                {{password.errors['PasswordRequiresDigit']}}
+              </span>
+            </div>
+            <!-- <input class="input-field" type="password" name="password" id="password" formControlName="cpassword"
+            placeholder="אימות סיסמה :"> -->
+            <!-- </div> -->
+            <section>
+              <!-- <div *ngIf="username.touched && username.errors"
+              class="errorMessage">
+              <span *ngIf="username.hasError('required')">נדרש שם משתמש</span>
+              <span *ngIf="username.hasError('maxlength')">
+                מותר עד 10 תווים לשם משתמש
+              </span>
+              <span *ngIf="username.hasError('minlength')">
+                צריך לפחות 2 תווים לשם משתמש
+                .
+              </span>
+            </div> -->
+              <!-- דברים שסיסמה מחייבת -->
+              <div class="exPass">
+                <span class="text-center bold ">הסיסמה שלך צריכה לכלול: ספרה ,
+                  <span ngbPopover="" triggers="mouseenter:mouseleave" popoverTitle="!@#$%^&*)(-_]}[{?.<~;+=/|"
+                    class="underline">תו מיוחד</span>
+                  , אות קטנה באנגלית, אות גדולה באנגלית.</span>
+                <p>לדוגמה: Windo!2@gmail.com</p>
+              </div>
+              <!-- validation of firstname -->
+
+              <!-- validation of lastname -->
+
+              <!-- validation of email -->
+
+              <!-- <div *ngIf="confirmEmail.touched &&
+              confirmEmail.errors" class="errorMessage">
+              <span *ngIf="confirmEmail.hasError('required')">נדרש אימות סיסמה</span>
+              <span *ngIf="confirmEmail.hasError('mustMatch')">
+                אימות סיסמה חייב להתאים
+                לסיסמה
+              </span>
+            </div> -->
+              <!-- validation of password -->
+
+              <!-- <div *ngIf="cpassword.touched && cpassword.errors"
+              class="errorMessage">
+              <span *ngIf="cpassword.hasError('required')">
+                נדרש להכניס סיסמה.
+              </span>
+              <span *ngIf="cpassword.hasError('mustMatch')">
+                הסיסמה חייבת להתאים .
+              </span>
+            </div> -->
+              <!-- validation of phone -->
+
+              <div *ngIf="terms.touched && terms.errors">
+                <span *ngIf="terms.hasError('required')" class="errorMessage">חסר לנו רק את האישור שלך
+                </span>
+              </div>
+            </section>
+            <!-- <div class="flex_R"> -->
+            <!-- (click)="this._wrapperFuncService.openTermsDialog()" -->
+            <div class="align-items-center flex remember mt-3 cursorP">
+              <input type="radio" formControlName="terms" [value]="true" class="checkbox-terms" />
+              <!-- <p-radioButton type="radio"  formControlName="terms" class="checkbox-terms"></p-radioButton> --> אני מאשרת את <a [routerLink]="['/terms']" class="orang-u">  תנאי השימוש באתר</a>
+            </div>
+            <div *ngIf="isLoading" class="container-spinner">
+              <img class="loading-spinner" src="../../assets/images/spinner.gif" alt="">
+            </div>
+
+            <input class="btn-user mt-3 font_ploni_bold" type="submit" [ngClass]="{'loading':isLoading}"
+              [disabled]="registerForm.invalid" value="קדימה, צרפו אותי" />
+          </div>
+        </form>
+      </ng-container>
+
+
+    </div>
+  </section>
+
+  <!-- MODAL FOR REGISTRATION ERRORS -->
+  <div class="modal" id="errorModal" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">{{ modalTitle }}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <p class="list-group-item active">{{ modalMessage }}</p>
+          <ul class="list-group" *ngFor="let error of errorList">
+            <li class="list-group-item">{{ error }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>

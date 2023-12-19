@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> פרטים נוספים על עסקה</title>
+</head>
+
+<body>
+    <form [formGroup]="form">
+        <!-- עסקה בתשלום -->
+        <section class="main" *ngIf="dealType == 1">
+            <div class="form-group">
+                <h6>תמונה ששווה אלף מילים</h6>
+                <input type="file" id="workpicfile" class="picNone" accept="image/png,image/gif,image/jpeg"
+                    (change)="onWorkFileChanged($event,'')">
+                <div *ngIf="!hasImg" class="dashed flex" appImageDrag (files)="filesDropped($event,'')">
+                    <div (click)="triggerWorkInput('')" class="wrap-attach"><i class="pi pi-paperclip"></i></div>
+                    <div>
+                        <span>גררי את קובץ התמונה ושחררי אותו כאן</span>
+                        <br>
+                        <span> ניתן להעלות קבצים מסוג: png,jpg,jpeg</span>
+                    </div>
+                </div>
+                <br>
+                <div *ngIf="hasImg" class="wrap-icon-close" (click)="RemoveImage('')">
+                    <i class="fas fa-times"></i>
+                </div>
+                <img *ngIf="hasImg" src="" class="wrap-img" alt="תמונת פירוט" id="img">
+                <label>שימי לב, רק תמונות שפתוחות בכל חברות הסינון יכולות להיות מוצגות בעמוד השת"פים שלך</label>
+            </div>
+            <div class="form-group">
+                <h6>הקף העיסקה בש"ח</h6>
+                <input type="number" formControlName="ScopTransactionNIS" class="inputtext" style="direction: ltr;">
+                <label> מידע שנוגע לכספים לא יוצג בשום מקום באתר. אנו מבקשים אותו כדי שניתן יהיה לחקור את הנתונים ולקדם
+                    את
+                    האתר לטובת המשתמשות</label>
+            </div>
+        </section>
+        <!-- ברטר -->
+        <section class="main" *ngIf="dealType == 2">
+            <!-- עסק 1 -->
+            <div class="flex form-wrap">
+                <div class="form-half">
+                    <div class="form-group">
+                        <div *ngIf="reporterBusiness" id="profpic" class="flex businnesName">
+                            <app-business-template [business]="reporterBusiness" size="40"></app-business-template>
+                            <!-- <img class="img-radius product-image" width="150" *ngIf="!(reporterBusiness.logoPictureId ==
+                                '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+                                reporterBusiness.id + '/Logo/'
+                                + reporterBusiness.logoPictureId + '/' +
+                                reporterBusiness.logoPictureId
+                                + '.jpg?w=40'" alt="תמונת לוגו" />
+                        <h4 *ngIf="reporterBusiness.logoPictureId ==
+                                '00000000-0000-0000-0000-000000000000'" style="border-color:#04e6e0;color:#04e6e0"
+                            class="first-letter AroundFirstLetter">{{reporterBusiness.buisnessName
+                            |firstWord}}</h4> -->
+                            <label>{{reporterBusiness.buisnessName}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- <h6>כמה מילים על החוויה</h6> -->
+                        <textarea type="text" formControlName="QuoteReportsBusiness" class="inputtext"
+                            placeholder="כמה מילים על החוויה" rows="2" cols="30"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <h6>תמונה ששווה אלף מילים</h6>
+                        <input type="file" id="workpicfile1" class="picNone" accept="image/png,image/gif,image/jpeg"
+                            (change)="onWorkFileChanged($event,1)">
+                        <div *ngIf="!hasImgs[0]" class="dashed flex" appImageDrag (files)="filesDropped($event,1)">
+                            <div (click)="triggerWorkInput(1)" class="wrap-attach"><i class="pi pi-paperclip"></i></div>
+                            <div>
+                                <span>גררי את קובץ התמונה ושחררי אותו כאן</span>
+                                <br>
+                                <span> ניתן להעלות קבצים מסוג: png,jpg,jpeg</span>
+                            </div>
+                        </div>
+                        <br>
+                        <div *ngIf="hasImgs[0]" class="wrap-icon-close" (click)="RemoveImage(1)">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <img *ngIf="hasImgs[0]" src="" class="wrap-img" alt="תמונת פרטים" id="img1">
+                        <label>שימי לב, רק תמונות שפתוחות בכל חברות הסינון יכולות להיות מוצגות בעמוד השת"פים שלך</label>
+                    </div>
+                </div>
+                <!-- עסק 2 -->
+                <div class="form-half">
+                    <div class="form-group">
+                        <div *ngIf="partnerBusiness" id="profpic" class="flex businnesName">
+                            <app-business-template [business]="partnerBusiness" size="40"></app-business-template>
+                            <!-- <img class="img-radius product-image" width="150" *ngIf="!(partnerBusiness.logoPictureId ==
+                                '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+                                partnerBusiness.id + '/Logo/'
+                                + partnerBusiness.logoPictureId + '/' +
+                                partnerBusiness.logoPictureId
+                                + '.jpg?w=40'" alt="תמונת לוגו" />
+                        <h4 *ngIf="partnerBusiness.logoPictureId ==
+                                '00000000-0000-0000-0000-000000000000'" style="border-color:#04e6e0;color:#04e6e0"
+                            class="first-letter AroundFirstLetter">{{partnerBusiness.buisnessName
+                            |firstWord}}</h4> -->
+                            <label>{{partnerBusiness.buisnessName}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- <h6>ציטוט</h6> -->
+                        <textarea type="text" formControlName="QuotePartnerBusiness" class="inputtext"
+                            placeholder="כמה מילים על החוויה" rows="2" cols="30"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <h6>תמונה ששווה אלף מילים</h6>
+                        <input type="file" id="workpicfile2" class="picNone" accept="image/png,image/gif,image/jpeg"
+                            (change)="onWorkFileChanged($event,2)">
+                        <div *ngIf="!hasImgs[1]" class="dashed flex" appImageDrag (files)="filesDropped($event,2)">
+                            <div (click)="triggerWorkInput(2)" class="wrap-attach"><i class="pi pi-paperclip"></i></div>
+                            <div>
+                                <span>גררי את קובץ התמונה ושחררי אותו כאן </span>
+                                <br>
+                                <span> ניתן להעלות קבצים מסוג: png,jpg,jpeg</span>
+                            </div>
+                        </div>
+                        <br>
+                        <div *ngIf="hasImgs[1]" class="wrap-icon-close" (click)="RemoveImage(2)">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <img *ngIf="hasImgs[1]" src="" class="wrap-img" alt="תמונת פרטים" id="img2">
+                        <label>שימי לב, רק תמונות שפתוחות בכל חברות הסינון יכולות להיות מוצגות בעמוד השת"פים שלך</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- שת"פ -->
+        <section class="main flex wrap-businesses form-wrap" *ngIf="dealType == 3">
+            <div *ngFor="let business of businessInCollaboration" class="form-half">
+                <div class="form-group">
+                    <div class="flex businnesName">
+                        <app-business-template [business]="business" size="40"></app-business-template>
+                        <!-- <img class="img-radius product-image" width="150" *ngIf="!(business.logoPictureId ==
+                            '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+                            business.id + '/Logo/'
+                            + business.logoPictureId + '/' +
+                            business.logoPictureId
+                            + '.jpg?w=40'" alt="תמונת לוגו" />
+                    <h4 *ngIf="business.logoPictureId ==
+                            '00000000-0000-0000-0000-000000000000'" style="border-color:#04e6e0;color:#04e6e0"
+                        class="first-letter AroundFirstLetter">{{business.buisnessName
+                        |firstWord}}</h4> -->
+                        <label>{{business.buisnessName}}</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h6>התרומה הייחודית של העסק לשיתוף הפעולה</h6>
+                    <textarea type="text" [formControlName]="'PartInCollaboration'+business.id" class="inputtext"
+                        placeholder="כאן אפשר לתאר את חלקו של העסק בשיתוף הפעולה עד 100 תווים."></textarea>
+                </div>
+            </div>
+            <div class="form-break-row"></div>
+            <div class="form-group form-half">
+                <h6>תמונה ששווה אלף מילים</h6>
+                <input type="file" id="workpicfile" class="picNone" accept="image/png,image/gif,image/jpeg"
+                    (change)="onWorkFileChanged($event,'')">
+                <div *ngIf="!hasImg" class="dashed flex" appImageDrag (files)="filesDropped($event,'')">
+                    <div (click)="triggerWorkInput('')" class="wrap-attach"><i class="pi pi-paperclip"></i></div>
+                    <div>
+                        <span>גררי את קובץ התמונה ושחררי אותו כאן</span>
+                        <br>
+                        <span> ניתן להעלות קבצים מסוג: png,jpg,jpeg</span>
+                    </div>
+
+                </div>
+                <br>
+                <div *ngIf="hasImg" class="wrap-icon-close" (click)="RemoveImage('')">
+                    <i class="fas fa-times"></i>
+                </div>
+                <img *ngIf="hasImg" src="" class="wrap-img" alt="פרטים נוספים" id="img">
+                <label>שימי לב, רק תמונות שפתוחות בכל חברות הסינון יכולות להיות מוצגות בעמוד השת"פים שלך</label>
+            </div>
+        </section>
+
+        <section class="confirm-section main">
+            <button class="next-button" (click)="next()" [ngClass]="{'disable':!form.valid}">הבא</button><br>
+            <span *ngIf="!form.valid">
+                <img class="small-error-img" src="../../../../assets/icons/error.png" alt="שגיאה">
+                <label *ngIf="dealType == 1" class="red-span">
+                    הקף העיסקה אינו יכול להיות מינוס</label>
+                <label *ngIf="dealType == 3" class="red-span">
+                    השדה התרומה הייחודית של העסק לשיתוף הפעולה יכול להיות עד 100 תווים</label>
+            </span>
+        </section>
+    </form>
+
+</body>
+
+</html>

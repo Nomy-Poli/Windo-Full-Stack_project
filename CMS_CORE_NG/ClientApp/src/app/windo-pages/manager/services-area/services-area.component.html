@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אזור שירותים</title>
+</head>
+
+<body>
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <br>
+    <div class="grid-home">
+        <p-tabView [(activeIndex)]="tabIndex">
+            <p-tabPanel header="רשימת בקשות ">
+                <app-order-service-requests-list></app-order-service-requests-list>
+            </p-tabPanel>
+            <p-tabPanel header="רשימת לקוחות">
+                <app-clients-list (filterOrders)="filterOrdersByClient($event)"></app-clients-list>
+            </p-tabPanel>
+            <p-tabPanel header="רשימת הזמנות">
+                <app-order-serveice-list #orderComp></app-order-serveice-list>
+            </p-tabPanel>
+            <p-tabPanel header="רשימת באנרים">
+                <app-banners-list></app-banners-list>
+            </p-tabPanel>
+            <p-tabPanel header="רשימת מוצרים בקטלוג">
+                <app-products-list></app-products-list>
+            </p-tabPanel>
+            <p-tabPanel header="רשימת שירותים">
+                <app-services-list></app-services-list>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</body>
+
+</html>

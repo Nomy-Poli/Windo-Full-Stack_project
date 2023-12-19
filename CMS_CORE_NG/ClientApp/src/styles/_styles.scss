@@ -1,0 +1,728 @@
+@import "variables";
+@import "functions";
+@import "primengStyling";
+@import "login-register";
+// a:hover{
+//   border-bottom: none;
+//   text-decoration: none!important;
+// }
+z-in * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  color: $dark-blue-color;
+}
+
+//basic settings for a hebrew website
+body,
+html {
+  direction: rtl;
+  text-align: right;
+  // padding-top: 0 !important;
+}
+
+@media screen and (min-width: 481px) {
+  // global classes
+  //center container
+
+  .container {
+    max-width: $container-dextop-width;
+    margin: auto;
+  }
+
+  /* קלסים משותפים לקומפוננטות: בארטר, פרופיל */
+  .profile {
+    z-index: 100;
+    background-color: $white-color;
+    display: flex;
+    justify-self: end;
+    flex-direction: column;
+    text-align: center;
+    // justify-content: center;
+    align-items: center;
+    max-width: 25%;
+    padding: 25px 20px 60px 20px;
+    margin-bottom: 20px;
+    max-height: 820px;
+    margin-top: -11rem;
+    box-shadow: 2px 2px 6px rgb(201, 200, 200);
+  }
+  .outline-card,
+  .outline-card1,
+  .outline-card1_last,
+  .outline-cardLast,
+  .outline-card_last {
+    direction: rtl;
+    background-color: transparent;
+    border: solid 1px rgb(173, 170, 170);
+    margin: 1.5rem auto;
+    padding: 3rem 4rem;
+    width: 100%;
+  }
+  .left-side-container {
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-right: auto;
+  }
+  .search-button {
+    position: absolute;
+    padding: 12px 20px;
+    left: 0px;
+    margin: 0px;
+    width: 15%;
+    font-size: 1.1rem;
+    border-radius: 25px !important;
+    bottom: 0px;
+    height: 100%;
+    z-index: 1000;
+  }
+  .ng-dropdown-panel {
+    padding: 1rem;
+    border-radius: 1.5rem;
+    z-index: 700 !important;
+    width: 98% !important;
+    background-color: white;
+    margin: -0.7rem;
+    border-right: rgb(161, 160, 160) solid 1px;
+    border-left: rgb(161, 160, 160) solid 1px;
+    border-bottom: rgb(161, 160, 160) solid 1px;
+    opacity: 1;
+  }
+  .ng-select {
+    z-index: 850;
+  }
+}
+
+//עד כאן עיצוב למסך גדול בלבד
+
+//home page
+.container_flex {
+  display: flex;
+  padding: 35px 10px 0 10px;
+  justify-content: space-between;
+  background-color: transparent;
+}
+header {
+  min-height: 10vh;
+  // max-height: 25vh;
+}
+.gallery-container {
+  margin: 0 7%;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+// dark search button inside an input
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  margin: 5px 0 0 0;
+  padding: 0 1rem 0 1rem;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option:hover {
+  background-color: lightgray;
+  border-radius: 2rem;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+  background-color: lightgray;
+  border-radius: 2rem;
+  padding: 0.1rem 0.5rem;
+  margin-left: 0.3rem;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon {
+  margin-left: 0.4rem;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon:hover {
+  border-radius: 50%;
+  background-color: $dark-gray-color;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+.search-container {
+  position: relative;
+  text-align: right;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 100%;
+  // z-index: 1400;
+}
+// .search-container {
+//   position: relative;
+//   text-align: right;
+//   font-size: 1.1rem;
+//   margin-bottom: 5rem;
+//   padding: 0.5rem;
+// }
+.search-input {
+  top: 0px;
+  border-radius: 25px;
+  padding: 10px 20px;
+  width: 100%;
+  text-align: right;
+  font-size: 1.1rem;
+  border: $dark-blue-color solid 1px;
+  // z-index: 1500;
+}
+.ng-select.search-input {
+  top: 0px;
+  border-radius: 25px;
+  padding: 10px 20px;
+  width: 100%;
+  text-align: right;
+  font-size: 1.1rem;
+  border: $dark-blue-color solid 1px;
+  z-index: 900;
+}
+//arrows --using in - : home page && cs -form && cs cardes
+.Arrows{
+  border-radius: 50%;
+  background-color: #ff607c;
+  color: white;
+  text-align: center;  
+  align-self: center;
+  justify-self: center;
+  font-size: 2rem !important;
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+  padding: 0.8rem;
+}
+.Arrows:hover {
+  opacity: 0.7;
+}
+.Arrows-container {
+    z-index: 10;
+    display: flex;
+    align-content: center;
+}
+.Arrows {
+    background-color: $light-pink-color;
+    color: white;
+    align-self: center;
+    justify-self: center;
+    font-size: 2rem !important;
+    &:hover {
+        opacity: 0.7;
+    }
+    &:disabled {
+        opacity: 0.7;
+        background-color: gray;
+    }
+}
+.disabled {
+    opacity: 0.7;
+    background-color: gray;
+}
+.arrow1 {
+    margin-left: -2.5rem;
+}
+.arrow2 {
+    margin-right: -2.5rem;
+}
+//--------------utilities------------
+.card {
+  border: solid 1px rgb(204, 204, 204);
+  padding: 15px;
+  margin: 2px;
+}
+.flex {
+  display: flex;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-center {
+  align-self: center;
+  justify-self: center;
+}
+.flex_SB {
+  display: flex;
+  justify-content: space-between;
+}
+.cursorP {
+  cursor: pointer;
+}
+
+.cursorD {
+  cursor: default;
+}
+//the spaces between the rows & the columns in flex & grid
+.gap-10 {
+  gap: 10%;
+}
+
+.gap-5 {
+  gap: 5%;
+}
+
+.gap-2 {
+  gap: 2%;
+}
+
+// the gray header
+.box-header {
+  color: set-text-color($dark-color);
+  background-color: rgb(206, 201, 201);
+  height: 30vh !important;
+}
+.heart-icon {
+  // align-self: flex-end;
+  // margin-left: 8px;
+  color: #ff607c !important;
+}
+ul {
+  list-style: none;
+}
+.input:focus {
+  background: #04e6e01a 0% 0% no-repeat padding-box;
+  border: 1px solid #04e6e0;
+  border-radius: 7px;
+  opacity: 1;
+}
+img {
+  width: 100%;
+}
+// תמונה עגולה
+.img-radius {
+  border-radius: 50%;
+  // max-width: 100px;
+  // max-height: 100px;
+  margin-bottom: 15px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+// תמונת פרופיל קטנה עגולה
+.profile-img-radius {
+  border-radius: 50%;
+  max-width: 30px;
+  max-height: 30px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  position: relative;
+
+  &:after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: gray;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+  }
+}
+.popover.turquoise-popup {
+  background-color: $light-turquoise-color;
+  border: none;
+  border-bottom-left-radius: 1.5rem;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-left-radius: none;
+}
+.popover.gray-popup {
+  border-radius: 1.5rem;
+  background-color: $dark-gray-color;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  color: $dark-blue-color;
+  padding: 0.5rem;
+}
+.turquoise-tags {
+  background-color: $light-turquoise-color;
+  color: black;
+  // color: $dark-turquoise-color;
+  // padding: 1px;
+  margin: 4px;
+  border-radius: 0.3rem;
+  font-size: small;
+  text-align: center;
+  max-height: 1.2rem;
+  // text-justify: ;
+}
+.light-gray-tags {
+  background-color: $dark-gray-color;
+  // background-color: $light-gray-color;
+  // color: $dark-gray-color;
+  padding: 1px;
+  margin: 4px;
+  border-radius: 0.3rem;
+  font-size: small;
+  max-height: 1.2rem;
+}
+// buttons
+%btn-shared {
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  background: $dark-color;
+  color: set-text-color($dark-blue-color);
+  margin: 1rem 0.7rem 0px 0px;
+  border-radius: 1rem;
+}
+
+.btn {
+  &-white {
+    @extend %btn-shared;
+    background-color: $white-color;
+    color: $dark-color;
+    box-shadow: 2px 2px 4px rgb(182, 181, 181);
+  }
+  &-secendary-outline {
+    @extend %btn-shared;
+    background-color: rgb(233, 224, 224);
+    border: rgb(199, 191, 191) solid 1px;
+    color: $dark-color;
+  }
+  &-primary {
+    @extend %btn-shared;
+    background-color: $dark-blue-color !important;
+    //color: $white-color; margin: 20px 20px 0px 20px;
+  }
+  &-none-color {
+    @extend %btn-shared;
+    background-color: transparent;
+    color: set-text-color($white-color);
+  }
+  &-none-color:hover {
+    border: $dark-gray-color solid 1px;
+  }
+  &-outline {
+    @extend %btn-shared;
+    background-color: transparent;
+    border: $dark-gray-color solid 1px;
+    color: $dark-color;
+  }
+  &-secendary-light {
+    @extend %btn-shared;
+    background-color: $light-gray-color !important;
+    color: $dark-blue-color;
+  }
+  &-secendary-dark {
+    @extend %btn-shared;
+    background-color: $dark-gray-color !important;
+    color: $dark-blue-color;
+  }
+  &-royal-blue {
+    @extend %btn-shared;
+    background-color: $royal-blue-color !important;
+    color: $secendary-gray-color;
+  }
+  &-turquoise {
+    @extend %btn-shared;
+    background-color: $dark-turquoise-color !important;
+    color: $dark-blue-color;
+  }
+  &-primary:hover,
+  &-outline:hover,
+  &-secendary:hover,
+  &-secendary-outline:hover,
+  &-white:hover,
+  &-turquoise:hover,
+  &-royal-blue:hover,
+  &-secendary-dark:hover,
+  &-secendary-light :hover,
+  &-turquoise:disabled,
+  &-royal-blue:disabled,
+  &-secendary-dark:disabled,
+  &-secendary-light :disabled,
+  &-primary:disabled,
+  &-outline:disabled,
+  &-secendary:disabled,
+  &-secendary-outline:disabled,
+  &-white:disabled {
+    opacity: 0.5;
+  }
+  &-primary:focus,
+  &-outline:focus,
+  &-secendary:focus,
+  &-secendary-outline:focus,
+  &-white:focus {
+    outline: none;
+  }
+  &-primary:checked,
+  &-outline:checked,
+  &-secendary:checked,
+  &-secendary-outline:checked,
+  &-white:checked {
+    outline: none;
+  }
+}
+// inputs
+.input {
+  padding: 0.8rem 0.8rem;
+  margin: 1rem 0;
+  width: 27rem;
+  border-radius: 0.5rem;
+  border: 1px solid #19294d;
+  opacity: 1;
+}
+.input1 {
+  width: 26% !important;
+  margin: 1rem 1rem;
+  opacity: 1;
+}
+
+.inputMultiSelect1 {
+  padding: 0.4rem 0.8rem;
+  margin: 1rem 1rem;
+  width: 26%;
+  border-radius: 0.5rem !important;
+  border: 1px solid #19294d !important;
+  opacity: 1;
+}
+
+.input2:focus {
+  background-color: $secendary-gray-color;
+  border: none;
+  outline: none;
+}
+textarea {
+  width: 100%;
+  height: 80%;
+  border: none;
+  margin: 1rem;
+}
+.card-with-header {
+  border-radius: 0.8rem;
+  padding: none !important;
+  direction: rtl;
+  background-color: transparent;
+  border: solid 1px $dark-blue-color;
+  margin: 1.5rem auto;
+  // width: 95%;
+}
+.header-card {
+  border-bottom: 1px solid $dark-blue-color;
+  width: 100%;
+  font-weight: bold;
+  padding: 0.7rem;
+}
+textarea:focus-visible {
+  outline: none;
+}
+//Advertising for barter list
+.advertising {
+  background-color: #19294d;
+  padding: 1.5rem;
+}
+.container_ad {
+  max-width: 70%;
+  direction: rtl;
+}
+.container_ad1 {
+  max-width: 30%;
+  direction: ltr;
+  text-align: left;
+  margin-right: auto;
+}
+.h3-1 {
+  color: white;
+  font-weight: bold;
+}
+
+.advertising-img-radius {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: 0;
+  margin-left: 1.5rem;
+  border-radius: 50%;
+  border: 0.4rem solid white;
+  box-shadow: 2px 2px 4px rgb(182, 181, 181);
+  background-color: white;
+}
+.left-btn {
+  border-top-left-radius: unset;
+  border-bottom-left-radius: unset;
+  max-height: 40px;
+  width: 100px;
+  padding: 4px 3px 4px 3px;
+  margin: 0;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.a_none {
+  text-decoration: none;
+  color: white;
+}
+.custom-btn-primary {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 1.9rem;
+  padding: 0.3rem 1.3rem;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+/* for register & login */
+
+.gray-page {
+  // height: 100%;
+  padding: 45px;
+  margin-bottom: 30px;
+  background: rgb(172, 169, 169);
+}
+.blue-font {
+  color: $dark-blue-color;
+}
+.btnn-sm {
+  font-size: 0.8rem;
+}
+.btnn-xs {
+  font-size: 0.6rem;
+}
+.ltr {
+  direction: ltr;
+}
+.block {
+  display: block !important;
+}
+.inline-block {
+  display: inline-block;
+}
+.opacity_4 {
+  opacity: 0.4;
+}
+//utiliteis for margin and padding
+.mb-2 {
+  margin-bottom: 2rem;
+}
+.mr-8 {
+  margin-right: 8rem;
+}
+.myb-1 {
+  margin-bottom: 1rem;
+}
+.myb-2 {
+  margin-bottom: 2.5rem;
+}
+.myt-1 {
+  margin-top: 1rem;
+}
+.myt-2 {
+  margin-top: 2rem;
+}
+.myt-3 {
+  margin-top: 3rem;
+}
+.py-1 {
+  padding-top: 3rem !important;
+  padding-bottom: 5rem !important;
+}
+.pyt-1 {
+  padding-top: 1rem;
+}
+.pxy {
+  padding: 0.5rem 1.5rem;
+}
+.myt-3 {
+  margin-top: 3rem;
+}
+.mxr-auto {
+  margin-right: auto;
+}
+.mxr-2 {
+  margin-right: 2rem;
+}
+.mxr-1 {
+  margin-right: 1rem;
+}
+.mxl-1 {
+  margin-left: 1rem;
+}
+.mxl-2 {
+  margin-left: 2rem;
+}
+.mxl-5 {
+  margin-left: 5rem;
+}
+.mxl-auto {
+  margin-left: auto;
+}
+.bold {
+  font-weight: bold;
+}
+.color2 {
+  background-color: transparent;
+  max-height: 1rem;
+  max-width: 1rem;
+}
+.font-color-white {
+  color: white !important;
+}
+.font-color-turquoise {
+  color: $dark-turquoise-color;
+}
+.font-color-blue {
+  color: $secendary-blue-color;
+}
+
+.width-100 {
+  width: 100%;
+}
+.height-200 {
+  width: 200px;
+}
+.absolute-icon {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  color: $light-pink-color;
+}
+
+
+@import "small-screen";
+input:focus,
+.modal-header .close:focus {
+  outline: none;
+  outline-offset: 15px;
+}
+.popHoverclass {
+  background-color: #04e6e0 !important;
+  color: pink !important;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 20%;
+  border-bottom-left-radius: 20%;
+  border-top-left-radius: 0%;
+}
+.flexBasis_21 {
+  flex-basis: 21%;
+}
+
+:host ::ng-deep.p-toast-message-content{
+  gap: .8rem
+}
+
+:host ::ng-deep.wrap-error-content {
+  display: flex;
+flex-direction: row-reverse;
+justify-content: space-between;
+align-items: center;
+}
+:host ::ng-deep.p-breadcrumb{
+  border-radius: 0;
+}
+
+
+:host ::ng-deep.p-tabview .p-tabview-nav li .p-tabview-nav-link:hover{
+  text-decoration: none!important;
+}
+:host ::ng-deep.p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus{
+  box-shadow: none;
+}

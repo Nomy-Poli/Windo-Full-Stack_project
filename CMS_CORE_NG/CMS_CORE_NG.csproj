@@ -1,0 +1,218 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
+    <Description>CMS Application build with Angular 10 and ASP.NET CORE 3</Description>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'CMS_CORE_NG' ">
+    <StartAction>Project</StartAction>
+    <ExternalConsole>true</ExternalConsole>
+    <ApplicationURL>https://localhost:5001;http://localhost:5000</ApplicationURL>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.51.0" />
+    <PackageReference Include="Hangfire" Version="1.7.30" />
+	  
+    <PackageReference Include="Imageflow.AllPlatforms" Version="0.7.24" />
+    <PackageReference Include="Imageflow.Server" Version="0.5.10" />
+    <PackageReference Include="Imageflow.Server.HybridCache" Version="0.5.10" />
+    <PackageReference Include="ImageResizer.AspNetCore" Version="1.9.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.20">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.20" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.20" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.6" />
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.1.1" />
+    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.113" />
+    <PackageReference Include="Scriban.Signed" Version="5.5.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.10.2" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.10.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="migration backup\**" />
+    <Content Remove="$(SpaRoot)**" />
+    <Content Remove="migration backup\**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+    <EmbeddedResource Remove="migration backup\**" />
+    <None Remove="migration backup\**" />
+    <Compile Remove="Migrations\20211110071453_caseStudy.cs" />
+    <Compile Remove="Migrations\20211110071453_caseStudy.Designer.cs" />
+    <Compile Remove="Migrations\20211114071513_addRelationshipToCollaborationsTables.cs" />
+    <Compile Remove="Migrations\20211114071513_addRelationshipToCollaborationsTables.Designer.cs" />
+    <Compile Remove="Migrations\20211114115224_relationshipCollaboration.cs" />
+    <Compile Remove="Migrations\20211114115224_relationshipCollaboration.Designer.cs" />
+    <Compile Remove="Migrations\20211114124918_relationshipCollaboration.cs" />
+    <Compile Remove="Migrations\20211114124918_relationshipCollaboration.Designer.cs" />
+    <Compile Remove="Migrations\20211114132456_relationshipCollaboration.cs" />
+    <Compile Remove="Migrations\20211114132456_relationshipCollaboration.Designer.cs" />
+    <Compile Remove="Migrations\20211114134406_relationshipCollaboration.cs" />
+    <Compile Remove="Migrations\20211114134406_relationshipCollaboration.Designer.cs" />
+    <Compile Remove="Migrations\20211114135011_relationshipCollaboration.cs" />
+    <Compile Remove="Migrations\20211114135011_relationshipCollaboration.Designer.cs" />
+    <Compile Remove="Migrations\20211115063207_addRelationships.cs" />
+    <Compile Remove="Migrations\20211115063207_addRelationships.Designer.cs" />
+    <Compile Remove="Migrations\20211115065933_addRelationships.cs" />
+    <Compile Remove="Migrations\20211115065933_addRelationships.Designer.cs" />
+    <Compile Remove="Migrations\20211115071801_addRelationships.cs" />
+    <Compile Remove="Migrations\20211115071801_addRelationships.Designer.cs" />
+    <Compile Remove="Migrations\20211215133409_updateCategories.cs" />
+    <Compile Remove="Migrations\20211215133409_updateCategories.Designer.cs" />
+    <Compile Remove="Migrations\20211215142910_addCategories.cs" />
+    <Compile Remove="Migrations\20211215142910_addCategories.Designer.cs" />
+    <Compile Remove="Migrations\20211230125151_addCategory.cs" />
+    <Compile Remove="Migrations\20211230125151_addCategory.Designer.cs" />
+    <Compile Remove="Migrations\20220106093348_AddCategories.cs" />
+    <Compile Remove="Migrations\20220106093348_AddCategories.Designer.cs" />
+    <Compile Remove="Migrations\20220106101437_AddCategories.cs" />
+    <Compile Remove="Migrations\20220106101437_AddCategories.Designer.cs" />
+    <Compile Remove="Migrations\20220110075221_AddMessages.cs" />
+    <Compile Remove="Migrations\20220110075221_AddMessages.Designer.cs" />
+    <Compile Remove="Migrations\20220112101516_AddMessages.cs" />
+    <Compile Remove="Migrations\20220112101516_AddMessages.Designer.cs" />
+    <Compile Remove="Migrations\20220201093047_MessagelatedBusiness.cs" />
+    <Compile Remove="Migrations\20220201093047_MessagelatedBusiness.Designer.cs" />
+    <Compile Remove="Migrations\20220201093505_MessagelatedBusiness.cs" />
+    <Compile Remove="Migrations\20220201093505_MessagelatedBusiness.Designer.cs" />
+    <Compile Remove="Migrations\20220215111012_Notes.cs" />
+    <Compile Remove="Migrations\20220215111012_Notes.Designer.cs" />
+    <Compile Remove="Migrations\20220516075210_Advertisments.cs" />
+    <Compile Remove="Migrations\20220516075210_Advertisments.Designer.cs" />
+    <Compile Remove="Migrations\20220811072744_Scoring.cs" />
+    <Compile Remove="Migrations\20220811072744_Scoring.Designer.cs" />
+    <Compile Remove="Migrations\20220817111637_scoring-seed.cs" />
+    <Compile Remove="Migrations\20220817111637_scoring-seed.Designer.cs" />
+    <Compile Remove="Migrations\20220817113618_scoring-seed.cs" />
+    <Compile Remove="Migrations\20220817113618_scoring-seed.Designer.cs" />
+    <Compile Remove="Migrations\20220817120419_scoring-seed.cs" />
+    <Compile Remove="Migrations\20220817120419_scoring-seed.Designer.cs" />
+    <Compile Remove="Migrations\20220825132323_rename-to-ezra.cs" />
+    <Compile Remove="Migrations\20220825132323_rename-to-ezra.Designer.cs" />
+    <Content Remove="wwwroot\uploads\user\profile\202322438.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="EmailTemplates\EmailConfirmation.html" />
+    <None Remove="EmailTemplates\ForgotPasswordConfirmation.html" />
+    <None Remove="EmailTemplates\NewImportUser.html" />
+    <None Remove="EmailTemplates\PasswordChanged.html" />
+    <None Remove="EmailTemplates\ResetPassword.html" />
+    <None Remove="EmailTemplates\TwoFactorAuthentication.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_WebToolingArtifacts Remove="Properties\launchSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="EmailTemplates\NewImportUser.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EmailTemplates\EmailConfirmation.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EmailTemplates\ForgotPasswordConfirmation.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EmailTemplates\PasswordChanged.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EmailTemplates\ResetPassword.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EmailTemplates\TwoFactorAuthentication.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Properties\launchSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\dist\" />
+    <Folder Include="Logs\" />
+    <Folder Include="Areas\Admin\Views\Account\" />
+    <Folder Include="Areas\Admin\Views\EmailSettings\" />
+    <Folder Include="Areas\Admin\Views\Home\" />
+    <Folder Include="Areas\Admin\Views\Profile\" />
+    <Folder Include="Areas\Admin\Views\SiteSettings\" />
+    <Folder Include="Areas\Admin\Views\User\" />
+    <Folder Include="Areas\Admin\Views\UserRole\" />
+    <Folder Include="SolutionFiles\" />
+    <Folder Include="wwwroot\lib\custom\" />
+    <Folder Include="wwwroot\lib\custom\js\" />
+    <Folder Include="wwwroot\lib\custom\css\" />
+    <Folder Include="wwwroot\lib\custom\css\admin\" />
+    <Folder Include="wwwroot\lib\custom\js\admin\" />
+    <Folder Include="wwwroot\fonts\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\lib\custom\js\account\" />
+    <Folder Include="wwwroot\uploads\" />
+    <Folder Include="wwwroot\uploads\user\" />
+    <Folder Include="wwwroot\uploads\user\profile\" />
+    <Folder Include="wwwroot\uploads\user\profile\default\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="wwwroot\lib\custom\js\common\" />
+    <Folder Include="wwwroot\uploads\roles\" />
+    <Folder Include="wwwroot\uploads\roles\icons\" />
+    <Folder Include="wwwroot\uploads\roles\icons\default\" />
+    <Folder Include="ClientApp\src\assets\images\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Password\" />
+    <Folder Include="Views\Shared\" />
+    <Folder Include="wwwroot\lib\custom\css\notification\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ActivityService\ActivityService.csproj" />
+    <ProjectReference Include="..\busoftExcelImporter\busoftExcelImporter.csproj" />
+    <ProjectReference Include="..\FiltersService\FiltersService.csproj" />
+    <ProjectReference Include="..\LoggingService\LoggingService.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\DataService\DataService.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\AuthService\AuthService.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\CookieService\CookieService.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\UserService\UserService.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\WritableOptionsService\WritableOptionsService.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\AttributeService\AttributeService.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\DashboardService\DashboardService.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\BackendService\BackendService.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\RolesService\RolesService.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\EmailService\EmailService.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

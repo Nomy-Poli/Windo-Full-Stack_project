@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רשימת חברות בקבוצה</title>
+</head>
+
+<body>
+    <div class="">
+        <button class="blue-big-button" (click)="addBuisnessToGroup()">הוסיפי חברה</button>
+        <h3 *ngIf="numBuisness ===0">אין עדיין חברות בקבוצה - מוזמנת להוסיף!</h3>
+        <div *ngIf="numBuisness">
+            <button type="button" (click)="exportExcel()" pButton pRipple icon="pi pi-file-excel" class="m-3"
+                pTooltip="XLS" tooltipPosition="bottom">
+            </button>
+            <p-table
+                [value]="this._shaerdData.businessListForGroup |async |slice: (numberOfCurrentPage-1)* numberOfRowsInOnePage: (numberOfCurrentPage-1)*numberOfRowsInOnePage+numberOfRowsInOnePage"
+                dataKey="id" editMode="row" responsiveLayout="scroll">
+
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <!-- <th>Id</th> -->
+                        <th>BusinessId</th>
+                        <th>שם עסק</th>
+                        <th>תפקיד</th>
+                        <th style="width:8rem"></th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product let-editing="editing" let-ri="rowIndex">
+                    <tr [pEditableRow]="product">
+
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" [(ngModel)]="product.BusinessId" required disabled>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.BusinessId}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" [(ngModel)]="product.buisnessName" disabled>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.buisnessName}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <p-dropdown [options]="roles" appendTo="body" [(ngModel)]="product.Role"
+                                        [style]="{'width':'100%'}">
+                                    </p-dropdown>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.Role}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+
+                        <!-- <td style="text-align:center">
+                            <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"
+                                (click)="onRowEditInit(product)" class="p-button-rounded p-button-text">
+                            </button>
+                            <p *ngIf="!editing" class="icon_p">ערכי</p>
+                            <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"
+                                (click)="onRowEditSave(product)"
+                                class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                            <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"
+                                (click)="onRowEditCancel(product, ri)"
+                                class="p-button-rounded p-button-text p-button-danger"></button>
+                        </td> -->
+                        <td *ngIf="!editing">
+                            <div class="action-col" (click)="updateBusinessForGroup(product)">
+                                <i class="pi pi-pencil"></i>
+                                <span class="icon_p">ערכי</span>
+                            </div>
+                        </td>
+                        <td *ngIf="!editing">
+                            <div class="action-col" (click)="deleteBuisnessFromGroup(product)">
+                                <i class="pi pi-trash"></i>
+                                <span class="icon_p">מחקי</span>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <p-paginator *ngIf="numBuisness > 4" [first]="numberOfCurrentPage-1" [rows]="1"
+            [totalRecords]="totalnumberOfPages" (onPageChange)="onPageChange($event)" [showJumpToPageDropdown]="true"
+            [showPageLinks]="false">
+        </p-paginator>
+
+    </div>
+
+
+</body>
+
+</html>

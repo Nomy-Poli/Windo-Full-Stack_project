@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אפשרויות פרסום באתר</title>
+</head>
+
+<body>
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <header class="publication">
+        <div>
+            <h1 class="bold">תני לאתר windo לפרסם אותך</h1>
+            <h5 class="bold"> אם תשלחי לנו את הבאנר שלך ,<br> נשמח לחשוף אותך לגולשות windo </h5><br>
+            <p>באנר הינו בדרך כלל מלבן או קוביית פרסומת מעוצבת. שלחיצה עליו מפנה לאתר האינטרנט שלך או לדף הנחיתה
+                שלך.<br>
+                <!-- פרסום באנר היא דרך טובה ללכוד את עיני הגולשות ובעזרת האנימציה המענינת -->
+                תשומת הלב ממוקדת בהצעה שלך -<br>
+                <br>
+                ישנם
+                כמה סוגי באנרים, אבל הטוב מביניהם הוא באנר מסוג גיף. יש בו תנועה והוא מעודד הקלקה, באורך של כ-10 שניות
+                .<br>
+                חשוב שהבאנר יקרא לפעולה :<br> להתקשר אליך או ללחוץ על הבאנר כדי להגיע לאתר או לדף הנחיתה.
+            </p>
+            <h5 class="bold">בחרי במיקום שתרצי להתפרסם בו
+                <br>
+                ותוכלי לראות פרטים נוספים או להוריד שבלונה של גודל הבאנר במיקום זה.
+            </h5>
+            <button (click)="openRequestDialog()" class="blue-big-button">להזמנת פרסום</button>
+        </div>
+    </header>
+    <main class="grid-home">
+        <!-- <h1>אפשרויות פרסום באתר</h1> -->
+        <div class="flex flex-banners">
+            <div *ngFor="let banner of bannersList" class="banner item">
+                <div *ngIf="!banner['showDetails']" class="back" (click)="banner['showDetails'] = true">
+                    <img src="../../../../assets/images/catalog-backgroung-imgs/{{banner.Makat}}.png"
+                        [alt]="banner.Title">
+                </div>
+                <ng-container *ngIf="banner['showDetails']">
+                    <div (click)="banner['showDetails'] = false" class="padding-1">
+                        <div class="position-abs" *ngIf="this._acct.isManager ==true">
+                            <button class="turqis-big-button smaller" pTooltip="ערכי באנר"
+                                (click)="editBanner(banner)"><i class="pi pi-pencil"></i></button>
+                        </div>
+                        <h5 class="text">{{banner.Title}}</h5>
+                        <img [src]="'../../../../../assets/advertisments/' + banner.Makat + '/example/' + banner.ExamplePicGuid+'.jpg'"
+                            [alt]="banner.Title" class="example-image">
+                        <br>
+                        <br>
+                    </div>
+                    <!-- <a [routerLink]="['/request-order-form',banner.Makat]"><button class="next-button">אני רוצה לפרסם כאן</button></a> -->
+                    <div class="flex space-around padding-1">
+                        <a><button class="blue-big-button" (click)="openBannerDialog(banner)">לפרטים</button></a>
+                        <a [href]="'../../../../../assets/advertisments/' + banner.Makat + '/format/' + banner.FormatPicGuid+'.jpg'"
+                            [download]="banner.Title">
+                            <button class="blue-big-button">הורידי שבלונה</button>
+                        </a>
+                    </div>
+
+                </ng-container>
+            </div>
+        </div>
+        <div class="publication bold">
+            <h1 class="bold myb-2">מה ייצא לך מפרסום אצלנו בווינדו?</h1>
+            <p class="bold">
+                <i class="pi pi-check-circle"></i>
+                חשיפה מול קהל אוהד של מאות בעלות עסק
+            </p>
+            <p class="bold">
+                <i class="pi pi-check-circle"></i>
+                מיצוב שלך אל מול פרטנריות פוטנציאליות
+            </p>
+            <p class="bold">
+                <i class="pi pi-check-circle"></i>
+                הגדרה חדה ומדויקת למה שווה לפנות דווקא אליך
+            </p>
+            <p class="bold">
+                <i class="pi pi-check-circle"></i>
+                הבנה שמשתלם לקנות ממך בדיוק עכשיו
+            </p>
+            <p class="bold">
+                <i class="pi pi-check-circle"></i>
+                הבהרה ברורה למי העסק שלך לא מתאים ולמי כן
+            </p>
+            <a><button class="blue-big-button next-button" (click)="openRequestDialog(null)">להזמנת פרסום</button></a>
+        </div>
+
+    </main>
+</body>
+
+</html>

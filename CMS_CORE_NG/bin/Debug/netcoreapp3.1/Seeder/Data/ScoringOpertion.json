@@ -1,0 +1,184 @@
+[
+  {
+    "Id": 1,
+    "ActionId": 1,
+    "EventTypeId": 2,
+    "Count": 20,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 2,
+    "ActionId": 2,
+    "EventTypeId": 2,
+    "Count": 7,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 3,
+    "ActionId": 3,
+    "EventTypeId": 2,
+    "Count": 23,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 4,
+    "ActionId": 4,
+    "EventTypeId": 2,
+    "Count": 8,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 5,
+    "ActionId": 5,
+    "EventTypeId": 2,
+    "Count": 12,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 6,
+    "ActionId": 6,
+    "EventTypeId": 2,
+    "Count": 15,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 7,
+    "ActionId": 7,
+    "EventTypeId": 2,
+    "Count": 7,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 8,
+    "ActionId": 8,
+    "EventTypeId": 2,
+    "Count": 3,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 9,
+    "ActionId": 9,
+    "EventTypeId": 2,
+    "Count": 1,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 10,
+    "ActionId": 10,
+    "EventTypeId": 2,
+    "Count": 1,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 11,
+    "ActionId": 11,
+    "EventTypeId": 2,
+    "Count": 1,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 12,
+    "ActionId": 12,
+    "EventTypeId": 2,
+    "Count": 12,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 13,
+    "ActionId": 13,
+    "EventTypeId": 2,
+    "Count": 12,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 14,
+    "ActionId": 1,
+    "EventTypeId": 1,
+    "Count": 20,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 15,
+    "ActionId": 2,
+    "EventTypeId": 1,
+    "Count": 7,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 16,
+    "ActionId": 3,
+    "EventTypeId": 1,
+    "Count": 23,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 17,
+    "ActionId": 4,
+    "EventTypeId": 1,
+    "Count": 8,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 18,
+    "ActionId": 5,
+    "EventTypeId": 1,
+    "Count": 12,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 19,
+    "ActionId": 6,
+    "EventTypeId": 1,
+    "Count": 15,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 20,
+    "ActionId": 7,
+    "EventTypeId": 1,
+    "Count": 7,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 21,
+    "ActionId": 8,
+    "EventTypeId": 1,
+    "Count": 3,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 22,
+    "ActionId": 9,
+    "EventTypeId": 1,
+    "Count": 1,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 23,
+    "ActionId": 10,
+    "EventTypeId": 1,
+    "Count": 1,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 24,
+    "ActionId": 11,
+    "EventTypeId": 1,
+    "Count": 1,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 25,
+    "ActionId": 12,
+    "EventTypeId": 1,
+    "Count": 12,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  },
+  {
+    "Id": 26,
+    "ActionId": 13,
+    "EventTypeId": 1,
+    "Count": 12,
+    "FromDate": "2022-08-17T23:28:56.782Z"
+  }
+]

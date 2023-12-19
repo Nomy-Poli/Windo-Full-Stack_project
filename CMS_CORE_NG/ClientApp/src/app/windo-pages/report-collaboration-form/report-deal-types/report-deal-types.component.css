@@ -1,0 +1,104 @@
+h3{
+    font-weight: bold;
+}
+.main{
+    text-align: center;
+    margin: 1rem;
+}
+.cards-wrapper{
+    margin:2rem auto;
+    width: 70%;
+    position: relative;
+}
+.card-button{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.card-button{
+    flex:1;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+} 
+.card-button.active{
+    border: 1px solid #373CF5;
+}
+.icon-budge-light{
+    padding: 0.4rem 0.7rem 0.4rem;
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    background-color: #dbdbfb;
+    color: #373CF5;
+    border: .6px solid #373CF5;
+    border-radius: 50%;
+}
+.iconImg{
+    width: 45px;
+    height: 45px;
+    border: .6px solid #373CF5;
+    border-radius: 50%;
+    margin-bottom: .5rem;
+}
+
+.red-span i{
+    color: #F16B7E;
+}
+
+.options-container{
+    /* background-color: #fff;
+    border:1px solid #373CF5;
+    border-radius: 15px;
+    text-align: start; */
+    /* position: relative;
+    display: flex;
+    flex-direction: row-reverse; */
+}
+.wrap-absolut{
+    background-color: #fff;
+    border:1px solid #373CF5;
+    border-radius: 15px;
+    text-align: start;
+    position: absolute;
+    width: 200px;
+    margin-top: 4rem;
+}
+.p-field-checkbox{
+    padding: 5px 15px;
+    cursor: pointer;
+}
+.p-field-checkbox:first-child{
+    border-radius: 1rem 1rem 0 0;
+}
+.p-field-checkbox:last-child{
+    border-radius: 0 0 1rem 1rem;
+}
+.p-field-checkbox:hover{
+    background-color: #dbdbfb;
+}
+
+.p-field-checkbox:first{
+    padding: 15px;
+}
+.p-field-checkbox:first::after{
+    height: 3px;
+    background-color: #373CF5;
+}
+p-radiobutton {
+    display: inline-block;
+    margin-bottom: 0.6rem;
+    margin-left: 0.8rem;
+}
+.BarterIcon {
+    width: 20px;
+    height: 20px;
+  }
+  .icon_s {
+    max-width: 2rem;
+    max-height: 2rem;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+  }

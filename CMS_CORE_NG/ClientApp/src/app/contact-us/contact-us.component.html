@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>יצירת קשר</title>
+</head>
+
+<body>
+    <!-- <link rel="stylesheet" href="../windo-pages/header/header.component.html"> -->
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <div class="imgbackgroundup">
+        <div class="image-container">
+            <img src="../../assets/img-pages/contectus.png" alt="" style='height: 30vh;'>
+        </div>
+        <section class="HeaderSection">
+            <div class="aroundHeader">
+                <h1 style="color: black;">צרי קשר</h1>
+                <!-- <h3 >אנחנו מקשיבים -<br> מכאן אפשר לדבר איתנו</h3> -->
+                <!-- <img class="pic2" src="../../assets/icons/EnvelopeColorfull.png" alt="">
+            <img class="pic1" src="../../assets/icons/SpeechBubble.png" alt=""> -->
+            </div>
+        </section>
+    </div>
+    <section class="FormSection">
+        <form id="contactForm" [formGroup]="contactForm">
+            <!--  (ngSubmit)="onSubmit()" -->
+            <div class="form-group">
+                <input type="email" name="email" id="email" class="form-control input" placeholder="כתובת האימייל שלך"
+                    formControlName="email" />
+                <div *ngIf="this.contactForm.get('email').touched&&this.contactForm.get('email').errors">
+                    <span *ngIf="this.contactForm.get('email').hasError('required')" class="errorMessage"> חובה להזין
+                        כתובת מייל</span>
+                    <span *ngIf="this.contactForm.get('email').hasError('pattern')" class="errorMessage"> חובה להזין
+                        כתובת מייל תקינה</span>
+                </div>
+                <input type="text" class="form-control input" placeholder="שם פרטי" formControlName="name" />
+                <div *ngIf="this.contactForm.get('name').touched&&this.contactForm.get('name').errors">
+                    <span *ngIf="this.contactForm.get('name').hasError('required')" class="errorMessage">חובה להזין שם
+                        פרטי</span>
+                    <span *ngIf="this.contactForm.get('name').hasError('pattern')" class="errorMessage">אותיות בעברית
+                        בלבד</span>
+                </div>
+            </div>
+            <br>
+            <!-- [ngClass]="{'blue-background': isHelpCardSelected, 'white-background': !isHelpCardSelected}" -->
+            <p-tabView (onLoad)="onTabViewLoad($event)">
+                <!--  <p-tabPanel [ngClass]="{'focused': activeTab === 1}" header="זקוקה לעזרה טכנית?"  (click)="ifFromHelp=true"}
+                    <p>זקוקה לעזרה בהתנהלות באתר?
+                        ספרי לנו מה הבעיה, ונחזור אליך בהקדם</p>
+                    <div class="arountTextErea ">
+                        <textarea name="message" id="message" cols="30" rows="5" maxlength="250" class="textarea"
+                            formControlName="message">
+                        </textarea>
+                        <span class="bold mr-2 mb-3">
+                            {{ contactForm.controls['message'].value?.length }}/250
+                        </span>
+                    </div>
+                    <div class="Mytooltip text-align-center">
+                        <img *ngIf="isLoading" class="loading-spinner" src="../../../../assets/images/spinner.gif"
+                            alt="ההודעה נשלחת ספינר">
+                        <button type="submit" class="submitButton" (click)="sendMessage(1)" [disabled]="isLoading"
+                            [disabled]="!contactForm.valid">סיימתי, אפשר לשלוח</button>
+                    </div>
+                  // <div *ngIf="this.contactForm.get('email').touched&&this.contactForm.get('email').errors">
+                        //<span class="errorMessage"> חובה להזין כתובת מייל תקינה</span>
+                    //</div>
+                </p-tabPanel> -->
+                <p-tabPanel header="יש לך מה לומר לנו?" (click)="ifFromOrder=true">
+                    <p>רוצה לומר לנו משהו? יש לך הצעה מעניינת?
+                        כתבי לנו, אנחנו קוראים כל פנייה</p>
+                    <div class="arountTextErea ">
+                        <textarea name="message" id="message" cols="30" rows="5" maxlength="250" class="textarea"
+                            formControlName="message">
+                            </textarea>
+                        <span class="bold mr-2 mb-3">
+                            {{ contactForm.controls['message'].value?.length }}/250
+                        </span>
+                    </div>
+                    <div class="Mytooltip text-align-center">
+                        <img *ngIf="isLoading" class="loading-spinner" src="../../../../assets/images/spinner.gif"
+                            alt="ההודעה נשלחת ספינר">
+
+                        <button type="submit" class="submitButton" (click)="sendMessage(2)" [disabled]="isLoading"
+                            [disabled]="!contactForm.valid">סיימתי, אפשר לשלוח</button>
+                    </div>
+                    <div *ngIf="this.contactForm.get('email').touched&&this.contactForm.get('email').errors">
+                        <span class="errorMessage"> חובה להזין כתובת מייל תקינה</span>
+                    </div>
+
+                </p-tabPanel>
+            </p-tabView>
+            <div class="aroundSub" *ngIf="idSend">
+                <img class="imgV" src="../../assets/icons/tick-inside-circle.png" alt="">
+                <p class="textSubmit" *ngIf="ifFromHelp">הפניה שלך נשלחה אלינו, נחזור אליך באמצעות פרטי הקשר <br>הרשומים
+                    אצלינו</p>
+                <p class="textSubmit" *ngIf="ifFromOrder">הפנייה שלך נשלחה אלינו! תודה שהקדשת לנו זמן!</p>
+            </div>
+        </form>
+    </section>
+    <!-- <div class="container mb-5 mt-5" id="profile">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-body-inner">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="contact-form">
+                            <h3> שלחי לנו דוא"ל</h3>
+                            <p>
+                                אנו שמחים לענות על כל שאלה שיש לך או לספק לך הערכה.
+                                פשוט שלחי לנו הודעה בטופס למטה
+                                בכל שאלה שיש לך.
+                            </p>
+
+                            <form id="contactForm" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-6">
+                                     
+                                        <label>שם מלא</label>
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user pl-2"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="שמך"
+                                                formControlName="name" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-6">
+                                        <label> <span>*</span>מייל</label>
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-envelope
+                                                    pl-2"></i></span>
+                                            </div>
+                                            <input type="email" name="email" id="email" class="form-control"
+                                                placeholder="כתובת המיל שלך" formControlName="email" />
+                                        </div>
+                                        <div *ngIf=" this.contactForm.get('email').hasError('required')||this.contactForm.get('email').errors">
+                                            <span class="errorMessage"> חובה להזין כתובת מייל תקינה</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                        
+                                        <label>מספר טלפון</label>
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-phone pl-2"></i></span>
+                                            </div>
+                                            <input type="tel" name="phone_number" id="phone_number" class="form-control"
+                                                placeholder="מספר הטלפון שלך" formControlName="phoneNumber" />                                          
+                                        </div>
+                                        <div *ngIf="this.contactForm.get('phoneNumber').errors">
+                                            <span class="errorMessage">חובה להזין טלפון תקין</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label><span>*</span>ההודעה שלך</label>
+                                            <textarea name="message" id="message" cols="30" rows="5"
+                                                class="form-control" placeholder="כתבי הודעה..."
+                                                formControlName="message"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 text-center
+                                    mt-1">
+                                        <button type="submit" class="btn btn-warning
+                                        width-200" [disabled]="isLoading" [disabled]="!contactForm.valid"><i
+                                                class="flaticon-plane"></i>שלחי הודעה</button>
+                                        <br>
+                                        {{message}}
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+</body>
+
+</html>

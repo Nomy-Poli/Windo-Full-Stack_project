@@ -1,0 +1,39 @@
+<main *ngIf="banner">
+    <div class="Mytooltip">
+        <img (click)="close()" src="../../../../../assets/icons/x.png" class="icon_s" alt="סגירת מודעה" />
+    </div>
+    <div class="price">
+        <h2>{{ banner.Title }}</h2>
+        <small>מק"ט : {{ banner.Makat }}</small>
+        <h4>מחיר : {{ banner.Price }}</h4>
+        <div dir="rtl">
+            רוחב :
+            <span style="direction: ltr">{{ banner.Width }}px</span>
+        </div>
+        <div dir="rtl">
+            גובה :
+            <span style="direction: ltr">{{ banner.Height }}px</span>
+        </div>
+        <div dir="rtl">
+            נפח התמונה :
+            <span style="direction: ltr">{{ banner.PriceInPoints }}px</span>
+        </div>
+        <!-- <h5 dir="rtl">גובה :{{ banner.Height }} px</h5>
+        <h5 dir="rtl">נפח התמונה :{{ banner.PriceInPoints }} px</h5>-->
+    </div>
+    <!-- <td>{{banner.DefaultLink}}</td> -->
+    <img [src]="'../../../../../assets/advertisments/' + banner.Makat + '/example/' + banner.ExamplePicGuid + '.jpg'"
+        [alt]="banner.Title" class="example-image" />
+    <br />
+
+    <br />
+
+    <!-- <a [routerLink]="['/request-order-form',banner.Makat]"><button class="next-button">אני רוצה לפרסם כאן</button></a> -->
+    <div class="flex space-around bg-blue">
+        <a><button class="blue-big-button" (click)="openRequestDialog()">אני רוצה לפרסם כאן</button></a>
+        <a [href]="'../../../../../assets/advertisments/' + banner.Makat + '/format/' + banner.FormatPicGuid + '.jpg'"
+            [download]="banner.Title">
+            <button class="blue-big-button">הורידי שבלונה</button>
+        </a>
+    </div>
+</main>

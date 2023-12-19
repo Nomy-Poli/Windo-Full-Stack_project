@@ -1,0 +1,54 @@
+@import "variables";
+@import "functions";
+@media screen and (max-width: 480px) {
+    .container {
+        max-width: $container-mobile-width;
+        margin: auto;
+        flex-direction: column;
+    }
+
+    .profile {
+        z-index: 100;
+        background-color: rgb(247, 247, 247);
+        display: flex;
+        align-self: center;
+        justify-self: unset;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+        padding: 2rem 20px 60px 20px;
+        margin-bottom: unset;
+        // max-height: 100vh;
+        position: unset;
+        margin-top: -10vh;
+        box-shadow: 1px 1px 5px rgb(233, 232, 232);
+    }
+    .left-side-container {
+        flex-basis: unset;
+        align-items: center;
+        justify-items: center;
+        display: flex;
+        flex-direction: column;
+        margin-top: 60px;
+        width: 100%;
+        max-width: 100%;
+    }
+    .flex-column-sm {
+        flex-direction: column;
+    }
+    .btn-primary.big {
+        width: 70% !important;
+    }
+    .search-button {
+        position: absolute;
+        padding: 12px 30px;
+        left: 0px;
+        margin: 0px;
+        font-size: 1.1rem;
+        border-radius: 25px;
+        z-index: 4;
+    }
+}

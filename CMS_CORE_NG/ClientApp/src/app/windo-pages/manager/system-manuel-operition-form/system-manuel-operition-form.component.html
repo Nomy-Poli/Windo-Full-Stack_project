@@ -1,0 +1,42 @@
+<div class="container form-group">
+    <div class="Mytooltip">
+        <img (click)="close()" src="../../../../../assets/icons/x.png" class="icon_s" alt="סגירת מודעה">
+    </div>
+    <h1 *ngIf="operition">עדכון פעולה במערכת</h1>
+    <ng-container *ngIf="formUpdate">
+
+        <form *ngIf="operition" [formGroup]="formUpdate" (ngSubmit)="submitFormUpdate()">
+            <div class="flex form-wrap">
+                <div class="form-half">
+
+                    <div class="form-group">
+                        <input type="text" formControlName="ActionName" class="inputtext" placeholder="שם פעולה">
+                    </div>
+                    <div class="form-group">
+                        <p-calendar formControlName="FromDate" dateFormat="dd-mm-yy" placeholder="מתאריך"
+                            inputStyleClass="inputtext" [showIcon]="true" [minDate]="minDateValue"></p-calendar>
+                    </div>
+
+                </div>
+                <div class="form-half">
+
+                    <div class="form-group">
+                        <input type="text" formControlName="Count" class="inputtext" placeholder="מספר נקודות"
+                            pTooltip="מספר נקודות">
+                    </div>
+                    <div class="form-group">
+                        <p-calendar formControlName="TillDate" dateFormat="dd-mm-yy" placeholder="עד תאריך"
+                            inputStyleClass="inputtext" [showIcon]="true" [minDate]="minDateValue"></p-calendar>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <div class="Mytooltip text-align-center">
+                <button type="submit" class="next-button" [disabled]="!formUpdate.valid">שמירה</button>
+            </div>
+        </form>
+
+    </ng-container>
+
+</div>

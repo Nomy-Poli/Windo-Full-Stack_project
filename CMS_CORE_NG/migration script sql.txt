@@ -1,0 +1,4 @@
+dotnet ef migrations script --context ApplicationDbContext -o 061221.sql
+
+#run migrations from ( not including the first one ) .
+dotnet ef migrations script 20211103091751_Init --context ApplicationDbContext -o 061221.sql

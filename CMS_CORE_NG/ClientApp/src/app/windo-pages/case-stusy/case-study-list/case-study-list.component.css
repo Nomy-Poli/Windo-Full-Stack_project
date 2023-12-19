@@ -1,0 +1,141 @@
+.blue_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #19294d;
+  height: 20rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.blue_header .first_blue_part {
+  width: 20%;
+  text-align: end;
+}
+
+.blue_header .first_blue_part .handShake {
+  width: 175px;
+  background-color: #fbb040;
+  height: 27%;
+  border-radius: 12px;
+  padding: 13%;
+}
+
+.blue_header .first_blue_part .squar1 {
+  border: 2px solid #f16b7e;
+  width: 80px;
+  height: 4.5rem;
+  border-radius: 8px;
+}
+
+.blue_header .first_blue_part .cover_squar {
+  width: 175px;
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.blue_header .first_blue_part .cover_squar .squar2 {
+  background-color: #00c8f9;
+  width: 45%;
+  height: 5rem;
+  border-radius: 8px;
+}
+
+.blue_header .first_blue_part .cover_squar .squar3 {
+  background-color: #04e6e0;
+  width: 45%;
+  height: 5rem;
+  text-align: center;
+  border-radius: 8px;
+  position: relative;
+}
+
+.blue_header .first_blue_part .cover_squar .squar3 img {
+  position: absolute;
+  width: 72%;
+  left: 0.7rem;
+  top: 0.5rem;
+}
+
+.blue_header .first_blue_part .squar4 {
+  border: 2px solid #385a86;
+  text-align: center;
+  color: #00c8f9;
+  width: 75px;
+  height: 5rem;
+  border-radius: 8px;
+}
+
+.blue_header .secend_blue_part {
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 110%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.blue_header .secend_blue_part .text1 {
+  color: white;
+  font-size: 1.5rem;
+  word-wrap: break-word;
+  margin-bottom: 0;
+}
+
+.blue_header .secend_blue_part .text2 {
+  color: white;
+  font-weight: 900;
+  font-size: 2.4rem;
+}
+
+.blue_header .secend_blue_part .btn_casea {
+  background-color: #5ff8f3;
+  width: 12rem;
+  border-radius: 1.9rem;
+  padding: 0.6rem;
+  border: none;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+.blue_header .thrid_blue_part {
+  width: 20%;
+}
+
+.cover_card {
+  color: #19294d;
+}
+
+.NoCS {
+  color: gray;
+  text-align: center;
+}
+
+.animation-pic {
+  height: 20rem;
+  width: auto;
+}
+
+h3 {
+  font-weight: 700;
+  margin: 2rem 0;
+}
+/*# sourceMappingURL=case-study-list.component.css.map */

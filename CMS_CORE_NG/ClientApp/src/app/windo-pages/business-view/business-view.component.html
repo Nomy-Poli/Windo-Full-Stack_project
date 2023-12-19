@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>דף בית {{BusinnesToDisplay?.buisnessName}}</title>
+</head>
+
+<body>
+  <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+  <div class="big-father">
+    <ng-container *ngIf="BusinnesToDisplay; else spinner">
+    <div class="cover-img" id="cover-img">
+      <div>
+        <img style="height: 46vh;" class="CoverImg" width="150" *ngIf="!(BusinnesToDisplay.coverPictureId ==
+            '00000000-0000-0000-0000-000000000000');else adv" [src]="'../../../../../assets/BusinessImages/' +
+            BusinnesToDisplay.id + '/Cover/'
+            + BusinnesToDisplay.coverPictureId + '/' +
+            BusinnesToDisplay.coverPictureId
+            + '.jpg?h=100'" alt="תמונת מעטפת" />
+      </div>
+      <ng-template #adv>
+        <app-advertisment-area [makat]="1005"></app-advertisment-area>
+
+      </ng-template>
+
+    </div>
+    <div class="grid-home">
+      <div class="card wrap-info ">
+        <div class="flex flex-align-center first-details">
+          <div class="wrap-img">
+            <img *ngIf="!(BusinnesToDisplay.logoPictureId ==
+          '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+          BusinnesToDisplay.id + '/Logo/'
+          + BusinnesToDisplay.logoPictureId + '/' +
+          BusinnesToDisplay.logoPictureId
+          + '.jpg?w=150'" alt="תמונת לוגו" (dblclick)="growPic(null)">
+            <h1 *ngIf="BusinnesToDisplay.logoPictureId ==
+          '00000000-0000-0000-0000-000000000000'" style="border-color:#04e6e0;color:#04e6e0" class="first-letter">
+              {{BusinnesToDisplay.buisnessName
+              |firstWord}}</h1>
+          </div>
+
+          <div class="wrap-name">
+            <h3 class="">{{ this.BusinnesToDisplay.buisnessName }}
+              {{this.BusinnesToDisplay.ownerName && this.BusinnesToDisplay.ownerName? ' - '+
+              this.BusinnesToDisplay.ownerName:''}}</h3>
+            <h5 class="">{{ this.BusinnesToDisplay.actionDiscription}}</h5>
+            <!-- <i class="pi pi-map-marker"></i> -->
+            <span [class.area]="!isLast" *ngFor="let area of ListArea; last as isLast">{{ area }}</span>
+            <div class="icon-n" *ngIf="this.BusinnesToDisplay.Score > 0">
+              <img class="img-icon-score" src="../../../../assets/icons/Small.png">
+              <span class="sc"> {{this.BusinnesToDisplay.Score}}</span>
+            </div>
+          </div>
+
+          <!-- <button (click)="openDetails()" class="next-button">צרי קשר</button> -->
+
+          <div>
+            <div class="flex space-around">
+              <div class="Mytooltip">
+                <button class="next-button" (click)="sendEmail(BusinnesToDisplay.businessEmailAddress)"
+                [disabled]="!(_wrapperSearchService.LoginStatus$.value)">
+          <i class="pi pi-envelope"></i>
+        </button>
+        
+                <span class="tooltiptext"
+                  *ngIf="!(this._wrapperSearchService.LoginStatus$.value) ">רק
+                  משתמשת רשומה יכולה לשלוח הודעות לעסקים אחרים</span>
+              </div>
+              <div class="Mytooltip">
+                <button class="next-button" (click)="displayNumber = true"
+                  [disabled]="!BusinnesToDisplay.phoneNumber1 && !BusinnesToDisplay.phoneNumber2">
+                  <i class="pi pi-phone"></i>
+                </button>
+                <span class="tooltiptext" *ngIf="!BusinnesToDisplay.phoneNumber1 && !BusinnesToDisplay.phoneNumber2">לא
+                  הזנתי מספר טלפון</span>
+              </div>
+              <div class="Mytooltip">
+                <a [href]="BusinnesToDisplay.buisnessWebSiteLink" target="_blank">
+                  <button class="next-button" [disabled]="!BusinnesToDisplay.buisnessWebSiteLink">
+                    <i class="pi pi-link"></i>
+                  </button>
+                </a>
+                <span class="tooltiptext" *ngIf="!BusinnesToDisplay.buisnessWebSiteLink">אין לי אתר לעסק</span>
+              </div>
+            </div>
+
+            <div class="text-align-center"><br>
+              <span *ngIf="displayNumber">{{BusinnesToDisplay.phoneNumber1}}</span><br>
+              <span *ngIf="displayNumber">{{BusinnesToDisplay.phoneNumber2}}</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="card wrap-info ">
+        <h3>אודות</h3>
+        <p class="">{{
+          this.BusinnesToDisplay.discription }}</p>
+      </div>
+      <div class="card wrap-info ">
+        <h3>תחומי העיסוק שלי</h3>
+        <ng-container *ngFor="let cat of openMoreSubCategoties;let i=index">
+          <div class="flex wrap-cat" *ngIf="BusinnesToDisplay['buisnessCategory'+(i+1)].length> 0">
+            <div class="turquoise-span">{{ BusinnesToDisplay['buisnessCategory'+(i+1)][0].categoryName }}</div>
+            <div *ngFor="let sub of BusinnesToDisplay['buisnessCategory'+(i+1)] | slice:0: cat" class="light-gray-span">
+              {{sub.subCategoryName}}
+            </div>
+            <div *ngIf="BusinnesToDisplay['buisnessCategory'+(i+1)].length>3 && cat==3" class="dark-gray-span"
+              (click)="moreSubCategories(i)">עוד
+              {{BusinnesToDisplay['buisnessCategory'+(i+1)].length-3}}</div>
+            <div *ngIf="BusinnesToDisplay['buisnessCategory'+(i+1)].length>3 && cat>3" class="dark-gray-span"
+              (click)="lessSubCategories(i)">פחות
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div *ngIf="myGroups.length" class="card wrap-info ">
+        <h3>הקבוצות שלי</h3>
+        <div class="flex">
+          <div *ngFor="let group of myGroups" class="light-gray-span m-2">
+            {{group.GroupName}}
+          </div>
+        </div>
+      </div>
+      <div class="card wrap-info " *ngIf="BusinnesToDisplay && BusinnesToDisplay.workPictureGuide.length>0">
+        <h3>תיק עבודות</h3>
+        <div class="workPic" id="workPic">
+          <div class="DivInBox" *ngFor="let pic of BusinnesToDisplay.workPictureGuide;index as i" id="{{i+1+''}}">
+            <div class="abs-search"><i class="pi pi-search-plus" (click)="growPic(pic)"></i></div>
+            <img
+              [src]="'../../../../../assets/BusinessImages/'+ BusinnesToDisplay.id+'/Work/'+pic.picindex+'/'+pic.workPicGuide+'/'+ pic.workPicGuide+'.jpg?w=240'"
+              class="work-img" alt="תמונה בתקיית עבודות" (dblclick)="growPic(pic)" />
+          </div>
+          <!--  -->
+        </div>
+
+      </div>
+      <div class="card wrap-info ">
+        <h3>הדרכים לעבוד איתי</h3>
+        <p-tabView>
+          <p-tabPanel *ngIf="BusinnesToDisplay.iscollaborationBuisness">
+            <ng-template pTemplate="header">
+              <img src="../../../assets/icons/אייקון ל איכותי.png" alt="אייקון שיתוף פעולה" class="colb-icon">
+              <span class="bold">שת"פ</span>
+            </ng-template>
+            <span class="boldText">{{this.BusinnesToDisplay.OptionalCollaborationDescription}}</span>
+            <button class="btn-openTosugges boldText"
+              *ngIf="!this.BusinnesToDisplay.OptionalCollaborationDescription"><i class="pi pi-check-circle"></i>פתוחה
+              להצעות </button>
+          </p-tabPanel>
+          <p-tabPanel *ngIf="BusinnesToDisplay.isburterBuisness">
+            <ng-template pTemplate="header">
+              <img src="../../../assets/icons/handshake-icon.png" alt="אייקון ברטר" class="colb-icon">
+              <span class="bold">ברטר</span>
+            </ng-template>
+            <h5>מה אני נותנת תמורת ברטר?</h5>
+            <div *ngIf="BusinnesToDisplay.product1 || BusinnesToDisplay.product2" class="flex wrap-cat">
+              <div class="turquoise-span">מוצר אישי</div>
+              <div class="light-gray-span" *ngIf="BusinnesToDisplay.product1">{{BusinnesToDisplay.product1}}</div><br>
+              <div class="light-gray-span" *ngIf="BusinnesToDisplay.product2">{{BusinnesToDisplay.product2}}</div>
+            </div>
+            <button class="btn-openTosugges boldText"
+              *ngIf="BusinnesToDisplay.isopenToSuggestionsForBarter==true || (!BusinnesToDisplay.product1 && !BusinnesToDisplay.product2)"><i
+                class="pi pi-check-circle"></i>פתוחה להצעות </button>
+            <h5>מה אני רוצה לקבל?</h5>
+            <button class="btn-openTosugges boldText" *ngIf="BusinnesToDisplay.isopenToSuggestionsForBarter==true">
+              <i class="pi pi-check-circle"></i>פתוחה להצעות </button>
+            <ng-container *ngIf="BusinnesToDisplay.buisnessBarterCategory1.length> 0 ||
+                    BusinnesToDisplay.buisnessBarterCategory2.length > 0">
+
+              <!-- <div class="boldText mt-1"> תחומי שרות: </div> -->
+              <div *ngIf="BusinnesToDisplay.buisnessBarterCategory1.length> 0" class="flex wrap-cat">
+                <div class="turquoise-span">
+                  {{ BusinnesToDisplay.buisnessBarterCategory1[0].categoryName
+                  }}
+                </div>
+                <div class="light-gray-span" *ngFor="let GetsubCategoty1 of BusinnesToDisplay.buisnessBarterCategory1">
+                  {{GetsubCategoty1.subCategoryName}}
+                </div>
+              </div>
+              <div *ngIf="BusinnesToDisplay.buisnessBarterCategory2.length> 0" class="flex wrap-cat">
+                <div class="turquoise-span">
+                  {{ BusinnesToDisplay.buisnessBarterCategory2[0].categoryName
+                  }}
+                </div>
+                <div class="light-gray-span" *ngFor="let GetsubCategoty2 of BusinnesToDisplay.buisnessBarterCategory2">
+                  {{GetsubCategoty2.subCategoryName}}
+                </div>
+              </div>
+            </ng-container>
+            <div class="flex wrap-cat" *ngIf="BusinnesToDisplay.barterProduct1 || BusinnesToDisplay.barterProduct2">
+              <div class="turquoise-span">מוצר אישי</div>
+              <div *ngIf="BusinnesToDisplay.barterProduct1" class="light-gray-span">{{BusinnesToDisplay.barterProduct1}}
+              </div>
+              <div *ngIf="BusinnesToDisplay.barterProduct2" class="light-gray-span">{{BusinnesToDisplay.barterProduct2}}
+              </div>
+            </div>
+
+          </p-tabPanel>
+          <p-tabPanel *ngIf="BusinnesToDisplay.ispayingBuisness">
+            <ng-template pTemplate="header">
+              <img src="../../../assets/icons/dolar.png" alt="אייקון תשלום" class="colb-icon">
+              <span class="bold">בתשלום</span>
+            </ng-template>
+            <!-- <button (click)="openDetails()" class="next-button">צרי קשר</button> -->
+            <div class="warp-width">
+              <div class="flex space-around">
+                <div class="Mytooltip">
+                  <button class="next-button" (click)="sendEmail(BusinnesToDisplay.businessEmailAddress)"
+                    [disabled]="!(this._wrapperSearchService.LoginStatus$.value) || !(this.acct.currentBusiness | async)">
+                    <i class="pi pi-envelope"></i>
+                  </button>
+                  <span class="tooltiptext"
+                    *ngIf="!(this._wrapperSearchService.LoginStatus$.value) || !(this.acct.currentBusiness | async)">רק
+                    משתמשת רשומה יכולה לשלוח הודעות לעסקים אחרים</span>
+                </div>
+                <div class="Mytooltip">
+                  <button class="next-button" (click)="displayNumber = true"
+                    [disabled]="!BusinnesToDisplay.phoneNumber1 && !BusinnesToDisplay.phoneNumber2">
+                    <i class="pi pi-phone"></i>
+                  </button>
+                  <span class="tooltiptext"
+                    *ngIf="!BusinnesToDisplay.phoneNumber1 && !BusinnesToDisplay.phoneNumber2">לא הזנתי מספר
+                    טלפון</span>
+                </div>
+                <div class="Mytooltip">
+                  <a [href]="BusinnesToDisplay.buisnessWebSiteLink" target="_blank">
+                    <button class="next-button" [disabled]="!BusinnesToDisplay.buisnessWebSiteLink">
+                      <i class="pi pi-link"></i>
+                    </button>
+                  </a>
+                  <span class="tooltiptext" *ngIf="!BusinnesToDisplay.buisnessWebSiteLink">אין לי אתר לעסק</span>
+                </div>
+              </div>
+
+              <div class="text-align-center boldText"><br>
+                <!-- <span *ngIf="displayNumber">{{BusinnesToDisplay.buisnessWebSiteLink}}</span><br> -->
+                <span *ngIf="displayNumber">{{BusinnesToDisplay.phoneNumber1}}</span><br>
+                <span *ngIf="displayNumber">{{BusinnesToDisplay.phoneNumber2}}</span>
+              </div>
+            </div>
+          </p-tabPanel>
+
+
+        </p-tabView>
+      </div>
+      <div *ngIf="myLatestNotes.length" class="card wrap-info ">
+        <h3>הדבר האחרון שפרסמתי</h3>
+        <div class="flex">
+          <div *ngFor="let note of myLatestNotes" class="wrap-note">
+            <strong class="after">{{BusinnesToDisplay.buisnessName}}
+              פרסמה מודעה
+            </strong><strong>{{note.LastUpdateDate | whenItWas}}</strong>
+            <h4 class="bold" (click)="openNote(note)">{{note.Header}}</h4>
+            <label>{{note.ReplayCount}} תגובות</label>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="myLatestCS.length" class="card wrap-info ">
+        <h3>סיפורי השת"פ של
+          {{BusinnesToDisplay.buisnessName}} </h3>
+        <div class="flex wrap-cs">
+          <a *ngFor="let cs of myLatestCS | slice:0:3" [routerLink]="['/case-study-form/' + cs.Id]" target="_blank">
+            <div class="cs-card">
+              <div class="wrap-cs-img">
+                <img
+                  [src]="!(cs.PicGuid) || cs.PicGuid=='00000000-0000-0000-0000-000000000000'?'../../../assets/windo-images/MaskGroup38.png':( '../../../../assets/CaseStudy/'+cs.Id+'/MainPicture/'+ cs.PicGuid+'.jpg?w=400') "
+                  alt="תמונת קייס סטדי" class="card-img">
+              </div>
+              <div class="contents">
+                <h3>{{cs.MarketingTitle}}</h3>
+                <h6 [pTooltip]="cs.BusinessTitle">{{cs.BusinessTitle}}</h6>
+                <hr>
+                <label *ngIf="cs.FromTable == 1">
+                  <img src="../../../../assets/icons/תשלום אייקון.svg" alt="אייקון תשלום" class="col-type-img">
+                  עסקת תשלום</label>
+                <label *ngIf="cs.FromTable  == 2">
+                  <img src="../../../assets/icons/ברטר אייקון.svg" alt="אייקון ברטר" class="col-type-img">
+                  עסקת ברטר
+                </label>
+                <label *ngIf="cs.FromTable  == 3">
+                  <img src="../../../../assets/icons/שתפ אייקון.svg" alt="אייקון שתוף פעולה" class="col-type-img">
+                  עסקת שת&quot;פ</label>
+              </div>
+
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </ng-container>
+  <ng-template #spinner>
+    <div class="container-spinner">
+      <img class="loading-spinner" src="../../assets/images/spinner.gif" alt="חושב">
+    </div>
+  </ng-template>
+</div>
+</body>
+
+</html>

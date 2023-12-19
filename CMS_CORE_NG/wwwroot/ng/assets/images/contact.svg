@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32.162" height="32" viewBox="0 0 32.162 32">
+  <g id="Group_2031" data-name="Group 2031" transform="translate(-415.838 -772)">
+    <g id="Group_1886" data-name="Group 1886" transform="translate(2.625 -3)">
+      <g id="Ellipse_222" data-name="Ellipse 222" transform="translate(421.113 775)" fill="none" stroke="#19294d" stroke-width="2">
+        <circle cx="6.5" cy="6.5" r="6.5" stroke="none"/>
+        <circle cx="6.5" cy="6.5" r="5.5" fill="none"/>
+      </g>
+      <path id="Path_860" data-name="Path 860" d="M9280.375-8599.8s1.486-8.245,8.766-8.32,10.92,0,10.92,0,6.24.149,6.24,7.949" transform="translate(-8866 9398.801)" fill="none" stroke="#19294d" stroke-linecap="round" stroke-width="2"/>
+    </g>
+    <g id="Group_2030" data-name="Group 2030" transform="translate(-173 325.25)">
+      <g id="Ellipse_225" data-name="Ellipse 225" transform="translate(608 465.75)" fill="#fff" stroke="#19294d" stroke-width="1.5">
+        <circle cx="6.5" cy="6.5" r="6.5" stroke="none"/>
+        <circle cx="6.5" cy="6.5" r="5.75" fill="none"/>
+      </g>
+      <line id="Line_175" data-name="Line 175" y2="6.63" transform="translate(614.375 469.315)" fill="none" stroke="#19294d" stroke-linecap="round" stroke-width="1.5"/>
+      <line id="Line_176" data-name="Line 176" y2="6.63" transform="translate(617.69 472.63) rotate(90)" fill="none" stroke="#19294d" stroke-linecap="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC,GAAG,CAAA;EAEX,UAAU,EAAE,OAAO;CACtB",
+    "sources": [
+        "advertisment-area.component.scss"
+    ],
+    "names": [],
+    "file": "advertisment-area.component.css"
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רשימת הזמנות</title>
+</head>
+<body>
+    <!-- <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb> -->
+     <div class="">
+        <!-- <h1>רשימת הזמנות</h1> -->
+        <p-table [value]="ordersListAfterFilter" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th> שם לקוח</th>
+                    <th>תאריך בקשה</th>
+                    <th>מקט</th>
+                    <th>סטטוס</th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-order>
+                <tr>
+                    <td>{{order.Client.BusinessName+ ' ' + order.Client.ContactName}}</td>
+                    <td>{{order.CreationDate | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{order.Makat}}</td>
+                    <td>{{order.Status.Description}}</td>
+                    <td>
+                        <div class="flex space-around">
+                            <div class="action-col" (click)="editOrder(order)">
+                                <i class="pi pi-pencil"></i>
+                                <span class="icon_p">ערכי</span>
+                            </div>
+                            <div class="action-col" (click)="deleteOrder(order)">
+                                <i class="pi pi-trash"></i>
+                                <span class="icon_p">מחקי</span>
+                            </div>
+                        </div> 
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</body>
+</html>

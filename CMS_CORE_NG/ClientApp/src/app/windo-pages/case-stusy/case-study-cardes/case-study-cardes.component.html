@@ -1,0 +1,80 @@
+<body [ngClass]="this.deployment == 'cards'? 'Fcards': 'Fscroll'" class="flex_C">
+    <div (click)="prev()" class="Arrows-container cursorP" *ngIf="this.deployment === 'scroll'">
+        <i class="pi pi-arrow-right" [ngClass]="this.flagPrev==true?
+                'Arrows arrow2':'Arrows arrow2 disabled'"></i>
+    </div>
+    <!-- [ngClass]="{'wrapp':this.deployment == 'cards'}" class="container_card_flex" -->
+    <section class="container_card_grid">
+        <div class="card" [routerLink]="['/case-study-form/' + cs.Id]"
+            *ngFor="let cs of listCSTo$ | async | slice:(numberOfCurrentPage-1)*numberOfCardsInOnePage:(numberOfCurrentPage-1)*numberOfCardsInOnePage + numberOfCardsInOnePage; ">
+
+            <img [src]="!(cs.PicGuid) || cs.PicGuid=='00000000-0000-0000-0000-000000000000'?'../../assets/windo-images/MaskGroup38.png':( '../../../../../assets/CaseStudy/'+cs.Id+'/MainPicture/'+ cs.PicGuid+'.jpg?w=400') "
+                alt="תמונת קייס סטדי" class="card-img">
+            <div class="contents">
+                <h3>{{cs.MarketingTitle}}</h3>
+                <h6>{{cs.BusinessTitle}}</h6>
+                <hr>
+                <label *ngIf="cs.FromTable == 1">
+                    <img src="../../../../assets/icons/תשלום אייקון.svg" alt="אייקון תשלום" class="col-type-img">
+                    עסקת תשלום</label>
+                <label *ngIf="cs.FromTable  == 2">
+                    <img src="../../../../assets/icons/ברטר אייקון.svg" alt="אייקון ברטר" class="col-type-img">
+                    עסקת ברטר
+                </label>
+                <label *ngIf="cs.FromTable  == 3">
+                    <img src="../../../../assets/icons/שתפ אייקון.svg" alt="אייקון שתוף פעולה" class="col-type-img">
+                    עסקת שת&quot;פ</label>
+                <div class="flex wrap-business">
+                    <div class="business" *ngFor="let b of cs.BusinessesInCaseStudy">
+                        <div class="wrap-business-logo">
+                            <app-business-template [business]="b.Business" size="40"></app-business-template>
+                        </div>
+                        <!-- <span>{{b.Business.buisnessName}}</span> -->
+                    </div>
+
+                </div>
+                <button class="buttons allCaseB">לסיפור השת"פ</button>
+            </div>
+            <!-- <img [routerLink]="['/case-study-form/' + cs.Id]"
+                [src]="cs.PicGuid =='00000000-0000-0000-0000-000000000000' ? ' ': ('../../../../../../assets/CaseStudy/' + cs.Id + '/MainPicture/' + cs.PicGuid + '.jpg') "
+                alt="לוגו של קייס סטאדי"
+                [ngClass]="cs.PicGuid !='00000000-0000-0000-0000-000000000000' ? 'logo_img':'logo_img1'"
+                class="cursorP">
+            <h4 class="title_text">{{cs.MarketingTitle}}</h4>
+            <p class="main_text">{{(cs.BusinessTitle?.length>105)? (cs.BusinessTitle|slice:0:105) +
+                "...":cs.BusinessTitle }}
+            </p>
+            <footer class="footer">
+                <div>
+                    <label *ngFor="let csbl of cs.BusinessesInCaseStudy">
+                        <app-business-template [business]="csbl.Business" size="40"></app-business-template>
+                    </label>
+                </div>
+                <label *ngIf="cs.FromTable == 1">עסקת תשלום</label>
+                <label *ngIf="cs.FromTable  == 2">עסקת בארטר</label>
+                <label *ngIf="cs.FromTable  == 3">עסקת שת&quot;פ</label>
+            </footer> -->
+        </div>
+        <br>
+
+
+    </section>
+    <div class="text-align-center">
+        <p-paginator [first]="numberOfCurrentPage-1" [rows]="1" [totalRecords]="totalnumberOfPages"
+            (onPageChange)="onPageChange($event)" [showJumpToPageDropdown]="true" [showPageLinks]="false">
+        </p-paginator>
+    </div>
+
+    <div (click)="next()" class="Arrows-container cursorP" *ngIf="this.deployment === 'scroll'">
+        <i class="pi pi-arrow-left" [ngClass]="this.flagNext==true?
+                'Arrows arrow2':'Arrows arrow2 disabled'"></i>
+    </div>
+    <!-- <button type="button" class="btn_getAll" *ngIf="this.deployment === 'cards'"
+        [disabled]="listCSToDisplay.length <=this.end"
+        (click)="this.end <listCSToDisplay.length ? this.end =this.end+this.perPage : this.end ">טען
+        עוד</button> -->
+    <ng-container *ngIf="isLoading">
+        <app-spinner [text]="'אנחנו טוענים את סיפורי השתפ'"></app-spinner>
+    </ng-container>
+
+</body>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אישור פרטנרית</title>
+  </head>
+  
+  <body>
+<div class="main">
+    <h4>לתשומת ליבך:</h4>
+    <label *ngIf="dealType == 2" for="">בסיום התהליך נבקש ממך לאשר שהשיתוף התבצע בתיאום עם הפרטנרית שלך ובאישורה </label>
+    <label *ngIf="dealType == 3" for="">בסיום התהליך נבקש ממך לאשר שהשיתוף התבצע בתיאום עם השותפות שלך ובאישורן</label>
+    <br>
+    <button class="next-button" (click)="confirmed()">הבנתי</button>
+</div>
+
+</body>
+</html>

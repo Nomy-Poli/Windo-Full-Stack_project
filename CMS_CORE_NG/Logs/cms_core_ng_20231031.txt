@@ -1,0 +1,215 @@
+----------------------------------------------------------------------
+Timestamp - 31/10/2023 11:07:46 +02:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "1c36c033-68ad-4a6b-b97d-139ac59e5036"
+errors : "PasswordRequiresNonAlphanumeric;PasswordRequiresLower;PasswordRequiresUpper"
+EventId : { Id: 14 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "43b58b08-6dab-4e13-9ba8-037e75beb69b"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HMUPU0J30UK1:00000007"
+RequestPath : "/api/v1/account/register"
+SpanId : "|4737a240-43c8bc91c1115ae9."
+TraceId : "4737a240-43c8bc91c1115ae9"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "NOMY-POLI-05832"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.32"
+UserName : "USER"
+ProcessId : 28948
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 31/10/2023 11:07:46 +02:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Microsoft.AspNetCore.Identity.IdentityError,Microsoft.AspNetCore.Identity.IdentityError,Microsoft.AspNetCore.Identity.IdentityError"
+ActionId : "43b58b08-6dab-4e13-9ba8-037e75beb69b"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HMUPU0J30UK1:00000007"
+RequestPath : "/api/v1/account/register"
+SpanId : "|4737a240-43c8bc91c1115ae9."
+TraceId : "4737a240-43c8bc91c1115ae9"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "NOMY-POLI-05832"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.32"
+UserName : "USER"
+ProcessId : 28948
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 31/10/2023 11:08:00 +02:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "d452ad58-0af5-4264-936e-0fdc939e430f"
+errors : "PasswordRequiresNonAlphanumeric;PasswordRequiresUpper"
+EventId : { Id: 14 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "43b58b08-6dab-4e13-9ba8-037e75beb69b"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HMUPU0J30UK1:0000000D"
+RequestPath : "/api/v1/account/register"
+SpanId : "|4737a243-43c8bc91c1115ae9."
+TraceId : "4737a243-43c8bc91c1115ae9"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "NOMY-POLI-05832"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.32"
+UserName : "USER"
+ProcessId : 28948
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 31/10/2023 11:08:00 +02:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Microsoft.AspNetCore.Identity.IdentityError,Microsoft.AspNetCore.Identity.IdentityError"
+ActionId : "43b58b08-6dab-4e13-9ba8-037e75beb69b"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HMUPU0J30UK1:0000000D"
+RequestPath : "/api/v1/account/register"
+SpanId : "|4737a243-43c8bc91c1115ae9."
+TraceId : "4737a243-43c8bc91c1115ae9"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "NOMY-POLI-05832"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.32"
+UserName : "USER"
+ProcessId : 28948
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 31/10/2023 11:08:09 +02:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "b7dd3156-8b1d-4bbb-88b2-f5cd8febb991"
+errors : "PasswordRequiresNonAlphanumeric;PasswordRequiresLower"
+EventId : { Id: 14 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "43b58b08-6dab-4e13-9ba8-037e75beb69b"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HMUPU0J30UK1:0000000F"
+RequestPath : "/api/v1/account/register"
+SpanId : "|4737a244-43c8bc91c1115ae9."
+TraceId : "4737a244-43c8bc91c1115ae9"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "NOMY-POLI-05832"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.32"
+UserName : "USER"
+ProcessId : 28948
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 31/10/2023 11:08:09 +02:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Microsoft.AspNetCore.Identity.IdentityError,Microsoft.AspNetCore.Identity.IdentityError"
+ActionId : "43b58b08-6dab-4e13-9ba8-037e75beb69b"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HMUPU0J30UK1:0000000F"
+RequestPath : "/api/v1/account/register"
+SpanId : "|4737a244-43c8bc91c1115ae9."
+TraceId : "4737a244-43c8bc91c1115ae9"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "NOMY-POLI-05832"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.32"
+UserName : "USER"
+ProcessId : 28948
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 31/10/2023 11:17:43 +02:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "effc373d-e679-4b14-b9b5-2d30b4aa317c"
+errors : "DuplicateUserName;DuplicateEmail"
+EventId : { Id: 13 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "43b58b08-6dab-4e13-9ba8-037e75beb69b"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HMUPU0J30UK3:00000007"
+RequestPath : "/api/v1/account/register"
+SpanId : "|4737a273-43c8bc91c1115ae9."
+TraceId : "4737a273-43c8bc91c1115ae9"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "NOMY-POLI-05832"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.32"
+UserName : "USER"
+ProcessId : 28948
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 31/10/2023 11:17:43 +02:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Microsoft.AspNetCore.Identity.IdentityError,Microsoft.AspNetCore.Identity.IdentityError"
+ActionId : "43b58b08-6dab-4e13-9ba8-037e75beb69b"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HMUPU0J30UK3:00000007"
+RequestPath : "/api/v1/account/register"
+SpanId : "|4737a273-43c8bc91c1115ae9."
+TraceId : "4737a273-43c8bc91c1115ae9"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "NOMY-POLI-05832"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.32"
+UserName : "USER"
+ProcessId : 28948
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 31/10/2023 11:35:36 +02:00 | Level - Warning |
+----------------------------------------------------------------------
+userId : "bd5286ec-d5d4-42a8-a209-f12659e7c5d1"
+errors : "DuplicateUserName;DuplicateEmail"
+EventId : { Id: 13 }
+SourceContext : "Microsoft.AspNetCore.Identity.UserManager"
+ActionId : "577748f5-5911-436b-bc5b-682d5dc3110e"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HMUPUHV7VV24:00000069"
+RequestPath : "/api/v1/account/register"
+SpanId : "|f05b727b-4f502716e89a032b."
+TraceId : "f05b727b-4f502716e89a032b"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "NOMY-POLI-05832"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.32"
+UserName : "USER"
+ProcessId : 33664
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 31/10/2023 11:35:36 +02:00 | Level - Error |
+----------------------------------------------------------------------
+Error : "Microsoft.AspNetCore.Identity.IdentityError,Microsoft.AspNetCore.Identity.IdentityError"
+ActionId : "577748f5-5911-436b-bc5b-682d5dc3110e"
+ActionName : "CMS_CORE_NG.Controllers.Api.v1.AccountController.Register (CMS_CORE_NG)"
+RequestId : "0HMUPUHV7VV24:00000069"
+RequestPath : "/api/v1/account/register"
+SpanId : "|f05b727b-4f502716e89a032b."
+TraceId : "f05b727b-4f502716e89a032b"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "NOMY-POLI-05832"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.32"
+UserName : "USER"
+ProcessId : 33664
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------

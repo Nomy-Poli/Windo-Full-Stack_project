@@ -1,0 +1,177 @@
+.notes-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (24.5%)[4];
+      grid-template-columns: repeat(4, 24.5%);
+  gap: 1rem 0.5%;
+}
+
+.notes-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* gap: 2%; */
+  /* width: 82%;
+  margin: 0 auto; */
+  max-width: 1400px;
+}
+
+.notes-row .card {
+  /* width: 24%;
+  max-width: 315px; */
+  width: 48%;
+  height: 100px; 
+}
+
+.card {
+  margin: 0.1rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 1px 2px 7px 1px lightgrey;
+          box-shadow: 1px 2px 7px 1px lightgrey;
+  padding: 0 0 1rem;
+  cursor: pointer;
+}
+.card  :nth-child(1n) :nth-child(2n){
+  width: 70%;
+}
+.card .space-between {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid lightgrey;
+  position: relative;
+  border-radius: 1rem 1rem 0 0;
+  padding: 0.4rem 1rem;
+}
+
+.card .content-note {
+  padding: 0 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+.card .content-note p {
+  margin-bottom: 0;
+  max-height: 50px;
+  overflow: hidden;
+}
+
+.card .options {
+  position: absolute;
+  width: 9rem;
+  background-color: #fff;
+  border: 1px solid lightgray;
+  top: 0.2rem;
+  left: 1.8rem;
+}
+
+.card .options .opt {
+  padding: 0.5rem 0.5rem 0;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.card .options .opt a {
+  color: currentColor;
+}
+
+.card .options .opt.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background: #fff;
+}
+
+.card .options .opt.disabled a {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.card.wrap-adv {
+  padding: 0 !important;
+}
+
+h5 {
+  font-weight: var(--clear-font-weight);
+}
+
+mark {
+  font-size: 0.9rem;
+  background-color: lightgray;
+  padding: 0.1rem 0.5rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 0.3rem;
+}
+
+.wrap-button {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: auto;
+}
+
+.wrap-button label {
+  margin: 0;
+}
+
+.blue-big-button {
+  border-radius: 0 1rem 1rem 0;
+  padding: 0.35rem 1.5rem;
+  margin: 0.5rem 0 0.5rem -0.95rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.img-radius {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+}
+
+.first-letter {
+  width: 40px !important;
+  min-width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0 !important;
+}
+
+@media screen and (max-width: 1600px) {
+  h5 {
+    height: 48px;
+    overflow: hidden;
+  }
+}
+
+:host ::ng-deep.wrap-image img {
+  height: 100%;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  border-radius: 1rem;
+}
+
+:host ::ng-deep.wrap-image {
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.max-height {
+  max-height: 140px;
+  overflow: hidden;
+}
+/*# sourceMappingURL=notes-list.component.css.map */

@@ -1,0 +1,35 @@
+
+main{
+    padding: 2rem;
+    text-align: center;
+
+}
+.space-around{
+    justify-content: space-around;
+}
+.example-image {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+}
+.price {
+text-align: start;
+   
+}
+.price h2{
+    margin: 0;
+    font-weight: bold;
+}
+.icon_s {
+  max-width: 2rem;
+  max-height: 2rem;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+}
+.bg-blue button{
+    background-color: #373CF5;
+    color: white;
+}
+
+

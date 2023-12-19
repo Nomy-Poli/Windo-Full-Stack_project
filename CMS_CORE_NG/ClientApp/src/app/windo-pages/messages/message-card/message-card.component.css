@@ -1,0 +1,320 @@
+body {
+  background-color: #f0eeeed1;
+}
+
+section {
+  margin-top: 1rem;
+  width: 95%;
+  margin: 0 auto;
+}
+
+section p {
+  margin-bottom: 2rem;
+}
+
+section h3 {
+  font-weight: 600;
+  margin-right: 1.1rem;
+}
+
+hr {
+  margin: 0.2rem 0;
+}
+
+.wrap-message-header {
+  gap: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 0.5rem;
+}
+
+.wrap-message-header span {
+  margin-top: -0.4rem;
+}
+
+.wrap-businessName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+}
+
+.to-list {
+  margin-right: 50px;
+  margin-top: -0.5rem;
+}
+
+.to-list h4.first-letter.AroundFirstLetter {
+  padding: 0;
+  font-size: 1.1rem;
+  width: 30px;
+  height: 30px;
+}
+
+.tooltiptext {
+  border-radius: 0;
+  background-color: #fff;
+  color: currentColor;
+  -webkit-box-shadow: 1px 1px 3px 1px lightgrey;
+          box-shadow: 1px 1px 3px 1px lightgrey;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 0.5rem 1rem;
+  left: 0;
+}
+
+.img-radius {
+  width: 50px;
+  height: 50px;
+}
+
+.point {
+  position: relative;
+  margin-left: -.5rem;
+  z-index: 1;
+}
+
+.point img {
+  width: 30px;
+  height: 30px;
+  border: 1px solid lightskyblue;
+  border-radius: 50%;
+}
+
+.point:hover {
+  z-index: 3;
+}
+
+.point:hover img, .point:hover h4 {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  border-color: darkblue;
+}
+
+.blue-big-button {
+  margin: 2rem 1.25rem 1rem 1rem;
+  background-color: #5ff8f3;
+  width: 12rem;
+  border-radius: 1.9rem;
+  padding: 0.6rem;
+  border: none;
+  font-weight: 700;
+  -webkit-box-shadow: 1px 3px 9px lightgrey;
+          box-shadow: 1px 3px 9px lightgrey;
+}
+
+h4.first-letter.AroundFirstLetter {
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  margin: 0 !important;
+}
+
+.p-panel {
+  margin-bottom: 1rem;
+}
+
+span.pi {
+  color: #f16b7e;
+}
+
+.wrap-replay {
+  margin-top: 1rem;
+  background-color: #fff;
+  width: 100%;
+  border-radius: .3rem;
+  border: 1px solid #dee2e6;
+  padding: 3rem 4rem 1rem;
+  position: relative;
+}
+
+.wrap-replay .position-abs {
+  margin-right: -1.7rem;
+  margin-top: -1.8rem;
+}
+
+.wrap-replay .flex {
+  gap: 1rem;
+  margin-bottom: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrap-replay .flex span {
+  font-size: 1.4rem;
+}
+
+.wrap-replay .flex .email-to {
+  width: calc(100% - 3rem);
+}
+
+:host ::ng-deep.p-editor-container {
+  border-radius: 1.9rem;
+  direction: rtl !important;
+}
+
+:host ::ng-deep.p-editor-container {
+  border-radius: 1.9rem;
+  direction: rtl !important;
+}
+
+:host ::ng-deep.p-panel .p-panel-content {
+  background-color: #f0eeeed1;
+  border: none;
+  padding: 1rem 1.5rem;
+}
+
+:host ::ng-deep.p-panel .p-panel-header {
+  border: none;
+  background-color: #f0eeeed1;
+}
+
+:host ::ng-deep.pi.pi-minus, :host ::ng-deep.pi.pi-plus {
+  color: #f16b7e;
+}
+
+:host ::ng-deep.p-panel-icons {
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  padding-top: 1.2rem;
+}
+
+:host ::ng-deep.p-panel-icons small {
+  margin-left: .5rem;
+}
+
+.dropdown-btn {
+  text-align: start !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem !important;
+  color: #495057 !important;
+  background: #ffffff;
+  padding: 0.5rem 2rem 0.5rem 0.5rem !important;
+  border: 1px solid #ced4da !important;
+  -webkit-transition: background-color 0.2s, color 0.2s, border-color 0.2s, -webkit-box-shadow 0.2s !important;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, -webkit-box-shadow 0.2s !important;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s !important;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s !important;
+  border-radius: 3px !important;
+  width: 100% !important;
+}
+
+.dropdown-btn:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem #a6d5fa;
+          box-shadow: 0 0 0 0.2rem #a6d5fa;
+  border-color: #2196F3;
+}
+
+.dropdown-btn:hover {
+  border-color: #2196F3;
+}
+
+.multiselect-item-checkbox input[type=checkbox] + div {
+  text-align: start;
+}
+
+:host ::ng-deep.dropdown-list li {
+  text-align: right !important;
+}
+
+:host ::ng-deep.dropdown-list li .first-letter {
+  width: 30px !important;
+  height: 30px;
+  padding: 0.2rem 0.45em;
+  margin-left: 0.3rem !important;
+  font-weight: 700;
+}
+
+li.multiselect-item-checkbox:hover {
+  background-color: #eaecee;
+}
+
+::ng-deep.p-editor-container .p-editor-toolbar.ql-snow {
+  border: 1px solid #dee2e6 !important;
+  border-top-left-radius: 7px !important;
+  border-top-right-radius: 7px !important;
+}
+
+::ng-deep.multiselect-dropdown .dropdown-btn {
+  border: 1px solid #dee2e6 !important;
+}
+
+:host ::ng-deep.multiselect-dropdown .dropdown-btn .selected-item {
+  gap: 0.5rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  float: right !important;
+  background: #f16b7e !important;
+  border: none !important;
+}
+
+.loading-spinner {
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  right: 9rem;
+}
+
+:host ::ng-deep.multiselect-dropdown .dropdown-btn .selected-item {
+  gap: 0.5rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  float: right !important;
+  color: #495057;
+  border-radius: 0.5rem !important;
+}
+
+::ng-deep.multiselect-dropdown .dropdown-btn {
+  border-radius: 7px !important;
+  border: 1px solid #19294D !important;
+  padding: 6px  10px !important;
+  text-align: start !important;
+  border-radius: 0.5rem !important;
+}
+
+::ng-deep.dropdown-multiselect__caret::before {
+  display: none;
+}
+
+.icon_s {
+  max-width: 2rem;
+  max-height: 2rem;
+  cursor: pointer;
+}
+
+:host ::ng-deep .mail-detailes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+:host ::ng-deep .mail-detailes > small {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  position: absolute;
+  left: 2.6rem;
+  margin-top: 4rem;
+}
+/*# sourceMappingURL=message-card.component.css.map */

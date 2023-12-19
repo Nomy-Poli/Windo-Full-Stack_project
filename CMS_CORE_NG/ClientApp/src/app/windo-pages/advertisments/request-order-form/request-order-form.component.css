@@ -1,0 +1,243 @@
+body {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  /* box-shadow: 3px 11px 12px #00000029; */
+  border-radius: 30px;
+  /* opacity: 1; */
+  width: 800px;
+  height: 550px;
+  background-color: bisque;
+}
+.left-side{
+  display: grid;
+  justify-content: end;
+}
+
+.container {
+  /* max-width: 80%;
+ max-height: 80%; */
+  /* background-color: aqua; */
+  /* max-width: 700px;
+ height: 400px;
+ max-height: 450px; */
+  padding: 20px;
+}
+
+.form-container input {
+  width: 320px;
+  height: 50px;
+  border: 2px solid #19294D;
+  border-radius: 8px;
+}
+
+.container h2 {
+  text-align: center;
+}
+
+.container .form-container {
+  display: grid;
+  grid-template-columns: repeat(2, 3fr);
+  gap: 1rem;
+  grid-row: 0.5rem;
+}
+
+.container .form-container .text {
+  border: 2px solid #19294D;
+  border-radius: 8px;
+  grid-column: 1/2;
+}
+
+
+/* עיצוב שלהם */
+
+/* @import "../../styles/_primengStyling.scss"; */
+.input-group-prepend span {
+  width: 50px;
+  background-color: #19294d;
+  color: white;
+  border: 0 !important;
+}
+
+.container {
+  max-width: 600px !important;
+}
+
+.btn-warning {
+  background-color: #19294d;
+  border: solid 1px #5ff8f3;
+  color: white;
+}
+
+/* .btn-warning:not(:disabled):not(.disabled):active { */
+/* background-color: #669cb6; */
+
+/* } */
+.btn-warning:disabled:hover {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* .btn-warning:hover {
+  background-color: white;
+} */
+/*גודל האיקונים*/
+.svg-inline--fa.fa-w-14 {
+  width: 1.2rem;
+}
+
+.svg-inline--fa.fa-w-16 {
+  width: 1.2rem;
+}
+
+.HeaderSection {
+  width: 100%;
+  height: 300px;
+  background-color: #19294d;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+.textheader {
+  font-size: 40px;
+  color: white;
+  font-weight: var(--clear-font-weight);
+}
+
+h1 {
+  color: white;
+  /* margin-right: 15rem; */
+  margin-top: 6rem;
+  font-weight: 600;
+}
+
+#FormSection {
+  width: 100%;
+  padding: 2rem;
+  /* padding:1rem auto; */
+}
+
+.form-group {
+  padding: 0 1rem;
+}
+
+.input {
+  margin: 1.5rem 0;
+  border: 1px solid gray;
+  height: 3rem;
+  /* width: 96%; */
+}
+
+.textarea {
+  resize: none;
+  border-radius: .5rem;
+  padding: .6rem 1rem;
+}
+
+.submitButton {
+  background-color: rgb(6 45 211);
+  color: white;
+  width: 12rem;
+  border-radius: 1.9rem;
+  padding: 0.5rem 2.3rem;
+  border: none;
+  margin: 2rem 0;
+}
+
+.arountTextErea {
+  border: 1px solid gray;
+  height: 5rem;
+  border-radius: .5rem;
+  grid-column: 1 / span 2;
+
+}
+.pading-r{
+   padding-right: 0.5rem !important;
+}
+
+.textSubmit {
+  margin: 1rem 0;
+  font-size: 18px;
+}
+
+.aroundHeader {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.pic1 {
+  width: 13%;
+  position: absolute;
+  left: 35%;
+  margin-top: 7rem;
+}
+
+.pic2 {
+  width: 12%;
+  position: absolute;
+  left: 22%;
+  margin-top: 2rem;
+}
+
+.imgV {
+  width: 5%;
+  height: 5%;
+  margin: 1rem;
+}
+
+.aroundSub {
+  margin-bottom: 1.5rem;
+  display: flex;
+}
+
+.errorMessage {
+  color: red !important;
+  margin-bottom: 0.5rem !important;
+  /* margin-right: 2rem !important; */
+}
+
+.errorMessage::before {
+  content: '*';
+}
+
+.loading-spinner {
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  right: 9rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-gap: 1rem;
+  grid-template-rows:repeat(4,20%);
+  padding: 2rem 3rem;
+}
+
+#contactForm {
+  padding: 10px;
+}
+
+#FormSection h3 {
+  /* width: 361px;
+  height: 42px; */
+  /* UI Properties */
+  text-align: right;
+  font: normal normal bold 36px/52px Ploni DL 1.1 AAA;
+  letter-spacing: 0px;
+  color: #19294D;
+  padding-right: 3rem;
+}
+.close_i {
+  /* margin-top: -1rem; */
+  margin-right: -2rem;
+  /* background: #FAFAFA  0% 0% no-repeat padding-box; */
+}
+.icon_s {
+  max-width: 2rem;
+  max-height: 2rem;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+}

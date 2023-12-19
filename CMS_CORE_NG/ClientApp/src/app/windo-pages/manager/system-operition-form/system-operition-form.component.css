@@ -1,0 +1,19 @@
+.icon_s {
+    max-width: 1.7rem;
+    max-height: 1.7rem;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 13px;
+}
+:host ::ng-deep.p-calendar-w-btn .p-datepicker-trigger{
+    position: absolute;
+    left: 1px;
+}
+:host ::ng-deep.p-calendar .p-inputtext {
+    width: 334px;
+}
+.inputtext:disabled {
+    cursor: not-allowed;
+    background-color: #19294d1a;
+}

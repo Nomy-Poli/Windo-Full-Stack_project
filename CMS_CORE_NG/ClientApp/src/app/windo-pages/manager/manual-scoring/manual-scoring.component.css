@@ -1,0 +1,13 @@
+.Mytooltip{
+    display: block !important;
+    width: 100%;
+}
+.flex{
+    flex-wrap: wrap;
+}
+button.next-button{
+    cursor: pointer;
+}
+button.next-button:disabled{
+    cursor:not-allowed;
+}

@@ -1,0 +1,1321 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> יצירת פרופיל</title>
+</head>
+
+<!-- https://xd.adobe.com/view/0d75eab7-624c-4893-80fb-9d5acc9cb95a-5826/screen/fff4a2ed-3be4-454c-9c2b-45c68608602d/ -->
+
+<body>
+  <!-- header start -->
+  <!-- <header>
+      <app-header></app-header>
+    </header> -->
+  <!-- header end -->
+  <!-- cover start -->
+  <p-toast position="center">
+    <ng-template let-message pTemplate="message">
+      <!-- <div class=""> -->
+      <div class="wrap-error-content">
+        <i class="pi pi-exclamation-triangle" style="font-size: 2.5rem"></i>
+        <!-- <h4>{{message.summary}}</h4> -->
+        <h6>{{message.detail}}</h6>
+      </div>
+      <!-- </div> -->
+    </ng-template>
+  </p-toast>
+  <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+
+  <div class="cover-img" id="cover-img">
+
+    <div class="text-center">
+      <img [src]="" class="img-cover-img" [alt]="openDeleteCoverImg?'תמונת מעטפת':''" />
+      <div class="mt-2 flex-center
+          flex_SB">
+        <form [formGroup]="CoverForm">
+          <input type="file" class="mb-0" #fileupload id="coverpicfile" name="coverpicfile" accept="image/png,
+              image/gif, image/jpeg" (click)="fileupload.value= null" value="" (change)="onCoverFileChanged($event)" />
+        </form>
+        <!-- <div class="uploadImg"> -->
+        <!-- <a class="pointerImg" -->
+
+
+        <!-- </div> -->
+      </div>
+    </div>
+    <!-- //*אופציית העלאת תמונת שער*// -->
+    <!-- <div class="">
+      <a class="uploadCoverImg Mytooltip" (click)="triggerInputCover()" *ngIf="!this.openDeleteCoverImg">
+        <i class="pi pi-pencil"></i> -->
+    <!-- class="tooltip" -->
+    <!-- <span> העלי תמונת שער
+        </span>
+        <span class="tooltiptext"><strong>העלי תמונת שער לכרטיס העסק שלך
+          </strong>את יכולה גם לבחור להשאיר את הרקע הנוכחי</span>
+      </a> -->
+    <!-- <a class="removeCoverImg" *ngIf="this.openDeleteCoverImg == true" (click)="triggerInputCoverRemove()">
+        <i class="pi pi-times-circle"></i>
+        הסרה
+      </a>
+    </div> -->
+  </div>
+
+  <!-- cover end -->
+  <div class="container-form flex gap-10">
+    <!-- profile start -->
+    <!-- aside start -->
+    <aside class="profile flex_C FEIc asaid">
+      <div id="profile" class="Mytooltip">
+        <img *ngIf="(!file && resOfUpdateBusinnes.id == 0 && !personalInformationForm.controls['buisnessName'].value)
+          || (file) 
+          || (logoPictureId && logoPictureId!='00000000-0000-0000-0000-000000000000')"
+          [src]="(logoPictureId && logoPictureId!='00000000-0000-0000-0000-000000000000')?'../../../../../assets/BusinessImages/'+ resOfUpdateBusinnes.id + '/Logo/' + logoPictureId + '/' + logoPictureId + '.jpg?w=150': ProfilePath"
+          class="img-radius" alt="תמונת פרופיל" [ngClass]="{'no-pic': !file && resOfUpdateBusinnes.id == 0}" />
+        <span *ngIf="!(file) && (!logoPictureId || logoPictureId=='00000000-0000-0000-0000-000000000000')"
+          class="tooltiptext1"><strong>כשתעלי
+            את תמונת הפרופיל של
+            העסק, היא תוצג כאן</strong></span>
+        <!-- <i class="fa fa-camera img-radius first-letter " width="150"></i> -->
+        <h1
+          *ngIf="!(file) && (personalInformationForm.controls['buisnessName'].value) && (!logoPictureId || logoPictureId=='00000000-0000-0000-0000-000000000000')"
+          style="border-color:#04e6e0;color:#04e6e0" class="first-letter-profile AroundFirstLetter">
+          {{personalInformationForm.controls['buisnessName'].value
+          |firstWord}}</h1>
+      </div>
+      <!-- <img class="img-radius"
+          [src]="personalInformationForm.controls['profpicfile'].value" alt=""
+          
+          /> -->
+      <h3 class="myb-1" [style.font-size]="getFontSizeByLenght()">
+        {{personalInformationForm.controls['buisnessName'].value}}
+        {{personalInformationForm.controls['isdisplayBusinessOwnerName'].value?
+        ' -'+personalInformationForm.controls['firstname'].value: ''}}</h3>
+      <!-- //שם פרטי ושם משפחה// -->
+      <!-- <h4 class="myb-1">{{personalInformationForm.controls['firstname'].value}}
+        {{personalInformationForm.controls['lastname'].value}}
+      </h4> -->
+      <p class="myb-1">
+        {{(personalInformationForm.controls['actionDiscription'].value)?personalInformationForm.controls['actionDiscription'].value:"
+        כאן המקום לכתוב סלוגן מקורי המתאר אותך או את העסק שלך"}}</p>
+      <a class="myb-1 linkBreak" target="_blank"
+        href="{{personalInformationForm.controls['buisnessWebSiteLink'].value}}">{{personalInformationForm.controls['buisnessWebSiteLink'].value.replace("https://",'')}}</a>
+      <i *ngIf="personalInformationForm.controls['buisnessWebSiteLink'].value" class="pi pi-globe"></i>
+
+      <a class="myb-1 mt-2" href="mailto:{{personalInformationForm.controls['buisnessEmailAddress'].value}}">
+        {{personalInformationForm.controls['buisnessEmailAddress'].value}}
+      </a><span style="margin-top: -2.2rem;"
+        *ngIf="personalInformationForm.controls['buisnessEmailAddress'].value && personalInformationForm.controls['buisnessEmailAddress'].value.length>0"><i
+          class='far fa-envelope'></i></span>
+      <div *ngIf="personalInformationForm.controls['isInAllCountry'].value==true" class="text-right">
+        <p class="myb-1"><i class="pi pi-map-marker"></i> כל הארץ</p>
+      </div>
+      <div *ngIf="personalInformationForm.controls['isInAllCountry'].value==false">
+        <div class="flex_C FEIc" *ngFor="let item of
+            this.ModelArea">
+          <p class="myb-1"><i class="pi pi-map-marker"></i>
+            {{item.name}}</p>
+        </div>
+      </div>
+      <p id="p1" class="wordBreak">{{personalInformationForm.controls['discription'].value}}
+      </p>
+      <h6 class="bold">איך עושים שת"פ עם
+        {{personalInformationForm.controls['buisnessName'].value}}
+      </h6>
+      <button
+        [ngClass]="personalInformationForm.controls['ispayingBuisness'].value==true?'turquoise-tags':'light-gray-tags'"
+        class="big">
+        <img class="payIcon" src="../../../assets/icons/dolar.png" alt="תמורת תשלום">
+        תמורת תשלום
+      </button>
+      <button
+        [ngClass]="personalInformationForm.controls['isburterBuisness'].value==true?'turquoise-tags':'light-gray-tags'"
+        class="big">
+        <img class="BarterIcon" src="../../../assets/icons/handshake-icon.png" alt="עסקת בארטר">
+        בעסקת ברטר
+      </button>
+      <button
+        [ngClass]="personalInformationForm.controls['iscollaborationBuisness'].value==true?'turquoise-tags':'light-gray-tags'"
+        class="big">
+        <img class="CollaborationIcon" src="../../../assets/icons/collaboration-icon.png" alt="שיתוף פעולה">
+        בשיתוף פעולה
+      </button>
+    </aside>
+    <!-- aside end -->
+
+    <!-- main content start-->
+    <section class="left-side-container">
+      <!-- <form [formGroup]="personalInformationForm" #profileForm (ngSubmit)="savePersonalInformationForm()"> -->
+      <form [formGroup]="personalInformationForm" #profileForm (ngSubmit)="onSubmitwithFileAndModel()">
+        <!-- (ngSubmit)="onSubmitwithFile()"> -->
+        <!-- (ngSubmit)="onSubmit()"> -->
+
+
+        <h4 *ngIf="this.progressBarValue<100">בניית כרטיס העסק שלך מתקדמת...</h4>
+        <h4 *ngIf="this.progressBarValue==100">נראה שכרטיס העסק שלך מוכן!</h4>
+        <div class="DivAroundTheProgressBar">
+          <div class="AroundTheProgressBar">
+            <!-- progress bar -->
+            <p-progressBar [value]="this.progressBarValue" [showValue]="true" id="progress"></p-progressBar>
+          </div>
+          <button class="ViewBusinessBtn Mytooltip"
+            [disabled]="personalInformationForm.controls['idBusiness'].value == 0" [routerLink]="['/business-view',
+              this.acct.Email.value]">
+            <span *ngIf="personalInformationForm.controls['idBusiness'].value==0" class="tooltiptextBisView">
+              אין אפשרות לצפות בעסק לפני שהפרטים מלאים</span>
+            <img class="SendMassageIcon" src="../../../assets/icons/icons8-zoom-in-58 (1).png" alt="צפי בעסק">צפיה
+            בעסק</button>
+          <button *ngIf="resOfUpdateBusinnes.id != 0" class="ViewBusinessBtn Mytooltip"
+            (click)="seeScoreDetails($event)">לפירוט ניקוד</button>
+          <!-- [disabled]="personalInformationForm.controls['idBusiness'].value.Score==0" -->
+        </div>
+        <!-- מידע אישי -->
+        <div class="timeline">
+          <div class="left" id="01" [ngClass]="checkValidationForTimeLine() ?
+              'TimeLineContainer' : 'TimeLineContainer1'">
+            <section [ngClass]="checkValidationForTimeLine() ?
+                'outline-card'
+                : 'outline-card1'">
+              <div class="flex_SB cursorP" (click)="ToggleAndChangeTheIcon(1,collapse1)"
+                [attr.aria-expanded]="!isCollapsed[0]" aria-controls="collapseSection1">
+                <h1 class="">פרטי העסק</h1>
+                <i *ngIf="isOpen1">
+                  <img class="icon" src="../../../assets/icons/down-arrow.png" alt="למטה" /> </i>
+                <a *ngIf="!isOpen1">
+                  <img class="icon" src="../../../assets/icons/up-arrow.png" alt="למעלה" /></a>
+              </div>
+
+              <div #collapse1="ngbCollapse" [(ngbCollapse)]="isCollapsed[0]">
+                <div class="content">
+                  <!-- <span class="valodation">* כוכבית מציינת
+                    שהמידע המבוקש הכרחי כדי להמשיך</span><br> -->
+                  <span class="valodation">* שימי לב שכל תמונה שאת מעלה לא תשקול יותר מ300KB</span>
+                  <p>הציגי את העסק שלך.המידע שתתני כאן יופיע בכרטיס העסק שלך ויאפשר לקונות או שותפות פוטנציאליות להכיר
+                    אותך וליצור איתך קשר</p>
+                  <div class="flex gap-5 flex-column-sm">
+                    <!-- דוגמא להעלאת תמונה מקומפוננטת פרופיל משתמש  -->
+                    <div id="profpic" appImageDrag (files)="filesDropped($event,1)" appimagedrag
+                      style="background:none ;">
+                      <div>
+                        <div *ngIf="personalInformationForm.get('profpicfile').value || 
+                          (logoPictureId && logoPictureId!='00000000-0000-0000-0000-000000000000')" class="removeImg"
+                          (click)="removeLogoImg()"><i class="pi pi-times"></i></div>
+
+                        <img [src]="" class="img-radius smaller" #imglogo [alt]="personalInformationForm.get('profpicfile').value || 
+                        (logoPictureId && logoPictureId!='00000000-0000-0000-0000-000000000000')?'תמונת פרופיל':''" />
+                        <!-- class="img-thumbnail" -->
+                        <!-- <div class="mt-2 flex-center"> -->
+                        <div class="mt-2 flex-center
+                            flex_SB">
+                          <input type="file" class="mb-0" accept="image/png,
+                              image/gif,
+                              image/jpeg" #fileprofileupload (click)="fileprofileupload.value=
+                              null" value="" (change)="onFileChanged($event)" id="profpicfile" name="profpicfile" />
+                          <!-- <div class="uploadImg"> -->
+                          <!-- <a class="pointerImg" -->
+                          <a *ngIf="!personalInformationForm.get('profpicfile').value && (!logoPictureId || logoPictureId=='00000000-0000-0000-0000-000000000000')"
+                            class="uploadImg" (click)="triggerInput()"><i class="pi
+                                pi-paperclip
+                                color_w"></i></a>
+                          <!-- </div> -->
+                        </div>
+                      </div>
+                      <span class="text-center"><strong>הלוגו של העסק</strong>
+                        <br>
+                        או תמונת פרופיל אחרת</span>
+                    </div>
+                    <div>
+                      <!-- <span
+                          ngbPopover=""
+                          placement="left"
+                          triggers="mouseenter:mouseleave"
+                          popoverTitle="את השם הפרטי שלך אפשר לערוך ב'הפרופיל
+                          שלי'"> -->
+                      <!-- //שם פרטי// -->
+                      <!-- <input type="text" class="input" placeholder="שם פרטי" name="firstname" id="firstname"
+                        formControlName="firstname" /> -->
+                      <!-- </span> -->
+                      <!-- <span
+                          #to
+                          ngbPopover=""
+                          placement="left"
+                          triggers="mouseenter:mouseleave"
+                          popoverTitle="את שם המשפחה שלך אפשר לערוך ב'הפרופיל
+                          שלי'"> -->
+                      <!-- //שם משפחה// -->
+                      <!-- <input type="text" class="input" placeholder="שם משפחה" name="lastname" id="lastname"
+                        formControlName="lastname" /> -->
+                      <!-- </span> -->
+                      <!-- <div class="flex mt-2">
+                        <input type="checkbox" class="checkBox" name="isdisplayBusinessOwnerName"
+                          id="isdisplayBusinessOwnerName" formControlName="isdisplayBusinessOwnerName" />
+                        <label class="cursorT" for="">אני רוצה להציג את השם המלא שלי</label>
+                      </div> -->
+                      <!-- <span class="myb-2" for="">אם תבחרי באופציה זו,השם המלא
+                        שלך יופיע בכל הצגה של העסק שלך, לצד שם העסק</span> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="flex-column mt-5">
+                  <!-- <input type="text" id="lastname"
+                    pInputText class="input"
+                    formControlName="lastname">
+                  <label for="inputtext">שם משפחה</label> -->
+                  <input type="text" class="input input2" name="buisnessName" id="buisnessName"
+                    formControlName="buisnessName" placeholder="* שם העסק" (keyup)="fillProgressbar($event)" />
+                  <div *ngIf="this.personalInformationForm.get('buisnessName').touched
+                      &&
+                      this.personalInformationForm.get('buisnessName').errors">
+                    <span class="errorMessage"
+                      *ngIf="this.personalInformationForm.get('buisnessName').hasError('required')">
+                      מה שם העסק שלך? נראה שהחמצנו את הפרט הזה</span>
+                    <span class="errorMessage"
+                      *ngIf="this.personalInformationForm.get('buisnessName').hasError('maxlength')">
+                      מותר עד 30 תווים לשם עסק
+                    </span>
+                    <span class="errorMessage"
+                      *ngIf="this.personalInformationForm.get('buisnessName').hasError('minlength')">
+                      צריך לפחות 2 תווים לשם עסק .
+                    </span>
+                  </div>
+                  <!-- <span *ngIf="this._wrapperFuncService.megamenue==='yes'" -->
+                  <span ngbPopover="" placement="left" triggers="mouseenter:mouseleave"
+                    popoverTitle="ברירת מחדל-כתובת המייל של המשתמש">
+                    <input type="email" class="input input2" placeholder="כתובת הדואל של העסק" name="email" id="email"
+                      formControlName="email" />
+                  </span>
+
+
+                  <!-- <span *ngIf="this._wrapperFuncService.megamenue==='no'">
+                      <input
+                        type="email"
+                        class="input input2"
+                        placeholder="דוא'ל"
+                        name="email"
+                        id="email"
+                        formControlName="email"
+                        pInputText
+                        />
+                    </span> -->
+                  <input type="text" class="input input2" placeholder="מייל של העסק" name="buisnessEmailAddress"
+                    id="buisnessEmailAddress" formControlName="buisnessEmailAddress" />
+                  <div *ngIf="this.personalInformationForm.get('buisnessEmailAddress').pristine
+                      &&
+                      this.personalInformationForm.get('buisnessEmailAddress').errors">
+                    <span class="errorMessage"> חובה להזין כתובת מייל תקינה</span>
+                  </div>
+                  <!-- TODO: check the pattern of url -->
+                  <!--  -->
+                  <input type="url" class="input input2" placeholder="לינק לאתר" name="buisnessWebSiteLink"
+                    id="buisnessWebSiteLink" formControlName="buisnessWebSiteLink" />
+                  <div *ngIf="this.personalInformationForm.get('buisnessWebSiteLink').dirty
+                    && this.personalInformationForm.get('buisnessWebSiteLink').errors">
+                    <span class="errorMessage"> חובה להזין כתובת URL תקינה</span>
+                  </div>
+                  <input type="text" class="input input2" placeholder="מספר טלפון" name="phoneNumber1" id="phoneNumber1"
+                    formControlName="phoneNumber1" />
+                  <div *ngIf="this.personalInformationForm.get('phoneNumber1').touched
+                      &&
+                      this.personalInformationForm.get('phoneNumber1').errors">
+                    <span class="errorMessage"> חובה להזין טלפון תקין</span>
+                  </div>
+                  <input type="text" class="input input2" placeholder="מספר טלפון נוסף" name="phoneNumber2"
+                    id="phoneNumber2" formControlName="phoneNumber2" />
+                  <div *ngIf="this.personalInformationForm.get('phoneNumber2').touched
+                      &&
+                      this.personalInformationForm.get('phoneNumber2').errors">
+                    <span class="errorMessage"> חובה להזין טלפון תקין</span>
+                  </div>
+                  <input type="text" class="input input2 myb-2" placeholder="כתובת" name="address" id="address"
+                    formControlName="address" />
+                  <div class="flex">
+                    <label class="inline-block mxl-2">האם העסק מספק שירות לכל
+                      רחבי הארץ?</label>
+                    <span class="ml-2" *ngIf="this.personalInformationForm.get('isInAllCountry').value
+                        == true">כן</span>
+                    <span class="ml-2" *ngIf="this.personalInformationForm.get('isInAllCountry').value
+                        == false">לא</span>
+                    <p-inputSwitch (click)="Countrycollapse.toggle()" [attr.aria-expanded]="!isCountryCollapsedOpen"
+                      aria-controls="collapseExample" formControlName="isInAllCountry"></p-inputSwitch>
+                  </div>
+                  <div #Countrycollapse="ngbCollapse" [(ngbCollapse)]="isCountryCollapsedOpen">
+                    <p-multiSelect #areas showHeader="false" [options]="_wrapperSearchService.AreaOptionsProfile"
+                      defaultLabel="בחרי אזורי שירות" [filter]="false" optionLabel="name" [selectionLimit]="3"
+                      maxSelectedLabels="1" formControlName="area" [(ngModel)]="this.ModelArea"
+                      styleClass="inputMultiSelect"></p-multiSelect>
+                    <br /><span>ניתן לבחור עד 3 אזורים</span>
+                  </div>
+                </div>
+                <div class="card-with-header">
+                  <h5 class="header-card">
+
+                    הסלוגן של העסק שלך:</h5>
+                  <textarea formControlName="actionDiscription" (keyup)="fillProgressbar($event)"
+                    name="actionDiscription" id="actionDiscription" cols="50" rows="5" maxlength="50"
+                    placeholder="אם אין לך עדיין סלוגן, או אם הוא כבר מופיע בתמונת הפרופיל שלך, כתבי כאן משפט קצר ומניע לפעולה. הוא יוצג בקביעות מתחת לשם העסק שלך."></textarea>
+                  <div class="flex-bottom">
+                    <span class="bold mr-2 mb-3">
+                      {{
+                      personalInformationForm.controls['actionDiscription'].value.length
+                      }}/50
+                    </span>
+                  </div>
+                  <div *ngIf="this.personalInformationForm.get('actionDiscription').touched
+                      &&
+                      this.personalInformationForm.get('actionDiscription').errors">
+                    <span class="errorMessage"
+                      *ngIf="this.personalInformationForm.get('actionDiscription').hasError('required')">
+                      אסור לך לוותר על סלוגן!</span>
+                    <span class="errorMessage"
+                      *ngIf="this.personalInformationForm.get('actionDiscription').hasError('maxlength')">מותר
+                      עד 50 תווים לסלוגן
+                    </span>
+                    <span class="errorMessage"
+                      *ngIf="this.personalInformationForm.get('actionDiscription').hasError('minlength')">
+                      חובה לפחות 5 תוים לעסק.
+                    </span>
+                  </div>
+                </div>
+                <div class="card-with-header">
+                  <h5 class="header-card">
+
+                    מה שחשוב שידעו על העסק שלך:</h5>
+                  <textarea formControlName="discription" (keyup)="fillProgressbar($event)" name="discription"
+                    id="discription" cols="200" rows="5" maxlength="120"
+                    placeholder="זה המקום לתאר את השירותים או המוצרים שהעסק שלך מספק, את הניסיון המקצועי שלך ואת האמירה הייחודית שאת מביאה איתך."></textarea>
+                  <div class="flex-bottom">
+                    <span class="bold mr-2 mb-3">
+                      {{
+                      personalInformationForm.controls['discription'].value.length
+                      }}/120
+                    </span>
+
+                  </div>
+                  <div *ngIf="this.personalInformationForm.get('discription').touched
+                      &&
+                      this.personalInformationForm.get('discription').errors">
+                    <span class="errorMessage"
+                      *ngIf="this.personalInformationForm.get('discription').hasError('required')">רגע,
+                      לא הכרנו אותך מספיק. ספרי לנו מה חשוב שידעו על העסק שלך
+                    </span>
+                    <span class="errorMessage"
+                      *ngIf="this.personalInformationForm.get('discription').hasError('maxlength')">מותר
+                      עד 120 תווים לתאור
+                    </span>
+                    <span class="errorMessage"
+                      *ngIf="this.personalInformationForm.get('discription').hasError('minlength')">
+                      חובה לפחות 5 תוים לתאור העסק.
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div *ngIf="personalInformationForm.hasError('notComplete')">!השלמת
+              הפרופיל לא הושלמה עדיין
+            </div>
+          </div>
+          <!-- תחומי התמחות -->
+          <div class="left" id="02" [ngClass]="checkValidationForTimeLine1()?
+              'TimeLineContainer':'TimeLineContainer1'">
+            <section [ngClass]="checkValidationForTimeLine1()?
+                'outline-card':'outline-card1'">
+              <div class="flex_SB cursorP" (click)="ToggleAndChangeTheIcon(2,collapse2)"
+                [attr.aria-expanded]="isCollapsed[1]" aria-controls="collapseSection2">
+                <h1>תחומי שירות </h1>
+                <i *ngIf="isOpen2">
+                  <img class="icon" src="../../../assets/icons/down-arrow.png" alt="פתיחה" /> </i>
+                <a *ngIf="!isOpen2">
+                  <img class="icon" src="../../../assets/icons/up-arrow.png" alt="סגירה" /></a>
+              </div>
+              <div #collapse2="ngbCollapse" [(ngbCollapse)]="isCollapsed[1]">
+                <p>ספרי לנו באיזה תחומים מציע העסק שלך שירותים, ובאלו תתי
+                  תחומים הוא מתמחה</p>
+                <p><strong>לא מצאת את הקטגוריה המתאימה לך? את מוזמנת לשלוח בקשה למנהלת האתר </strong></p>
+                <div class="flex" #categories>
+                  <div id="select-container">
+                    <div class="flex_SB">
+                    </div>
+                    <div>
+                      <fieldset class="border">
+                        <legend class="bold mxl-1
+                            pyt-1 myt-1 w-none">העיסוק
+                          שלך:</legend>
+                        <label class="d-block"><span class="color-red">*</span>
+                          תחום שירות:</label>
+                        <span>המערכת מאפשרת לבחור עד 4
+                          תחומי שירות</span>
+                        <div style="width:490px">
+                          <p-dropdown #categorydropdown1 styleClass="input" (onClick)="setDisableOfChoosedCategory()"
+                            (onChange)="onChangeCategory1($event)" [options]="_wrapperSearchService.categoriesForChoose"
+                            required placeholder="בחרי
+                            תחום שירות" optionLabel="value" formControlName="Category1" [(ngModel)]="this.Category1">
+                          </p-dropdown>
+                        </div>
+                        <label class="d-block"><span class="color-red">*</span> תת
+                          תחום שירות:</label>
+                        <p-multiSelect #subcategorydropdown1 [options]="_wrapperSearchService.subCategoryOptions1"
+                          placeholder="בחרי תת
+                            תחום שירות" [showToggleAll]="true" [filter]="false" required [maxSelectedLabels]="3"
+                          [selectedItemsLabel]="'{0} פרטים נבחרו'" optionLabel="name" styleClass="inputMultiSelect"
+                          formControlName="SubCategory1" emptyFilterMessage="לא בחרת עדין תחום שרות"
+                          (onChange)="onChangeSubCategory1($event)" [(ngModel)]="this.ModelSubCategory1">
+                        </p-multiSelect>
+                      </fieldset>
+                    </div>
+                    <div *ngIf="this.isToOpenCategory2
+                        == true">
+                      <fieldset class="border">
+                        <legend class="bold mxl-1
+                            pyt-1 myt-1 w-none">העיסוק
+                          שלך:</legend>
+                        <div>
+                          <label class="delete_Icon cursorP" (click)="OndeleteCategory(2)"><img
+                              src="../../../assets/icons/x.png" class="x_icon" alt="מחיקת תחום התמחות" /></label>
+                          <label class="d-block">תחום שירות:</label>
+                          <span>המערכת מאפשרת לבחור עד 4
+                            תחומי שירות</span>
+                          <div style="width:490px">
+                            <p-dropdown #categorydropdown2 styleClass="input" (onChange)="onChangeCategory2($event)"
+                              (onClick)="setDisableOfChoosedCategory()"
+                              [options]="_wrapperSearchService.categoriesForChoose" placeholder="בחרי
+                              תחום שירות" optionLabel="value" formControlName="Category2" [(ngModel)]="this.Category2">
+                            </p-dropdown>
+                          </div>
+                          <label class="d-block"><span class="color-red">*</span> תת
+                            תחום שירות:</label>
+                          <p-multiSelect #subcategorydropdown2 [options]="_wrapperSearchService.subCategoryOptions2"
+                            placeholder="בחרי תת
+                              תחום שירות" [showToggleAll]="true" [filter]="false" [maxSelectedLabels]="3"
+                            [selectedItemsLabel]="'{0} פרטים נבחרו'" optionLabel="name" styleClass="inputMultiSelect"
+                            formControlName="SubCategory2" emptyFilterMessage="לא בחרת עדין תחום שרות"
+                            [(ngModel)]="this.ModelSubCategory2"></p-multiSelect>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <!-- ~~~~~~~~~~~~~~~3~~~~~~~~~ -->
+                    <div *ngIf="this.isToOpenCategory3
+                        == true">
+                      <fieldset class="border">
+                        <legend class="bold mxl-1
+                            pyt-1 myt-1 w-none">העיסוק
+                          שלך:</legend>
+                        <div>
+                          <label class="delete_Icon cursorP" (click)="OndeleteCategory(3)"><img
+                              src="../../../assets/icons/x.png" class="x_icon" alt="מחיקת תחום התמחות" /></label>
+                          <label class="d-block">תחום שירות:</label>
+                          <span>המערכת מאפשרת לבחור עד 4
+                            תחומי שירות</span>
+                          <div style="width:490px">
+                            <p-dropdown #categorydropdown3 styleClass="input" (onChange)="onChangeCategory3($event)"
+                              (onClick)="setDisableOfChoosedCategory()"
+                              [options]="_wrapperSearchService.categoriesForChoose" placeholder="בחרי
+                              תחום שירות" optionLabel="value" formControlName="Category3" [(ngModel)]="this.Category3">
+                            </p-dropdown>
+                          </div>
+                          <!-- formControlName="topicId" -->
+                          <label class="d-block"><span class="color-red">*</span> תת
+                            תחום שירות:</label>
+                          <p-multiSelect #subcategorydropdown3 [options]="_wrapperSearchService.subCategoryOptions3"
+                            placeholder="בחרי תת
+                              תחום שירות" [showToggleAll]="true" [filter]="false" [maxSelectedLabels]="3"
+                            [selectedItemsLabel]="'{0} פרטים נבחרו'" optionLabel="name" styleClass="inputMultiSelect"
+                            formControlName="SubCategory3" emptyFilterMessage="לא בחרת עדין תחום שרות"
+                            [(ngModel)]="this.ModelSubCategory3"></p-multiSelect>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <!-- ~~~~~~~~~~~~~~~4~~~~~~~~~ -->
+                    <div *ngIf="this.isToOpenCategory4
+                        == true">
+                      <fieldset class="border">
+                        <legend class="bold mxl-1
+                            pyt-1 myt-1 w-none">העיסוק
+                          שלך:</legend>
+                        <div>
+                          <label class="delete_Icon cursorP" (click)="OndeleteCategory(4)"><img
+                              src="../../../assets/icons/x.png" class="x_icon" alt="מחיקת תחום התמחות" /></label>
+                          <label class="d-block">תחום שירות:</label>
+                          <span>המערכת מאפשרת לבחור עד 4
+                            תחומי שירות</span>
+                          <div style="width:490px">
+                            <p-dropdown #categorydropdown4 styleClass="input" (onChange)="onChangeCategory4($event)"
+                              (onClick)="setDisableOfChoosedCategory()"
+                              [options]="_wrapperSearchService.categoriesForChoose" placeholder="בחרי
+                              תחום שירות" optionLabel="value" formControlName="Category4" [(ngModel)]="this.Category4">
+                            </p-dropdown>
+                          </div>
+                          <!-- formControlName="topicId" -->
+                          <label class="d-block"><span class="color-red">*</span> תת
+                            תחום שירות:</label>
+                          <p-multiSelect #subcategorydropdown4 [options]="_wrapperSearchService.subCategoryOptions4"
+                            placeholder="בחרי תת
+                              תחום שירות" [showToggleAll]="true" [filter]="false" [maxSelectedLabels]="3"
+                            [selectedItemsLabel]="'{0} פרטים נבחרו'" optionLabel="name" styleClass="inputMultiSelect"
+                            formControlName="SubCategory4" emptyFilterMessage="לא בחרת עדין תחום שרות"
+                            [(ngModel)]="this.ModelSubCategory4"></p-multiSelect>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div>
+                      <label class="icon2 AS_S" (click)="checkWitchCategoryToOpen()">
+                        <img [ngClass]="addCat==false? 'opacity_4' :''" src="../../../assets/icons/Group1@2x.png"
+                          alt="הוספת קטגוריה" />
+                      </label>
+                      <label class="bold mr-3">בחרי
+                        תחום שירות נוסף</label>
+                      <div *ngIf="this.personalInformationForm.get('SubCategory1').touched
+                          &&
+                          this.personalInformationForm.get('SubCategory1').errors">
+                        <span class="errorMessage"
+                          *ngIf="this.personalInformationForm.get('SubCategory1').hasError('required')">
+                          זה לא עסק! לא ציינת את תחומי ההתמחות שלך</span>
+                      </div>
+                    </div>
+                    <!-- ============================== -->
+
+                  </div>
+
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- BusinessCategoriesNotify -->
+          <!-- <div class="left" id="03" [ngClass]="checkValidationForTimeLine()?
+              'TimeLineContainer':'TimeLineContainer1'">
+            <section [ngClass]="checkValidationForTimeLine()?
+                'outline-card':'outline-card1'">
+              <div class="flex_SB cursorP" (click)="ToggleAndChangeTheIcon(3,collapse3)"
+                [attr.aria-expanded]="isCollapsed[2]" aria-controls="collapseSection3">
+                <h1>העדפות האימייל שלי</h1>
+                <i *ngIf="isOpen3">
+                  <img class="icon" src="../../../assets/icons/down-arrow.png" alt="פתיחה" /> </i>
+                <a *ngIf="!isOpen3">
+                  <img class="icon" src="../../../assets/icons/up-arrow.png" alt="סגירה" /></a>
+              </div>
+              <div #collapse3="ngbCollapse" [(ngbCollapse)]="isCollapsed[2]">
+                <p>כל הזמן יש חדש באתר windo. באיזו תדירות את רוצה לקבל התרעות למייל לגבי מה שקורה? </p>
+                <br> -->
+          <!-- כרגע זה בהערה  כי לא נתבקש ע"י ריקי  -->
+          <!-- <p-toggleButton onLabel="קבלת עדכון מיידי" offLabel="לא מעוניינת לקבל עדכון למייל במיידי" onIcon="pi
+                  pi-check" offIcon="pi pi-times" formControlName="WantedGetHelpNotification"
+                  styleClass="toggel-primary">
+                </p-toggleButton>
+                <p>
+                  התעדכני מיד כשיש חדש בלוח המודעות, שתוכלי לנצל הזדמנויות וליצור שת"פים לפני כולן.
+                </p>
+                <br>
+                <p-toggleButton onLabel="קבלת עידכון מיידי רק בקטגוריות שלי "
+                  offLabel="לא מעונינת לקבל מייל עבור כל פעם שמישהי מגיבה בקטגוריות שלי : " onIcon="pi
+                   pi-check" offIcon="pi pi-times" [(ngModel)]="wantMailByCategory"
+                  [ngModelOptions]="{standalone: true}" styleClass="toggel-primary">
+                </p-toggleButton>
+                <div *ngIf="wantMailByCategory==true" formArrayName="BusinessCategoriesNotify" class="pd-r">
+                  <div *ngFor="let item of BusinessCategoriesNotify.controls;let i=index;">
+                    <input type="checkbox" [formControlName]="i">
+                    <label for="">{{this['Category'+(i+1)].value}}</label>
+                  </div>
+                </div>
+                <br>
+                <p-toggleButton onLabel="קבלת עידכון אחת ליום" offLabel="לא מעוניינת לקבל עדכון יומי" onIcon="pi
+                   pi-check" offIcon="pi pi-times" formControlName="WantedGetDailyNotification"
+                  styleClass="toggel-primary">
+                </p-toggleButton>
+                <p>
+                  התעדכני אחת ליום על כל מה שהתחדש בלוח המודעות, שתוכלי לנצל את ההזדמנויות שעולות פה באתר.
+                </p>
+              </div>
+              <p-toggleButton onLabel="קבלת עידכון שבועי" offLabel="לא מעוניינת לקבל עדכון למייל במיידי" onIcon="pi
+              pi-check" offIcon="pi pi-times" formControlName="WantedGetHelpNotification" styleClass="toggel-primary">
+              </p-toggleButton>
+              <p>
+                התעדכני אחת לשבוע על כל מה שהתחדש בלוח המודעות, שתוכלי לנצל את ההזדמנויות שעולות פה באתר.
+              </p>
+            </section>
+          </div> -->
+
+
+          <!--  עבודות -->
+          <div class="left" id="04" [ngClass]="CheckIfAtLeastOnePicExist()==true?
+              'TimeLineContainer1':'TimeLineContainer'">
+            <section [ngClass]="CheckIfAtLeastOnePicExist()==true?
+                'outline-card1':'outline-card'" #section4>
+              <div class="flex_SB cursorP" (click)="ToggleAndChangeTheIcon(3,collapse4)"
+                [attr.aria-expanded]="isCollapsed[3]" aria-controls="collapseSection4">
+                <h1>תיק עבודות </h1>
+                <i *ngIf="isOpen4">
+                  <img class="icon" src="../../../assets/icons/down-arrow.png" alt="פתיחה" /> </i>
+                <a *ngIf="!isOpen4">
+                  <img class="icon" src="../../../assets/icons/up-arrow.png" alt="סגירה" /></a>
+              </div>
+              <div #collapse4="ngbCollapse" [(ngbCollapse)]="isCollapsed[3]">
+                <p>יש לך עבודות מעולות לדוגמה? תמונות של תוצרים או מוצרים?
+                  קבצים מתוך פרויקטים שביצעת? זה המקום להעלות אותם. התמונות
+                  יוצגו בכרטיס העסק שלך כתיק עבודות.</p>
+
+                <div id="workPic">
+                  <div class="workPic">
+                    <div class="DivInBox">
+                      <img [src]="" id="1" class="work-img" [ngClass]="{
+                              RemoveBorderImg:
+                              workHasImg1 }" [alt]="workHasImg1? 'תמונת תיק עבודות 1':''" />
+                      <input type="file" class="mb-0 picNone" accept="image/png,
+                              image/gif,
+                              image/jpeg" (change)="onWorkFileChanged($event,
+                              1)" id="workpicfile1" name="workpicfile1" />
+                      <div *ngIf="!workHasImg1">
+                        <a class="uploadWorkImg" (click)="triggerWorkInput(1)"><i class="pi
+                                  pi-paperclip
+                                  color_w"></i></a>
+                        <!-- <span
+                                class="SpanInBox">גררי
+                                ושחררי את<br />
+                                הקבצים שלך לכאן</span> -->
+                        <span class="SpanInBox">
+                          העלי קובץ</span>
+                      </div>
+                      <div *ngIf="workHasImg1">
+                        <a class="icon-close" (click)="RemoveImage(1)"><i class="fas
+                                  fa-times
+                                  color_g"></i></a>
+                      </div>
+                    </div>
+                    <div class="DivInBox">
+                      <img [src]="" id="2" class="work-img" [ngClass]="{'RemoveBorderImg':
+                              workHasImg2}" [alt]="workHasImg2? 'תמונת תיק עבודות 2':''" />
+                      <input type="file" class="mb-0
+                              picNone" accept="image/png,
+                              image/gif,
+                              image/jpeg" (change)="onWorkFileChanged($event,2)" id="workpicfile2"
+                        name="workpicfile2" />
+                      <div *ngIf="!workHasImg2">
+                        <a class="uploadWorkImg" (click)="triggerWorkInput(2)"><i class="pi
+                                  pi-paperclip
+                                  color_w"></i></a>
+                        <span class="SpanInBox">
+                          העלי קובץ</span>
+                      </div>
+                      <div *ngIf="workHasImg2">
+                        <a class="icon-close" (click)="RemoveImage(2)"><i class="fas
+                                  fa-times
+                                  color_g"></i></a>
+                      </div>
+
+                    </div>
+                    <div class="DivInBox">
+                      <img [src]="" id="3" class="work-img" [ngClass]="{
+                              RemoveBorderImg:
+                              workHasImg3 }" [alt]="workHasImg3? 'תמונת תיק עבודות 3':''" />
+                      <input type="file" class="mb-0 picNone" accept="image/png,
+                              image/gif,
+                              image/jpeg" (change)="onWorkFileChanged($event,
+                              3)" id="workpicfile3" name="workpicfile3" />
+
+                      <div *ngIf="!workHasImg3">
+                        <a class="uploadWorkImg" (click)="triggerWorkInput(3)"><i class="pi
+                                  pi-paperclip
+                                  color_w"></i></a>
+                        <span class="SpanInBox">
+                          העלי קובץ</span>
+                      </div>
+                      <div *ngIf="workHasImg3">
+                        <a class="icon-close" (click)="RemoveImage(3)"><i class="fas
+                                  fa-times
+                                  color_g"></i></a>
+                      </div>
+                    </div>
+                    <div class="DivInBox">
+                      <img [src]="" id="4" class="work-img" [ngClass]="{
+                              RemoveBorderImg:
+                              workHasImg4 }" [alt]="workHasImg4? 'תמונת תיק עבודות 4':''" />
+                      <input type="file" class="mb-0 picNone" accept="image/png,
+                              image/gif,
+                              image/jpeg" (change)="onWorkFileChanged($event,
+                              4)" id="workpicfile4" name="workpicfile4" />
+
+                      <div *ngIf="!workHasImg4">
+                        <a class="uploadWorkImg" (click)="triggerWorkInput(4)"><i class="pi
+                                  pi-paperclip
+                                  color_w"></i></a>
+                        <span class="SpanInBox">
+                          העלי קובץ</span>
+                      </div>
+                      <div *ngIf="workHasImg4">
+                        <a class="icon-close" (click)="RemoveImage(4)"><i class="fas
+                                  fa-times
+                                  color_g"></i></a>
+                      </div>
+                    </div>
+                    <div class="DivInBox">
+                      <img [src]="" id="5" class="work-img" [ngClass]="{
+                              RemoveBorderImg:
+                              workHasImg5 }" [alt]="workHasImg5? 'תמונת תיק עבודות 5':''" />
+                      <input type="file" class="mb-0 picNone" accept="image/png,
+                              image/gif,
+                              image/jpeg" (change)="onWorkFileChanged($event,
+                              5)" id="workpicfile5" name="workpicfile5" />
+                      <div *ngIf="!workHasImg5">
+                        <a class="uploadWorkImg" (click)="triggerWorkInput(5)"><i class="pi
+                                  pi-paperclip
+                                  color_w"></i></a>
+                        <span class="SpanInBox">
+                          העלי קובץ</span>
+                      </div>
+                      <div *ngIf="workHasImg5">
+                        <a class="icon-close" (click)="RemoveImage(5)"><i class="fas
+                                  fa-times
+                                  color_g"></i></a>
+                      </div>
+                    </div>
+                    <div class="DivInBox">
+                      <img [src]="" id="6" class="work-img" [ngClass]="{
+                              RemoveBorderImg:
+                              workHasImg6 }" [alt]="workHasImg6? 'תמונת תיק עבודות 6':''" />
+                      <input type="file" class="mb-0 picNone" accept="image/png,
+                              image/gif,
+                              image/jpeg" (change)="onWorkFileChanged($event,
+                              6)" id="workpicfile6" name="workpicfile6" />
+
+                      <div *ngIf="!workHasImg6">
+                        <a class="uploadWorkImg" (click)="triggerWorkInput(6)"><i class="pi
+                                  pi-paperclip
+                                  color_w"></i></a>
+                        <span class="SpanInBox">
+                          העלי קובץ</span>
+                      </div>
+                      <div *ngIf="workHasImg6">
+                        <a class="icon-close" (click)="RemoveImage(6)"><i class="fas
+                                  fa-times
+                                  color_g"></i></a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- <span class="valodation">שימי לב שכל תמונה שאת מעלה לא תשקול יותר מ300KB</span> -->
+                <div class="attention">שימי לב, רק תמונות שפתוחות בכל חברות
+                  הסינון יכולות להיות מוצגות בכרטיס העסק<br>
+                  וכן כל תמונה יכולה לשקול עד 300KB</div>
+
+              </div>
+            </section>
+          </div>
+          <!-- איך את עושה עסקים -->
+          <div>
+
+
+
+
+            <div class="left" id="05" [ngClass]="checkValidationForBusinesOption() ==
+                false ?
+                'TimeLineContainer' : 'TimeLineContainer1'">
+              <section [ngClass]="{'outline-cardLast':personalInformationForm.get('isburterBuisness').value
+                  ==
+                  false,'outline-card1':personalInformationForm.get('isburterBuisness').value
+                  !=
+                  false,'outline-cardLast1':checkValidationForBusinesOption()==false
+                  }" #section4>
+                <!-- <form formGroup="buisnessWaysForm"> -->
+
+                <div class="flex_SB cursorP" (click)="ToggleAndChangeTheIcon(4,collapse5)"
+                  [attr.aria-expanded]="isCollapsed[4]" aria-controls="collapseSection5">
+                  <h1>איך את עושה עסקים</h1>
+                  <i *ngIf="isOpen4">
+                    <img class="icon" src="../../../assets/icons/down-arrow.png" alt="פתיחה" /> </i>
+                  <a *ngIf="!isOpen4">
+                    <img class="icon" src="../../../assets/icons/up-arrow.png" alt="סגירה" /></a>
+                </div>
+                <div #collapse5="ngbCollapse" [(ngbCollapse)]="isCollapsed[4]">
+                  <div class="flex_C FEIs">
+                    <span *ngIf="checkValidationForBusinesOption()==false" class="valodation">לא ענית עדין איך את עושה
+                      עסקים?
+                    </span>
+                    <p-toggleButton (click)="checkValidationForBusinesOptionToProssesBar()"
+                      (onChange)="onChangeBusinesOption($event)" onLabel="תמורת תשלום" offLabel="תמורת תשלום" onIcon="pi
+                        pi-check" offIcon="pi pi-times" formControlName="ispayingBuisness" styleClass="toggel-primary">
+                    </p-toggleButton>
+                    <p>מכירת מוצרים או שירותים של העסק
+                      שלך בתשלום המקובל בשוק</p>
+                    <p-toggleButton (click)="checkValidationForBusinesOptionToProssesBar()"
+                      (onChange)="onChangeBusinesOption($event)" onLabel="בעסקת ברטר" offLabel="בעסקת ברטר" onIcon="pi
+                        pi-check" offIcon="pi pi-times" formControlName="isburterBuisness" styleClass="toggel-primary"
+                      (click)="Bartercollapse.toggle()" [attr.aria-expanded]="!isBarterCollapsedOpen"
+                      aria-controls="collapseExample">
+                    </p-toggleButton>
+                    <!-- (click)="this.IsToOpenBarter= !this.IsToOpenBarter" -->
+                    <p>
+                      בַּרְטֶר הוא שיטת מסחר המבוססת
+                      על החלפת סחורות ושירותים
+                      בין שני אנשים או יותר. בשיטה זו
+                      לא קיים כסף כאמצעי
+                      חליפין. אין הבחנה בין קונה
+                      ומוכר. כל משתתף בסחר משמש בו
+                      זמנית הן כקונה והן כמוכר
+                    </p>
+                    <p-toggleButton (click)="checkValidationForBusinesOptionToProssesBar()"
+                      (onChange)="onChangeBusinesOption($event)" onLabel="בשיתוף פעולה" offLabel="בשיתוף פעולה" onIcon="pi
+                        pi-check" offIcon="pi pi-times" formControlName="iscollaborationBuisness"
+                      styleClass="toggel-primary">
+                    </p-toggleButton>
+                    <p>
+                      שיתוף פעולה, כאחת הדרגות של
+                      פעולה משותפת במערכות, מתייחס
+                      לרמה שבה הגורמים השונים פועלים
+                      יחד לקידום מטרה
+                      משותפת, על בסיס הייתרונות
+                      הייחודיים של כל אחד מן
+                      הגורמים.
+                      שיתוף הפעולה מצריך מכל אחד מן
+                      הגורמים להבין את
+                      היכולות הייחודיות שהוא מספק
+                      בתהליך, ואת היכולות שאין
+                      בידיו
+                      אך האחר יכול לספק עבורו
+                    </p>
+                    <a [routerLink]="['/practice']" target="_blank" class="link">רוצה לדעת איזה שיתוף פעולה
+                      יכול להתאים לך? קראי כאן על שיתופי פעולה
+                    </a>
+                    <div class="wrap-optional-collaboration">
+                      <div class="card-with-header">
+                        <h5 class="header-card">
+                          השת"פ שאני מחפשת עכשיו:</h5>
+                        <textarea formControlName="OptionalCollaborationDescription"
+                          name="OptionalCollaborationDescription" id="OptionalCollaborationDescription" cols="200"
+                          rows="4" maxlength="100" placeholder="כתבי בקצרה מה את מחפשת, עד 100 תווים"></textarea>
+                        <div class="flex-bottom">
+                          <span class="bold mr-2 mb-3">
+                            {{
+                            personalInformationForm.controls['OptionalCollaborationDescription'].value.length
+                            }}/100
+                          </span>
+                        </div>
+
+                      </div>
+                      <span>תוכלי להשאיר ריק או לרשום בכל פעם מחדש איזה שת"פ את מחפשת עכשיו</span>
+                      <div *ngIf="this.personalInformationForm.get('OptionalCollaborationDescription').touched
+                            &&
+                            this.personalInformationForm.get('OptionalCollaborationDescription').errors">
+                        <span class="errorMessage"
+                          *ngIf="this.personalInformationForm.get('OptionalCollaborationDescription').hasError('maxlength')">מותר
+                          עד 100 תווים לתאור השת"פ
+                        </span>
+                        <span class="errorMessage"
+                          *ngIf="this.personalInformationForm.get('OptionalCollaborationDescription').hasError('minlength')">
+                          חובה לפחות 5 תוים לתאור השת"פ.
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <!-- ברטר -->
+            <div class="left" id="06" [ngClass]="isCollapsed[3] ==
+                true ?
+                'TimeLineContainer' : 'TimeLineContainer1 '" #Bartercollapse="ngbCollapse"
+              [(ngbCollapse)]="isBarterCollapsedOpen">
+              <section class="outline-card_last">
+                <div class="flex-column">
+                  <h1>הצעת ברטר</h1>
+                  <p class="bold myb-1">
+                    אילו שירותים מתאים לך לבצע תמורת ברטר?</p>
+                  <div>
+                    <input type="radio" id="allBarter" name="isAllServiceForBurter" [value]="true" class="ml-2"
+                      formControlName="isAllServiceForBurter" />
+                    <span>
+                      כל תחומי השירות שהעסק שלי מציע</span>
+                  </div>
+                  <div>
+                    <input type="radio" id="isAllServiceForBurter" name="isAllServiceForBurter" [value]="false"
+                      formControlName="isAllServiceForBurter" class="ml-2" />
+                    <span>
+                      חלק מתחומי השירות שהעסק שלי מציע</span>
+                  </div>
+                  <!-- =============================צריך להביא ממה שבחר למעלה======================================= -->
+                  <div *ngIf="personalInformationForm.controls['isAllServiceForBurter'].value
+                      == false">
+                    <fieldset class="border">
+                      <legend class="bold mxl-1 pyt-1
+                          myt-1 w-none">תחום שירות להצעת ברטר</legend>
+                      <label class="d-block">תחום שירות:</label>
+                      <div style="width:490px">
+                        <p-dropdown styleClass="input" (onChange)="OnCategoryOfBarterToGiveChange($event,
+                          1)" [options]="this.categoryOptionsAfterChoose" placeholder="בחרי תחום שירות"
+                          optionLabel="value" [(ngModel)]="this.CategoryForOfferBarter1"
+                          formControlName="CategoryForOfferBarter1">
+                        </p-dropdown>
+                      </div>
+                      <label class="d-block">תת תחום שירות:</label>
+                      <p-multiSelect [options]="this.SubCategoryListForBurter1" placeholder="בחרי תת תחום שירות"
+                        [showToggleAll]="true" [filter]="false" [maxSelectedLabels]="3"
+                        [selectedItemsLabel]="'{0} פרטים נבחרו'" optionLabel="name" styleClass="inputMultiSelect"
+                        formControlName="SubCategoryForBarter1" emptyFilterMessage="לא בחרת עדין תחום שרות"
+                        [(ngModel)]="this.ModelSubCategoryForBarter1">
+                      </p-multiSelect>
+                      <!-- [options]="_wrapperSearchService.subCategoryOptions1" -->
+                      <!-- </div> -->
+                    </fieldset>
+                    <!-- ~~~~~~~~~~~~~~~2~~~~~~~~~ -->
+                    <div *ngIf="this.isToOpenCategoryForBarter2 == true">
+                      <fieldset class="border">
+                        <legend class="bold mxl-1 pyt-1
+                            myt-1 w-none">
+                          תחום שירות להצעת ברטר</legend>
+                        <label class="delete_Icon cursorP" (click)="OndeleteOfferBarterCategory(2)"><img
+                            src="../../../assets/icons/x.png" alt="מחיקת תחום שירות לבארטר" class="x_icon" /></label>
+                        <label class="d-block">תחום שירות:</label>
+                        <div style="width:490px">
+                          <p-dropdown styleClass="input" (onChange)="OnCategoryOfBarterToGiveChange($event,
+                            2)" [options]="this.categoryOptionsAfterChoose" placeholder="בחרי תחום
+                            שירות" optionLabel="value" [(ngModel)]="this.CategoryForOfferBarter2"
+                            formControlName="CategoryForOfferBarter2">
+                          </p-dropdown>
+                        </div>
+                        <!--[(ngModel)]="this.CategorySubCategoryList" -->
+                        <!-- (onChange)="onChangeCategory1($event)" -->
+                        <!-- formControlName="topicId" -->
+                        <label class="d-block">תת
+                          תחום שירות:</label>
+                        <p-multiSelect #subcategorydropdown2 [options]="this.SubCategoryListForBurter2" placeholder="בחרי תת
+                            תחום שירות" [showToggleAll]="true" [filter]="false" [maxSelectedLabels]="3"
+                          [selectedItemsLabel]="'{0} פרטים נבחרו'" optionLabel="name" styleClass="inputMultiSelect"
+                          formControlName="SubCategoryForBarter2" emptyFilterMessage="לא בחרת עדין תחום שרות"
+                          [(ngModel)]="this.ModelSubCategoryForBarter2">
+                        </p-multiSelect>
+                        <!-- [options]="_wrapperSearchService.subCategoryOptions1" -->
+                        <!-- </div> -->
+                      </fieldset>
+                    </div>
+                    <!-- ~~~~~~~~~~~~~~~3~~~~~~~~~ -->
+                    <div *ngIf="this.isToOpenCategoryForBarter3 == true">
+                      <fieldset class="border">
+                        <legend class="bold mxl-1 pyt-1
+                            myt-1 w-none">תחום שירות להצעת ברטר
+                        </legend>
+                        <label class="delete_Icon cursorP" (click)="OndeleteOfferBarterCategory(3)"><img
+                            alt="מחיקת תחום שירות לבארטר" src="../../../assets/icons/x.png" class="x_icon" /></label>
+                        <label class="d-block">תחום שירות</label>
+                        <div style="width: 490px;">
+                          <p-dropdown styleClass="input" (onChange)="OnCategoryOfBarterToGiveChange($event,
+                            3)" [options]="this.categoryOptionsAfterChoose" placeholder="בחרי תחום
+                            שירות" optionLabel="value" [(ngModel)]="this.CategoryForOfferBarter3"
+                            formControlName="CategoryForOfferBarter3">
+                          </p-dropdown>
+                        </div>
+                        <label class="d-block">תת
+                          תחום שירות</label>
+                        <p-multiSelect [options]="this.SubCategoryListForBurter3" placeholder="בחרי תת
+                            תחום שירות" [showToggleAll]="true" [filter]="false" [maxSelectedLabels]="3"
+                          [selectedItemsLabel]="'{0} פרטים נבחרו'" optionLabel="name" styleClass="inputMultiSelect"
+                          formControlName="SubCategoryForBarter3" emptyFilterMessage="לא בחרת עדין תחום שרות"
+                          [(ngModel)]="this.ModelSubCategoryForBarter3">
+                        </p-multiSelect>
+                      </fieldset>
+                    </div>
+                    <!-- ~~~~~~~~~~~~~~~4~~~~~~~~~-->
+                    <div *ngIf="this.isToOpenCategoryForBarter4 == true">
+                      <fieldset class="border">
+                        <legend class="bold mxl-1 pyt-1
+                            myt-1 w-none">
+                          תחום שירות להצעת ברטר</legend>
+                        <label class="delete_Icon cursorP" (click)="OndeleteOfferBarterCategory(4)"><img
+                            alt="מחיקת תחום שירות לבארטר" src="../../../assets/icons/x.png" class="x_icon" /></label>
+                        <label class="d-block">תחום שירות</label>
+                        <div style="width: 490px;">
+                          <p-dropdown styleClass="input" (onChange)="OnCategoryOfBarterToGiveChange($event,
+                            4)" [options]="this.categoryOptionsAfterChoose" placeholder="בחרי תחום
+                            שירות" optionLabel="value" [(ngModel)]="this.CategoryForOfferBarter4"
+                            formControlName="CategoryForOfferBarter4">
+                          </p-dropdown>
+                        </div>
+                        <!--[(ngModel)]="this.CategorySubCategoryList" -->
+                        <!-- (onChange)="onChangeCategory1($event)" -->
+                        <!-- formControlName="topicId" -->
+                        <label class="d-block">תת
+                          תחום שירות</label>
+                        <p-multiSelect [options]="this.SubCategoryListForBurter4" placeholder="בחרי תת
+                            תחום שירות" [showToggleAll]="true" [filter]="false" [maxSelectedLabels]="3"
+                          [selectedItemsLabel]="'{0} פרטים נבחרו'" optionLabel="name" styleClass="inputMultiSelect"
+                          formControlName="SubCategoryForBarter4" emptyFilterMessage="לא בחרת עדין תחום שרות"
+                          [(ngModel)]="this.ModelSubCategoryForBarter4">
+                        </p-multiSelect>
+                        <!-- [options]="_wrapperSearchService.subCategoryOptions1" -->
+                        <!-- </div> -->
+                      </fieldset>
+                    </div>
+                    <label class="icon2 AS_S" (click)="checkWitchCategoryToOpenInBarter()">
+                      <img [ngClass]="addCatForBarterStyle==false? 'opacity_4'
+                          :''" src="../../../assets/icons/Group1@2x.png" alt="הוספת תחום שירות בבארטר" />
+                    </label>
+                    <label class="bold mr-3">
+                      הוספת תחום שירות</label>
+                  </div>
+                  <article>
+                    <div class="flex mt-4">
+                      <input type="checkbox" class="checkBox" [value]="!this.flag" formControlName="IWantProduct" />
+                      <label class="bold" for="">
+                        אני מציעה מוצר אישי תמורת ברטר</label>
+                    </div>
+                    <div *ngIf="personalInformationForm.controls['IWantProduct'].value
+                        == true">
+                      <div class="card-with-header">
+                        <h5 class="header-card">כתבי את
+                          שם המוצר</h5>
+                        <textarea formControlName="product1" cols="30" id="product1" rows="5" maxlength="30"
+                          placeholder="לדוגמה: 5 תמונות ניו בורן"></textarea>
+                        <div class="flex-bottom">
+                          <span class="bold mr-2
+                              mb-3">30/
+                            {{
+                            personalInformationForm.controls['product1'].value.length
+                            }}
+                          </span>
+                        </div>
+                      </div>
+                      <div class="card-with-header">
+                        <h5 class="header-card">כתבי את
+                          שם המוצר</h5>
+                        <textarea formControlName="product2" cols="30" id="product2" rows="5" maxlength="30"
+                          placeholder="לדוגמה: 5 תמונות ניו בורן"></textarea>
+                        <div class="flex-bottom">
+                          <span class="bold mr-2
+                              mb-3">30/
+                            {{
+                            personalInformationForm.controls['product2'].value.length
+                            }}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <p>ניתן לציין עד 2 מוצרים אישיים</p>
+                  <hr class="product" />
+                  <span>אלו שירותים מתאים לך לקבל תמורת ברטר?</span>
+                  <div>
+                    <input type="radio" name="IWantToOpenCategoryToGetBarter" class="checkBox" [value]="true"
+                      formControlName="IWantToOpenCategoryToGetBarter" />
+                    <span>תלוי בעסקה ובנסיבות, פתוחה להצעות</span>
+                  </div>
+                  <div>
+                    <input type="radio" class="checkBox" [value]="false" name="IWantToOpenCategoryToGetBarter"
+                      formControlName="IWantToOpenCategoryToGetBarter" />
+                    <span>מעוניינת לבחור תחומי שירות</span>
+                  </div>
+                  <!-- ~~~~~~~~~~~~~~~1~~~~~~~~~ -->
+                  <div *ngIf="personalInformationForm.controls['IWantToOpenCategoryToGetBarter'].value
+                      === false">
+                    <div>
+                      <fieldset class="border">
+                        <legend class="bold mxl-1 pyt-1
+                            myt-1 w-none">תחום
+                          שירות תמורת ברטר</legend>
+                        <label class="d-block">תחום שירות:</label>
+                        <div style="width: 490px;">
+                          <p-dropdown styleClass="input" (onChange)="onChangeCategoryForBarter1($event)"
+                            [options]="_wrapperSearchService.categoryOptions" placeholder="בחרי תחום
+                            שירות" optionLabel="value" formControlName="CForBarter1" [(ngModel)]="this.CForBarter1">
+                          </p-dropdown>
+                        </div>
+                        <label class="d-block">תת
+                          תחום שירות:</label>
+                        <p-multiSelect [options]="_wrapperSearchService.subCategoryOptionForBarter1" placeholder="בחרי תת תחום
+                            שירות" [showToggleAll]="true" [filter]="false" [maxSelectedLabels]="3"
+                          [selectedItemsLabel]="'{0} פרטים נבחרו'" optionLabel="name" styleClass="inputMultiSelect"
+                          formControlName="CategoryForBarter1" emptyFilterMessage="לא בחרת עדין תחום שרות"
+                          [(ngModel)]="this.buisnessBarterCategory1"></p-multiSelect>
+                      </fieldset>
+                    </div>
+                    <!-- ~~~~~~~~~~~~~~~2~~~~~~~~~ -->
+                    <div *ngIf="this.OpenBarterTwo == true">
+                      <div>
+                        <fieldset class="border">
+                          <legend class="bold mxl-1
+                              pyt-1 myt-1 w-none">תחום
+                            שירות תמורת ברטר</legend>
+                          <label class="delete_Icon cursorP" (click)="OndeleteGetBarterCategory()"><img
+                              src="../../../assets/icons/x.png" class="x_icon" alt="מחיקת תחום שירות בבארטר" /></label>
+                          <label class="d-block">תחום שירות:</label>
+                          <div style="width: 490px;">
+                            <p-dropdown #categorydropdown2 styleClass="input"
+                              (onChange)="onChangeCategoryForBarter2($event)"
+                              [options]="_wrapperSearchService.categoryOptions" placeholder="בחרי
+                              תחום שירות" optionLabel="value" formControlName="CForBarter2"
+                              [(ngModel)]="this.CForBarter2">
+                            </p-dropdown>
+                          </div>
+                          <label class="d-block">תת
+                            תחום שירות:</label>
+                          <p-multiSelect [options]="_wrapperSearchService.subCategoryOptionForBarter2" placeholder="בחרי תת
+                              תחום שירות" [showToggleAll]="true" [filter]="false" [maxSelectedLabels]="3"
+                            [selectedItemsLabel]="'{0} פרטים נבחרו'" optionLabel="name" styleClass="inputMultiSelect"
+                            formControlName="CategoryForBarter2" emptyFilterMessage="לא בחרת עדין תחום שרות"
+                            [(ngModel)]="this.buisnessBarterCategory2"></p-multiSelect>
+                        </fieldset>
+                      </div>
+                    </div>
+                    <label class="icon2 AS_S" (click)="this.OpenBarterTwo=
+                        true">
+                      <img [ngClass]="{'opacity_4': this.OpenBarterTwo==true}" src="../../../assets/icons/Group1@2x.png"
+                        alt="הוספת תחום התמחות" />
+                    </label>
+                  </div>
+                  <article>
+                    <div class="flex mt-2">
+                      <input type="checkbox" class="checkBox" [value]="!barterFlag"
+                        formControlName="IWantProductForBarter" />
+                      <label class="bold" for="">
+                        אני מעוניינת לקבל מוצר אישי תמורת ברטר</label>
+                    </div>
+                    <div *ngIf="personalInformationForm.controls['IWantProductForBarter'].value
+                        == true">
+                      <div class="card-with-header">
+                        <h5 class="header-card">כתבי את
+                          שם המוצר</h5>
+                        <textarea formControlName="BarterProduct1" name="BarterProduct1" #BarterProduct1 cols="30"
+                          rows="5" maxlength="30" placeholder="לדוגמה: עריכת מצגת למסיבת בת מצווה"></textarea>
+                        <div class="flex-bottom">
+                          <span class="bold mr-2
+                              mb-3">30/
+                            {{
+                            personalInformationForm.controls['BarterProduct1'].value.length
+                            }}
+                          </span>
+                        </div>
+                      </div>
+                      <div class="card-with-header">
+                        <h5 class="header-card">כתבי את
+                          שם המוצר</h5>
+                        <textarea formControlName="BarterProduct2" cols="30" name="BarterProduct2" id="BarterProduct2"
+                          rows="5" maxlength="30" placeholder="לדוגמה: עריכת מצגת למסיבת בת מצווה"></textarea>
+                        <div class="flex-bottom">
+                          <span class="bold mr-2
+                              mb-3">30/
+                            {{
+                            personalInformationForm.controls['BarterProduct2'].value.length
+                            }}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <label>ניתן לציין עד 2 מוצרים אישיים</label>
+                </div>
+              </section>
+            </div>
+          </div>
+          <!-- ולידציות -->
+          <article>
+            <!-- שם העסק -->
+            <div *ngIf="this.personalInformationForm.get('buisnessName').touched
+              &&
+              this.personalInformationForm.get('buisnessName').errors">
+              <span class="errorMessage"
+                *ngIf="this.personalInformationForm.get('buisnessName').hasError('required')">שם
+                העסק</span>
+              <span class="errorMessage" *ngIf="this.personalInformationForm.get('buisnessName').hasError('maxlength')">
+                מותר עד 30 תווים לשם עסק
+              </span>
+              <span class="errorMessage" *ngIf="this.personalInformationForm.get('buisnessName').hasError('minlength')">
+                צריך לפחות 2 תווים לשם עסק .
+              </span>
+            </div>
+            <!-- סלוגן העסק -->
+            <div *ngIf="this.personalInformationForm.get('actionDiscription').touched
+              &&
+              this.personalInformationForm.get('actionDiscription').errors">
+              <span class="errorMessage"
+                *ngIf="this.personalInformationForm.get('actionDiscription').hasError('required')">
+                סלוגן לעסק</span>
+              <span class="errorMessage"
+                *ngIf="this.personalInformationForm.get('actionDiscription').hasError('maxlength')">מותר
+                עד 40 תווים לסלוגן
+              </span>
+              <span class="errorMessage"
+                *ngIf="this.personalInformationForm.get('actionDiscription').hasError('minlength')">
+                חובה לפחות 5 תוים לעסק.
+              </span>
+            </div>
+            <!-- תאור העסק -->
+            <div *ngIf="this.personalInformationForm.get('discription').touched
+              &&
+              this.personalInformationForm.get('discription').errors">
+              <span class="errorMessage"
+                *ngIf="this.personalInformationForm.get('discription').hasError('required')">מידע
+                חשוב על העסק
+              </span>
+              <span class="errorMessage"
+                *ngIf="this.personalInformationForm.get('discription').hasError('maxlength')">מותר
+                עד 120 תווים לתאור
+              </span>
+              <span class="errorMessage" *ngIf="this.personalInformationForm.get('discription').hasError('minlength')">
+                חובה לפחות 5 תוים לתאור העסק.
+              </span>
+            </div>
+            <!-- טלפון מספר 1  -->
+            <div *ngIf="this.personalInformationForm.get('phoneNumber1').touched
+              &&
+              this.personalInformationForm.get('phoneNumber1').errors">
+              <span class="errorMessage">
+                חובה להזין טלפון תקין</span>
+            </div>
+            <!-- טלפון מספר 2  -->
+            <div *ngIf="this.personalInformationForm.get('phoneNumber2').touched
+              &&
+              this.personalInformationForm.get('phoneNumber2').errors">
+              <span class="errorMessage"> חובה להזין טלפון תקין</span>
+            </div>
+
+            <!-- תת קטגוריה -->
+            <div *ngIf="this.personalInformationForm.get('SubCategory1').touched
+              &&
+              this.personalInformationForm.get('SubCategory1').errors">
+              <span class="errorMessage" *ngIf="this.personalInformationForm.get('SubCategory1').hasError('required')">
+                תחומי שרות</span>
+              <span class="errorMessage"
+                *ngIf="this.personalInformationForm.get('SubCategory1').hasError('maxlength')">מותר
+                עד 30 תווים לתאור
+              </span>
+              <span class="errorMessage" *ngIf="this.personalInformationForm.get('SubCategory1').hasError('minlength')">
+                חובה לפחות 5 תוים לתאור העסק.
+              </span>
+            </div>
+            <!-- מייל של עסק -->
+            <div *ngIf="this.personalInformationForm.get('buisnessEmailAddress').touched
+              &&
+              this.personalInformationForm.get('buisnessEmailAddress').errors">
+              <span class="errorMessage"> חובה להזין כתובת מייל תקינה</span>
+            </div>
+            <span *ngIf="checkValidationForBusinesOption()==false" class="valodation"> איך את עושה עסקים?
+            </span>
+          </article>
+
+
+          <button class="btn-none-color pxy mxl-2 myb-1" (click)="resetForm()" type="button">איפוס</button>
+        
+          <!-- type="reset" -->
+            <!-- <img *ngIf="isLoading" class="loading-spinner" src="../../../assets/images/spinner.gif"
+            alt="ההודעה נשלחת ספינר"> -->
+            <button *ngIf="cameFromUpdate==true" class="btn-primary Bpink pxy
+            mxl-2 myb-1" type="submit" [disabled]="checkValidation() ||isLoading" >סיימתי, <strong>עדכנו את כרטיס העסק
+                שלי</strong></button>
+               
+            <span class="tooltiptextBSub" *ngIf="checkValidation()">{{submitToolTip}}</span>
+          <span class="Mytooltip">
+            <button *ngIf="cameFromUpdate==false" class="btn-primary Bpink pxy  mxl-2 myb-1" type="submit"
+              [disabled]="checkValidation() || isLoading">סיימתי, <strong>פרסמו את כרטיס העסק שלי</strong></button>
+            <span class="tooltiptextBSub" *ngIf="checkValidation()">אין אפשרות לעדכן יש פרטים שעדיין לא הושלמו!</span>
+          </span>
+        </div>
+      </form>
+    </section>
+    <!-- main content end-->
+  </div>
+
+</body>
+
+</html>

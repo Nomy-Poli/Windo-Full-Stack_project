@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רשימת הזמנות</title>
+</head>
+
+<body>
+    <div class="">
+        <div *ngIf="isLoading" class="td-loading">
+            <img class="loading-spinner" src="../../assets/images/spinner.gif" alt="">
+        </div>
+        <p-table
+            [value]="(listOfBuisness)| slice: (numberOfCurrentPage-1)* numberOfCardsInOnePage: (numberOfCurrentPage-1)*numberOfCardsInOnePage+numberOfCardsInOnePage"
+            responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>שם עסק</th>
+                    <th>מס נקודות</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </ng-template>
+
+
+
+            <ng-template pTemplate="body" let-buisness>
+                <tr>
+                    <td>{{buisness.buisnessName}}</td>
+                    <td>{{buisness.Score}}</td>
+                    <td>
+                        <button class="btn btn-primary" (click)="seeScore(buisness.id)" [disabled]="buisness.Score==0">
+                            לפירוט ניקוד</button>
+                    </td>
+                    <td >
+                        
+                        <button class="btn btn-primary" (click)="resetCount(buisness.id)"
+                            [disabled]="buisness.Score==0">
+                            איפוס הניקוד</button>
+                    </td>
+                    <!-- בשלב זה לא קימת אפשרות של הוספה ידנית    -->
+                    <!-- <td>
+                        <div class="flex space-around">
+                            <div class="action-col" (click)="editOrder(order)">
+                                <i class="pi pi-pencil"></i>
+                                <span class="icon_p">ערכי</span>
+                            </div>
+                            <div class="action-col" (click)="deleteOrder(order)">
+                                <i class="pi pi-trash"></i>
+                                <span class="icon_p">מחקי</span>
+                            </div>
+                        </div>
+                    </td> -->
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="text-align-center">
+        <p-paginator [first]="numberOfCurrentPage-1" [rows]="1" [totalRecords]="totalnumberOfPages"
+            (onPageChange)="onPageChange($event)" [showJumpToPageDropdown]="true" [showPageLinks]="false">
+        </p-paginator>
+    </div>
+</body>
+
+</html>

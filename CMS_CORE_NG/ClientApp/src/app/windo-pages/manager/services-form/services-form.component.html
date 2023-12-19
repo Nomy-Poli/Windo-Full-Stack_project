@@ -1,0 +1,49 @@
+<div class="container form-group">
+    <div class="Mytooltip">
+        <img (click)="close()" src="../../../../../assets/icons/x.png" class="icon_s" alt="סגירת מודעה">
+    </div>
+    <h1 *ngIf="!service">הוספת מוצר לקטלוג</h1>
+    <h1 *ngIf="service">עדכון קטלוג</h1>
+    <ng-container *ngIf="form">
+
+        <form [formGroup]="form" (ngSubmit)="submitForm()">
+            <div class="flex form-wrap">
+                <div class="form-half">
+
+                    <div class="form-group">
+                        <input type="text" formControlName="Makat" class="inputtext">
+                    </div>
+
+                    <div class="form-group">
+                        <select type="text" formControlName="typeOfService" class="inputtext">
+                            <option *ngFor="let s of serviceType" value="{{s.Id}}">
+                                {{s.Name}}
+                            </option>
+                        </select>
+
+                        <!-- <input type="text" name="typeOfService" id="typeOfService" class="inputtext"
+                            placeholder="סוג שירות" formControlName="typeOfService" /> -->
+                    </div>
+                </div>
+                <div class="form-half">
+
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" class="inputtext" placeholder="שם"
+                            formControlName="name" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="description" id="description" class="inputtext" placeholder="תאור"
+                            formControlName="description" />
+                    </div>
+
+                </div>
+
+            </div>
+            <br>
+            <div class="Mytooltip text-align-center">
+                <button type="submit" class="next-button" [disabled]="!form.valid">שמירה</button>
+            </div>
+        </form>
+    </ng-container>
+
+</div>

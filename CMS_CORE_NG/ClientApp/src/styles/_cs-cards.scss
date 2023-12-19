@@ -1,0 +1,84 @@
+.card {
+    background-color: #fff;
+    width: 240px;
+    min-width: 200px;
+    border-radius: 1rem;
+    border: 1px solid #19294d;
+    margin: 0 0.7rem;
+    z-index: 1;
+    align-items: center;
+    padding: 0;
+}
+.card h3 {
+    text-align: center;
+}
+.card h6 {
+    height: 38px;
+    overflow: hidden;
+    text-align: center;
+}
+.card hr {
+    margin-top: 0.2rem;
+    background-color: #19294d;
+    height: 0.5px;
+    width: 100%;
+}
+.contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 0.5rem 1rem 1rem;
+    width: 95%;
+}
+.col-type-img {
+    width: 1.2rem;
+}
+.contents h3 {
+    font-weight: 900;
+    min-height: 65px;
+    max-height: 68px;
+    overflow: hidden;
+}
+.buttons {
+    border-radius: 1.9rem;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+}
+.allCaseB {
+    color: white;
+    background-color: #19294d;
+    border: none;
+    margin-left: 1.5rem;
+}
+.contents .allCaseB {
+    margin-top: auto;
+    margin-left: 0;
+}
+.wrap-business {
+    justify-content: center;
+    align-items: center;
+}
+.business {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 96px;
+    overflow: visible;
+    max-width: 90px;
+}
+.wrap-business-logo {
+    background-color: #fff;
+    box-shadow: 1px 2px 7px 1px lightgrey;
+    border-radius: 50%;
+    padding: 0.6rem;
+    width: fit-content;
+}
+
+.card-img {
+    height: 130px;
+    max-height: 130px;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0;
+    background-color: #19294d;
+}

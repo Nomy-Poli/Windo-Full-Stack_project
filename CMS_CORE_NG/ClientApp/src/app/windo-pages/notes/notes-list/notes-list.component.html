@@ -1,0 +1,54 @@
+<div *ngIf="notesList" [ngClass]="{'notes-list': deployment == 'list', 'notes-row': deployment == 'row'}">
+    <div class="card n-card" *ngFor="let note of notesList;let i=index" [ngClass]="{'wrap-adv':note.Id==0}"
+        (click)="toggleOption(note,$event)">
+        <ng-container *ngIf="note.Id!=0">
+            <div [ngClass]="{'flex space-between': deployment == 'list','header-row': deployment == 'row'}"
+                class="my-class" id="header-note" [ngStyle]="getBackgroungColor(note)">
+                <app-business-template [business]="note.Business" size="40" *ngIf="deployment == 'list'">
+                </app-business-template>
+                <i *ngIf="area" id="trash" class="pi pi-trash" (click)="deleteNote(note)"></i>
+            </div>
+            <div class="content-note">
+                <div class="flex">
+                    <app-business-template [business]="note.Business" size="40" *ngIf="deployment == 'row'">
+                    </app-business-template>
+                    <mark>{{note.CategorySubCategory? note.CategorySubCategory.subCategoryName: "כללי"}}</mark>
+                    <!-- נטורקינג -->
+                    <mark *ngIf="note.GroupId" class="background-networking"
+                        pTooltip="{{note.NetworkingGroup.GroupName}}">קבוצות</mark>
+                    <!-- {{note.NetworkingGroup.GroupName}} -->
+
+                </div>
+
+                <h5 class="header">
+                    {{sliceHeader(note.Header)}}
+                </h5>
+                <small *ngIf="deployment == 'list'">{{note.LastUpdateDate | whenItWas:true}}</small>
+                <div *ngIf="deployment == 'list'" class="max-height truncate-lines" [innerHTML]="note.Text"></div>
+                <div class="wrap-button flex">
+                    <small *ngIf="deployment == 'row'">{{note.LastUpdateDate | date:'HH:mm dd/MM/yy'}}</small>
+                    <label  *ngIf="note.ReplayCount>0">הגיבו {{note.ReplayCount}} תגובות</label>
+                    <label *ngIf="note.ReplayCount==0|| note.ReplayCount ==null"></label>
+
+                    <button *ngIf="area!='personal' && deployment == 'list'" class="blue-big-button">צפי במודעה</button>
+                    <!--  (click)="openNote(note)" -->
+                    <button *ngIf="area=='personal'" class="blue-big-button">ערכי מודעה</button>
+
+                    <!-- (click)="updateNote(note)"-->
+
+
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="note.Id==0">
+            <app-advertisment-area [makat]="i==3? 1006:1007" style="height: 100%"></app-advertisment-area>
+        </ng-container>
+
+
+
+    </div>
+    <div *ngIf="notesList.length==0" class="container">
+        <h4 *ngIf="area=='personal'">עדיין לא העלית לכאן מודעות</h4>
+        <h4 *ngIf="area!='personal'">עדיין לא הועלו לכאן מודעות</h4>
+    </div>
+</div>

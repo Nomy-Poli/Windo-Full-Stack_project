@@ -1,0 +1,120 @@
+.container-all {
+  padding: 1rem;
+  background-color: #f0eeeed1;
+}
+
+.space-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.space-between .flex {
+  gap: 0.5rem;
+}
+
+.space-between .flex h3 {
+  font-weight: 700;
+}
+
+.space-between .flex span.budge {
+  background-color: #f16b7e;
+  font-size: 1rem;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  padding: 0 0.4rem;
+  margin-top: 0.3rem;
+}
+
+.budge {
+  color: #fff;
+  border-radius: 50%;
+}
+
+.budge-button {
+  background-color: #4829f7;
+  border: none;
+  height: 2rem;
+  width: 2rem;
+  padding: 0.4rem;
+  -webkit-box-shadow: 1px 2px 6px 3px lightgrey;
+          box-shadow: 1px 2px 6px 3px lightgrey;
+}
+
+.flex-1 {
+  width: 40%;
+}
+
+.wrap-messages {
+  background-color: white;
+  padding: 1rem 2rem;
+  height: 550px;
+  overflow-y: scroll;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.flex-2 {
+  width: 60%;
+}
+
+.wrap-message {
+  background-color: #f0eeeed1;
+  padding: 2rem 3rem 0 0;
+  height: 550px;
+  overflow-y: scroll;
+}
+
+@media only screen and (min-height: 760px) {
+  .wrap-message, .wrap-messages {
+    height: 600px;
+  }
+}
+
+@media only screen and (min-height: 860px) {
+  .wrap-message, .wrap-messages {
+    height: 700px;
+  }
+}
+
+@media only screen and (min-height: 960px) {
+  .wrap-message, .wrap-messages {
+    height: 800px;
+  }
+}
+
+.tooltiptext, .tooltiptext2 {
+  visibility: hidden;
+  padding: 0.3rem 0 0 0;
+  top: 2.4rem;
+  left: 1.4rem;
+}
+
+.tooltiptext {
+  width: 8rem;
+  height: 2rem;
+}
+
+.tooltiptext2 {
+  width: 15rem;
+  height: 4rem;
+}
+
+.space-between > h4 {
+  font-size: 1.2rem;
+  padding-top: 00.4rem;
+  font-weight: bold;
+}
+
+.loading-spinner {
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  right: 35%;
+  top: 2rem;
+}
+/*# sourceMappingURL=messages.component.css.map */

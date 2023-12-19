@@ -1,0 +1,15 @@
+C:\TFS\WINDO\busoftBase\FunctionalService\bin\Debug\netcoreapp3.1\FunctionalService.deps.json
+C:\TFS\WINDO\busoftBase\FunctionalService\bin\Debug\netcoreapp3.1\FunctionalService.dll
+C:\TFS\WINDO\busoftBase\FunctionalService\bin\Debug\netcoreapp3.1\FunctionalService.pdb
+C:\TFS\WINDO\busoftBase\FunctionalService\bin\Debug\netcoreapp3.1\LoggingService.dll
+C:\TFS\WINDO\busoftBase\FunctionalService\bin\Debug\netcoreapp3.1\ModelService.dll
+C:\TFS\WINDO\busoftBase\FunctionalService\bin\Debug\netcoreapp3.1\ModelService.pdb
+C:\TFS\WINDO\busoftBase\FunctionalService\bin\Debug\netcoreapp3.1\LoggingService.pdb
+C:\TFS\WINDO\busoftBase\FunctionalService\obj\Debug\netcoreapp3.1\FunctionalService.csproj.AssemblyReference.cache
+C:\TFS\WINDO\busoftBase\FunctionalService\obj\Debug\netcoreapp3.1\FunctionalService.GeneratedMSBuildEditorConfig.editorconfig
+C:\TFS\WINDO\busoftBase\FunctionalService\obj\Debug\netcoreapp3.1\FunctionalService.AssemblyInfoInputs.cache
+C:\TFS\WINDO\busoftBase\FunctionalService\obj\Debug\netcoreapp3.1\FunctionalService.AssemblyInfo.cs
+C:\TFS\WINDO\busoftBase\FunctionalService\obj\Debug\netcoreapp3.1\FunctionalService.csproj.CoreCompileInputs.cache
+C:\TFS\WINDO\busoftBase\FunctionalService\obj\Debug\netcoreapp3.1\FunctionalService.csproj.CopyComplete
+C:\TFS\WINDO\busoftBase\FunctionalService\obj\Debug\netcoreapp3.1\FunctionalService.dll
+C:\TFS\WINDO\busoftBase\FunctionalService\obj\Debug\netcoreapp3.1\FunctionalService.pdb

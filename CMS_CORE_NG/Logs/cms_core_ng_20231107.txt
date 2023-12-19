@@ -1,0 +1,50 @@
+----------------------------------------------------------------------
+Timestamp - 07/11/2023 12:43:35 +02:00 | Level - Error |
+----------------------------------------------------------------------
+ConnectionId : "0HMUVFJ7M8RTP"
+TraceIdentifier : "0HMUVFJ7M8RTP:000000A1"
+EventId : { Id: 13, Name: "ApplicationError" }
+SourceContext : "Microsoft.AspNetCore.Server.Kestrel"
+RequestId : "0HMUVFJ7M8RTP:000000A1"
+RequestPath : "/main.js"
+SpanId : "|3f6c436f-4104c0f294f35d1d."
+TraceId : "3f6c436f-4104c0f294f35d1d"
+ParentId : ""
+Application : "CMS_CORE_NG"
+MachineName : "NOMY-POLI-05832"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.32"
+UserName : "USER"
+ProcessId : 7092
+ProcessName : "CMS_CORE_NG"
+----------------------EXCEPTION DETAILS-------------------------------
+Exception - System.InvalidOperationException: Response Content-Length mismatch: too few bytes written (0 of 3821102).StackTrace - Message - Response Content-Length mismatch: too few bytes written (0 of 3821102).Source - InnerException - ---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 07/11/2023 14:36:59 +02:00 | Level - Warning |
+----------------------------------------------------------------------
+State : "Server nomy-poli-05832:8864:d27b8b7a was considered dead by other servers, restarting..."
+SourceContext : "Hangfire.Server.ServerHeartbeatProcess"
+Application : "CMS_CORE_NG"
+MachineName : "NOMY-POLI-05832"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.32"
+UserName : "USER"
+ProcessId : 8864
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------
+----------------------------------------------------------------------
+Timestamp - 07/11/2023 14:36:59 +02:00 | Level - Warning |
+----------------------------------------------------------------------
+State : "Server nomy-poli-05832:8864:d27b8b7a stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, SqlServerHeartbeatProcess, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods."
+SourceContext : "Hangfire.Server.BackgroundServerProcess"
+Application : "CMS_CORE_NG"
+MachineName : "NOMY-POLI-05832"
+CurrentManagedThreadId : 1
+OSVersion : "Microsoft Windows NT 6.2.9200.0"
+Version : "3.1.32"
+UserName : "USER"
+ProcessId : 8864
+ProcessName : "CMS_CORE_NG"
+---------------------------------------------------------------------------

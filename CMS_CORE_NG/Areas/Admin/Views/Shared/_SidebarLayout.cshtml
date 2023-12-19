@@ -1,0 +1,62 @@
+﻿<!-- Sidebar  -->
+@*todo = לשנות את הלינק של התמונה ללינק האמיתי של האתר*@
+<nav id="sidebar" class="navbar-light bg-white topbar mb-4 static-top shadow">
+    <div class="sidebar-header bg-white">
+        @*<a asp-controller="Home" asp-action="Index">*@
+        <a href="https://localhost:5001">
+            <img src="~/assets/windo-images/Group2312.png" />
+            @*<h3 class="brand">Windo<sup>.com</sup></h3>*@
+            <strong class="brand">WO</strong>
+        </a>
+    </div>
+
+
+    <ul class="list-unstyled components">
+        <li>
+            <a asp-controller="Home" asp-action="Index">
+                <i class="fas fa-home pl-1 text-lg"></i>
+                <span>דף הבית</span>                
+            </a>
+        </li>
+        <li>
+            @*<a href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">*@
+            <a href="#userSubmenu" data-toggle="collapse" aria-expanded="false">
+                <i class="far fa-user text-lg"></i>
+                <span class="pr-1">משתמשים</span>                 
+            </a>
+            <ul class="collapse list-unstyled" id="userSubmenu">
+                <div class="innerList">
+                    <li>
+                        <a asp-action="Index" asp-area="Admin" asp-controller="User">כל המשתמשים</a>
+                    </li>
+                    <li>
+                        <a asp-action="Index" asp-area="Admin" asp-controller="UserRole">דרגות המשתמשים</a>
+                    </li>
+                    <li>
+                        <a asp-action="Index" asp-area="Admin" asp-controller="BuildBusiness">טעינת עסקים</a>
+                    </li>
+                    <li>
+                        <a asp-action="GetAllActivities" asp-area="Admin" asp-controller="BuildBusiness">הסטוריית טעינת עסקים</a>
+                    </li>
+                </div>
+            </ul>
+        </li>
+        <li>
+            @*<a href="#settingsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">*@
+            <a href="#settingsSubmenu" data-toggle="collapse" aria-expanded="false">
+                <i class="fas fa-cogs pl-1 text-lg"></i>
+                <span>הגדרות</span>                
+            </a>
+            <ul class="collapse list-unstyled" id="settingsSubmenu">
+                <div class="innerList">
+                    <li>
+                        <a asp-action="Index" asp-area="Admin" asp-controller="SiteSettings">הגדרות האתר</a>
+                    </li>
+                    <li>
+                        <a asp-action="Index" asp-area="Admin" asp-controller="EmailSettings">הגדרות המייל</a>
+                    </li>
+                </div>
+            </ul>
+        </li>
+    </ul>
+</nav>

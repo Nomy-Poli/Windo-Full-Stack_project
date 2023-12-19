@@ -1,0 +1,32 @@
+@media screen and (min-width: 481px) {
+  .container {
+    width: 50%;
+    margin: auto;
+    height: 550px !important;
+  }
+    h1 {
+        font-size: 5rem;
+    }
+    span {
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width: 480px) {
+  .container {
+    width: 80%;
+    margin: auto;
+    height: 400px !important;
+  }
+    h1 {
+        font-size: 2.5rem;
+    }
+    span {
+        font-size: 1rem;
+    }
+}
+.container {
+    text-align: center;
+}
+body{
+    height:500px !important;
+}

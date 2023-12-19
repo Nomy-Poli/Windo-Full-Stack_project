@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study</title>
+</head>
+
+<body>
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <ng-container *ngIf="caseStudy; else spinner">
+        <main *ngIf="!editable" class="outer-main">
+            <div class="main-container flex">
+                <div class="flex-1-pic">
+                    <img *ngIf="caseStudy.PicGuid && caseStudy.PicGuid!='00000000-0000-0000-0000-000000000000'"
+                        [src]="pictureSrc+ caseStudy.Id + '/MainPicture/'+ caseStudy.PicGuid+'.jpg'" alt="תמונה מרכזית"
+                        id="firstImg" class="first-img">
+                    <img *ngIf="!caseStudy.PicGuid || caseStudy.PicGuid=='00000000-0000-0000-0000-000000000000'"
+                        src="../../../../assets/icons/sc_animation_1.png" alt="">
+                </div>
+                <div class="flex-2">
+                    <button *ngIf="_acct.isManager" class="dark-blue-button absolute-button" (click)="edit()">
+                        <i class="pi pi-pencil"></i>
+                        ערוך קייס סטדי</button>
+                    <div class="flex from-table">
+                        <img *ngIf="caseStudy.FromTable==1" src="../../../../assets/icons/paid-transaction.png"
+                            alt="בתשלום" id="iconFromTable" class="iconImg">
+                        <img *ngIf="caseStudy.FromTable==2" src="../../../../assets/icons/barter.png" alt="בארטר"
+                            id="iconFromTable" class="iconImg">
+                        <img *ngIf="caseStudy.FromTable==3" src="../../../../assets/icons/שתפ.png" alt="שיתוף פעולה"
+                            id="iconFromTable" class="iconImg">
+                        <h5 class="active">{{fromTableStrings[caseStudy.FromTable]}}</h5>
+                    </div>
+                    <h1>{{caseStudy.MarketingTitle}}</h1>
+                    <h5>{{caseStudy.BusinessTitle}}</h5>
+                    <hr>
+                    <h4>השותפות</h4>
+                    <section class="partners-section flex">
+                        <div class="side-parters">
+                            <div *ngFor="let business of caseStudy.BusinessesInCaseStudy; let i = index"
+                                class="wrap-logo flex" [ngClass]="{'active':activePartner == i}"
+                                (click)="activePartner=i">
+                                <img class="img-radius product-image" *ngIf="!(business.Business.logoPictureId ==
+                                        '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+                                        business.Business.id + '/Logo/'
+                                        + business.Business.logoPictureId + '/' +
+                                        business.Business.logoPictureId
+                                        + '.jpg?w=40'" alt="תמונת לוגו" />
+                                <h4 *ngIf="business.Business.logoPictureId ==
+                                        '00000000-0000-0000-0000-000000000000'"
+                                    style="border-color:#04e6e0;color:#04e6e0" class="first-letter AroundFirstLetter">
+                                    {{business.Business.buisnessName
+                                    |firstWord}}</h4>
+                                <label>{{business.Business.buisnessName}}</label>
+                            </div>
+                        </div>
+                        <div class="main-partners">
+                            <div class="flex">
+                                <img class="img-radius-largh" *ngIf="!(caseStudy.BusinessesInCaseStudy[activePartner].Business.logoPictureId ==
+                                        '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+                                        caseStudy.BusinessesInCaseStudy[activePartner].Business.id + '/Logo/'
+                                        + caseStudy.BusinessesInCaseStudy[activePartner].Business.logoPictureId + '/' +
+                                        caseStudy.BusinessesInCaseStudy[activePartner].Business.logoPictureId
+                                        + '.jpg?w=60'" alt="תמונת לוגו" />
+                                <h4 *ngIf="caseStudy.BusinessesInCaseStudy[activePartner].Business.logoPictureId ==
+                                        '00000000-0000-0000-0000-000000000000'"
+                                    style="border-color:#04e6e0;color:#04e6e0"
+                                    class="first-letter largh AroundFirstLetter">
+                                    {{caseStudy.BusinessesInCaseStudy[activePartner].Business.buisnessName
+                                    |firstWord}}</h4>
+                                <div class="wrap-businessName">
+                                    <h3>{{caseStudy.BusinessesInCaseStudy[activePartner].Business.buisnessName}}</h3>
+                                    <label for=""
+                                        *ngIf="caseStudy.BusinessesInCaseStudy[activePartner].BuinessOwnerNameForCS"
+                                        id="ownerNameCs">{{caseStudy.BusinessesInCaseStudy[activePartner].BuinessOwnerNameForCS}}</label>
+                                    <label>{{caseStudy.BusinessesInCaseStudy[activePartner].LineOfBusiness}}</label>
+                                </div>
+                            </div>
+                            <hr style="width: 100%;">
+                            <div class="container-p">
+                                <h4>מילה על הפרטנרית</h4>
+                                <p>{{caseStudy.BusinessesInCaseStudy[activePartner].WordOfPartner}}</p>
+                            </div>
+                            <div class="flex-end">
+                                <button class="blue-arrow" (click)="nextPartner()"
+                                    [disabled]="this.activePartner +1 == numOfPartners">
+                                    <i class="pi pi-arrow-left "></i>
+                                </button>
+                                <button class="blue-arrow" (click)="prevPartner()" [disabled]="this.activePartner==0">
+                                    <i class="pi pi-arrow-right "></i>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+            <section class="description-section">
+                <h4>תאור המיזם</h4>
+                <p>{{caseStudy.Description}}</p>
+                <h4>אתגר בדרך לשת"פ</h4>
+                <p>{{caseStudy.Challenge}}</p>
+                <h4>מה הרווחתן כתוצאה מהשת"פ</h4>
+                <p>{{caseStudy.PowerMultiplier}}</p>
+                <h4>מה הלקוחות שלכן הרוויחו כתוצאה מהשת"פ</h4>
+                <p>{{caseStudy.CustomersGain}}</p>
+            </section>
+            <section *ngIf="caseStudy.CaseStudyPictures.length >0" class="pictures-section flex">
+                <div class="Arrows-container">
+                    <div class="arrow1" [ngClass]="activePicture >0 ?'Arrows':'Arrows disabled'" (click)="prevPic()">
+                        <i class="pi pi-arrow-right " style="font-size: 2rem;"></i>
+                    </div>
+                </div>
+                <img [src]="pictureSrc+caseStudy.Id+'/'+caseStudy.CaseStudyPictures[activePicture].PicGuid+'.jpg'"
+                    alt="תמונת קייס סטאדי" class="img-in-list">
+                <div class="Arrows-container">
+                    <div class="arrow2"
+                        [ngClass]="activePicture < (caseStudy.CaseStudyPictures.length-1)?'Arrows':'Arrows disabled'"
+                        (click)="nextPic()">
+                        <i class="pi pi-arrow-left" style="font-size: 2rem;"></i>
+                    </div>
+                </div>
+            </section>
+            <section *ngIf="caseStudy.CustomerResponses && caseStudy.CustomerResponses.length"
+                class="costomer-response ">
+                <h4>לקוחות מספרים</h4>
+                <div class="flex wrap-resp">
+                    <div *ngIf="caseStudy.CustomerResponses[activeResp].CustomerName|| caseStudy.CustomerResponses[activeResp].MinimalDescription"
+                        class="flex-1-resp">
+                        <strong>{{caseStudy.CustomerResponses[activeResp].CustomerName}}</strong>
+                        <label>{{caseStudy.CustomerResponses[activeResp].MinimalDescription}}</label>
+                    </div>
+                    <div *ngIf="caseStudy.CustomerResponses[activeResp].CustomerName|| caseStudy.CustomerResponses[activeResp].MinimalDescription"
+                        class="after"></div>
+                    <div class="flex-2-resp">
+                        <p>{{caseStudy.CustomerResponses[activeResp].Response}}</p>
+                    </div>
+                </div>
+                <div *ngIf="caseStudy.CustomerResponses.length>1" class="flex wrap-points">
+                    <div *ngFor="let resp of caseStudy.CustomerResponses;let j=index" class="point"
+                        [ngClass]="{'active':activeResp==j}" (click)="activeResp=j"></div>
+                </div>
+            </section>
+            <section class="finish-section">
+                <button [routerLink]="['/collaboration-report']" class="next-button">דווחי על שת"פ</button>
+                <button [routerLink]="['/barter-List']" class="next-button btn-light">חיפוש עסקים</button>
+                <button [routerLink]="['/case-study-list']" class="next-button">לכל סיפורי השת"פ</button>
+            </section>
+        </main>
+        <main *ngIf="editable" class="outer-main">
+            <p-toast position="center">
+                <ng-template let-message pTemplate="message">
+                    <div class="wrap-error-content">
+                        <i class="pi pi-exclamation-triangle" style="font-size: 2.5rem"></i>
+                        <!-- <h4>{{message.summary}}</h4> -->
+                        <h6>{{message.detail}}</h6>
+                    </div>
+                </ng-template>
+            </p-toast>
+            <form [formGroup]="caseStudyForm">
+                <div class="main-container flex">
+                    <div class="flex-1-pic Mytooltip" appImageDrag (files)="filesDropped($event,'')">
+                        <span class="red-span">* שימי לב שכל תמונה שאת מעלה לא תשקול יותר מ300KB</span>
+                        <div *ngIf="mainPictureSrc=='' &&( !caseStudy.PicGuid || caseStudy.PicGuid =='00000000-0000-0000-0000-000000000000')"
+                            class="first-img dashed flex">
+                            <div (click)="triggerWorkInput('')" class="wrap-attach"><i class="pi pi-paperclip"
+                                    style="font-size: 2rem;"></i></div>
+                            <h5>העלי או גררי תמונת שער לקייס סטדי</h5>
+                            <br>
+                        </div>
+                        <input type="file" id="workpicfile" class="picNone" accept="image/png,image/jpeg"
+                            style="display: none;" (change)="onWorkFileChanged($event,'')">
+
+                        <div (click)="triggerWorkInput('')" class="wrap-attach position-abs"><i class="pi pi-paperclip"
+                                style="font-size: 2rem;"></i></div>
+                        <span *ngIf="mainPictureSrc=='' && pictures[0]" [src]="pictures[0]"
+                            class="tooltiptext"><strong>זו התמונה שהועלתה בדווח על שת"פ באפשרותך להעלות תמונה
+                                אחרת</strong></span>
+                        <!--  &&( !caseStudy.PicGuid || caseStudy.PicGuid =='00000000-0000-0000-0000-000000000000') -->
+                        <img *ngIf="mainPictureSrc!=''" [src]="mainPictureSrc" alt="תמונת קייס סטאדי" class="first-img">
+                        <img *ngIf="caseStudy.PicGuid && caseStudy.PicGuid!='00000000-0000-0000-0000-000000000000' && !mainPictureSrc"
+                            [src]="pictureSrc+ caseStudy.Id + '/MainPicture/'+ caseStudy.PicGuid+'.jpg'"
+                            alt="תמונת קייס סטאדי" id="firstImg" class="first-img">
+                        <div *ngIf="errors['mainPicture']" class="error-message">{{errors['mainPicture']}}</div>
+                    </div>
+                    <div class="flex-2">
+                        <!-- <div class="breadcrumb-o flex">
+                            <label> עמוד הבית</label>
+                            <label> קייס סטדי</label>
+                            <label class="active" *ngIf="caseStudy.Id>0"> {{caseStudyForm.get('MarketingTitle').value?
+                                caseStudyForm.get('MarketingTitle').value:'עדכון קייס סטדי'}}</label>
+                            <label class="active" *ngIf="caseStudy.Id==0"> {{caseStudyForm.get('MarketingTitle').value?
+                                caseStudyForm.get('MarketingTitle').value:'יצירת קייס סטדי'}}</label>
+
+                        </div> -->
+                        <div class="flex from-table">
+                            <img *ngIf="caseStudy.FromTable==1" src="../../../../assets/icons/paid-transaction.png"
+                                alt="בתשלום" id="iconFromTable" class="iconImg">
+                            <img *ngIf="caseStudy.FromTable==2" src="../../../../assets/icons/barter.png" alt="בארטר"
+                                id="iconFromTable" class="iconImg">
+                            <img *ngIf="caseStudy.FromTable==3" src="../../../../assets/icons/שתפ.png" alt="שיתוף פעולה"
+                                id="iconFromTable" class="iconImg">
+                            <h5 class="active">{{fromTableStrings[caseStudy.FromTable]}}</h5>
+                        </div>
+                        <input formControlName="MarketingTitle" type="text" name="MarketingTitle" id=""
+                            placeholder="כותרת שווקית" class="inputtext">
+                        <div *ngIf="caseStudyForm.get('MarketingTitle').errors?.tooManyWords" class="error-message">השדה
+                            כותרת עסקית יכול להכיל עד 10 מילים</div>
+                        <input formControlName="BusinessTitle" type="text" name="BusinessTitle" id=""
+                            placeholder="כותרת עסקית" class="inputtext">
+                        <div *ngIf="caseStudyForm.get('BusinessTitle').errors?.tooManyWords" class="error-message">השדה
+                            כותרת שיווקית יכול להכיל עד 10 מילים</div>
+                        <hr>
+                        <h4>השותפות</h4>
+                        <section class="partners-section flex">
+                            <div class="side-parters">
+                                <div *ngFor="let business of caseStudy.BusinessesInCaseStudy; let ind = index"
+                                    class="wrap-logo flex" [ngClass]="{'active':activePartner == ind}"
+                                    (click)="activePartner=ind">
+                                    <img class="img-radius product-image" *ngIf="!(business.Business.logoPictureId ==
+                                            '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+                                            business.Business.id + '/Logo/'
+                                            + business.Business.logoPictureId + '/' +
+                                            business.Business.logoPictureId
+                                            + '.jpg?w=40'" alt="תמונת לוגו" />
+                                    <h4 *ngIf="business.Business.logoPictureId ==
+                                            '00000000-0000-0000-0000-000000000000'"
+                                        style="border-color:#04e6e0;color:#04e6e0"
+                                        class="first-letter AroundFirstLetter">{{business.Business.buisnessName
+                                        |firstWord}}</h4>
+                                    <label>{{business.Business.buisnessName}}</label>
+                                </div>
+                            </div>
+                            <div class="main-partners" [ngClass]="{'visible-none':activePartner!=i}"
+                                formArrayName="BusinessesInCaseStudy"
+                                *ngFor="let item of caseStudyForm.get('BusinessesInCaseStudy')['controls']; let i = index;">
+                                <ng-container [formGroupName]="i">
+                                    <div class="flex">
+                                        <img class="img-radius-largh" *ngIf="!(caseStudy.BusinessesInCaseStudy[i].Business.logoPictureId ==
+                                                '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+                                                caseStudy.BusinessesInCaseStudy[i].Business.id + '/Logo/'
+                                                + caseStudy.BusinessesInCaseStudy[i].Business.logoPictureId + '/' +
+                                                caseStudy.BusinessesInCaseStudy[i].Business.logoPictureId
+                                                + '.jpg?w=60'" alt="תמונת לוגו" />
+                                        <h4 *ngIf="caseStudy.BusinessesInCaseStudy[i].Business.logoPictureId ==
+                                                '00000000-0000-0000-0000-000000000000'"
+                                            style="border-color:#04e6e0;color:#04e6e0"
+                                            class="first-letter largh AroundFirstLetter">
+                                            {{caseStudy.BusinessesInCaseStudy[i].Business.buisnessName
+                                            |firstWord}}</h4>
+                                        <div class="wrap-businessName">
+                                            <h3>{{caseStudy.BusinessesInCaseStudy[i].Business.buisnessName}}</h3>
+                                            <input type="text" formControlName="BuinessOwnerNameForCS"
+                                                name="BuinessOwnerNameForCS" id="ownerNameCs" class="inputtext small"
+                                                placeholder="שם בעלת עסק לקייס סטדי">
+                                            <div *ngIf="item.controls['BuinessOwnerNameForCS'].errors?.tooManyWords"
+                                                class="error-message">השדה שם בעלת עסק יכול להכיל עד 10 מילים</div>
+                                            <input type="text" formControlName="LineOfBusiness" name="LineOfBusiness"
+                                                id="" class="inputtext small" placeholder="תחום עיסוק">
+                                            <div *ngIf="item.controls['LineOfBusiness'].errors?.tooManyWords"
+                                                class="error-message">השדה תחום עיסוק יכול להכיל עד 10 מילים</div>
+                                        </div>
+                                    </div>
+                                    <hr style="width: 100%;">
+                                    <div class="container-p">
+                                        <h4>מילה על הפרטנרית</h4>
+                                        <textarea name="WordOfPartner" id="" rows="3" formControlName="WordOfPartner"
+                                            class="inputtext" placeholder="מילה על הפרטנרית ..."></textarea>
+                                        <div *ngIf="item.controls['WordOfPartner'].errors?.tooManyWords"
+                                            class="error-message">השדה מילה על הפרטנרית יכול להכיל עד 70 מילים</div>
+                                    </div>
+                                    <div class="flex-end">
+                                        <div class="blue-arrow" (click)="nextPartner()">
+                                            <i class="pi pi-arrow-left "></i>
+                                        </div>
+                                        <div class="blue-arrow" (click)="prevPartner()">
+                                            <i class="pi pi-arrow-right "></i>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </section>
+
+                    </div>
+
+                </div>
+                <section class="description-section">
+                    <h4>תאור המיזם</h4>
+                    <textarea formControlName="Description" name="Description" id="" cols="30" rows="8"
+                        class="inputtext" placeholder="תארי את המיזם..."></textarea>
+                    <div *ngIf="caseStudyForm.get('Description').errors?.tooManyWords" class="error-message">השדה תאור
+                        המיזם יכול להכיל עד 200 מילים</div>
+                    <h4>אתגר בדרך לשת"פ</h4>
+                    <textarea formControlName="Challenge" name="Challenge" id="" cols="30" rows="8" class="inputtext"
+                        placeholder="תארי את האתגר"></textarea>
+                    <div *ngIf="caseStudyForm.get('Challenge').errors?.tooManyWords" class="error-message">השדה אתגר
+                        בדרך לשת"פ יכול להכיל עד 200 מילים</div>
+                    <h4>מה הרווחתן כתוצאה מהשת"פ</h4>
+                    <textarea formControlName="PowerMultiplier" name="PowerMultiplier" id="" cols="30" rows="8"
+                        class="inputtext" placeholder="ספרי על הרווחים..."></textarea>
+                    <div *ngIf="caseStudyForm.get('PowerMultiplier').errors?.tooManyWords" class="error-message">השדה מה
+                        הרווחתן כתוצאה מהשת"פ יכול להכיל עד 200 מילים</div>
+                    <h4>מה הלקוחות שלכן הרוויחו כתוצאה מהשת"פ</h4>
+                    <textarea formControlName="CustomersGain" name="CustomersGain" id="" cols="30" rows="8"
+                        class="inputtext" placeholder="ספרי על הרווחים של הלקוחות"></textarea>
+                    <div *ngIf="caseStudyForm.get('CustomersGain').errors?.tooManyWords" class="error-message">השדה מה
+                        הלקוחות שלכן הרוויחו כתוצאה מהשת"פ יכול להכיל עד 200 מילים</div>
+                </section>
+                <section class="pictures-section">
+                    <div *ngIf="errors['pics']" class="error-message">{{errors['pics']}}</div>
+                    <div class="wrap-pictures">
+                        <div *ngFor="let hasPic of hasImage; let pIndex = index" class="wrap-pic"
+                            style="background: none;" appImageDrag (files)="filesDropped($event,pIndex)">
+                            <input *ngIf="!hasPic" type="file" [id]="'workpicfile'+pIndex" class="picNone"
+                                accept="image/png,image/jpeg" style="display: none;"
+                                (change)="onWorkFileChanged($event,pIndex)">
+                            <div *ngIf="!hasPic" (click)="triggerWorkInput(pIndex)" class="wrap-attach"><i
+                                    class="pi pi-paperclip"></i></div>
+                            <span *ngIf="!hasPic">העלי או גררי תמונה לקייס סטדי</span>
+                            <div *ngIf="hasPic" class="delete-icon" (click)="removePic(pIndex)">
+                                <i class="pi pi-times"></i>
+                            </div>
+                            <img *ngIf="hasPic" src="" [id]="'img'+pIndex" alt="תמונת קייס סטדי">
+                        </div>
+                    </div>
+                </section>
+                <section class="costomer-response">
+                    <h4>לקוחות מספרים</h4>
+                    <ng-container formArrayName="CustomerResponses"
+                        *ngFor="let resp of caseStudyForm.get('CustomerResponses')['controls']; let respIndex = index;">
+                        <div class="flex wrap-resp-form" [formGroupName]="respIndex">
+                            <div class="form-flex-1">
+                                <h5>שם לקוחה מגיבה</h5>
+                                <input placeholder="שם לקוחה מגיבה" type="text" class="inputtext"
+                                    formControlName="CustomerName">
+                                <h5>תאור מינימלי</h5>
+                                <input placeholder="כאן אפשר להכניס תאור על הלקוחה..." type="text" class="inputtext"
+                                    formControlName="MinimalDescription">
+                            </div>
+                            <div class="form-flex-2">
+                                <h5>תגובת הלקוחה</h5>
+                                <textarea formControlName="Response" name="Response" id="" cols="30" rows="4"
+                                    class="inputtext" placeholder="מה הלקוחה מספרת על העסקה..."></textarea>
+                                <div *ngIf="resp.controls['Response'].errors?.tooManyWords" class="error-message">השדה
+                                    לקוחות מספרים יכול להכיל עד 50 מילים</div>
+                            </div>
+                            <div class="delete-icon" (click)="removeResponse(respIndex)">
+                                <i class="pi pi-times"></i>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <button (click)="addResponse()" class="next-button btn-light">
+                        <i class="pi pi-plus"></i>
+                        הוסיפי תגובה</button>
+                </section>
+                <section class="finish-section">
+                    <button type="submit" (click)="onSubmitModel()" class="next-button">שמירת קייס סטדי</button>
+                </section>
+            </form>
+
+        </main>
+        <!-- <app-case-study-cardes deployment="scroll" perPage="3"></app-case-study-cardes> -->
+        <br><br>
+    </ng-container>
+
+
+    <ng-template #spinner>
+        <div class="container-spinner">
+            <img class="loading-spinner" src="../../assets/images/spinner.gif" alt="חושב">
+        </div>
+    </ng-template>
+
+</body>
+
+</html>

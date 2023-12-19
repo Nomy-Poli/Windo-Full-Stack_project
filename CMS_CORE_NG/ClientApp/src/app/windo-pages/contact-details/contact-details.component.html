@@ -1,0 +1,39 @@
+<div *ngIf="details" class="wrap">
+    <div class="Mytooltip">
+        <img (click)="close()" src="../../../../../assets/icons/x.png" class="icon_s" alt="סגירת מודעה">
+    </div>
+    <div class="flex flex-align-center business">
+        <app-business-template [business]="details.Business" size="40"></app-business-template>
+        <h5 class="bold">{{details.Business.buisnessName}}</h5>
+    </div>
+    <br>
+    <div class="flex space-around">
+        <div class="Mytooltip">
+            <button class="next-button" (click)="sendMessage()"
+                [disabled]="!(this._wrapperSearchService.LoginStatus$.value) || !(this._acct.currentBusiness | async)">
+                <i class="pi pi-envelope"></i>שלחי הודעה
+            </button>
+            <span class="tooltiptext" *ngIf="!(this._wrapperSearchService.LoginStatus$.value) || !(this._acct.currentBusiness | async)">רק
+                משתמשת רשומה יכולה לשלוח הודעות לעסקים אחרים</span>
+        </div>
+        <div class="Mytooltip">
+            <button class="next-button" (click)="displayNumber = true" [disabled]="!details.phoneNumber1 && !details.phoneNumber2">
+                <i class="pi pi-phone"></i>התקשרי
+            </button>
+            <span class="tooltiptext" *ngIf="!details.phoneNumber1 && !details.phoneNumber2">לא הזנתי מספר טלפון</span>
+        </div>
+        <div class="Mytooltip">
+            <a [href]="details.buisnessWebSiteLink" target="_blank">
+                <button class="next-button" [disabled]="!details.buisnessWebSiteLink">
+                    <i class="pi pi-globe"></i>הכנסי לאתר
+                </button>
+            </a>
+            <span class="tooltiptext" *ngIf="!details.buisnessWebSiteLink">אין לי אתר לעסק</span>
+        </div>
+    </div>
+    <div class="text-align-center">
+        <span *ngIf="displayNumber">{{details.phoneNumber1}}</span><br>
+        <span *ngIf="displayNumber">{{details.phoneNumber2}}</span>
+
+    </div>
+</div>

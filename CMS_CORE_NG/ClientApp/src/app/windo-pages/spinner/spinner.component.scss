@@ -1,0 +1,25 @@
+.container-spinner.move{
+    animation: 
+    moving
+    3s
+    ease-out
+    0s
+    alternate
+    infinite
+    none
+    running;
+    align-items: center;
+   
+  }
+  .container-spinner.move .loading-spinner{
+    width: 100px;
+    margin: 1rem;
+  }
+  @keyframes moving {
+    0% ,100% {
+        transform: translateX(0)
+    }
+    50% {
+        transform: translateX(-50%)
+    }
+  }

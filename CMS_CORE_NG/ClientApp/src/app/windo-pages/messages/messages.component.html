@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הודעות</title>
+</head>
+
+<body>
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <div class="container-all flex">
+        <div class="wrap-messages flex-1">
+            <div class="flex space-between">
+                <!-- <p-tabView  [(activeIndex)]="selectedTabIndex" (onChange)="onTabChange($event)"> -->
+                <p-tabView  [(activeIndex)]="activeTab" (onChange)="onTabChange($event)">
+                    <p-tabPanel >
+                        <ng-template pTemplate="header">
+                            <span >דואר נכנס</span>
+                            <span *ngIf="notReadCount.length>0" class="budge"
+                                style="margin-right: 0.5rem;">{{notReadCount}}</span>
+                        </ng-template>
+                        <app-messages-list  [messageListToView]="messageList" style="width: 18vw;
+                        " [currentMessage]="currentMessage" (messageClicked)="openMessage($event)"
+                            (messageReadUnRead)="messageUnRead($event)"></app-messages-list>
+                    </p-tabPanel>
+                    <!-- <p-tabPanel (click)="selectTab(1)"> -->
+                    <p-tabPanel >
+                            <ng-template pTemplate="header">
+                                <span >דואר יוצא</span>
+                                <span *ngIf="notReadCount.length>0" class="budge"
+                                    style="margin-right: 0.5rem;">{{notReadCount}}</span>
+                            </ng-template>
+                            <app-messages-list  [messageListToView]="outgoingMessageList" style="width: 18vw;                   
+                            " [currentMessage]="currentMessage" (messageClicked)="openMessage($event)"
+                                (messageReadUnRead)="messageUnRead($event)"></app-messages-list>
+                    </p-tabPanel>
+
+                </p-tabView>
+                <button class="budge-button budge Mytooltip" [disabled]="!(_acct.currentBusiness | async)"
+                    (click)="this._funcService.openNewMassage()"><i class="pi pi-plus"></i>
+                    <span *ngIf="_acct.currentBusiness | async" class="tooltiptext">צרי הודעה חדשה</span>
+                    <span *ngIf="!(_acct.currentBusiness | async)" class="tooltiptext tooltiptext2">כדי לשלוח הודעות
+                        לחברות עליך לפתוח כרטיס עסק</span>
+                </button>
+            </div>
+            <div *ngIf="isLoading" class="text-align-center Mytooltip">
+                <img class="loading-spinner" src="../../../../assets/images/spinner.gif" alt="ההודעה נשלחת ספינר">
+            </div>
+        </div>
+        <div class="flex-2 wrap-message">
+            <app-message-card *ngIf="currentMessage" [message]="currentMessage" (messageIdToDelete)="deleteMes($event)"
+                (messageIdToUnread)="markAsUnRead($event)" [selectedTab]="activeTab"></app-message-card>
+        </div>
+    </div>
+</body>
+
+</html>

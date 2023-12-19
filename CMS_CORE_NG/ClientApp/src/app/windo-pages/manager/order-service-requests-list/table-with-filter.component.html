@@ -1,0 +1,158 @@
+
+<div class="card">
+    <p-table #dt1 [value]="requestsList" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-gridlines" [paginator]="true"
+        [globalFilterFields]="['BusinessName','ContactName','Phone','Email','Text','CreationDate','RequestStatus']">
+        <!-- <ng-template pTemplate="caption">
+            <div class="flex">
+                <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+                <span class="p-input-icon-left ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+                </span>
+            </div>
+        </ng-template> -->
+        <ng-template pTemplate="header">
+            <tr>
+                <th class="width-160">
+                    <div class="flex">
+                        שם עסק
+                        <p-columnFilter type="text" field="BusinessName" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th class="width-160" >
+                    <div class="flex">
+                        שם איש קשר
+                        <p-columnFilter type="text" field="ContactName" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th class="width-160">
+                    <div class="flex">
+                        מספר טלפון
+                        <p-columnFilter type="text" field="Phone" display="menu"></p-columnFilter>
+                        <!-- <p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                            <ng-template pTemplate="header">
+                                <div class="px-3 pt-3 pb-0">
+                                    <span class="font-bold">Agent Picker</span>
+                                </div>
+                            </ng-template>
+                            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                <p-multiSelect [ngModel]="value" [options]="representatives" placeholder="Any" (onChange)="filter($event.value)" optionLabel="name">
+                                    <ng-template let-option pTemplate="item">
+                                        <div class="p-multiselect-representative-option">
+                                            <img [alt]="option.label" src="assets/showcase/images/demo/avatar/{{option.image}}" width="32" style="vertical-align: middle" />
+                                            <span class="ml-1">{{option.name}}</span>
+                                        </div>
+                                    </ng-template>
+                                </p-multiSelect>
+                            </ng-template>
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th  class="width-180">
+                    <div class="flex">
+                        כתובת אימייל
+                        <p-columnFilter type="text" field="Email" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th class="width-140">
+                    <div class="flex">
+                        מלל חופשי
+                        <p-columnFilter type="text" field="Text" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th  class="width-150">
+                    <div class="flex">
+                        תאריך הבקשה
+                        <p-columnFilter type="date" field="CreationDate" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th>
+                    <div class="flex width-100">
+                        סטטוס
+                        <p-columnFilter field="RequestStatus" matchMode="equals" display="menu">
+                            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                <p-dropdown [ngModel]="value" [options]="statuses" (onChange)="filter($event.value)"
+                                    placeholder="Any">
+                                    <ng-template let-option pTemplate="item">
+                                        <span [class]="'customer-badge status-' + option.value">{{option.label}}</span>
+                                    </ng-template>
+                                </p-dropdown>
+                            </ng-template>
+                        </p-columnFilter>
+                    </div>
+                </th>
+                <!-- <th>
+                    <div class="flex justify-content-center align-items-center">
+                        Activity
+                        <p-columnFilter field="activity" matchMode="between" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                            <ng-template pTemplate="filter" let-filter="filterCallback">
+                                <p-slider [ngModel]="activityValues" [range]="true" (onSlideEnd)="filter($event.values)" styleClass="m-3"></p-slider>
+                                <div class="flex align-items-center justify-content-center px-2">
+                                    <span>{{activityValues[0]}}</span>
+                                    <span>{{activityValues[1]}}</span>
+                                </div>
+                            </ng-template>
+                        </p-columnFilter>
+                    </div>
+                </th>
+                <th style="width: 8rem">
+                    <div class="flex justify-content-center align-items-center">
+                        Verified
+                        <p-columnFilter type="boolean" field="verified" display="menu"></p-columnFilter>
+                    </div>
+                </th> -->
+                <th class="width-100">
+                    <div class="flex"> </div>
+                </th>
+                <th class="width-100">
+                    <div class="flex"> </div>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-request>
+            <tr>
+                <td>
+                    {{request.BusinessName}}
+                </td>
+                <td>
+                    {{request.ContactName}}
+                </td>
+                <td>
+                    {{request.Phone}}
+                </td>
+                <td>
+                    {{request.Email}}
+                </td>
+                <td>
+                    {{request.Text}}
+                </td>
+                <td>
+                    {{request.CreationDate | date: 'MM/dd/yyyy'}}
+                </td>
+                <td>
+                    <span [class]="'customer-badge-'+request.RequestStatus" *ngIf="request.RequestStatus==0">נסגרה</span>
+                </td>
+                <td style="text-align:center;">
+                    <img src="../../../../assets/images/contact.svg" alt="contact img" class="icon">
+                    <p class="icon_p">הוסיפי לקוחה</p>
+                </td>
+                <td style="text-align:center;">
+                    <img src="../../../../assets/images/email.svg" alt="email img" class="icon">
+                    <p class="icon_p">הוסיפי הזמנה</p>
+                </td>
+                <!-- <td>
+                    <p-progressBar [value]="request.activity" [showValue]="false"></p-progressBar>
+                </td>
+                <td class="text-center">
+                    <i class="pi" [ngClass]="{'true-icon pi-check-circle': customer.verified, 'false-icon pi-times-circle': !customer.verified}"></i>
+                </td> -->
+            </tr>
+        </ng-template>
+        <!-- <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="7">No customers found.</td>
+            </tr>
+        </ng-template> -->
+    </p-table>
+</div>

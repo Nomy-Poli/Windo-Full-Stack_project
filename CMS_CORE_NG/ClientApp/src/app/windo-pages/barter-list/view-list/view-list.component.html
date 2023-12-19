@@ -1,0 +1,263 @@
+<div *ngIf="this._wrapperSearchService._afterFilterBuisnessListSubject.value;else spinner">
+  <div class="outline-card flex flex-column-sm grab cursorP"
+    *ngFor="let buisness of
+        this._wrapperSearchService._afterFilterBuisnessListSubject | async |
+        slice:(this._wrapperSearchService.numberOfCurrentPage-1)*(_wrapperSearchService.numberOfCardsInOnePage):(this._wrapperSearchService.numberOfCurrentPage-1)*(_wrapperSearchService.numberOfCardsInOnePage)+ _wrapperSearchService.numberOfCardsInOnePage/2">
+    <a [routerLink]="['/business-view',buisness.userId]" target="_blank">
+
+      <!-- <div class="flex blue-side">-->
+      <div class="pink-side"></div>
+      <div class="img-container">
+        <img *ngIf="!(buisness.logoPictureId ==
+            '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+            buisness.id + '/Logo/'
+            + buisness.logoPictureId + '/' +
+            buisness.logoPictureId
+            + '.jpg?w=100'" class="img" alt="תמונת לוגו">
+        <h1 *ngIf="buisness.logoPictureId ==
+            '00000000-0000-0000-0000-000000000000'" style="border-color:#04e6e0;color:#04e6e0" class="first-letter">
+          {{buisness.buisnessName
+          |firstWord}}</h1>
+      </div>
+
+      <!-- </div> -->
+      <div class="flex-item">
+        <div class="flex">
+          <h4 class="mx-2">
+            {{buisness.buisnessName}}{{buisness.isdisplayBusinessOwnerName && buisness.ownerName?
+            ' - ' +buisness.ownerName:''}}
+          </h4>
+        </div>
+        <span>{{buisness.actionDiscription}}</span>
+        <div class="flex">
+          <!-- todo- sprint 2 -->
+          <!-- <button class="btn-royal-blue btnn-sm">{{buisness.product1}}</button> -->
+          <!-- <button class="btn-secendary-light btnn-sm">{{buisness.product2}}</button>
+                        <button class="btn-secendary-lighsubCategoryNamet btnn-sm">{{buisness.barterProduct1}}</button>
+                        <button class="btn-secendary-light btnn-sm">{{buisness.barterProduct2}}</button> -->
+          <button class="btn-secendary-dark btnn-sm" [ngbPopover]="graypopContent1" triggers="mouseenter:mouseleave"
+            *ngIf="buisness.buisnessCategory1.length>0"
+            popoverClass="gray-popup">{{buisness.buisnessCategory1[0].categoryName}}</button>
+          <!-- [autoClose]="true" -->
+          <ng-template #graypopContent1>
+            <p *ngFor="let sub of
+                buisness.buisnessCategory1 let
+                j=index">{{sub.subCategoryName}}</p>
+          </ng-template>
+          <!-- 2 -->
+          <button class="btn-secendary-dark btnn-sm" *ngIf="buisness.buisnessCategory2.length>0"
+            [ngbPopover]="graypopContent2" triggers="mouseenter:mouseleave"
+            popoverClass="gray-popup">{{buisness.buisnessCategory2[0].categoryName}}</button>
+          <!-- [autoClose]="true" -->
+          <ng-template #graypopContent2>
+            <p *ngFor="let sub of
+                buisness.buisnessCategory2 let
+                j=index">{{sub.subCategoryName}}</p>
+          </ng-template>
+          <!-- 3 -->
+          <button class="btn-secendary-dark btnn-sm" *ngIf="buisness.buisnessCategory3.length>0"
+            [ngbPopover]="graypopContent3" triggers="mouseenter:mouseleave"
+            popoverClass="gray-popup">{{buisness.buisnessCategory3[0].categoryName}}</button>
+          <!-- [autoClose]="true" -->
+          <ng-template #graypopContent3>
+            <p *ngFor="let sub of
+                buisness.buisnessCategory3 let
+                j=index">{{sub.subCategoryName}}</p>
+          </ng-template>
+          <!-- 4 -->
+          <button class="btn-secendary-dark btn-category btnn-sm" *ngIf="buisness.buisnessCategory4.length>0"
+            [ngbPopover]="graypopContent4" triggers="mouseenter:mouseleave"
+            popoverClass="gray-popup">{{buisness.buisnessCategory4[0].categoryName}}</button>
+          <!-- [autoClose]="true" -->
+          <ng-template #graypopContent4>
+            <p *ngFor="let sub of
+                buisness.buisnessCategory4 let
+                j=index">{{sub.subCategoryName}}</p>
+          </ng-template>
+        </div>
+      </div>
+      <div class="flex-side">
+        <div class="w-mc">
+          <!--  [ngClass]="buisness.ispayingBuisness==true?'turquoise-tags':'light-gray-tags'" -->
+          <span *ngIf="buisness.ispayingBuisness==true" class="tags">
+            <img src="../../../../assets/icons/תשלום אייקון.svg" alt="אייקון תשלום">
+            בתשלום
+          </span>
+          <ng-template #popContent>
+            <h6>מה מתאים בתמורה (במקרה של ברטר)</h6>
+            <button class="btn-secendary-light btnn-xs">
+              {{buisness.barterProduct1}}</button>
+            <button class="btn-secendary-light btnn-xs">
+              {{buisness.barterProduct2}}</button>
+          </ng-template>
+          <span *ngIf="buisness.iscollaborationBuisness==true" class="tags">
+            <img src="../../../../assets/icons/שתפ אייקון.svg" alt="אייקון שתוף פעולה">
+            שת&quot;פ
+          </span>
+          <span *ngIf="buisness.isburterBuisness==true" class="tags" [ngbPopover]="popContent"
+            triggers="mouseenter:mouseleave" popoverClass="turquoise-popup">
+            <img src="../../../../assets/icons/ברטר אייקון.svg" alt="אייקון ברטר">
+            ברטר
+          </span>
+        </div>
+
+        <div class="Mytooltip">
+          <div class="icon" *ngIf="buisness.Score >= 0">
+            <img class="img-icon-score" src="../../../../assets/icons/Small.png">
+            <span class="sc"> {{buisness.Score}}</span>
+          </div>
+          <div class="">
+            <button
+              [disabled]="!(this._wrapperSearchService.LoginStatus$.value) "
+              (click)="sendEmail(buisness.businessEmailAddress)" class="btn-primary left-btn">שלחי הודעה
+              <!-- <a href="mailto:{{buisness.userId}}" class="a_none">    </a> -->
+            </button>
+            
+            <span class="tooltiptext"
+              *ngIf="!(this._wrapperSearchService.LoginStatus$.value)">
+              רק משתמשת רשומה שמלאה את פרטי העסק שלה יכולה לשלוח הודעות לעסקים אחרים</span>
+          </div>
+
+
+        </div>
+      </div>
+    </a>
+  </div>
+  <!-- <div class="outline-card flex flex-column-sm advertising">
+        <app-advertising></app-advertising>
+      <div class="container_ad1">
+        <button class="btn-turquoise" *ngIf="!(_wrapperSearchService.LoginStatus$ |
+            async)" (click)="this._wrapperFuncService.openLoginDialog()">צרי
+        עסק</button>
+      <button class="btn-turquoise" *ngIf="(_wrapperSearchService.LoginStatus$ |
+            async)" [routerLink]="['/profile']">עריכת פרופיל</button>
+      <h3 class="h3-2">ועשי עסקים בקהילה</h3>
+    </div>
+  </div> -->
+  <br>
+  <app-advertisment-area [makat]="1004"></app-advertisment-area>
+  <br>
+  <div class="outline-card flex flex-column-sm grab"
+    *ngFor="let buisness of
+        this._wrapperSearchService._afterFilterBuisnessListSubject | async |
+        slice:(this._wrapperSearchService.numberOfCurrentPage-1)*(_wrapperSearchService.numberOfCardsInOnePage)+_wrapperSearchService.numberOfCardsInOnePage/2:
+        (this._wrapperSearchService.numberOfCurrentPage-1)*(_wrapperSearchService.numberOfCardsInOnePage)+(_wrapperSearchService.numberOfCardsInOnePage)">
+    <a [routerLink]="['/business-view',buisness.userId]" target="_blank">
+      <!-- <div class="flex blue-side">-->
+      <div class="pink-side"></div>
+      <div class="img-container">
+        <img *ngIf="!(buisness.logoPictureId ==
+            '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+            buisness.id + '/Logo/'
+            + buisness.logoPictureId + '/' +
+            buisness.logoPictureId
+            + '.jpg'" class="img" alt="תמונת לוגו">
+        <h1 *ngIf="buisness.logoPictureId ==
+            '00000000-0000-0000-0000-000000000000'" style="border-color:#04e6e0;color:#04e6e0" class="first-letter">
+          {{buisness.buisnessName
+          |firstWord}}</h1>
+      </div>
+
+      <!-- </div> -->
+      <div class="flex-item">
+        <div class="flex">
+          <h4 class="mx-2">
+            {{buisness.buisnessName}}{{buisness.isdisplayBusinessOwnerName && buisness.ownerName?
+            ' - '+buisness.ownerName:''}}
+          </h4>
+        </div>
+        <span>{{buisness.actionDiscription}}</span>
+        <div class="flex">
+          <!-- todo- sprint 2 -->
+          <!-- <button class="btn-royal-blue btnn-sm">{{buisness.product1}}</button> -->
+          <!-- <button class="btn-secendary-light btnn-sm">{{buisness.product2}}</button>
+                    <button class="btn-secendary-light btnn-sm">{{buisness.barterProduct1}}</button>
+                    <button class="btn-secendary-light btnn-sm">{{buisness.barterProduct2}}</button> -->
+          <!-- *ngIf="buisness['buisnessCategory'+i].length>0" -->
+          <button class="btn-secendary-dark btn-category btnn-sm" [ngbPopover]="graypopContent1"
+            triggers="mouseenter:mouseleave" *ngIf="buisness.buisnessCategory1.length>0"
+            popoverClass="gray-popup">{{buisness.buisnessCategory1[0].categoryName}}</button>
+          <!-- [autoClose]="true" -->
+          <ng-template #graypopContent1>
+            <p *ngFor="let sub of
+                buisness.buisnessCategory1 let
+                j=index">{{sub.subCategoryName}}</p>
+          </ng-template>
+          <!-- 2 -->
+          <button class="btn-secendary-dark btnn-sm" *ngIf="buisness.buisnessCategory2.length>0"
+            [ngbPopover]="graypopContent2" triggers="mouseenter:mouseleave"
+            popoverClass="gray-popup">{{buisness.buisnessCategory2[0].categoryName}}</button>
+          <ng-template #graypopContent2>
+            <p *ngFor="let sub of
+                buisness.buisnessCategory2 let
+                j=index">{{sub.subCategoryName}}</p>
+          </ng-template>
+          <!-- 3 -->
+          <button class="btn-secendary-dark btnn-sm" *ngIf="buisness.buisnessCategory3.length>0"
+            [ngbPopover]="graypopContent3" triggers="mouseenter:mouseleave"
+            popoverClass="gray-popup">{{buisness.buisnessCategory3[0].categoryName}}</button>
+          <ng-template #graypopContent3>
+            <p *ngFor="let sub of
+                buisness.buisnessCategory3 let
+                j=index">{{sub.subCategoryName}}</p>
+          </ng-template>
+          <!-- 4 -->
+          <button class="btn-secendary-dark btnn-sm" *ngIf="buisness.buisnessCategory4.length>0"
+            [ngbPopover]="graypopContent4" triggers="mouseenter:mouseleave"
+            popoverClass="gray-popup">{{buisness.buisnessCategory4[0].categoryName}}</button>
+          <ng-template #graypopContent4>
+            <p *ngFor="let sub of
+                buisness.buisnessCategory4 let
+                j=index">{{sub.subCategoryName}}</p>
+          </ng-template>
+        </div>
+      </div>
+      <div class="flex-side">
+        <div class="w-mc">
+          <span *ngIf="buisness.ispayingBuisness==true" class="tags">
+            <img src="../../../../assets/icons/תשלום אייקון.svg" alt="אייקון תשלום">
+            בתשלום
+          </span>
+          <ng-template #popContent>
+            <h6>מה מתאים בתמורה (במקרה של ברטר)</h6>
+            <button class="btn-secendary-light btnn-xs">
+              {{buisness.barterProduct1}}</button>
+            <button class="btn-secendary-light btnn-xs">
+              {{buisness.barterProduct2}}</button>
+          </ng-template>
+          <span *ngIf="buisness.iscollaborationBuisness==true" class="tags">
+            <img src="../../../../assets/icons/שתפ אייקון.svg" alt="אייקון שיתוף פעולה">
+            שת&quot;פ
+          </span>
+          <span *ngIf="buisness.isburterBuisness==true" class="tags" [ngbPopover]="popContent"
+            triggers="mouseenter:mouseleave" popoverClass="turquoise-popup">
+            <img src="../../../../assets/icons/ברטר אייקון.svg" alt="אייקון ברטר">
+            ברטר
+          </span>
+        </div>
+        <div class="Mytooltip">
+          <div class="icon" *ngIf="buisness.Score >= 0">
+            <img class="img-icon-score" src="../../../../assets/icons/Small.png">
+            <span class="sc"> {{buisness.Score}}</span>
+          </div>
+          <div class="">
+            <button
+              [disabled]="!(this._wrapperSearchService.LoginStatus$.value) || !(this._acct.currentBusiness | async)"
+              (click)="openNewMessage($event,buisness.id)" class="btn-primary left-btn">שלחי הודעה
+              <!-- <a href="mailto:{{buisness.userId}}" class="a_none">    </a> -->
+            </button>
+            <span class="tooltiptext"
+              *ngIf="!(this._wrapperSearchService.LoginStatus$.value) || !(this._acct.currentBusiness | async)">
+              רק משתמשת רשומה שמלאה את פרטי העסק שלה יכולה לשלוח הודעות לעסקים אחרים</span>
+          </div>
+
+
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<ng-template #spinner>
+  <app-spinner [text]="'אנחנו טוענים את רשימת העסקים'"></app-spinner>
+</ng-template>

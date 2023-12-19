@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAA;EACJ,YAAY,EAAC,IAAI;CAChB",
+    "sources": [
+        "alphon-users.component.scss"
+    ],
+    "names": [],
+    "file": "alphon-users.component.css"
+}

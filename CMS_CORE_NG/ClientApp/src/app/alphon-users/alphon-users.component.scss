@@ -1,0 +1,106 @@
+.p-datatable .p-datatable-tbody>tr>td {
+    border: 1px solid #19294D !important;
+    border-width: 0 0 2px 0 !important;
+}
+
+.titleDesign {
+    font-weight: bold;
+    text-align: center;
+    color: #19294D;
+    font-size: 4.5rem;
+}
+.titletext{
+    text-align: center;
+    color: #19294D;
+}
+.imgbackgroundup {
+    // background-image: url(../../../../assets/img-pages/share.png);
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 40vh;
+    position: relative;
+}
+.image-container {
+    height: 49vh; /* שנה לגובה הרצוי */
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+}
+.fatherofall{
+    display: flex;
+    flex-direction: column;
+    // gap:15px;
+}
+// .header{
+//     background-color: palevioletred;
+// }
+.color-design {
+    padding: 1rem 1rem;
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0 !important;
+    font-weight: bold !important;
+    color: #19294D !important;
+    background: #f16b7e !important;
+    transition: box-shadow 0.2s;
+}
+
+.color-design.border-radius1 {
+    border-radius: 0 5px 5px 0;
+}
+
+.color-design.border-radius2 {
+    border-radius: 5px 0 0 5px;
+}
+
+.border-botten {
+    border: 1px solid #19294D !important;
+    border-width: 0 0 1px 0 !important;
+    font-weight: 500;
+    padding: 1rem 3rem !important;
+}
+
+.color-link a {
+    color: #19294D !important
+}
+
+.btn-create {
+    background-color: #07E6E0 !important;
+    color :#19294D;
+    font-weight: bold;
+    border: none;
+    top: 1600px;
+    left: 960px;
+    width: 158px;
+    height: 38px;
+    /* UI Properties */
+    border-radius: 36px;
+    box-shadow: 0px 3px 6px #00000029;
+
+}
+mark {
+    font-size: 0.9rem;
+    background-color: rgb(242, 236, 236);
+    // border-radius: 0.5rem;
+    padding: 0.4rem ;
+    width: fit-content;
+    margin-bottom: 0.4rem;
+    margin-top: 0.4rem;
+}
+.p-datatable .p-datatable-tbody > tr > td {
+   padding: 1rem 4rem !important;
+
+}

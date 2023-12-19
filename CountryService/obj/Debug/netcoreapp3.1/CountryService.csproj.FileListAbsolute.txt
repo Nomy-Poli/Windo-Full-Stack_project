@@ -1,0 +1,13 @@
+C:\TFS\WINDO\busoftBase\CountryService\bin\Debug\netcoreapp3.1\CountryService.deps.json
+C:\TFS\WINDO\busoftBase\CountryService\bin\Debug\netcoreapp3.1\CountryService.dll
+C:\TFS\WINDO\busoftBase\CountryService\bin\Debug\netcoreapp3.1\CountryService.pdb
+C:\TFS\WINDO\busoftBase\CountryService\bin\Debug\netcoreapp3.1\ModelService.dll
+C:\TFS\WINDO\busoftBase\CountryService\bin\Debug\netcoreapp3.1\ModelService.pdb
+C:\TFS\WINDO\busoftBase\CountryService\obj\Debug\netcoreapp3.1\CountryService.csproj.AssemblyReference.cache
+C:\TFS\WINDO\busoftBase\CountryService\obj\Debug\netcoreapp3.1\CountryService.GeneratedMSBuildEditorConfig.editorconfig
+C:\TFS\WINDO\busoftBase\CountryService\obj\Debug\netcoreapp3.1\CountryService.AssemblyInfoInputs.cache
+C:\TFS\WINDO\busoftBase\CountryService\obj\Debug\netcoreapp3.1\CountryService.AssemblyInfo.cs
+C:\TFS\WINDO\busoftBase\CountryService\obj\Debug\netcoreapp3.1\CountryService.csproj.CoreCompileInputs.cache
+C:\TFS\WINDO\busoftBase\CountryService\obj\Debug\netcoreapp3.1\CountryService.csproj.CopyComplete
+C:\TFS\WINDO\busoftBase\CountryService\obj\Debug\netcoreapp3.1\CountryService.dll
+C:\TFS\WINDO\busoftBase\CountryService\obj\Debug\netcoreapp3.1\CountryService.pdb

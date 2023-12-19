@@ -1,0 +1,10 @@
+C:\TFS\WINDO\busoftBase\LoggingService\bin\Debug\netcoreapp3.1\LoggingService.deps.json
+C:\TFS\WINDO\busoftBase\LoggingService\bin\Debug\netcoreapp3.1\LoggingService.dll
+C:\TFS\WINDO\busoftBase\LoggingService\bin\Debug\netcoreapp3.1\LoggingService.pdb
+C:\TFS\WINDO\busoftBase\LoggingService\obj\Debug\netcoreapp3.1\LoggingService.csproj.AssemblyReference.cache
+C:\TFS\WINDO\busoftBase\LoggingService\obj\Debug\netcoreapp3.1\LoggingService.GeneratedMSBuildEditorConfig.editorconfig
+C:\TFS\WINDO\busoftBase\LoggingService\obj\Debug\netcoreapp3.1\LoggingService.AssemblyInfoInputs.cache
+C:\TFS\WINDO\busoftBase\LoggingService\obj\Debug\netcoreapp3.1\LoggingService.AssemblyInfo.cs
+C:\TFS\WINDO\busoftBase\LoggingService\obj\Debug\netcoreapp3.1\LoggingService.csproj.CoreCompileInputs.cache
+C:\TFS\WINDO\busoftBase\LoggingService\obj\Debug\netcoreapp3.1\LoggingService.dll
+C:\TFS\WINDO\busoftBase\LoggingService\obj\Debug\netcoreapp3.1\LoggingService.pdb

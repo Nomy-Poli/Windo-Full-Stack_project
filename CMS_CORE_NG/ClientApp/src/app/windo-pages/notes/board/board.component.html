@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מודעות</title>
+</head>
+
+<body>
+    <!-- (click)="closeSearch()" -->
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <div class="imgbackgroundup">
+        <div class="image-container">
+            <img src="../../../../assets/img-pages/share.png" alt="">
+        </div>
+    <section class="blue_header">
+        <ng-container *ngIf="!boardId && !area">
+            <h1>לוח שת"פ</h1>
+            <!-- <h4>כאן תראי מודעות המציעות שת"פ</h4> -->
+        </ng-container>
+        <ng-container *ngIf="boardId && boardList && boardList.length && boardList[boardId-1]">
+            <h1>לוח {{boardList[boardId-1].Name}}</h1>
+            <h4>{{boardList[boardId-1].Description}}</h4>
+        </ng-container>
+        <ng-container *ngIf="area == 'groups'">
+            <h1>קבוצות</h1>
+            <h4>כאן תתכתבי באופן אישי עם הקבוצה שלך</h4>
+        </ng-container>
+        <ng-container *ngIf="area == 'personal'">
+            <h1>איזור אישי</h1>
+            <h4>כאן תראי את המודעות והתגובות שפרסמת</h4>
+        </ng-container>
+        <ng-container *ngIf="area == 'manager'">
+            <h1>איזור מנהל</h1>
+            <h4>כאן תוכלי לנהל את לוח המודעות</h4>
+        </ng-container>
+        <div class="Mytooltip left-side">
+            <!-- <button (click)="emailsAboatNews('e6766844@gmail.com')">שליחת מייל </button> -->
+            <button [disabled]="!this._acct.currentBusiness.value" class="btn-board btn-create center"
+                (click)="openCreateNote()">צרי מודעה<i class="pi pi-plus"></i>
+            </button>
+            <span *ngIf="!this._acct.currentBusiness.value" class="tooltiptext">רק משתמשת רשומה יכולה ליצור
+                מודעות</span>
+        </div>
+        <div class="flex space-between wrap-header-board">
+            <div class="buttons-container ">
+                <button class="btn-board " (click)="getAllNotes()" id="all" [ngClass]="{'active':!area && !boardId}"
+                    pRipple>הכל</button>
+                <button class="btn-board " *ngFor="let board of boardList;let i = index;" [name]="board.Name"
+                    [id]="'board'+(i+1)" [ngClass]="{'active':board.Id == boardId}" (click)="getNotesByBoard(board.Id)"
+                    pRipple >    <span class="double-word-btn" *ngIf="board.Name !== 'תמך'">לוח </span>{{ board.Name }}</button>
+                <!-- קבוצות -->
+            
+                <button *ngIf="this._acct.currentBusiness | async " class="btn-board " (click)="getMyGroupNote()" id="groups" [ngClass]="{'active':area == 'groups'}" pRipple>קבוצות</button>
+
+              <!-- <button *ngIf="this._acct.currentBusiness | async " class="btn-board " (click)="getMyGroupNote()"
+                    id="groups" [ngClass]="{'active':area == 'groups'}" pRipple>קבוצות</button> -->
+                <!-- שכירה -->
+                <!-- <button class="btn-board" (click)="getTemechNote()" id="groups" [ngClass]="{'active':area == 'temech'}"
+                    pRipple>תמך
+                </button> -->
+
+                <button *ngIf="this._acct.currentBusiness | async " class="btn-board" (click)="getMyNote()"
+                    id="personal" [ngClass]="{'active':area == 'personal'}" pRipple>איזור אישי</button>
+                <button *ngIf="this._acct.isManager" class="btn-board" (click)="managerArea()"
+                    [ngClass]="{'active':area == 'manager'}" id="manager" pRipple>איזור מנהל</button>
+            </div>
+
+        </div>
+    </section>
+</div>
+    <div class="main">
+        <main>
+            
+
+            <br>
+            <section id="search">
+
+                <form [formGroup]="searchForm" (ngSubmit)="searchNotes()">
+                    <div class="Mytooltip" (click)="toggleSearch($event)">
+                        <input type="text" class="search-input"
+                            [ngClass]="{'search-input-close':isDisplayForm==false,'search-input-open':isDisplayForm==true}"
+                            formControlName="searchText" placeholder="חפשי מודעה">
+                        <i class="pi pi-search"></i>
+                    </div>
+                    <div class="wrap-search" *ngIf="isDisplayForm">
+                        <div class="flex">
+
+                            <div class="form-group w-350">
+
+                                <input type="text" formControlName="Header" placeholder="חפשי לפי כותרת המודעה"
+                                    class="input">
+                            </div>
+                            <div class="form-group w-350">
+                                <p-calendar formControlName="CreationDate" placeholder="בין תאריכים"
+                                    selectionMode="range" [showIcon]="true" inputId="range" (onClose)="validateRange()">
+                                </p-calendar>
+                                <span *ngIf="this.validateRangeFlag==true" class="errorMessage"> יש לכתוב טווח תאריכים
+                                    תקין</span>
+                            </div>
+                            <div class="form-group w-350" *ngIf="area!='personal'">
+                                <ng-multiselect-dropdown [settings]="dropdownBusinessesSettings" [data]="businessList"
+                                    placeholder="התחילי להקליד את שם העסק" formControlName="BusinessIds">
+                                    <ng-template #optionsTemplate let-item let-option="option" let-id="id"
+                                        let-isSelected="isSelected">
+                                        <div>
+                                            <img *ngIf="getBusiness[id].logoPictureId !='00000000-0000-0000-0000-000000000000'"
+                                                [src]="'../../../../../assets/BusinessImages/' +
+                                            id + '/Logo/'
+                                            + getBusiness[id].logoPictureId + '/' +
+                                            getBusiness[id].logoPictureId
+                                            + '.jpg?w=40'" alt="תמונת לוגו"
+                                                style="width:30px;height:30px; display:inline-block;margin:0 0 0 5px; border-radius: 50%; " />
+                                            <span *ngIf="getBusiness[id].logoPictureId ==
+                                                                '00000000-0000-0000-0000-000000000000'"
+                                                class="first-letter">
+                                                {{option |firstWord}}</span>
+                                            <label> {{option}} </label>
+                                        </div>
+
+                                    </ng-template>
+                                </ng-multiselect-dropdown>
+                            </div>
+                            <!-- חיפוש לפי קבוצת נטורקינג -->
+
+                            <div class="form-group w-350" *ngIf="boardId != 1 && boardId != 2">
+                                <ng-multiselect-dropdown [settings]="dropdownGroupsSettings" [data]="groupList"
+                                    placeholder="התחילי להקליד את שם הקבוצה" formControlName="GroupIdS">
+                                    <ng-template #optionsTemplate let-item let-option="option" let-id="id"
+                                        let-isSelected="isSelected">
+                                        <label>{{option}} / {{getGroupDiscription[id].Description}} </label>
+                                    </ng-template>
+                                </ng-multiselect-dropdown>
+                            </div>
+                        </div>
+
+
+                        <div class="flex_SB submit">
+                            <button type="button" class="next-button btn-light"
+                                (click)="resetFillterList()">איפוס</button>
+                            <button class="next-button" type="submit"
+                                [disabled]="this.validateRangeFlag==true">חפשי</button>
+                        </div>
+                    </div>
+                </form>
+
+            </section>
+            <section id="notes-list">
+                <!-- <div class="board" *ngFor="let board of noteList$ | async">
+                    <div class="flex space-between wrap-header-board">
+                        <h3>לוח {{board.Name}}</h3> -->
+                <!-- </div>  </div>-->
+                <!-- הוספתי כאן שאלה על כמות מודעות עבור מספור נכון - כשיש פרסומות  -->
+                <span
+                    *ngIf="(noteList$ | async) && (noteList$ | async).length >= 0 && (noteList$ | async).length < 4">תוצאות
+                    חיפוש: נמצאו {{(noteList$ |
+                    async).length}} תוצאות</span>
+                <span
+                    *ngIf="(noteList$ | async) && (noteList$ | async).length > 4 && (noteList$ | async).length < 11">תוצאות
+                    חיפוש: נמצאו {{(noteList$ | async).length-1}} תוצאות</span>
+                <span *ngIf="(noteList$ | async) && (noteList$ | async).length > 11">תוצאות חיפוש: נמצאו {{(noteList$ |
+                    async).length-2}} תוצאות</span>
+                <br>
+                <app-notes-list
+                    [notesList]="(noteList$ | async)| slice: (numberOfCurrentPage-1)* numberOfCardsInOnePage: (numberOfCurrentPage-1)*numberOfCardsInOnePage+numberOfCardsInOnePage"
+                    [area]="area" (newNoteClicked)="openCreateNote($event)" (updateNoteClicked)="updateNote($event)"
+                    (newMessageClicked)="createCollaboration($event)" (deleteNoteClicked)="deleteNote($event)"
+                    #notesListC>
+                </app-notes-list>
+                <!-- <div *ngIf="!boardId" class="text-align-end"><span class="blue-link" (click)="getNotesByBoard(board.Id)">ראי את כל תכולת הלוח></span></div>    -->
+                <p-paginator [first]="numberOfCurrentPage-1" [rows]="1" [totalRecords]="totalnumberOfPages"
+                    (onPageChange)="onPageChange($event)" [showJumpToPageDropdown]="true" [showPageLinks]="false">
+                </p-paginator>
+            </section>
+            
+            <ng-container *ngIf="isLoading">
+                <app-spinner [text]="'אנחנו טוענים את המודעות'"></app-spinner>
+            </ng-container>
+        </main>
+    </div>
+</body>
+
+</html>
+

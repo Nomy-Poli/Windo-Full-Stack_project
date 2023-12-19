@@ -1,0 +1,57 @@
+<!-- login form-->
+<section class="section">
+  
+  <div class="container-login">
+    <h6 class="close_i">
+      <a (click)="this._wrapperFuncService.closeDialog()" class="x"><img src="../../assets/icons/x.png" class="icon_s"
+          alt="אייקון סגירת הדיאלוג"></a>
+    </h6>
+    <div class="flex_R">
+      <h1><strong class="h1-1 text-center">טוב שבאת!</strong></h1>
+
+      <h4>רק נזהה אותך, ואת בפנים</h4>
+
+
+      <h5>לא נרשמת עדיין?<a (click)="this._wrapperFuncService.openDialogRegister()" class="cursorP">עשי זאת עכשיו</a>
+      </h5>
+      <div class="text-center">
+        <button class="btn-google" type="button" (click)="externalLogin()">
+          נרשמתי עם <img src="../../assets/icons/google.png?w=30" alt="גוגל" class="img">
+        </button>
+        <h5>או</h5>
+      </div>
+      <form [formGroup]="insertForm" (ngSubmit)="onSubmit()" class="flex_R">
+        <input class="input" type="Username" name="Username" id="Username"
+          placeholder="שם משתמש, לדוגמה: Windo!12@gmail.com" formControlName="Username" />
+        <div class="position-relative">
+          <input class="input" [type]="this.showPassword ? 'text' :
+              'password'" name="password" id="password" placeholder="סיסמה" formControlName="Password" />
+          <i *ngIf="this.showPassword==true" class="pi pi-eye-slash" (click)="password()"></i>
+          <i *ngIf="this.showPassword==false" class="pi pi-eye" (click)="password()"></i>
+        </div>
+        <div id="errors">
+          <div *ngIf="Username.touched && Username.errors">
+            <span *ngIf="Username.hasError('required')" class="errorMessage">שם
+              משתמש
+              לא תקין</span>
+          </div>
+          <div *ngIf="Password.touched && Password.errors">
+            <span *ngIf="Password.hasError('required')" class="errorMessage">ססמא
+              לא
+              תקינה</span>
+          </div>
+        </div>
+        <div class="align-self-start mb-3">
+          <input type="checkbox" formControlName="RememberMe" [value]="!this.flag" class="checkbox-terms"
+            (click)="rememberMe()" />
+          זכרו אותי לפעם הבאה
+        </div>
+        <input class="center btn-user font_ploni_bold" type="submit" [disabled]="!insertForm.valid" value="היכנסי" />
+        <p> <a class="a-forget cursorP" (click)="this._wrapperFuncService.openDialogForgotPassword()">
+            שכחתי את הסיסמה</a> </p>
+        <p> <a class="a-forget cursorP" (click)="SendEmailAgain()">
+            נרשמת ולא נשלח אלייך אימייל? </a></p>
+      </form>
+    </div>
+  </div>
+</section>

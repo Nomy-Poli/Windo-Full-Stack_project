@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פידבק</title>
+  </head>
+  
+  <body>
+<section class="main">
+    <div class="form-group">
+        <h6>{{header}}</h6>
+        <div class="flex">  
+            <ng-container *ngIf="dealType == 1">
+                <div class="icon-in-flex" (click)="iconClicked('Availability')">
+                    <img *ngIf="!iconsNames.Availability" src="../../../../assets/icons/זמינות בהיר.png"  class="wrap-icon">
+                    <img *ngIf="iconsNames.Availability" src="../../../../assets/icons/זמינות כהה.png"  class="wrap-icon">
+                    <!--<div class="wrap-icon green" [ngClass]="{'not-active':iconsNames.Availability').value}">
+                        <i class="fa fa-clock-o "></i>
+                    </div>-->
+                    <label for="">זמינות</label>
+                </div>
+                <div class="icon-in-flex" (click)="iconClicked('Service')">
+                    <img *ngIf="!iconsNames.Service" src="../../../../assets/icons/שירות בהיר.png"  class="wrap-icon">
+                    <img *ngIf="iconsNames.Service" src="../../../../assets/icons/שירות כהה.png"  class="wrap-icon">
+    
+                    <!--<div class="wrap-icon yellow" [ngClass]="{'not-active':iconsNames.Service').value}">
+                        <i class="fa fa-headphones " ></i>
+                    </div>-->
+                    <label for="">שירות</label>
+                </div>
+                <div class="icon-in-flex" (click)="iconClicked('Price')">
+                    <img *ngIf="!iconsNames.Price" src="../../../../assets/icons/מחיר בהיר.png"  class="wrap-icon">
+                    <img *ngIf="iconsNames.Price" src="../../../../assets/icons/מחיר כהה.png"  class="wrap-icon">
+                    <!--<div class="wrap-icon lightblue" [ngClass]="{'not-active':iconsNames.Price').value }">
+                        <i class="fa fa-credit-card"></i>
+                    </div>-->
+                    <label for="">מחיר</label>
+                </div>
+                <div class="icon-in-flex" (click)="iconClicked('Professionalism')">
+                    <img *ngIf="!iconsNames.Professionalism" src="../../../../assets/icons/מקצועיות בהיר.png"  class="wrap-icon">
+                    <img *ngIf="iconsNames.Professionalism" src="../../../../assets/icons/מקצועיות כהה.png"  class="wrap-icon">
+                     <!--<div class=" wrap-icon purple" [ngClass]="{'not-active':iconsNames.Professionalism').value }">
+                        <i class="fa fa-briefcase"></i>
+                    </div>-->
+                    <label for="">מקצוענות</label>
+                </div>  
+                <div class="icon-in-flex" (click)="iconClicked('Flexable')">
+                    <img *ngIf="!iconsNames.Flexable" src="../../../../assets/icons/גמישות בהיר.svg"  class="wrap-icon pink not-active">
+                    <img *ngIf="iconsNames.Flexable" src="../../../../assets/icons/גמישות.svg"  class="wrap-icon ">
+                     <!--<div class=" wrap-icon purple" [ngClass]="{'not-active':iconsNames.Professionalism').value }">
+                        <i class="fa fa-briefcase"></i>
+                    </div>-->
+                    <label for="">גמישות</label>
+                </div>         
+            </ng-container>
+            <ng-container  *ngIf="dealType == 2 || dealType == 3">
+                <div class="icon-in-flex" (click)="iconClicked('MoreLeisure')">
+                    <!-- <div class="wrap-icon lightblue"> -->
+                    <img *ngIf="iconsNames.MoreLeisure== false" src="../../../../assets/icons/יותר פניות בהיר.png" class="wrap-icon lightblue not-active" >
+                    <img *ngIf="iconsNames.MoreLeisure == true" src="../../../../assets/icons/יותר פניות.png" class="wrap-icon">
+                    <!-- </div> -->
+                    <label for="">יותר פנאי</label>
+                </div>
+                <div class="icon-in-flex" (click)="iconClicked('MoreShopping')">
+                    <div class="wrap-icon">
+                        <img *ngIf="iconsNames.MoreShopping== false" src="../../../../assets/icons/יותר קניות בהיר.png" class="wrap-icon green not-active" >
+                        <img *ngIf="iconsNames.MoreShopping == true" src="../../../../assets/icons/יותר קניות.png" class="wrap-icon" >
+                    </div>
+                    <label for="">יותר קניות</label>
+                </div>
+                <div class="icon-in-flex" (click)="iconClicked('IncreasingRevenue')">
+                    <div class="wrap-icon yellow">
+                        <img *ngIf="iconsNames.IncreasingRevenue== false" src="../../../../assets/icons/הכנסות בהיר.png" class="wrap-icon yellow not-active">
+                        <img *ngIf="iconsNames.IncreasingRevenue == true" src="../../../../assets/icons/הכנסות כהה.png"  class="wrap-icon">
+                    </div>
+                    <label for="">הגדלת הכנסות</label>
+                </div>
+                <div class="icon-in-flex" (click)="iconClicked('ReducingExpenses')">
+                    <div class="wrap-icon purple">
+                        <img *ngIf="iconsNames.ReducingExpenses== false" src="../../../../assets/icons/הקטנת הוצאות בהיר.png" class="wrap-icon not-active purple">
+                        <img *ngIf="iconsNames.ReducingExpenses == true" src="../../../../assets/icons/הקטנת הוצאות.png" class="wrap-icon">
+                    </div>
+                    <label for="">הקטנת הוצאות</label>
+                </div>
+                <div class="icon-in-flex" (click)="iconClicked('ReducingEffort')">
+                    <div class="wrap-icon pink">
+                        <img *ngIf="iconsNames.ReducingEffort== false" src="../../../../assets/icons/צמצום מאמץ בהיר.png" class="wrap-icon not-active pink">
+                        <img *ngIf="iconsNames.ReducingEffort == true" src="../../../../assets/icons/צמצום מאמץ.png" class="wrap-icon">
+                    </div>
+                    <label for="">צמצום מאמץ</label>
+                </div>
+            </ng-container>
+            
+          
+            <!-- שת"פ -->
+          
+            <!-- <div *ngIf="dealType == 3" class="icon-in-flex" (click)="iconClicked('Enterprise')">
+                <img *ngIf="iconsNames.Enterprise" src="../../../../assets/icons/יוזמה בהיר.png"  class="wrap-icon">
+                <img *ngIf="iconsNames.Enterprise" src="../../../../assets/icons/יוזמה כהה.png"  class="wrap-icon">
+               
+                <label for="">יוזמה</label>
+            </div> -->
+           
+            <!--  -->
+            
+   
+            <!-- ברטר -->
+            <!-- <div *ngIf="dealType == 2" class="icon-in-flex" (click)="iconClicked('FairConsiderationForTransaction')">
+             
+                <img *ngIf="iconsNames.FairConsiderationForTransaction" src="../../../../assets/icons/תמורה בהיר.png"  class="wrap-icon">
+                <img *ngIf="iconsNames.FairConsiderationForTransaction" src="../../../../assets/icons/תמורה כהה.png"  class="wrap-icon">
+                <label for="">תמורה הוגנת לעסקה</label>
+            </div> -->
+             <!--  -->
+             <!-- שת"פ -->
+            <!-- <div *ngIf="dealType == 3" class="icon-in-flex" (click)="iconClicked('ExposureToNewAudiences')">
+            
+                <img *ngIf="iconsNames.ExposureToNewAudiences" src="../../../../assets/icons/חשיפה לקהלים חדשים בהיר.png"  class="wrap-icon">
+                <img *ngIf="iconsNames.ExposureToNewAudiences" src="../../../../assets/icons/חשיפה לקהלים חדשים כהה.png"  class="wrap-icon">
+                <label for="">חשיפה לקהלים חדשים</label>
+            </div> -->
+            <!--  -->
+        </div>
+    </div>
+    <form [formGroup]="form">
+        <div *ngIf="dealType == 1" class="form-group">
+            <h6>השאירו ביקורת</h6>
+            
+            <textarea cols="10" rows="3" class="inputtext" (keydown)="keyDown($event)" formControlName="Review"></textarea>
+        
+            <!--  -->
+        </div>
+        <div *ngIf="dealType == 2" class="form-group flex">
+            <input type="checkbox" formControlName="ConfirmedByPartner" id="ConfirmedByPartner" name="ConfirmedByPartner">
+            <label for="ConfirmedByPartner">השיתוף מתבצע בתיאום עם הפרטנרית שלי לברטר ובאישורה</label>
+        </div>
+        <div *ngIf="dealType == 3" class="form-group flex">
+            <input type="checkbox" formControlName="ConfirmedByPartners" id="ConfirmedByPartner" name="ConfirmedByPartner">
+            <label for="ConfirmedByPartner">השיתוף מתבצע בתיאום עם השותפות שלי ובאישורן</label>
+        </div>
+    </form>    
+</section>
+<section class="confirm-section main">
+    <button class="next-button" (click)="next()"
+        >סיימתי שת"פו</button><br>
+        <span *ngIf="(dealType == 2 && !form.get('ConfirmedByPartner').value) || dealType == 3 && !form.get('ConfirmedByPartners').value">
+            <img *ngIf="errorMessage" class="small-error-img" src="../../../../assets/icons/error.png" alt="">
+            {{errorMessage}}
+            
+        </span>
+</section>
+
+</body>
+</html>

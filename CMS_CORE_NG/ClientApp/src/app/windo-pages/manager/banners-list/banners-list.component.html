@@ -1,0 +1,46 @@
+<div class="">
+    <button class="blue-big-button" (click)="addBanner()">הוסף באנר</button>
+
+    <!-- <h1>רשימת לקוחות</h1> -->
+    <p-table [value]="bannersList" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>מק"ט</th>
+                <th>כותרת באנר</th>
+                <!-- <th>
+                    תאור קצר</th> -->
+                <th>שם דף</th>
+                <th>מחיר</th>
+                <th>מחיר בנקודות</th>
+                <th>רוחב</th>
+                 <th>גובה פרסומת</th>  
+                 <th>לינק ברירת מחדל</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-banner>
+            <tr>
+                <td>{{banner.Makat}}</td>
+                <td>{{banner.Title}}</td>
+                <td>{{banner.PageName}}</td>
+                <td>{{banner.Price}}</td>                
+                <td>{{banner.PriceInPoints}}</td>
+                <td>{{banner.Width}}</td>
+                <td>{{banner.Height}}</td>
+                <td>{{banner.DefaultLink}}</td>
+                <td>
+                    <div class="flex space-around">
+                        <div class="action-col" (click)="editBanner(banner)">
+                            <i class="pi pi-pencil"></i>
+                            <span class="icon_p">ערכי</span>
+                        </div>
+                        <div class="action-col" (click)="deleteBanner(banner)">
+                            <i class="pi pi-trash"></i>
+                            <span class="icon_p">מחקי</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

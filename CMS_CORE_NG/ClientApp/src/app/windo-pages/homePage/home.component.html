@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>דף הבית</title>
+</head>
+
+<body>
+  <!-- video on home page -->
+
+  <!-- blue section for NOT loged in user -->
+
+
+
+  <section class="blue-section" *ngIf="!(_wrapperSearchService.LoginStatus$
+            | async)
+            as LoginStatus">
+    <!-- <div class=""> -->
+      <div class="first-section-background">
+        
+      <!--  (click)="closeSearch($event)" -->
+      <!-- <button class="buttonAroundIcon Mytooltip" (click)="this.openVedio(video)">
+          <span class="tooltiptext">צפי בהדגמה</span>
+          <img class="IconVideo" src="../../../assets/windo-images/Group1.png">
+      </button> -->
+      <!-- <div class="help"></div> -->
+      <div class="align-items-center"><img src="../../../assets/windo-images/Mask Group 38@2x.png" 
+          alt="מצאי את השיתוף פעולה המדויק לעסק שלך" class="gif">
+      </div>
+      <h1 class="logoTopic-loged-in">מצאי בתמך</h1>
+      <h1 class="logoTopic-loged-in"> אפיק לפרנסה</h1>
+      <div class="text-center">
+        <h4 class="text-light">
+          לחצי לאיתור התוכנית להתקדמות שלך
+        </h4>
+
+        <button class="btn-turquoise px-5" [routerLink]="['/independent']" >מידע לעצמאית
+        </button>
+        <button class="btn-outline px-5" [routerLink]="['/hiring']" [ngClass]="!(_wrapperSearchService.HomePage$|async)
+  ?'dark-font':'font-color-tr'">מידע לשכירה</button>
+    </div>  </div>
+
+    <!-- </div> -->
+    <!-- <section id="search">
+
+      <form [formGroup]="parameterForm" (ngSubmit)="passParametersToSearch()">
+        <div class="Mytooltip" (click)="toggleSearch($event)" style="width: 100%;" id="input-search">
+          <input type="text" class="search-input" formControlName="searchText" placeholder="חפשי לפי שם עסק"
+            [ngClass]="{'open':isDisplayForm}">
+          <i class="pi pi-search" [ngClass]="{'open':isDisplayForm}"></i>
+        </div>
+        <div class="wrap-search" *ngIf="isDisplayForm">
+          <div class="flex">
+
+            <div class="form-group w-350">
+              <p-dropdown #categorydropdown1 formControlName="categoryId" styleClass="inputMultiSelect1"
+                [(ngModel)]="selectedCategory" (onChange)="onSelectCategory($event.value.label)"
+                [options]="this._wrapperSearchService.categoryOptions" placeholder="בחרי
+                          קטגוריה" [filter]="true" optionLabel="value">
+              </p-dropdown>
+            </div>
+            <div class="form-group w-350">
+              <p-multiSelect #subcategorydropdown1 styleClass="inputMultiSelect1" formControlName="subCategoryIds"
+                [options]="_wrapperSearchService.subCategoryForSearchPageOptions" placeholder="בחרי תת
+                          קטגוריה" [showToggleAll]="true" [filter]="true" [maxSelectedLabels]="3"
+                [selectedItemsLabel]="'בחרת תתי קטגוריות מרובות'" optionLabel="name"
+                [(ngModel)]="this._wrapperSearchService.ListOfSubCategoryToFillter">
+              </p-multiSelect>
+            </div>
+            <div class="form-group w-350">
+              <p-multiSelect #areas showHeader="false" styleClass="inputMultiSelect1"
+                [options]="_wrapperSearchService.AreaOptionsProfile" defaultLabel="בחרי אזורי שירות" [filter]="false"
+                optionLabel="name" maxSelectedLabels="1" formControlName="areas">
+                <ng-template pTemplate="header">
+                  <label style="position: absolute; margin: 0.2rem 2.5rem 0 1rem;" for=""> כל הארץ</label>
+                </ng-template>
+              </p-multiSelect>
+            </div>
+          </div>
+          <div class="flex_SB submit">
+            <button type="button" class="next-button btn-light" (click)="resetFillterList()">איפוס</button>
+            <button class="next-button" type="submit">חפשי</button>
+          </div>
+        </div>
+      </form>
+    </section> -->
+    <!-- <div class="flex_culomns">
+      <button [routerLink]="['/barter-List']" class="btn-blue-color
+                        custom-btn-turquoise">
+        מצאי שת"פ
+      </button>
+      <h3 class="font-color-white myt-2">
+        עשרות הצעות מחכות לעסק שלך כאן באתר!
+      </h3>
+      <div (click)="scrolldown()" class="scroll-downs">
+        <div class="mousey">
+          <div class="scroller"></div>
+        </div>
+      </div>
+
+    
+    </div> -->
+  </section>
+
+  <!-- small blue section for loged in user -->
+  <section class="flax loged-in-section1-container" *ngIf="_wrapperSearchService.LoginStatus$
+            | async
+            as LoginStatus">
+
+    <div class="flex">
+      <div class="grayhello">
+        <div class="graybackgroundcenter">
+        <h1 class="font_ploni_bold" *ngIf="_wrapperSearchService.Username$ |
+                        async">
+          שלום {{this.userName |async}}
+        </h1>
+        <!-- <h1>שלום יעל,</h1> -->
+        <h3 class="">
+          מגוון הצעות מחכות
+        </h3>
+
+</div>
+
+        <button class="btn-turquoise px-5" [routerLink]="['/independent']">מידע לעצמאית
+        </button>
+        <button class="btn-outline px-5" [routerLink]="['/hiring']" [ngClass]="!(_wrapperSearchService.HomePage$|async)
+  ?'dark-font':'font-color-blue'">מידע לשכירה</button>
+        <!-- <button [routerLink]="['/barter-List']" class="btn-turquoise
+                        custom-btn-turquoise-loged-in">
+                        בואי למצוא מה שהכי נכון לך כרגע 
+        </button> -->
+
+      </div>
+
+     <div class="loged-in-blue-section"> 
+      <img class="img-loged-in" src="../../assets/windo-images/MaskGroup38.png" alt="אנימציית חיוך">
+       <div class="loged-in-text-part">
+        <h1 class="logoTopic-loged-in">מצאי בתמך</h1> 
+          <h1 class="logoTopic-loged-in"> אפיק לפרנסה</h1>
+          
+          
+<!-- 
+        
+       
+        </div> -->
+        <!-- <div class="DivAroundIconVdieo">
+            <button class="buttonAroundIconConnected Mytooltip">
+                <span class="tooltiptext tooltipconnect">צפי בהדגמה</span>
+                <img class="IconVideoConnected" src="../../../assets/windo-images/Group1@2x.png">
+            </button>-->
+        </div> 
+      </div>
+    </div>
+    <!-- </div> -->
+
+    <!-- <div class="flex see-more see-more-loged-in">
+      <h2 class="font_ploni_bold">
+        הצעות אחרונות שעלו לאתר
+      </h2>
+      <a [routerLink]="['/barter-List']" class="cursorP">ראי את כל ההצעות</a>
+    </div> -->
+  </section>
+
+
+  <app-home-notes></app-home-notes>
+  <br>
+  <div class="baner">
+    <app-advertisment-area [makat]="1001"></app-advertisment-area>
+  </div>
+  <div class="pic"></div>
+  <div class="temech d-flex overflow-hidden ">
+    <div class="temech-part1">
+    <img class="picchers-img1" src="../../../assets/images/Path 1788.png" alt="trmech">
+    <div class="temech-title">
+      <img class="img-temech" src="../../../assets/images/Group 3290.png" alt="trmech">
+      <p>עמותת תמך</p>
+      <h6>פרנסה בכבוד לאישה החרדית</h6>
+      <!-- <img class="thired-section-background" src="../../../assets/img-pages/home2.png" alt="תיאור תמונה" /> -->
+</div>
+<img class="picchers-img2" src="../../../assets/images/Path 1787.png" alt="trmech">
+</div>
+  <!-- 
+    <div class="col-3" style="left: 72px;">
+      <img style="width: 400px;height: 300px;" src="../../../assets/windo-images/Path 1788.svg" alt="">
+    </div> -->
+
+    <section class="solutions flex-columns flex-reverse">
+      <div class="row">
+        <div class="column">
+          <div class="column-1">
+            <img src="../../../assets/images/Group 3927.png" alt="" />
+          </div>
+        </div>
+        <div class="column">
+          <div class="column-2 ">
+            <p>תמך לעצמאית</p>
+            <h6>מי אמר שעצמאית צריכה להרגיש לבד ?</h6>
+            <h6> בואי תבחרי מה מהפעילות העשירה והמגוונת מתאימה לך </h6>   
+            
+            <a href="../independent" class="btn-outline btn-items px-4">
+              לפרטים
+            </a>
+          </div>
+        </div>
+      </div>
+    </section> 
+    <section class="solutions flex-columns ">
+      <div class="row">
+        <div class="column">
+          <div class="column-1">
+            <img src="../../../assets/images/Group 3926.png" alt="" />
+          </div>
+        </div>
+        <div class="column">
+          <div class="column-2 bitween">
+            <p>תמך לשכירה</p>
+            <h6>אנחנו כאן למציאת מקום עבודה מתגמל וכל שיפור כלכלי עבורך </h6>
+             <h6> בואי תראי מה הכנו לך</h6>
+            <a href="../hiring" class="btn-outline btn-items px-4">
+              לפרטים
+            </a>
+          </div>
+        </div>
+      </div>
+    </section> 
+    <section class="solutions flex-columns flex-reverse">
+      <div class="row">
+        <div class="column">
+          <div class="column-1">
+            <img src="../../../assets/images/Group 3925.png" alt="" />
+          </div>
+        </div>
+        <div class="column">
+          <div class="column-2 ">
+            <p>Temech Hub</p>
+            <h6>עמדת עבודה או משרד? חדר ישיבות או המקום השלישי?</h6>
+             <h6>מגוון חללי עבודה מאובזרים. בואי לבקר!</h6>
+            <a href="../hub" class="btn-outline btn-items px-4">
+              לפרטים
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section> 
+      <!-- <div class="row align-items-center mb-3"><img src="../../../assets/windo-images/Group 3290.png"
+          alt="מצאי את השיתוף פעולה המדויק לעסק שלך">
+      </div>
+      <h2>עמותת תמך</h2>
+      <h4 style="width: max-content; margin: auto;">פרנסה בכבוד לאישה החרדית</h4> -->
+      <div class="picchers">
+       
+        <img src="../../../assets/images/Group 3928.png" alt="" />
+    </div>
+  </div>
+<!-- 
+    <div class="col-3">
+      <img style="width: 400px;height: 300px; margin-right: 150px;" src="../../../assets/windo-images/Path 1787.svg"
+        alt="">
+    </div>
+  </div> -->
+
+
+  <!-- <div class="flex see-more">
+        <h2 class="font-color-white font_ploni_bold">
+          הצעות חדשות
+        </h2>
+        <a [routerLink]="['/barter-List']" class="font-color-white cursorP">ראי את כל ההצעות</a>
+      </div> -->
+  <!-- carusela of businessess -->
+  <!-- להחזיר -->
+  <section id="section1">
+    <div class="flex space-between grid-home text-center">
+      <h2 class="bold">פעילות שהיתה לאחרונה</h2>
+    </div>
+    <div class="flex gallery-container">
+      <div class="Arrows-container cursorP" (click)="prev()">
+        <!-- סוף החזרה -->
+        <!-- להחזיר -->
+        <i class="pi pi-arrow-right arrow1" [ngClass]="flagPrev==true?'Arrows':'Arrows disabled'"></i>
+      </div>
+      <div class="product-item shadow" *ngFor="let item of
+                    _wrapperSearchService.latestBuisnessList$
+                    |async">
+        <a [routerLink]="['/business-view',item.userId]" target="_blank">
+          <div class="product-item-content">
+            <!-- (click)="routeToBusiness($event,item)"  -->
+            <div class="container-product-image">
+              <img *ngIf="!(item.logoPictureId ==
+                                '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/'
+                                + item.id
+                                + '/Logo/'
+                                + item.logoPictureId + '/' + item.logoPictureId
+                                + '.jpg?width=100'" alt="תמונת לוגו" class="product-image" />
+              <h1 *ngIf="item.logoPictureId ==
+                                '00000000-0000-0000-0000-000000000000'" style="border-color:#04e6e0;color:#04e6e0"
+                class="first-letter">
+                {{
+                item.buisnessName
+                |firstWord
+                }}
+              </h1>
+            </div>
+            <h4 class="p-mb-1">
+              {{item.buisnessName}}{{
+              item.isdisplayBusinessOwnerName && item.ownerName?
+              ' - '+item.ownerName:''
+              }}
+            </h4>
+            <p class="DisriptionClass">{{item.actionDiscription}}</p>
+            <div class="haight-img">
+              <div class="flex" *ngIf="item.Score > 0">
+                <img class="size" src="../../../../assets/icons/Small.png">
+                <span class="sc"> {{item.Score}}</span>
+              </div>
+            </div>
+            <br>
+
+            <div class="mh_2rem">
+              <span *ngIf="item.ispayingBuisness==true" class="tags">
+                <img src="../../../../assets/icons/תשלום אייקון.svg" alt="אייקון תשלום">
+                בתשלום
+              </span>
+              <span *ngIf="item.iscollaborationBuisness==true" class="tags">
+                <img src="../../../../assets/icons/שתפ אייקון.svg" alt="אייקון שתוף פעולה">
+                שת&quot;פ
+              </span>
+              <span *ngIf="item.isburterBuisness==true" class="tags">
+                <img src="../../../../assets/icons/ברטר אייקון.svg" alt="אייקון ברטר">
+                ברטר
+              </span>
+            </div>
+            <!-- <div class="categoryies">
+              <button class="btn-secendary-light btnn-sm" *ngFor="let
+                                subb
+                                of
+                                item.listOfAll4buisnessCategory| slice:0:2; let
+                                i=index">
+                {{subb.subCategoryName}}
+              </button>
+              <ng-template #graypopContent ngIf="item.BuisnessCategory1 !=null">
+                <p *ngFor="let sub of
+                                    item.BuisnessCategory1| slice:2:30;
+                                    let
+                                    i=index">{{sub.subCategoryName}}</p>
+              </ng-template>
+            </div> -->
+            <div class="margin-top-auto">
+              <button class="btn-primary Mytooltip" [disabled]="item.id== 0">
+                <!-- <span *ngIf="item.id== 0" class="tooltiptext">
+                  אין אפשרות לצפות בעסק לפני שהפרטים מלאים
+                </span> -->
+                שלחי הודעה
+              </button>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div (click)="next()" class="Arrows-container cursorP">
+        <i class="pi pi-arrow-left" [ngClass]="flagNext==true?
+                        'Arrows arrow2':'Arrows arrow2 disabled'"></i>
+      </div>
+    </div>
+    <br>
+    <!-- <div class="text-align-center">
+      <button [routerLink]="['/barter-List']" class="btn-primary custom-btn-primary">לכל העסקים</button>
+    </div> -->
+    <div class="text-center mb-5">
+      <button class="btn-turquoise" style="width: 280px;" [routerLink]="['/barter-List']">לכל העסקים</button>
+    </div>
+
+  </section>
+  <div class="baner">
+    <app-advertisment-area [makat]="1002"></app-advertisment-area>
+  </div>
+  <!-- סוף החזרה -->
+  <!-- שיווק הברטרים -->
+  <!-- <section class="grid_container">
+    <div class="container_flex">
+
+      <div>
+        <h1 class="numbers">01</h1>
+        <div class="blue-before">
+          <p class="title font_ploni_bold">למזער סיכונים</p>
+          <p class="blue-after">
+            בכל עסקה יש סיכון.<br />
+            בכל עסקה מושקעים זמן, מאמץ וכסף. <br />בשיתוף פעולה מושקעים זמן, מאמץ ורצון טוב של שני הצדדים.<br />
+            <strong>
+              יש סיכון ששלושת אלה יירדו לטמיון, בדיוק כמו בכל עסקה, אבל לפחות אין הפסד פיננסי בנוסף לכאבי הלב.
+            </strong>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container_flex">
+      <div>
+        <h1 class="numbers">02</h1>
+        <div class="blue-before">
+          <p class="title font_ploni_bold">
+            להגדיל סיכויים
+          </p>
+          <p class="blue-after">
+            לכל עסקה יש סיכוי להצליח.<br />
+            בכל עסקה מושקעים זמן, מאמץ וכסף.
+            <br />
+            <strong>
+              בשיתוף פעולה מושקעים זמן, מאמץ ורצון טוב של שני צדדים ולא רק של אחת.
+            </strong>
+            <br />
+            <strong>זה אומר שהסיכוי שלך להצליח גבוה יותר, כי אתן שתיים שדוחפות יחד את
+              העסקים שלכן,
+              מה שמקדם אתכן מהר
+              וטוב יותר.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container_flex">
+      <div>
+        <h1 class="numbers">03</h1>
+        <div class="blue-before">
+          <p class="title font_ploni_bold">להיות יעד לפניות
+          </p>
+          <p class="blue-after">
+            בכל עסקה יש פוטנציאל לאדוות,
+            אם היא רק תפורסם למקסימום אנשים. <br>
+            כשקוראים את כרטיס העסק שלך פה באתר -
+            נוצרות אדוות. <br>
+            <strong>
+              גלים קטנים שגורמים לאנשים לחשוב על עוד הצעות.
+              לא רק אלה שפרסמת במפורש בדף העסק שלך. </strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container_flex">
+      <div>
+        <h1 class="numbers">04</h1>
+        <div class="blue-before">
+          <p class="title font_ploni_bold">להרחיב את הנישה</p>
+          <p class="blue-after">פעילות מצומצמת, לרוב, עוסק בנישה מצומצמת. <br>
+            את עושה רק מה שהתרגלת לעשות.
+            כשהעסק שלך עולה על הבמה של windo -
+            זה מרחיב לך את הנישה לדברים שלא הורגלת בהם. <br>
+            <strong>
+              מציעים לך שיתופי פעולה או בקשות מעסקים אחרים,
+              והנישה שלך מתרחבת. <br>
+              גם למקומות שלא חשבת שהעסק שלך יכול להגיע אליהם.</strong>
+          </p>
+        </div>
+      </div>
+    </div> -->
+  <!-- <div #dragScrollItems (mousedown)="mouseDownHandler($event)" (mouseup)="mouseUpHandler()" class="flex_culomns2">
+      <div class="container_flex1">
+        <div class="container_flex">
+
+          <div>
+            <h1 class="numbers">01</h1>
+            <div class="blue-after">
+              <p class="title font_ploni_bold">למזער סיכונים</p>
+              <p>
+                בכל עסקה יש סיכון.<br />
+                בכל עסקה מושקעים זמן, מאמץ וכסף. <br />בשיתוף פעולה מושקעים זמן, מאמץ ורצון טוב של שני הצדדים.<br />
+                <strong>
+                  יש סיכון ששלושת אלה יירדו לטמיון, בדיוק כמו בכל עסקה, אבל לפחות אין הפסד פיננסי בנוסף לכאבי הלב.
+                </strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="container_flex">
+          <div>
+            <h1 class="numbers">02</h1>
+            <div class="blue-after">
+              <p class="title font_ploni_bold">
+                להגדיל סיכויים
+              </p>
+              <p>
+                לכל עסקה יש סיכוי להצליח.<br />
+                בכל עסקה מושקעים זמן, מאמץ וכסף.
+                <br />
+                <strong>
+                  בשיתוף פעולה מושקעים זמן, מאמץ ורצון טוב של שני צדדים ולא רק של אחת.
+                </strong>
+                <br />
+                <strong>זה אומר שהסיכוי שלך להצליח גבוה יותר, כי אתן שתיים שדוחפות יחד את העסקים שלכן, מה שמקדם אתכן מהר
+                  וטוב יותר.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="container_flex">
+          <div>
+            <h1 class="numbers">03</h1>
+            <div class="blue-after">
+              <p class="title font_ploni_bold">להיות יעד לפניות
+              </p>
+              <p>
+                בכל עסקה יש פוטנציאל לאדוות,
+                אם היא רק תפורסם למקסימום אנשים. <br>
+                כשקוראים את כרטיס העסק שלך פה באתר -
+                נוצרות אדוות. <br>
+                <strong>
+                  גלים קטנים שגורמים לאנשים לחשוב על עוד הצעות.
+                  לא רק אלה שפרסמת במפורש בדף העסק שלך. </strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="container_flex">
+          <div>
+            <h1 class="numbers">04</h1>
+            <div class="blue-after">
+              <p class="title font_ploni_bold">להרחיב את הנישה</p>
+              <p>פעילות מצומצמת, לרוב, עוסק בנישה מצומצמת. <br>
+                את עושה רק מה שהתרגלת לעשות.
+                כשהעסק שלך עולה על הבמה של windo -
+                זה מרחיב לך את הנישה לדברים שלא הורגלת בהם. <br>
+                <strong>
+                  מציעים לך שיתופי פעולה או בקשות מעסקים אחרים,
+                  והנישה שלך מתרחבת. <br>
+                  גם למקומות שלא חשבת שהעסק שלך יכול להגיע אליהם.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  <!-- </section> -->
+  <!-- <app-case-study-home></app-case-study-home> -->
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+.main{
+    text-align: center;
+    margin: 1rem;
+}
+h6{
+    font-weight:bold;
+}
+h6#note {
+    text-align: start;
+    font-weight: 200;
+}
+.form-group{
+    text-align:start;
+    margin-bottom: 3rem;
+}
+
+.first-letter {
+    border: 2px solid #5ff8f3;
+    border-radius: 50%;
+    background-color: white;
+    padding: 0.2rem 0.6rem 0.4rem 0.5rem;
+    text-align: center;
+    min-width: 40px;
+    min-height: 40px;
+    color: #5ff8f3;
+    margin: 0 0 0 5px!important;
+    font-weight: bold;
+    line-height: 1.2!important;
+  }
+
+
+  .WrapTheProfPic {
+    
+  }
+  .businnesName{
+      align-items:center;
+  }
+
+  .businnesName label{
+      margin: 0 10px;
+      font-size: smaller;
+      font-weight: 600;
+  }
+  .img-radius {
+    border-radius: 50%;
+    max-width: 40px;
+    max-height: 40px;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+}
+  
+  .CoverImg {
+    height: 230px;
+    overflow: hidden;
+    display: block;
+    margin: auto;
+    width: 170px;
+    width: unset;
+    height: 230px;
+  }
+  
+  .workPic {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 1rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+.red-span{
+    color:#F16B7E;
+}
+
+/* input */
+/* .inputtext{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    color: #495057;
+    background: #ffffff;
+    padding: 0.5rem 0.5rem;
+    border: 1px solid #ced4da;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 3px;
+    width: 100%;
+}
+.inputtext:enabled:hover {
+    border-color: #2196F3;
+}
+.inputtext:enabled:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #a6d5fa;
+    border-color: #2196F3;
+} */
+/* autocomplete */
+:host ::ng-deep.p-autocomplete-dd .p-autocomplete-input {
+    border: none;
+}
+:host ::ng-deep.p-autocomplete-dd .p-autocomplete-input:focus {
+    box-shadow: none;
+}
+:host ::ng-deep.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token input{
+    border: none;
+    width: 200%;
+}
+:host ::ng-deep.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token input:focus{
+    box-shadow: none;
+}
+:host ::ng-deep li input.p-inputtext{
+    border: none;
+    border-radius: 0;
+}
+.ui-inputgroup {
+    width: fit-content;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+}
+
+.ui-inputgroup :hover , .ui-inputgroup:hover{
+    border-color: #2196F3;
+}
+
+
+.ui-inputgroup:focus-within {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #a6d5fa;
+}
+
+.ui-inputgroup:focus-within span.ui-inputgroup-addon{
+    color: #a6d5fa;
+}
+
+:host ::ng-deep.p-autocomplete-dd .p-autocomplete-dropdown{
+    border: 1px solid #ced4da;
+    border-right: none;
+    border-radius: 3px;
+    box-shadow: none;
+}
+:host ::ng-deep.p-button:enabled:hover{
+    background-color: #fff!important;
+    border: none;
+}
+:host ::ng-deep.p-button.p-button-icon-only {
+    background-color: transparent;
+    border-color: none;
+}
+:host ::ng-deep.p-inputtext{
+    border: none;
+}
+:host ::ng-deep.p-inputtext:enabled:focus {
+    border:none;
+    box-shadow: none;
+}
+:host ::ng-deep.multiselect-dropdown .dropdown-btn .selected-item{
+    gap: 0.5rem;
+    flex-direction: row-reverse;
+    float: right!important;
+    background: #f16b7e!important;
+    border: none!important;
+    color: #495057;
+    border-radius: 0.5rem!important;
+}
+::ng-deep.dropdown-multiselect__caret::before {
+    display: none;
+}
+span.ui-inputgroup-addon {
+    font-size: 1rem;
+    color: #495057;
+    background: transparent;
+    margin-left: -2px;
+    padding: 0.75rem 0.4rem 0.6rem 0;
+    /* border: 1px solid #ced4da;
+    border-radius: 3px;
+    border-left: none; */
+}
+
+span.ui-inputgroup-addon:focus{
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #a6d5fa;
+}
+
+.wrapIcon{
+    border: 0.4px solid #373CF5;
+    border-radius: 50%;
+    color: #373CF5;
+    padding: 3px;
+    margin-left: 5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-size: .8rem;
+}
+
+/* ------------------------------------- */
+
+/* :host ::ng-deep.ng-tns-c160-1{
+    border:none!important;
+}
+:host ::ng-deep.ng-tns-c160-1:focus{
+    box-shadow: none;
+}
+
+:host ::ng-deep.ng-tns-c160-0:focus{
+    box-shadow: none;
+} */
+.width100{
+    width: 120%;
+}
+
+
+
+/* ----------------------------ng select------------------------------------ */
+/* .ng-select.custom ::ng-deep .ng-select-container  {            
+    min-height: 0px;
+    border-radius: 0;
+}
+
+:host ::ng-deep.multiselect-dropdown .dropdown-btn{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    color: #495057;
+    background: #ffffff;
+    padding: 0.5rem 0.5rem;
+    border: 1px solid #ced4da;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 3px;
+}
+
+:host ::ng-deep.multiselect-dropdown .dropdown-btn:hover{
+    border-color: #2196F3;
+}
+
+:host ::ng-deep.multiselect-dropdown .dropdown-btn:enabled:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #a6d5fa;
+    border-color: #2196F3;
+  } */
+
+  
+.dropdown-btn{
+    text-align: start!important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem!important;
+    color: #495057!important;
+    background: #ffffff;
+    padding: 0.5rem 2rem .5rem .5rem!important;
+    border: 1px solid #ced4da!important;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s!important;
+    border-radius: 3px!important;
+}
+::ng-deep.multiselect-dropdown .dropdown-btn{
+    border-radius: 7px !important;
+    border: 1px solid #19294D !important;
+    padding: 6px  20px !important;
+    text-align: start!important;
+}
+::ng-deep.dropdown-multiselect__caret::before {
+    display: none;
+}
+.dropdown-btn:focus{
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #a6d5fa;
+    border-color: #2196F3;
+}
+.dropdown-btn:hover{
+    border-color: #2196F3;
+}
+.multiselect-item-checkbox input[type=checkbox]+div {
+    text-align: start;
+}
+.dropdown-list li {
+    text-align: start!important;
+}
+li.multiselect-item-checkbox:hover {
+    background-color: #eaecee;
+}

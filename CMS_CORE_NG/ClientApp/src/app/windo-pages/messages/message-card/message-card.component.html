@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הודעות</title>
+</head>
+
+<body>
+    <p-breadcrumb *ngIf="isMessageStantAlone" [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+        <section *ngIf="message" id="message">
+            <h3>{{message.Subject}}</h3>
+            <div *ngFor="let mess of message.ChildrenMessages; let i=index" [id]="i+1">
+                <hr *ngIf="i!=0">
+                <p-panel  [toggleable]="true"  [collapsed]="!mess.collapsed"  toggler="header" >
+                    <ng-template pTemplate="header">
+                        <div>
+                            <div class="flex wrap-message-header">
+                                
+                                
+                                <img class="img-radius" *ngIf="!(mess.BusinessFrom.logoPictureId ==
+                                '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+                                mess.BusinessFrom.id + '/Logo/'
+                                + mess.BusinessFrom.logoPictureId + '/' +
+                                mess.BusinessFrom.logoPictureId
+                                + '.jpg?w=50'" alt="תמונת לוגו" />
+                                <h4 *ngIf="mess.BusinessFrom.logoPictureId ==
+                                    '00000000-0000-0000-0000-000000000000'"
+                                style="border-color:#04e6e0;color:#04e6e0"
+                                class="first-letter AroundFirstLetter">
+                                {{mess.BusinessFrom.buisnessName
+                                |firstWord}}</h4>
+                                <span>{{mess.BusinessFrom.buisnessName}}</span>
+                            </div>
+                            <div class="flex to-list">
+                                <span class="margin-left-1">אל: </span>
+                                <div class="point Mytooltip" *ngFor="let b of mess.ListMessagesTo">
+                                    <img class="img-radius small-img" *ngIf="!(b.BuisnessTo.logoPictureId ==
+                                    '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+                                    b.BuisnessTo.id + '/Logo/'
+                                    + b.BuisnessTo.logoPictureId + '/' +
+                                    b.BuisnessTo.logoPictureId
+                                    + '.jpg?w=30'" alt="תמונת לוגו" />
+                                    <h4 *ngIf="b.BuisnessTo.logoPictureId ==
+                                    '00000000-0000-0000-0000-000000000000'"
+                                style="border-color:#04e6e0;color:#04e6e0"
+                                class="first-letter AroundFirstLetter">
+                                {{b.BuisnessTo.buisnessName
+                                |firstWord}}</h4>
+                                    <span class="tooltiptext">{{b.BuisnessTo.buisnessName}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="icons">
+                        <small>{{mess.CreatedAt | whenItWas: true}}</small>
+                        <button *ngIf="i==0" pButton class="p-panel-header-icon" (click)="markAsUnRead()" pTooltip="סמני כלא נקרא">
+                            <span class="pi pi-envelope"></span>
+                        </button>
+                        <button *ngIf="selectedTab==0" pButton class="p-panel-header-icon" (click)="deleteMessage(mess,$event)"  pTooltip="מחקי לצמיתות">
+                            <span class="pi pi-trash"></span>
+                        </button>
+                    </ng-template>
+                    <!-- <div class="mail-detailes">
+                        <small>{{mess.CreatedAt | whenItWas: true}}</small>
+                    </div> -->
+                    <p [innerHTML]="mess.MessageText"></p>
+                </p-panel>
+            </div>
+        <ng-container *ngIf="!isReplayOpen">
+            <button class="blue-big-button" (click)="replay()"
+                [ngClass]="{'margin-buttom-1':isMessageStantAlone}">תשובה</button>
+            <button class="blue-big-button" (click)="replay(true)" [ngClass]="{'margin-buttom-1':isMessageStantAlone}"
+                *ngIf="(!message.ChildrenMessages?.length && this.message.ListMessagesTo.length>1) || (this.message.ChildrenMessages.length && this.message.ChildrenMessages[this.message.ChildrenMessages.length - 1].ListMessagesTo.length>1)">
+                תשובה לכולם</button>
+
+            </ng-container>
+            <div *ngIf="isReplayOpen" class="wrap-replay">
+                <div class="position-abs">
+                    <a (click)="cancelReplay()" class="x"><img src="../../assets/icons/x.png" class="icon_s"
+                    alt="סגירת תשובה"></a>
+                </div>
+                <form [formGroup]="formMessage">
+                    <div class="flex space-between">
+                        <span>אל: </span>
+                        <div class="email-to">
+                            <ng-multiselect-dropdown
+                                [settings]="dropdownBusinessesSettings" [data]="businessList" placeholder="התחילי להקליד את שם העסק"
+                                formControlName="ListMessagesTo" (onSelect)="onSelectBusiness($event)">
+                                <ng-template #optionsTemplate let-item let-option="option" let-id="id"
+                                    let-isSelected="isSelected">
+                                    <div *ngIf="getBusiness[id]">
+                                        <img *ngIf="getBusiness[id].logoPictureId !='00000000-0000-0000-0000-000000000000'"
+                                            [src]="'../../../../../assets/BusinessImages/' +
+                                        id + '/Logo/'
+                                        + getBusiness[id].logoPictureId + '/' +
+                                        getBusiness[id].logoPictureId
+                                        + '.jpg?w=40'" alt="תמונת לוגו"
+                                        style="width:30px;height:30px; display:inline-block;margin:0 0 0 5px; border-radius: 50%; " />
+                                    <span *ngIf="getBusiness[id].logoPictureId ==
+                                                            '00000000-0000-0000-0000-000000000000'"
+                                        class="first-letter">
+                                        {{option |firstWord}}</span>
+                                    <label> {{option}} </label>
+                                </div>
+                                <div *ngIf="!getBusiness[id]"> {{option}}</div>
+                            </ng-template>
+                        </ng-multiselect-dropdown>
+                    </div>
+                </div>
+                <p-editor formControlName="MessageText" [style]="{'height':'220px','direction':'rtl'}"
+                    styleClass="p-editor-container">
+                    <ng-template pTemplate="header">
+                        <span class="ql-formats">
+                            <button type="button" class="ql-bold" aria-label="Bold"></button>
+                            <button type="button" class="ql-italic" aria-label="Italic"></button>
+                            <button type="button" class="ql-underline" aria-label="Underline"></button>
+                        </span>
+
+                        <span class="ql-formats">
+                            <select class="ql-color"></select>
+                        </span>
+                        <span class="ql-formats">
+                            <button type="button" class="ql-link" aria-label="Link"></button>
+                        </span>
+                    </ng-template>
+                </p-editor>
+                <br>
+                <div class="text-align-center Mytooltip">
+                    <img *ngIf="isLoading" class="loading-spinner" src="../../../../assets/images/spinner.gif"
+                        alt="ההודעה נשלחת ספינר">
+                    <button class="blue-big-button" (click)="send()">שלחי</button>
+                </div>
+                <br>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>

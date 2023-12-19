@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- <link rel="stylesheet" href="header.css"> -->
+</head>
+
+<body>
+    <!-- <app-header></app-header> -->
+
+    <!--<div class="dark-font" style="height: 10rem;"></div>-->
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <header class="blue_header">
+        <div class="first_blue_part">
+            <!-- <span class="handShake">
+                <img src="../../../../assets/icons/case-study/hadshake.png" alt="לחיצת יד">
+            </span>
+            <span class="squar1"></span>
+            <div class="cover_squar">
+                <span class="squar2"></span>
+                <span class="squar3"><img src="../../../../assets/icons/case-study/arrow.png" alt=""></span>
+            </div>
+            <span class="squar4"></span> -->
+            <img class="animation-pic" src="../../../../assets/icons/sc_animation_1.png" alt="">
+        </div>
+        <div class="secend_blue_part text-align-center">
+            <p class="text1">כאשר מימוש הרעיון שלך דורש מומחיות נוספת, אינך חייבת להוציא כסף כדי להשיגה</p>
+            <h1 class="text2">ליצור. לחבר. להצליח בגדול.</h1>
+            <span class="Mytooltip">
+            <button class="btn_casea" [routerLink]="['/collaboration-report']"
+            [disabled]="!(this._wrapperSearchService.LoginStatus$| async) || !(this._acct.currentBusiness|async)"
+            >דווחי על שת"פ</button>
+            <span *ngIf="!(this._wrapperSearchService.LoginStatus$|async) || !(this._acct.currentBusiness|async)" class="tooltiptext">
+                אין אפשרות לדווח על שיתוף פעולה אם אינך מחוברת או שעדיין לא עידכנת את העסק</span>
+
+            </span>
+        </div>
+        <div class="thrid_blue_part">
+            <img class="animation-pic" src="../../../../assets/icons/sc_animation_2.jpg" alt="">
+            <!-- <span class="item1"></span>
+            <span class="item2">
+                <img class="item2_img" src="../../../../assets/icons/case-study/dartboard.png" alt="">
+            </span>
+            <span class="item3"><img class="item3_img" src="../../../../assets/icons/case-study/bag.png" alt=""></span>
+            <span class="item4"></span>
+            <span class="item5"></span>
+            <span class="item6">
+                <img src="../../../../assets/icons/case-study/light.png" alt="">
+            </span>
+            <span class="item7"></span>
+            <span class="item8">
+                <img src="../../../../assets/icons/case-study/document.png" alt="">
+            </span>
+            <span class="item9"></span> -->
+        </div>
+
+    </header>
+    <main class="cover_card text-align-center">
+        <h3 *ngIf="this._wrapperCollaborationsService.listOfAllCaseStudy.length>0">הנה שיתופי הפעולה שבעלות עסק סיפרו לנו עליהם</h3>
+        <h3 class="NoCS" *ngIf="!(this.WrapperCollaborationsSer.isAllCS$|async)&&!(this.WrapperCollaborationsSer.isCSToBu$|async)">אין קייסים להצגה</h3>
+        <h3 class="NoCS" *ngIf="!(this.WrapperCollaborationsSer.ifCSToDisplay$|async)&&(this.WrapperCollaborationsSer.isCSToBu$|async)">חבל, אין כאן עדיין סיפורים על שת"פים מוצלחים</h3>
+        <app-case-study-cardes deployment="cards" perPage="6"></app-case-study-cardes>
+    </main>
+
+</body>
+
+</html>

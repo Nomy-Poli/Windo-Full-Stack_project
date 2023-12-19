@@ -1,0 +1,11 @@
+.icon_s {
+    max-width: 1.7rem;
+    max-height: 1.7rem;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 13px;
+}
+button.next-button:disabled{
+    cursor:not-allowed;
+}

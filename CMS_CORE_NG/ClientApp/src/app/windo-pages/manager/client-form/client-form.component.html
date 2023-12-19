@@ -1,0 +1,77 @@
+<div class="Mytooltip">
+    <img (click)="close()" src="../../../../../assets/icons/x.png" class="icon_s" alt="סגירת מודעה">
+</div>
+<h3>יצירת לקוח</h3>
+
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div class="form-group grid-container">
+
+        <div>
+            <input type="text" name="" id="BusinessName" class="form-control input m-0 mt-2" placeholder="שם העסק "
+                formControlName="BusinessName" />
+            <div *ngIf="form.controls['BusinessName'].invalid && 
+        (form.controls['BusinessName'].dirty || form.controls['BusinessName'].touched)">
+                <div *ngIf="form.controls['BusinessName'].hasError('required')" class="errorMessage">
+                    חובה להזין את שם העסק
+                </div>
+                <div *ngIf="form.controls['BusinessName'].hasError('maxlength')" class="errorMessage">
+                    האורך המקסימלי הוא 50
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <input type="text" name="ContactName" id="ContactName" class="form-control input  m-0 mt-2"
+                placeholder="שם הלקוח " formControlName="ContactName" />
+            <div *ngIf="form.controls['ContactName'].invalid && 
+            (form.controls['ContactName'].dirty ||form.controls['ContactName'].touched)">
+                <div *ngIf="form.controls['ContactName'].hasError('required')" class="errorMessage">
+                    חובה להזין שם לקוח </div>
+
+                <div *ngIf="form.controls['ContactName'].hasError('maxlength')" class="errorMessage">
+                    האורך המקסימלי הוא 50
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <input type="text" name="Email" id="Email" class="form-control input  m-0 mt-2" placeholder="כתובת מייל "
+                formControlName="Email" />
+            <div *ngIf="form.controls['Email'].invalid && 
+            (form.controls['Email'].dirty || form.controls['Email'].touched)">
+                <div *ngIf="form.controls['Email'].hasError('required')" class="errorMessage">
+                    חובה להזין כתובת מייל
+                </div>
+                <div *ngIf="form.controls['Email'].hasError('pattern')" class="errorMessage">
+                    כתובת מייל לא תקינה
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <input type="text" name="Phone" id="Phone" class="form-control input  m-0 mt-2" placeholder="פלאפון "
+                formControlName="Phone" />
+            <div *ngIf="form.controls['Phone'].invalid && 
+            (form.controls['Phone'].dirty || form.controls['Phone'].touched)">
+                <div *ngIf="form.controls['Phone'].hasError('required')" class="errorMessage">
+                    חובה להזין מספר טלפון
+                </div>
+                <div *ngIf="form.controls['Phone'].hasError('pattern')" class="errorMessage">
+                    מספר טלפון לא תקין
+                </div>
+            </div>
+        </div>
+
+
+        <div class="arountTextErea ">
+            <textarea name="Description" id="Description" cols="10" rows="3" maxlength="100" class="textarea"
+                class=" m-0 mt-2" placeholder="תיאור" formControlName="Description">
+            </textarea>
+        </div>
+
+    </div>
+    <div class="Mytooltip text-align-center">
+        <button type="submit" class="submitButton" [disabled]="!form.valid">אשרי לקוחה</button>
+    </div>
+</form>

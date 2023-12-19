@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עסקה בתשלום</title>
+  </head>
+  
+  <body>
+
+<section class="main">
+    <form [formGroup]="dForm">
+        <!-- עסקה בתשלום -->
+        <h6 id="note">
+            <span class="red-span"> * כוכבית מציינת שהמידע המבוקש הכרחי כדי להמשיך  </span>
+        </h6>
+        <div class="flex form-wrap" *ngIf="dealType==1">
+
+            <div class="form-half">
+
+                <div class="form-group">
+                    <h6 for="">עסק מקבל שרות</h6>
+                    <div *ngIf="reporterBusiness" id="profpic" class="flex businnesName">
+                        <app-business-template [business]="reporterBusiness" size="40"></app-business-template>
+                        <!-- <img class="img-radius product-image" width="150" *ngIf="!(reporterBusiness.logoPictureId ==
+                                    '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+                                    reporterBusiness.id + '/Logo/'
+                                    + reporterBusiness.logoPictureId + '/' +
+                                    reporterBusiness.logoPictureId
+                                    + '.jpg?w=40'" alt="תמונת לוגו" />
+                        <h4 *ngIf="reporterBusiness.logoPictureId ==
+                                    '00000000-0000-0000-0000-000000000000'" style="border-color:#04e6e0;color:#04e6e0"
+                            class="first-letter AroundFirstLetter">{{reporterBusiness.buisnessName
+                            |firstWord}}</h4> -->
+                        <label>{{reporterBusiness.buisnessName}}</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h6 for="">עסק מספק שרות<span class="red-span"> * </span></h6>
+
+                    <ng-multiselect-dropdown placeholder="התחילי להקליד את שם העסק"
+                        [settings]="dropdownBusinessesSettings" (onSelect)="onSelectBusiness($event)"
+                        [data]="businessList" formControlName="ConsumerBusinessId">
+                        <ng-template #optionsTemplate let-item let-option="option" let-id="id"
+                            let-isSelected="isSelected">
+                            <div>
+                                <img *ngIf="getBusiness[id].logoPictureId !='00000000-0000-0000-0000-000000000000'"
+                                    [src]="'../../../../../assets/BusinessImages/' +
+                                id + '/Logo/'
+                                + getBusiness[id].logoPictureId + '/' +
+                                getBusiness[id].logoPictureId
+                                + '.jpg?w=40'" alt="תמונת לוגו"
+                                    style="width:30px;height:30px; display:inline-block;margin:0 0 0 5px; border-radius: 50%; " />
+                                <span *ngIf="getBusiness[id].logoPictureId ==
+                                                    '00000000-0000-0000-0000-000000000000'" class="first-letter">
+                                    {{option |firstWord}}</span>
+                                <label> {{option}} </label>
+                            </div>
+
+                        </ng-template>
+                    </ng-multiselect-dropdown>
+                </div>
+
+            </div>
+            <div class="form-half">
+                <div class="form-group">
+                    <h6>השירות שסופק<span class="red-span"> *</span></h6>
+                    <ng-multiselect-dropdown placeholder="התחילי להקליד תחום או תת תחום שירות"
+                        [settings]="dropdownCategoriessSettings" [data]="SubCategories"
+                        formControlName="CategorySubCategoryId" (onFilterChange)="searchCategory($event)">
+                        <ng-template #optionsTemplate let-item let-option="option" let-id="id"
+                            let-isSelected="isSelected">
+                            <label>{{getCategorySubCategory[id].categoryName}} / {{option}}</label>
+
+                        </ng-template>
+                    </ng-multiselect-dropdown>
+                </div>
+                <div class="form-group">
+                    <h6>תאור השירות</h6>
+                    <textarea formControlName="Description" class="inputtext"
+                        placeholder="כאן אפשר לתאר בקצרה את השירות שקיבלת"></textarea>
+                </div>
+            </div>
+
+        </div>
+        <!-- ברטר -->
+        <div class="flex form-wrap" *ngIf="dealType==2">
+            <!-- עסק 1 -->
+            <div class="form-half">
+                <div class="form-group">
+                    <h6 for="">מצד אחד של הברטר</h6>
+                    <div *ngIf="reporterBusiness" id="profpic" class="flex businnesName">
+                        <app-business-template [business]="reporterBusiness" size="40"></app-business-template>
+                        <!-- <img class="img-radius product-image" width="150" *ngIf="!(reporterBusiness.logoPictureId ==
+                                '00000000-0000-0000-0000-000000000000')" [src]="'../../../../../assets/BusinessImages/' +
+                                reporterBusiness.id + '/Logo/'
+                                + reporterBusiness.logoPictureId + '/' +
+                                reporterBusiness.logoPictureId
+                                + '.jpg?w=40'" alt="תמונת לוגו" />
+                        <h4 *ngIf="reporterBusiness.logoPictureId ==
+                                '00000000-0000-0000-0000-000000000000'" style="border-color:#04e6e0;color:#04e6e0"
+                            class="first-letter AroundFirstLetter">{{reporterBusiness.buisnessName
+                            |firstWord}}</h4> -->
+                        <label>{{reporterBusiness.buisnessName}}</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h6>השרות שסופק<span class="red-span"> * </span></h6>
+                    <ng-multiselect-dropdown placeholder="התחילי להקליד תחום או תת תחום שירות"
+                        [settings]="dropdownCategoriessSettings" [data]="SubCategories"
+                        formControlName="ReportCategorySubCategoryId" (onFilterChange)="searchCategory($event)">
+                        <ng-template #optionsTemplate let-item let-option="option" let-id="id"
+                            let-isSelected="isSelected">
+                            <label>{{getCategorySubCategory[id].categoryName}} / {{option}}</label>
+
+                        </ng-template>
+                    </ng-multiselect-dropdown>
+                </div>
+                <div class="form-group">
+                    <h6>תיאור השירות</h6>
+                    <input formControlName="ReportDescriptionDeal" placeholder="כאן אפשר לתאר בקצרה את השירות שסופק
+                    " type="text" class="inputtext">
+                </div>
+            </div>
+            <!-- עסק 2 -->
+            <div class="form-half">
+                <div class="form-group">
+                    <h6 for="">ומהצד השני<span class="red-span"> *</span></h6>
+                    <ng-multiselect-dropdown placeholder="התחילי להקליד את שם העסק"
+                        [settings]="dropdownBusinessesSettings" (onSelect)="onSelectBusiness($event)"
+                        [data]="businessList" formControlName="PartnerBusinessId">
+                        <ng-template #optionsTemplate let-item let-option="option" let-id="id"
+                            let-isSelected="isSelected">
+                            <div>
+                                <img *ngIf="getBusiness[id].logoPictureId !='00000000-0000-0000-0000-000000000000'"
+                                    [src]="'../../../../../assets/BusinessImages/' +
+                            id + '/Logo/'
+                            + getBusiness[id].logoPictureId + '/' +
+                            getBusiness[id].logoPictureId
+                            + '.jpg?w=40'" alt="תמונת לוגו"
+                                    style="width:30px;height:30px; display:inline-block;margin:0 0 0 5px; border-radius: 50%; " />
+                                <span *ngIf="getBusiness[id].logoPictureId ==
+                                                '00000000-0000-0000-0000-000000000000'" class="first-letter">
+                                    {{option |firstWord}}</span>
+                                <label> {{option}} </label>
+                            </div>
+
+                        </ng-template>
+                    </ng-multiselect-dropdown>
+                </div>
+                <div class="form-group">
+                    <h6>השירות שסופק<span class="red-span"> * </span></h6>
+                    <ng-multiselect-dropdown placeholder="התחילי להקליד תחום או תת תחום שירות"
+                        [settings]="dropdownCategoriessSettings" [data]="SubCategories"
+                        formControlName="PartnerCategorySubCategoryId" (onFilterChange)="searchCategory($event)">
+                        <ng-template #optionsTemplate let-item let-option="option" let-id="id"
+                            let-isSelected="isSelected">
+                            <label>{{getCategorySubCategory[id].categoryName}} / {{option}}</label>
+
+                        </ng-template>
+                    </ng-multiselect-dropdown>
+                </div>
+                <div class="form-group">
+                    <h6>תיאור השירות</h6>
+                    <input formControlName="PartnerDescriptionDeal" placeholder="כאן אפשר לתאר בקצרה את השירות שסופק "
+                        type="text" class="inputtext">
+                </div>
+            </div>
+            <div class="form-group form-break-row" *ngIf="dealType==2">
+                <h6>אז מה היה שם?<span class="red-span"> *</span></h6>
+                <textarea cols="30" rows="2" formControlName="BusinessDescription" class="inputtext"
+                    placeholder="ספרי לנו עוד קצת על עסקת הברטר "></textarea>
+            </div>
+        </div>
+        <!-- שת"פ -->
+        <div class="flex form-wrap" *ngIf="dealType==3">
+            <div class="form-half">
+                <div class="form-group">
+                    <h6>סוג שת"פ</h6>
+                    <div class="flex businnesName">
+                        <div class="wrapIcon"><i class="fa fa-check"></i></div>
+                        <h6>{{_collaborationService.collaborationType?.Description}}</h6>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h6>עסקים משתתפים<span class="red-span"> *</span></h6>
+                    <ng-multiselect-dropdown placeholder="התחילי להקליד את שם העסק"
+                        [settings]="dropdownBusinessesSettings" [data]="businessList"
+                        formControlName="BusinessInCollaborationIds">
+                        <ng-template #optionsTemplate let-item let-option="option" let-id="id"
+                            let-isSelected="isSelected">
+                            <div>
+                                <img *ngIf="getBusiness[id].logoPictureId !='00000000-0000-0000-0000-000000000000'"
+                                    [src]="'../../../../../assets/BusinessImages/' +
+                                id + '/Logo/'
+                                + getBusiness[id].logoPictureId + '/' +
+                                getBusiness[id].logoPictureId
+                                + '.jpg?w=40'" alt="תמונת לוגו"
+                                    style="width:30px;height:30px; display:inline-block;margin:0 0 0 5px; border-radius: 50%; " />
+                                <span *ngIf="getBusiness[id].logoPictureId ==
+                                                    '00000000-0000-0000-0000-000000000000'" class="first-letter">
+                                    {{option |firstWord}}</span>
+                                <label> {{option}} </label>
+                            </div>
+
+                        </ng-template>
+                    </ng-multiselect-dropdown>
+                </div>
+            </div>
+            <div class="form-half">
+                <div class="form-group">
+                    <h6>תני כותרת!<span class="red-span"> *</span></h6>
+                    <input type="text" formControlName="HeaderCollaboration" class="inputtext"
+                        placeholder="לדוגמה: כנס בעלות עסקים">
+                </div>
+                <div class="form-group">
+                    <h6>אז מה היה שם?<span class="red-span"> *</span></h6>
+                    <textarea formControlName="JointExplanation" placeholder="ספרי לנו קצת על שיתוף הפעולה" id=""
+                        cols="30" rows="5" class="inputtext"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- https://openbase.com/js/ng-multiselect-dropdown -->
+
+        <section class="confirm-section">
+            <button class="next-button" (click)="next()" [ngClass]="{'disable':!dForm.valid}">הבא</button><br>
+            <span *ngIf="!dForm.valid && showError">
+                <img *ngIf="errorMessage" class="small-error-img" src="../../../../assets/icons/error.png" alt="שגיאה">
+                {{errorMessage}}</span>
+        </section>
+    </form>
+
+
+
+</section>
+  
+</body>
+</html>

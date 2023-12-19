@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הודעה חדשה</title>
+</head>
+
+<body>
+    <div *ngIf="!ifSuc" class="container-form">
+        <form [formGroup]="formMessage">
+
+            <!-- <h5 style="margin-top: 1.5rem;">על איזה סוג עסקה אנחנו מדברות?</h5>
+        <div class="aroundRadio">
+            <input class="inputColla" type="radio" name="CollaborationType" id="1" formControlName="CollaborationType" value="1">תמורת תשלום
+            <input class="inputColla" type="radio" name="CollaborationType" id="1" formControlName="CollaborationType"  value="2">בעיסקת ברטר
+            <input class="inputColla" type="radio" name="CollaborationType" id="1" formControlName="CollaborationType" value="3">בשיתוף פעולה
+            <input class="inputColla" type="radio" name="CollaborationType" id="1" formControlName="CollaborationType" value="0"> אופציה פתוחה
+        </div> -->
+
+            <div class="flex space-between pt-4">
+                <span style="font-size: 1.25rem;margin-top: -1.5rem;">אל: </span>
+                <div class="email-to">
+                    <div class="mb-2">
+                        <ng-multiselect-dropdown [disabled]="formMessage.get('ListMessagesToGroup').value.length>0"
+                            [settings]="dropdownBusinessesSettings" [data]="businessList"
+                            placeholder="בחרי את העסק אליו תרצי לשלוח הודעה" formControlName="ListMessagesTo">
+                            <ng-template #optionsTemplate let-item let-option="option" let-id="id"
+                                let-isSelected="isSelected">
+                                <div>
+                                    <img *ngIf="getBusiness[id].logoPictureId !='00000000-0000-0000-0000-000000000000'"
+                                        [src]="'../../../../../assets/BusinessImages/' +
+                        id + '/Logo/'
+                        + getBusiness[id].logoPictureId + '/' +
+                        getBusiness[id].logoPictureId
+                        + '.jpg?w=40'" alt="תמונת לוגו"
+                                        style="width:30px;height:30px; display:inline-block;margin:0 0 0 5px; border-radius: 50%; " />
+                                    <span *ngIf="getBusiness[id].logoPictureId ==
+                                            '00000000-0000-0000-0000-000000000000'" class="first-letter">
+                                        {{option |firstWord}}</span>
+                                    <label> {{option}} </label>
+                                </div>
+
+                            </ng-template>
+                        </ng-multiselect-dropdown>
+                    </div>
+                    <div *ngIf="this._acct.isManager==false &&  formMessage.get('ListMessagesTo').value?.length > 10" style="color:red ;font-size: 0.9rem;"> ניתן להוסיף עד
+                        עשרה נמענים</div>
+                    <ng-multiselect-dropdown *ngIf="this._acct.isManager==true"
+                        [disabled]="formMessage.get('ListMessagesTo').value.length>0"
+                        [settings]="dropdownGroupsSettings" [data]="groupList" placeholder="התחילי להקליד את שם הקבוצה"
+                        formControlName="ListMessagesToGroup">
+                        <ng-template #optionsTemplate let-item let-option="option" let-id="id"
+                            let-isSelected="isSelected">
+                            <span>{{option}}</span>
+                        </ng-template>
+                    </ng-multiselect-dropdown>
+                    <div
+                        *ngIf="formMessage.get('ListMessagesTo').touched && formMessage.get('ListMessagesTo').value?.length == 0">
+                        <span class="errorMessage" *ngIf="formMessage.get('ListMessagesTo').hasError('required')">למי את
+                            שולחת את ההודעה? </span>
+                    </div>
+                </div>
+            </div>
+            <!-- <hr class="line"> -->
+
+            <input type="text" placeholder="נושא" class="subInput" formControlName="Subject">
+            <div *ngIf="formMessage.get('Subject').touched && formMessage.get('Subject').errors">
+                <span class="errorMessage" *ngIf="formMessage.get('Subject').hasError('required')">מה הנושא של ההודעה
+                    שלך? </span>
+                <span class="errorMessage" *ngIf="formMessage.get('Subject').hasError('minlength')">צריך לפחות 3 תווים
+                    לנושא </span>
+                <span class="errorMessage" *ngIf="formMessage.get('Subject').hasError('maxlength')">נושא ההודעה יכול
+                    להיות עד 80 תווים </span>
+            </div>
+            <!-- <textarea id="txtMessageFields" cols="20" rows="2"
+                [style]="{'height':'130px','direction':'rtl'}"></textarea> -->
+            <p-editor formControlName="MessageText" [style]="{'height':'130px','direction':'rtl'}"
+                placeholder="גוף ההודעה" styleClass="p-editor-container">
+                <ng-template pTemplate="header">
+                    <span class="ql-formats">
+                        <button type="button" class="ql-bold" aria-label="Bold"></button>
+                        <button type="button" class="ql-italic" aria-label="Italic"></button>
+                        <button type="button" class="ql-underline" aria-label="Underline"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <select class="ql-color"></select>
+                    </span>
+                    <span class="ql-formats">
+                        <button type="button" class="ql-link" aria-label="Link"></button>
+                    </span>
+                </ng-template>
+            </p-editor>
+        </form>
+        <div class="text-align-center Mytooltip">
+            <img *ngIf="isLoading" class="loading-spinner" src="../../../../assets/images/spinner.gif"
+                alt="ההודעה נשלחת ספינר">
+            <button class="blue-big-button" (click)="send()"
+                [disabled]="!formMessage.valid  || !formMessage.get('ListMessagesTo').value || formMessage.get('ListMessagesTo').value.length == 0 && formMessage.get('ListMessagesToGroup').value.length == 0 ">שלחי</button>
+        </div>
+    </div>
+    <div class="bbb" *ngIf="ifSuc" >
+        <img class="picV" src="../../../../assets/icons/v.png" alt="">
+        <h4 class="sucText">ההודעה שלך נשלחה בהצלחה</h4>
+
+    </div>
+</body>
+
+</html>

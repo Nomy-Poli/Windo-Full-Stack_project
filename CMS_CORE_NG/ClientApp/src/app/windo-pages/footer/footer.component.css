@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+* {
+  color: white;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+}
+
+.padding {
+  padding-top: 20px !important;
+  padding: 18px;
+}
+
+.container_flex1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 90%;
+  margin: 0 10%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex_C {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  grid-column-end: 3;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+}
+
+.flex_C a {
+  color: currentColor;
+  margin-bottom: 0.2rem;
+}
+
+.flex_C a:hover {
+  text-decoration: none;
+}
+
+.container_grid {
+  width: 100%;
+  background-color: #19294d;
+  padding: 4rem 0 1rem;
+}
+
+.flexFormSendMassage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.inputSendM {
+  margin: 0.5rem 0;
+}
+
+.textarea {
+  resize: none;
+}
+
+.sendBWindo {
+  margin-right: 0px;
+  width: 100%;
+  border-radius: 1.9rem;
+  margin-top: 0.63rem;
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.inputMassage {
+  padding: 0.8rem;
+  background-color: #19294d;
+  border: 0.5px solid;
+  border-radius: 0.5rem;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+  background-color: #19294d;
+}
+
+:-ms-input-placeholder {
+  color: white;
+  background-color: #19294d;
+}
+
+::-ms-input-placeholder {
+  color: white;
+  background-color: #19294d;
+}
+
+::placeholder {
+  color: white;
+  background-color: #19294d;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  max-width: 80%;
+  margin: 0 10%;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  grid-column-gap: 15%;
+  grid-auto-rows: 1fr;
+  grid-row-gap: 5%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.grid2 {
+  max-width: 80%;
+  direction: rtl;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  -ms-grid-rows: (1fr)[6];
+      grid-template-rows: repeat(6, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  justify-items: right;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white !important;
+  gap: 0.25rem;
+}
+
+.aroundHelp {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.space {
+  margin-right: auto;
+}
+
+.container_ad {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1/5;
+  text-align: right;
+  color: #5ff8f3;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.item6 {
+  color: #4ebe9a;
+  font-weight: bold;
+}
+
+.item7 {
+  color: #fbb040;
+  font-weight: bold;
+}
+
+.line {
+  margin-top: 2rem;
+  z-index: 100;
+  height: 2px;
+  max-width: 80%;
+  background: -webkit-gradient(linear, left top, right top, color-stop(25%, #fd6680), color-stop(25%, #f6f628), color-stop(55%, #5ff8f3), color-stop(58%, #f6f628), to(#ff7a18));
+  background: linear-gradient(to right, #fd6680 25%, #f6f628 25% 55%, #5ff8f3 55% 58%, #f6f628 58% 68%, #ff7a18);
+}
+
+.aFooter {
+  width: 100%;
+}
+
+.img-temech {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.width-80 {
+  width: 80%;
+  margin: auto;
+}
+
+.width-30 {
+  width: 30rem;
+}
+
+.a-text {
+  color: #3b3939;
+  text-decoration: none;
+}
+
+.flex {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex-1 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.flex-1:nth-child(3) img {
+  cursor: pointer;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.flex-1:nth-child(2) {
+  text-align: center;
+}
+
+.cover {
+  margin: auto;
+  width: 80%;
+}
+
+.cover img {
+  width: 180px;
+  margin-bottom: 2.1rem;
+}
+
+.copyRight {
+  width: 15%;
+}
+
+.accessAndUsing {
+  width: 50%;
+}
+
+.footerImgs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+
+}
+
+.windoImg {
+  max-width: 50%;
+  cursor: pointer;
+  margin-top: 0.7rem;
+}
+
+.busoftImg {
+  max-width: 3%;
+  max-height: 3%;
+  cursor: pointer;
+}
+
+.MaofImg {
+  margin-left: 0.6rem;
+}
+
+.temechImg {
+  margin-top: -0.5rem;
+}
+
+.rotImg {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 1537px) {
+  .line {
+    z-index: 100;
+    height: 2px;
+    max-width: 95%;
+    background: -webkit-gradient(linear, left top, right top, color-stop(25%, #fd6680), color-stop(25%, #f6f628), color-stop(55%, #5ff8f3), color-stop(58%, #f6f628), to(#ff7a18));
+    background: linear-gradient(to right, #fd6680 25%, #f6f628 25% 55%, #5ff8f3 55% 58%, #f6f628 58% 68%, #ff7a18);
+  }
+}
+/*# sourceMappingURL=footer.component.css.map */

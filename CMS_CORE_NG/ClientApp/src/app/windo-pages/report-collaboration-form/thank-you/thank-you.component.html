@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> תודה על הדיווח</title>
+  </head>
+
+  <body>
+<section class="main flex">
+    <img class="bg-icon-img" src="../../../../assets/icons/logo-colorful.png" alt="לוגו"><br>
+    <h1>תודה ששיתפת!</h1>
+    <container-element [ngSwitch]="dealType">
+        <p *ngSwitchCase="1">תודה ששיתפת!
+            השיתוף מוסיף לך נקודות באתר, וגם
+            מאפשר לעסקים נוספים להבין שאת
+            שת"פית מקצועית!</p>
+        <p *ngSwitchCase="2">השיתוף מוסיף לך ולפרטנרית שלך נקודות
+            באתר, וגם מאפשר לעסקים נוספים להבין
+            שאתן שת"פיות מקצועית</p>
+        <p *ngSwitchDefault>השיתוף מוסיף לך ולשותפות שלך שלך
+            נקודות באתר, וגם מאפשר לעסקים נוספים
+            להבין שאתן שת"פיות מקצועית!
+        </p>
+    </container-element>
+
+    <br>
+    <div>
+        <button (click)="exit()" class="next-button btn-light">יופי, נתראה בשת"פ הבא</button>
+        <button (click)="moreCollaborationClicked()" class="next-button">יש לי עסקה נוספת לשת"ף</button>
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+$gray: #E7E9ED;
+$blue: #373CF5;
+$dark-blue:#19294d;
+.main-container{
+    justify-content: center;
+    margin: 0 auto;
+}
+@media screen  and (max-height: 700px){
+    .main-container{
+        margin: 150px auto;
+    }
+}
+@media screen  and (max-height: 900px){
+    .main-container{
+        margin: 60px auto;
+    }
+}
+.header-container {
+    margin: 50px auto;
+    background-color:#f6fbff ;
+    padding: 20px;
+    justify-content: space-evenly;
+}
+.header-wrapper{
+     flex: 2;
+}
+.header-wrapper div{
+    margin: 0.1rem 1rem;
+    width: 60%;
+}
+.header-wrapper::after {
+    content: "";
+    width: 2px;
+    background-color: $gray;
+    /* top: 3rem;
+    bottom: -44px;
+    right: -0.7%; */
+}
+
+.img-logo{
+    width: 45px;
+    height: 45px;
+    margin: auto 0px;
+}
+
+/* stepper */
+.steps-wrapper{
+    flex: 3;
+    width: 100%;
+}
+.badge-icon{
+    padding: 0.4rem 0.7rem 0.4rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    width: 40px;
+    height: 40px;
+    background-color: $gray;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.icon-dark-image, .wrap-icon-light{
+    /* font-size: 1rem; */
+    /* margin: auto 0px; */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: 1;
+}
+.wrap-icon-light{
+    background-color: $gray;
+    padding: 0.5rem .6rem .3rem;
+}
+.icon-light-image{
+    width: 22px;
+    height:22px;
+}
+.step{
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    align-items: center;
+}
+
+.completed{
+    opacity: .1;
+}
+
+.line-between {
+    width: 9rem;
+    height: 0.2rem;
+    background-color: $gray;
+    margin: 20px -2rem 0 -2rem;
+    z-index: 1;
+}
+
+.line-between.active, .active .badge-icon{
+    background-color: #19294d!important;
+}
+.blue-color{
+    color: $blue;
+}
+/* ---------------------------------------------- */
+
+.card{
+    border: 1px solid $gray;
+    padding: 20PX;
+}

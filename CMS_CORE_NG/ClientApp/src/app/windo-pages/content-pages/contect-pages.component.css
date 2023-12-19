@@ -1,0 +1,115 @@
+.first-blue-part {
+  min-height: 360px;
+  height: 50vh;
+  padding: 2rem;
+  background-color: #19294d;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  color: white;
+}
+
+.first-blue-part .small-red-title {
+  font-size: 2rem;
+  background-color: #F16B7E;
+  padding: 0 1.4rem;
+  border-radius: 1.9rem;
+  margin-bottom: 1rem;
+}
+
+.first-blue-part h1 {
+  font-size: 5rem;
+  font-weight: bolder;
+}
+
+.first-blue-part * {
+  color: white;
+}
+
+.nav {
+  width: 30%;
+  padding: 2.2rem 1rem;
+  text-align: center;
+  background-color: #19294d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+}
+
+.nav .wrap-link {
+  width: 100%;
+}
+
+.nav a {
+  color: white;
+  font-size: 2.5rem;
+  text-decoration: none;
+  text-decoration: none;
+  border-bottom: 2px solid;
+  padding: 0 1rem;
+}
+
+.nav a:hover {
+  text-decoration: none;
+}
+
+.text-section {
+  padding: 4rem 1rem 8rem;
+}
+
+.text-section p {
+  width: 50%;
+  margin: 2rem auto .1rem;
+  font-size: 1.5rem;
+}
+
+.text-section .wrap-card {
+  width: 60%;
+  gap: 1rem;
+  margin: 3.5rem auto;
+}
+
+.text-section .card {
+  -webkit-box-shadow: 1px 1px 5px 3px lightgray;
+          box-shadow: 1px 1px 5px 3px lightgray;
+  border-top: 3px solid #F16B7E;
+  padding: 1.5rem 1rem .5rem 1rem;
+  font-size: 1.5rem;
+  width: 50%;
+}
+
+.boldText {
+  font-weight: bold;
+}
+
+.last-section {
+  padding: 2rem;
+  background-color: #19294d;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=contect-pages.component.css.map */

@@ -1,0 +1,111 @@
+.container {
+  padding: 2rem;
+}
+
+.form-wrap {
+  padding: 0;
+  gap: 2rem 2%;
+}
+
+.form-wrap .form-half {
+  padding: 0;
+  width: 46%;
+}
+
+.icon_s {
+  max-width: 2rem;
+  max-height: 2rem;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+}
+
+.inputtext:disabled {
+  cursor: not-allowed;
+  background-color: #19294d1a;
+}
+
+.dashed {
+  padding: 40px 15px;
+  border: 1px dashed #ced4da;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dashed:hover {
+  border-color: #2196f3;
+}
+
+.dashed:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem #a6d5fa;
+          box-shadow: 0 0 0 0.2rem #a6d5fa;
+  border-color: #2196f3;
+}
+
+.wrap-attach {
+  background-color: #373cf5 !important;
+  padding: 10px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  color: #fff;
+  margin-left: 1rem;
+}
+
+.wrap-img {
+  display: block;
+  border: 1px dashed black;
+  content: none;
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 4px;
+}
+
+.wrap-icon-close {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid #7e7a7a;
+  margin: -0.9rem -1rem -1rem 0;
+  position: absolute;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 9px 15px;
+  font-size: 1.3rem;
+  color: #7e7a7a;
+}
+
+:host ::ng-deep.p-calendar-w-btn .p-inputtext {
+  border-left: none;
+  border-radius: 0 7px 7px 0;
+}
+
+:host ::ng-deep.p-calendar-w-btn .p-inputtext {
+  border-left: none !important;
+}
+
+:host ::ng-deep.p-inputtext:enabled:hover {
+  border-color: #ced4da;
+}
+
+:host ::ng-deep.p-datepicker-trigger.p-ripple.p-button.p-component.p-button-icon-only {
+  background-color: #fff;
+  border-radius: 7px 0 0 7px;
+  border: 1px solid #ced4da !important;
+  border-right: none !important;
+}
+
+:host ::ng-deep.p-calendar.p-calendar-w-btn {
+  width: 100%;
+}
+
+:host ::ng-deep.field-checkbox label {
+  margin: 0 0.6rem 0 1rem;
+  line-height: 1.5;
+}
+/*# sourceMappingURL=ad-order-form.component.css.map */

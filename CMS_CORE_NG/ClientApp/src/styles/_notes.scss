@@ -1,0 +1,86 @@
+.p-ripple#manager .p-ink {
+    background: rgb(226, 228, 43);
+}
+.p-ripple#personal .p-ink {
+    background: rgb(51, 206, 173);
+}
+.p-ripple#groups .p-ink {
+    background: #fcd998;
+}
+
+.p-ripple#board1 .p-ink {
+    background: rgb(241, 107, 126);
+}
+.p-ripple#board2 .p-ink {
+    background: rgb(249, 175, 116);
+}
+.p-ripple#board3 .p-ink {
+    background:#44BE99;
+}
+.btn-board {
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 1.9rem;
+    border: none;
+    margin: 0 0.5rem;
+    min-width: 11rem;
+}
+.btn-board#board1 {
+    background-color: rgb(241, 107, 126, 0.6);
+}
+.btn-board#board1.active {
+    background-color: rgb(241, 107, 126);
+}
+.btn-board#board2 {
+    background-color: rgb(249, 175, 116, 0.6);
+}
+.btn-board#board2.active {
+    background-color: rgb(249, 175, 116);
+}
+.btn-board#board3 {
+    background-color: #8be1c7;
+}
+.btn-board#board3.active {
+    background-color: #44BE99;
+}
+.btn-board#manager {
+    background-color: rgb(226, 228, 43, 0.6);
+}
+.btn-board#manager.active {
+    background-color: rgb(226, 228, 43);
+}
+.btn-board#groups {
+    background-color: #fcd998;
+}
+.btn-board#temech {
+    background-color: #99e0f2;
+}
+.btn-board#groups.active {
+    background-color: #fcd998;
+}
+.btn-board#temech.active {
+    background-color: #47caeb;
+}
+.btn-board#personal {
+    background-color: rgb(51, 206, 173, 0.6);
+}
+.btn-board#personal.active {
+    background-color: rgb(51, 206, 173);
+}
+.btn-board.active {
+    border: 2px solid;
+}
+.btn-board:first-child {
+    margin-right: 0;
+}
+.btn-board:last-child {
+    margin-left: 0;
+}
+.btn-board.smaller {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 1.9rem;
+    min-width: fit-content;
+}

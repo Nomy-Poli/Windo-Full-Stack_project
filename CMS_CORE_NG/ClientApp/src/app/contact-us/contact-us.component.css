@@ -1,0 +1,251 @@
+/* @import "../../styles/_primengStyling.scss"; */
+:host::ng-deep.p-tabview .p-tabview-nav .p-tabview-nav-link.focused {
+  text-decoration: none;
+  background-color: #19294D;
+  font-weight: bold;
+}
+/* :host::ng-deep.p-tabview .p-tabview-nav .p-tabview-nav-link:hover,
+:host::ng-deep.p-tabview .p-tabview-nav .p-tabview-nav-link:active,
+:host::ng-deep.p-tabview .p-tabview-nav .p-tabview-nav-link:focus { */
+  :host::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link
+  {
+  text-decoration: none;
+  background-color: #19294D;
+  color: #FFFF !important;
+}
+
+:host::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  color: #000; /* צבע ברירת מחדל */
+}
+:host::ng-deep span{
+  color: unset !important;
+}
+
+
+
+
+
+
+/* :host::ng-deep.p-tabview-title{
+  color: white;
+} */
+  :host::ng-deep.p-tabview-title:hover,
+  :host::ng-deep.p-tabview-title:active,
+  :host::ng-deep.p-tabview-title:focus{
+    color: #FFFF;
+  }
+  /* :host::ng-deep a#p-tabpanel-0-label {
+    background-color: #19294d;
+}
+
+:host::ng-deep.span.p-tabview-title{
+color: #FFFF;
+} */
+.input-group-prepend span {
+    width: 50px;
+    background-color: #19294d;
+    color: white;
+    border: 0 !important;
+}
+/* p-tabPanel:active {
+  background-color: #112244;  
+  color: #FFFFFF;  
+} */
+
+/* .blue-background {
+  background-color: #19294d;
+  color: white;
+}
+
+.white-background {
+  background-color: white;
+  color: black;
+} */
+.container {
+    max-width: 600px !important;
+}
+.btn-warning{
+    background-color: #19294d;
+    border: solid 1px #5ff8f3;
+    color: white;
+}
+  /* .btn-warning:not(:disabled):not(.disabled):active { */
+    /* background-color: #669cb6; */
+
+  /* } */
+  .btn-warning:disabled:hover{
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  /* .btn-warning:hover {
+    background-color: white;
+  } */
+/*גודל האיקונים*/
+.svg-inline--fa.fa-w-14 {
+  width: 1.2rem;
+}
+
+.svg-inline--fa.fa-w-16 {
+  width: 1.2rem;
+}
+.HeaderSection{
+  width: 100%;
+  height: 300px; 
+  position: absolute; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white; /* לשינוי צבע הטקסט ללבן (או כל צבע אחר) */
+  font-size: 24px; 
+  /* background-image: url(../../assets/img-pages/contectus.png); */
+  /* background-color:#19294d ; */
+  /* margin-top: -1rem;
+  margin-bottom: 1rem;
+  /* top: auto;
+  left: auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+}
+
+.HeaderSection h1 {
+  margin: 0; /* מסיר את המרווחים האופקיים של הכותרת */
+}
+
+.imgbackgroundup {
+  position: relative;
+  width: 100vw;
+  height: 17rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white; /* לשינוי צבע הטקסט ללבן (או כל צבע אחר) */
+  font-size: 24px; 
+}
+/* .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+   // background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
+ כאן תוכל להוסיף עיצוב וסגנון נוספים ל-DIV שבתוך ה-overlay 
+} */
+/* .spacebtween{
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+   // gap: 1vw; 
+} */
+.image-container {
+  height: 30vh;
+  width: 100vw;
+}
+.textheader{
+      font-size: 40px;
+    color: white;
+    font-weight: var(--clear-font-weight);
+}
+h1{
+  color: white;
+  /* margin-right: 15rem; */
+  margin-top: 6rem;
+  font-weight: 600;
+}
+
+.FormSection{
+  width: 60%;
+  margin: 2rem auto;
+}
+.form-group{
+  padding: 0 1rem;
+}
+.input{
+  margin: 1.5rem 0;
+  border: 1px solid gray;
+  height: 3rem;
+  /* width: 96%; */
+}
+
+.textarea{
+  resize: none;
+  border-radius: .5rem;
+  padding: .6rem 1rem;
+ } 
+
+.submitButton{
+  background-color: #19294d;
+  color: white;
+  border-radius: 1.9rem;
+  padding: 0.3rem 1rem;
+  border: none;
+  margin: 2rem 0;
+}
+.arountTextErea{
+  border: 1px solid gray;
+  height: 10rem;
+  border-radius: .5rem;
+}
+
+.textSubmit{
+  margin: 1rem 0;
+  font-size: 18px;
+}
+.aroundHeader{
+   display: flex; 
+  flex-direction: column; 
+  width: 60%;
+    margin: 0 auto;
+    align-items: center;
+}
+.pic1{
+  width: 13%;
+  position: absolute;
+  left: 35%;
+  margin-top: 7rem;
+}
+.pic2{
+  width: 12%;
+  position: absolute;
+  left: 22%;
+  margin-top: 2rem;
+}
+.imgV{
+  width: 5%;
+  height: 5%;
+  margin: 1rem;
+}
+.aroundSub{
+  margin-bottom:1.5rem;
+  display: flex;
+}
+.errorMessage{
+  color: red !important;
+  margin-bottom: 0.5rem !important;
+  margin-right: 2rem !important;
+}
+.errorMessage::before{
+ content: '*';
+}
+
+.loading-spinner {
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  right: 9rem;
+}
+.required-field:required {
+border: 1px solid red;
+}

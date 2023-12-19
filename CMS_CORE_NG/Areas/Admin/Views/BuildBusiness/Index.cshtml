@@ -1,0 +1,19 @@
+﻿@model ModelService.AdminBaseViewModel
+@{
+    ViewData["Title"] = "import business";
+}
+
+<div class="container-fluid">
+    @await Html.PartialAsync("_ImportRequestLayout",Model.IResponse)
+</div>
+
+@*<ul class="collapse list-unstyled" id="userSubmenu">
+    <div class="innerList">
+        <li>
+            <a >העלאת קובץ הטעינה</a>
+        </li>
+        <li>
+            <a >ראיית התוצאות</a>
+        </li>
+    </div>
+</ul>*@

@@ -1,0 +1,35 @@
+.wrap{
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+.icon_s {
+    max-width: 2rem;
+    max-height: 2rem;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+}
+.business{
+    gap:1rem;
+}
+
+.space-around{
+    justify-content: space-around;
+    gap: 1rem;
+    margin-bottom: .5rem;
+}
+.next-button:disabled{
+    opacity: .6;
+}
+.next-button i{
+    margin-left: .6rem;
+}
+
+.text-align-center{
+    color: #373CF5;
+}
+.tooltiptext {
+    padding: 0.6rem;
+    top: 2rem;
+    background-color: #f16b7e;
+}

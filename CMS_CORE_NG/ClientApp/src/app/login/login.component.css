@@ -1,0 +1,252 @@
+/* windo style */
+body {
+    direction: rtl;
+    /* background-color: rgb(230, 18, 18); */
+    /* padding: 0.5rem; */
+}
+header {
+    min-height: 0;
+}
+.h1-1 {
+    margin-top: 2rem;
+    font-size: 3.75rem;
+    font-weight: bold;
+}
+ /* .h3-1 {
+    margin-top: 2rem;
+    margin-right: 3rem;
+    font-size:3.75rem;
+ } */
+
+.btn-1 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.p1 {
+    margin-top: 60px;
+}
+a {
+    color: black;
+    font-weight: normal;
+    margin-right: 5px;
+    border-bottom: solid 1px blue;
+}
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+.a-forget {
+    border-bottom: solid 1px gray;
+    font-weight: bold;
+}
+.x {
+    color: none;
+    border: none;
+}
+h5 {
+    margin-bottom: 1rem;
+}
+/* forget password popup */
+.pi-eye-slash,
+.pi-eye {
+    position: absolute;
+    top: 2rem;
+    left: 1rem;
+}
+.rounded-input {
+    border-radius: 1rem;
+    padding: 0.4rem 20px;
+    border: none;
+    box-shadow: 2px 2px 4px rgb(199, 197, 197);
+}
+.container-pop {
+    max-width: 95%;
+    margin: 0 auto 2rem auto;
+}
+.close {
+    margin: none;
+    padding: none;
+    text-align: left;
+}
+.modal-header .close {
+    margin: none !important;
+    padding: none !important;
+    margin-right: auto;
+    margin-left: 0 !important;
+}
+.modal-header {
+    border-bottom: none;
+}
+.container {
+    height: fit-content;
+    align-content: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 10%;
+}
+.flex_R {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.py04 {
+    padding: 0.4rem;
+}
+.input{
+    direction: ltr;
+    text-align: end;
+}
+/* base style */
+/* .errorMessage {
+    color: #fff;
+}
+
+.container {
+    height: 100%;
+    align-content: center;
+}
+
+.card {
+    height: 370px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    direction: rtl;
+}
+
+.social_icon span {
+    font-size: 60px;
+    margin-left: 10px;
+    color: #669cb6;
+}
+.social_icon span:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.card-header h3 {
+    color: white;
+}
+
+.social_icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+
+.input-group-prepend span {
+    width: 50px;
+    background-color: #669cb6;
+    color: black;
+    border: 0 !important;
+}
+
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+    color: white;
+}
+
+.remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.login_btn {
+    color: black;
+    background-color: #669cb6;
+    width: 100px;
+}
+
+.login_btn:hover {
+    color: black;
+    background-color: white;
+}
+
+.links {
+    color: white;
+}
+
+.links a {
+    margin-left: 4px;
+}*/
+.flex_col {
+    display: flex;
+    justify-content: space-between;
+}
+/*גודל האיקונים*/
+.svg-inline--fa.fa-w-14 {
+    width: 1.2rem;
+}
+.svg-inline--fa.fa-w-16 {
+    width: 1.2rem;
+}
+
+.img {
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+    margin-right: .3rem;
+}
+/* .flex_r{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+} */
+.card-footer {
+    border-top: none;
+}
+.btn-google {
+    background-color: #ffffff;
+    padding: 0.3rem 0.7rem;
+    border-radius: 0.5rem;
+    /* color: black; */
+    margin-bottom: 1rem;
+    font-weight: bold;
+    border: none;
+    font-size: 1.25rem;
+    box-shadow: 0 1px 3px 0 rgb(181 191 199 / 30%), 0 4px 8px 3px rgb(192 197 201 / 15%);
+}
+.btn-google:focus{
+    box-shadow: 0 1px 3px 0 rgb(192 213 229 / 30%), 0 4px 8px 3px rgb(56 165 251 / 15%);
+}
+.btn-user {
+    background: #373cf5 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 10px #cbcbcb29;
+    border-radius: 3rem;
+    color: white;
+    padding: 0.4rem 1.8rem;
+    width: 40%;
+}
+
+/* .input{
+      padding: 0.5rem 0.7rem;
+      margin: 0.5rem;
+      width: 95%;
+     border-radius: 0.5rem;
+     border: 1px solid #19294D;
+       opacity: 1;
+    } */
+.checkbox-terms {
+    border-radius: 50%;
+    border: 3px solid #00a7ff;
+    margin-right: 1.5rem;
+    /* opacity: 1; */
+}
+.close_i {
+    margin-right: -26rem;
+    margin-top: 1rem;
+    /* background: #FAFAFA  0% 0% no-repeat padding-box; */
+}
+.icon_s {
+    max-width: 3rem;
+    max-height: 3rem;
+    cursor: pointer;
+}

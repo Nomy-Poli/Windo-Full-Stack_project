@@ -1,0 +1,10 @@
+C:\TFS\WINDO\busoftBase\WritableOptionsService\bin\Debug\netcoreapp3.1\WritableOptionsService.deps.json
+C:\TFS\WINDO\busoftBase\WritableOptionsService\bin\Debug\netcoreapp3.1\WritableOptionsService.dll
+C:\TFS\WINDO\busoftBase\WritableOptionsService\bin\Debug\netcoreapp3.1\WritableOptionsService.pdb
+C:\TFS\WINDO\busoftBase\WritableOptionsService\obj\Debug\netcoreapp3.1\WritableOptionsService.csproj.AssemblyReference.cache
+C:\TFS\WINDO\busoftBase\WritableOptionsService\obj\Debug\netcoreapp3.1\WritableOptionsService.GeneratedMSBuildEditorConfig.editorconfig
+C:\TFS\WINDO\busoftBase\WritableOptionsService\obj\Debug\netcoreapp3.1\WritableOptionsService.AssemblyInfoInputs.cache
+C:\TFS\WINDO\busoftBase\WritableOptionsService\obj\Debug\netcoreapp3.1\WritableOptionsService.AssemblyInfo.cs
+C:\TFS\WINDO\busoftBase\WritableOptionsService\obj\Debug\netcoreapp3.1\WritableOptionsService.csproj.CoreCompileInputs.cache
+C:\TFS\WINDO\busoftBase\WritableOptionsService\obj\Debug\netcoreapp3.1\WritableOptionsService.dll
+C:\TFS\WINDO\busoftBase\WritableOptionsService\obj\Debug\netcoreapp3.1\WritableOptionsService.pdb

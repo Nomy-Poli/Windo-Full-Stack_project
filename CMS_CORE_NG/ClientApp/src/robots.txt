@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://windo.org.il/sitemap.xml

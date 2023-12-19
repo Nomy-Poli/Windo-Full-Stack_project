@@ -1,0 +1,133 @@
+.main-container {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+@media screen and (max-height: 700px) {
+  .main-container {
+    margin: 150px auto;
+  }
+}
+
+@media screen and (max-height: 900px) {
+  .main-container {
+    margin: 60px auto;
+  }
+}
+
+.header-container {
+  margin: 50px auto;
+  background-color: #f6fbff;
+  padding: 20px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.header-wrapper {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.header-wrapper div {
+  margin: 0.1rem 1rem;
+  width: 60%;
+}
+
+.header-wrapper::after {
+  content: "";
+  width: 2px;
+  background-color: #E7E9ED;
+  /* top: 3rem;
+    bottom: -44px;
+    right: -0.7%; */
+}
+
+.img-logo {
+  width: 45px;
+  height: 45px;
+  margin: auto 0px;
+}
+
+/* stepper */
+.steps-wrapper {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  width: 100%;
+}
+
+.badge-icon {
+  padding: 0.4rem 0.7rem 0.4rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  width: 40px;
+  height: 40px;
+  background-color: #E7E9ED;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.icon-dark-image, .wrap-icon-light {
+  /* font-size: 1rem; */
+  /* margin: auto 0px; */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.wrap-icon-light {
+  background-color: #E7E9ED;
+  padding: 0.5rem .6rem .3rem;
+}
+
+.icon-light-image {
+  width: 22px;
+  height: 22px;
+}
+
+.step {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 2;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.completed {
+  opacity: .1;
+}
+
+.line-between {
+  width: 9rem;
+  height: 0.2rem;
+  background-color: #E7E9ED;
+  margin: 20px -2rem 0 -2rem;
+  z-index: 1;
+}
+
+.line-between.active, .active .badge-icon {
+  background-color: #19294d !important;
+}
+
+.blue-color {
+  color: #373CF5;
+}
+
+/* ---------------------------------------------- */
+.card {
+  border: 1px solid #E7E9ED;
+  padding: 20PX;
+}
+/*# sourceMappingURL=report-collaboration-form.component.css.map */

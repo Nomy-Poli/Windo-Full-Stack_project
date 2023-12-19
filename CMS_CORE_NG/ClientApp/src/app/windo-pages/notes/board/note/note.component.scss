@@ -1,0 +1,212 @@
+@import url(../../../../../styles/_notes.scss);
+
+img.loading-spinner {
+    width: 300px;
+    height: 300px;
+}
+.container {
+    min-height: 25rem;
+}
+
+.wrap-note-header {
+    gap: 1rem;
+    align-items: center;
+    padding-top: 0.5rem;
+    margin-bottom: 1rem;
+    span {
+        margin-top: -0.4rem;
+    }
+}
+.btn-board.smaller {
+    margin: 0.5rem 0 1rem;
+    border: none;
+    cursor: default;
+}
+// .card{
+//     margin: 0 auto;
+//     border-radius: 1rem;
+//     box-shadow: 1px 2px 7px 1px lightgrey;
+//     padding: 1rem;
+//     width: 60%;
+// }
+
+.note {
+    margin: 2rem;
+    overflow: hidden;
+}
+.icon_s {
+    max-width: 2rem;
+    max-height: 2rem;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+}
+h5 {
+    font-weight: var(--clear-font-weight);
+    margin-top: 0.4rem;
+}
+mark {
+    font-size: 0.9rem;
+    background-color: lightgray;
+    // border-radius: 0.5rem;
+    padding: 0.1rem 0.5rem;
+    width: fit-content;
+    margin-bottom: 1rem;
+}
+.background-networking {
+    background-color: #e8e9ed !important;
+}
+.ql-tooltip.ql-editing{
+    left: 123.016px;
+    top: 24px;
+    z-index: 0;
+}
+.flex {
+    gap: 0.8rem;
+    display: flex;
+}
+.blue-big-button {
+    width: 6rem;
+}
+.text-align-center.Mytooltip {
+    width: 50%;
+    margin: auto;
+    .tooltiptext {
+        padding: 0.5rem;
+        height: auto;
+        left: 60%;
+    }
+}
+
+:host ::ng-deep.p-editor-container {
+    border-radius: 1.9rem;
+    direction: rtl !important;
+}
+
+:host ::ng-deep.p-editor-container {
+    border-radius: 1.9rem;
+    direction: rtl !important;
+}
+::ng-deep.p-editor-container .p-editor-toolbar.ql-snow {
+    border: 1px solid #dee2e6 !important;
+    border-top-left-radius: 7px !important;
+    border-top-right-radius: 7px !important;
+}
+::ng-deep.p-editor-container .p-editor-content .ql-editor {
+    border-bottom-left-radius: 7px !important;
+    border-bottom-right-radius: 7px !important;
+    text-align: right;
+    padding: 0.5rem !important;
+}
+
+.replay-header {
+    background-color: #19294d;
+    padding: 0.5rem;
+    cursor: pointer;
+    * {
+        color: #dee2e6;
+    }
+    i.pi {
+        font-size: 0.6rem;
+        padding: 0.3rem;
+        border-radius: 50%;
+        background-color: #b1b2b4;
+        cursor: pointer;
+    }
+    i.pi.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+    .rep-count::after {
+        content: ('');
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background-color: currentColor;
+    }
+}
+.business-part {
+    gap: 1rem;
+}
+.wrap-business {
+    margin-right: -1.5rem;
+}
+.wrap-business:first-child {
+    margin: 0;
+}
+.padding-half {
+    padding: 0.5rem;
+}
+:host ::ng-deep.p-accordion .p-accordion-content {
+    padding: 0.5rem 1rem;
+}
+:host ::ng-deep.p-accordion .p-accordion-header .p-accordion-header-link {
+    background-color: #fff !important;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+:host ::ng-deep.p-accordion-header-link:hover {
+    text-decoration: none;
+}
+:host ::ng-deep.p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
+    font-size: 0.6rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    padding: 0.4rem;
+    font-weight: 700;
+    border-radius: 50%;
+    background-color: #ccfaf9;
+    color: #04e6e0;
+}
+.visebility {
+    display: none;
+}
+.pluse {
+    height: 40px;
+    width: 40px;
+    display: block;
+    border-color: rgb(4, 230, 224);
+    color: rgb(4, 230, 224);
+    text-align: center;
+    max-width: 90px;
+    max-height: 100px;
+    position: absolute;
+    right: 10rem;
+}
+:host ::ng-deep .ql-tooltip.ql-editing{
+    left: 0.2% !important;
+    top: 24px !important;
+    z-index: 0;
+}
+:host ::ng-deep .ql-tooltip{
+    left: 123.016px !important;
+    top: 24px !important;
+    z-index: 0;
+}
+:host ::ng-deep .ql-tooltip{
+    left: 123.016px !important;
+    top: 24px !important;
+    z-index: 0;
+}
+.bbb {
+    width: 100%;
+    // position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    .picV {
+        width: 100px;
+        // margin: auto;
+        position: relative;
+    }
+    .sucText {
+        margin-top: 1rem !important;
+        // margin: auto;
+    }
+}
+
+

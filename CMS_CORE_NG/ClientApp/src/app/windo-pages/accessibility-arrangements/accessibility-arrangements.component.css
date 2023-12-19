@@ -1,0 +1,28 @@
+section{
+    margin: auto;
+    max-width: 700px !important;
+    /* display: flex;
+    flex-direction: column;
+    gap: 1rem; */
+    text-align: right;
+}
+section:first-child{
+    margin-top: 2rem;
+}
+.strong{
+    font-weight: bold;
+}
+h2{
+    /* color: gray; */
+    text-align: center;
+    font-size: 36px;
+}
+h3, h2{
+    font-weight: 900;
+}
+.pirsum .mavo .ketzad .efsharot{
+    font-size: 1.3rem;
+}
+p{
+    font-size: 1.3rem !important ;
+}

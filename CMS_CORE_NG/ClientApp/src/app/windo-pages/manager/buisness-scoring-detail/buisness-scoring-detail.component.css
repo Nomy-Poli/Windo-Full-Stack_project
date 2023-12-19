@@ -1,0 +1,12 @@
+@import url("../../../../styles/_primeng-table.scss");
+.scoring{
+    margin: 3rem;
+}
+.icon_s {
+    max-width: 2rem;
+    max-height: 2rem;
+    cursor: pointer;
+    position: absolute;
+    left: 1rem;
+    top:1rem
+}

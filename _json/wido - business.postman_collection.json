@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "14610ee0-ef0b-4400-8126-dbf258a34852",
+		"name": "wido - business",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create business",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"2\",\r\n    \"buisnessName\": \"try it\",\r\n    \"phoneNumber1\": \"0583290187\",\r\n    \"phoneNumber2\": \"0504171147\",\r\n    \"address\": \"poolll\",\r\n    \"actionDiscription\": \"thats my business\",\r\n    \"discription\": \"good business\",\r\n    \"buisnessWebSiteLink\": \"https://localhost:5001/api/Buisness/GetListOfBuisnesses\",\r\n    \"isdisplayBusinessOwnerName\": true,\r\n    \"ispayingBuisness\": true,\r\n    \"isburterBuisness\": true,\r\n    \"iscollaborationBuisness\": true,\r\n    \"isburterPossibleInAllCategory\": true,\r\n    \"isopenToSuggestionsForBarter\": true,\r\n    \"coverPicture\": \"hghjg\",\r\n    \"logoPicture\": \"nnnnnn\",\r\n    \"product1\": \"ggggg\",\r\n    \"product2\": \"kkkkk\",\r\n    \"barterProduct1\": \"hhhhh\",\r\n    \"barterProduct2\": \"jjjjj\",\r\n    \"UpdatedBusinessStatus\": 0,\r\n    \"views\": 2,\r\n    \"tags\": \"hhh\",\r\n    \"ownerName\": \"vvvv\",\r\n    \"BuisnessCategory1\": [\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 4,\r\n            \"isPossibleInBarter\": true\r\n        },\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 2,\r\n            \"combinationtId\": 5,\r\n            \"isPossibleInBarter\": true\r\n        }\r\n    ],\r\n    \"BuisnessCategory2\": [\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 2,\r\n            \"subCategoryId\": 3,\r\n            \"combinationtId\": 3,\r\n            \"isPossibleInBarter\": true\r\n        },\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 2,\r\n            \"subCategoryId\": 4,\r\n            \"combinationtId\": 6,\r\n            \"isPossibleInBarter\": true\r\n        }\r\n    ],\r\n    \"BuisnessCategory3\": [\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 7,\r\n            \"isPossibleInBarter\": true\r\n        },\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 8,\r\n            \"isPossibleInBarter\": true\r\n        }\r\n    ],\r\n    \"BuisnessCategory4\": [\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 9,\r\n            \"isPossibleInBarter\": true\r\n        },\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 10,\r\n            \"isPossibleInBarter\": true\r\n        }\r\n    ],\r\n    \"BuisnessBarterCategory1\": [\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 11,\r\n            \"isPossibleInBarter\": true\r\n        },\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 12,\r\n            \"isPossibleInBarter\": true\r\n        }\r\n    ],\r\n    \"BuisnessBarterCategory2\": [\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 13,\r\n            \"isPossibleInBarter\": true\r\n        },\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 14,\r\n            \"isPossibleInBarter\": true\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/Buisness/createBuisness",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"Buisness",
+						"createBuisness"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Of Latest Updated Buisnesses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/Buisness/GetListOfLatestUpdatedBuisnesses",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"Buisness",
+						"GetListOfLatestUpdatedBuisnesses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBuisnessById ?id=18",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":18\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/Buisness/GetBuisnessById?id=18",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"Buisness",
+						"GetBuisnessById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "18"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create business - another",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"20\",\r\n    \"buisnessName\": \"this is business\",\r\n    \"phoneNumber1\": \"0583290187\",\r\n    \"phoneNumber2\": \"0504171147\",\r\n    \"address\": \"yyyyyyu!!!\",\r\n    \"actionDiscription\": \"thats my..............!!!!\",\r\n    \"discription\": \"good business\",\r\n    \"buisnessWebSiteLink\": \"https://localhost:5001/api/Buisness/GetListOfBuisnesses\",\r\n    \"isdisplayBusinessOwnerName\": true,\r\n    \"ispayingBuisness\": false,\r\n    \"isburterBuisness\": true,\r\n    \"iscollaborationBuisness\": true,\r\n    \"isburterPossibleInAllCategory\": true,\r\n    \"isopenToSuggestionsForBarter\": false,\r\n    \"coverPicture\": \"hghjg\",\r\n    \"logoPicture\": \"nnnnnn\",\r\n    \"product1\": \"ggggg\",\r\n    \"product2\": \"kkkkk\",\r\n    \"barterProduct1\": \"jjjj\",\r\n    \"barterProduct2\": \"ppppp\",\r\n    \"UpdatedBusinessStatus\": 0,\r\n    \"views\": 2,\r\n    \"tags\": \"hhh\",\r\n    \"ownerName\": \"vvvv\",\r\n    \"BuisnessCategory1\": [\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 4,\r\n            \"isPossibleInBarter\": false\r\n        },\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 2,\r\n            \"combinationtId\": 5,\r\n            \"isPossibleInBarter\": true\r\n        }\r\n    ],\r\n    \"BuisnessCategory2\": [\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 2,\r\n            \"subCategoryId\": 3,\r\n            \"combinationtId\": 3,\r\n            \"isPossibleInBarter\": false\r\n        },\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 2,\r\n            \"subCategoryId\": 4,\r\n            \"combinationtId\": 6,\r\n            \"isPossibleInBarter\": true\r\n        }\r\n    ],\r\n    \"BuisnessCategory3\": [\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 7,\r\n            \"isPossibleInBarter\": false\r\n        },\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 8,\r\n            \"isPossibleInBarter\": true\r\n        }\r\n    ],\r\n    \"BuisnessCategory4\": [\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 9,\r\n            \"isPossibleInBarter\": false\r\n        },\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 10,\r\n            \"isPossibleInBarter\": true\r\n        }\r\n    ],\r\n    \"BuisnessBarterCategory1\": [\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 11,\r\n            \"isPossibleInBarter\": true\r\n        },\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 12,\r\n            \"isPossibleInBarter\": false\r\n        }\r\n    ],\r\n    \"BuisnessBarterCategory2\": [\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 13,\r\n            \"isPossibleInBarter\": true\r\n        },\r\n        {\r\n            \"businessId\": 1,\r\n            \"categoryId\": 1,\r\n            \"subCategoryId\": 1,\r\n            \"combinationtId\": 14,\r\n            \"isPossibleInBarter\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/Buisness/createBuisness",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"Buisness",
+						"createBuisness"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Of Buisnesses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/Buisness/GetListOfBuisnesses",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"Buisness",
+						"GetListOfBuisnesses"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

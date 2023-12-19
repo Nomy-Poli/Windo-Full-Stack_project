@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אזור שירותים</title>
+</head>
+
+<body>
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <br>
+    <div class="grid-home">
+        <p-tabView [(activeIndex)]="tabIndex">
+            <p-tabPanel header="רשימת קבוצות">
+                <app-networking-group-list (IndexTabChange)="buisnessByGroups($event)"></app-networking-group-list>
+            </p-tabPanel>
+            <p-tabPanel [disabled]="tabIndex==0" header="רשימת חברות בקבוצה">
+                <app-networking-group-buisness-list #buisnessComp></app-networking-group-buisness-list>
+                <!-- (IndexTabChange)="buisnessByGroups($event)" -->
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</body>
+
+</html>

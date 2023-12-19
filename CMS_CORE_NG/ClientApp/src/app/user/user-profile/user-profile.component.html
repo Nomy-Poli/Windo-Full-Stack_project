@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>פעילויות</title>
+
+</head>
+
+<body>
+  <!-- <app-header></app-header> -->
+
+  <ng-template #loading>
+    <div class="loading">
+      <img src="../../../assets/images/spinner.gif" alt="ספינר" />
+    </div>
+  </ng-template>
+  <div class="flex_c">
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <div>
+
+      <div class="container mb-5 mt-5" id="profile" *ngIf="isProfileLoaded; else
+        loading">
+        <div class="card">
+
+          <div class="card-header">
+            <h5 class="float-left">
+              פרטי פרופיל
+            </h5>
+            <h5 class="badge badge-dark badge-outline float-right" id="fullName">
+              {{ ProfileDetails.firstname + ' ' +
+              ProfileDetails.lastname }}
+            </h5>
+            <h5 id="note">
+              <span>*</span>כוכבית מציינת שהמידע המבוקש הכרחי כדי להמשיך
+            </h5>
+          </div>
+          <div class="card-body">
+            <form method="POST" [formGroup]="updateProfileForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-lg-9">
+                  <fieldset class="border p-2">
+                    <legend class="w-auto">מידע אישי</legend>
+                    <div class="row mb-3">
+                      <div class="col-md-4">
+                        <div class="form-group mb-0">
+                          <label for="firstname" class="form-control-label">
+                            <span>*</span>שם פרטי </label>
+                          <div class="controls">
+                            <input [value]="ProfileDetails.firstname" class="form-control" formControlName="firstname"
+                              id="firstname" placeholder="eg: John" required type="text" />
+                            <div *ngIf="firstname.touched && firstname.errors" class="text-danger">
+                              <span *ngIf="firstname.hasError('required')" class="color-red">חובה</span>
+                              <span *ngIf="firstname.hasError('maxlength')" class="color-red">מקסימום
+                                30 תוים</span>
+                              <span *ngIf="firstname.hasError('minlength')" class="color-red">לפחות
+                                2 תוים</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group mb-0">
+                          <label for="lastname" class="form-control-label">
+                            <span>*</span>שם משפחה </label>
+                          <div class="controls">
+                            <input [value]="ProfileDetails.lastname" class="form-control" formControlName="lastname"
+                              id="lastname" required type="text" placeholder="eg:
+                              Smith" />
+                            <div *ngIf="lastname.touched && lastname.errors" class="text-danger">
+                              <span *ngIf="lastname.hasError('required')" class="color-red">חובה</span>
+                              <span *ngIf="lastname.hasError('maxlength')" class="color-red">מקסימום
+                                15 תוים</span>
+                              <span *ngIf="lastname.hasError('minlength')" class="color-red">לפחות
+                                2 תוים</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="username" class="form-control-label">
+                            שם משתמש
+                            <!--<span>*</span>שם משתמש-->
+                          </label>
+                          <div class="controls">
+                            <input class="form-control" id="username" [attr.disabled]="true" formControlName="username"
+                              required="required" type="text" />
+                            <div *ngIf="username.touched && username.errors" class="text-danger">
+                              <span *ngIf="username.hasError('required')" class="color-red">חובה</span>
+                              <span *ngIf="username.hasError('maxlength')" class="color-red">מקסימום
+                                10 תוים</span>
+                              <span *ngIf="username.hasError('minlength')" class="color-red">מינימום
+                                5 תוים</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="phone" class="form-control-label"> <span>*</span>מספר טלפון
+                          </label>
+                          <div class="controls">
+                            <input class="form-control" id="phone" formControlName="phone" required="required"
+                              type="text" placeholder="(123)-456-7890" />
+                            <div *ngIf="phone.touched && phone.errors" class="text-danger">
+                              <span *ngIf="phone.hasError('required')" class="color-red">חובה</span>
+                              <span *ngIf="phone.hasError('pattern')" class="color-red">ערך לא
+                                חוקי</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Birthday-->
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="birthdate" class="form-control-label">תאריך לידה </label>
+                          <div class="controls">
+                            <!-- <p-calendar (click)="editDob()" styleClass="calendar" id="birthdate" #datePicker
+                              [showIcon]="true" [value]="ProfileDetails.birthday" formControlName="birthdate"
+                              required="required">
+                            </p-calendar> -->
+                            <input type="date" class="form-control" id="birthdate" [(ngModel)]="ProfileDetails.birthday"
+                              [value]="ProfileDetails.birthday" required="required" formControlName="birthdate" />
+                            <div *ngIf="birthdate.touched && birthdate.errors" class="text-danger">
+                              <span *ngIf="birthdate.hasError('required')" class="color-red">חובה</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </fieldset>
+                </div>
+
+              </div>
+
+
+              <div class="pt-3">
+                <div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary
+                      btn-custom-class">עדכנו את פרטי הפרופיל שלי</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL FOR REGISTRATION ERRORS -->
+      <div class="modal" id="errorModal" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">{{ modalTitle }}</h4>
+              <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p class="list-group-item active">{{ modalMessage }}</p>
+              <ul class="list-group" *ngFor="let error of errorList">
+                <li class="list-group-item"><i class="fas fa-times text-danger
+                    mr-2"></i>{{ error }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex_right">
+      <button class="returnHome" [routerLink]="['/myaccount/settings']">לניהול סיסמה</button>
+      <button class="returnHome" [routerLink]="['/home']">חזרה לדף הבית</button>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

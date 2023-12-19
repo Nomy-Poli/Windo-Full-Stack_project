@@ -1,0 +1,69 @@
+<div class="aroundTheHome FDiv">
+    <div class=" section-1">
+        <div class="textDiv">
+            <h4 class="bold">קורה פה בשטח</h4>
+            <hr class="line">
+            <p class="textCS">
+                windo נולד כדי שהעסק שלך יפיק ממנו תועלת. בואי תראי מה עשו פה עסקים קודמים,
+                קבלי השראה,
+                ואל תשכחי לספר לנו איך windo עזר גם לך.
+            </p>
+            <div class="FDiv to-right">
+                <button [routerLink]="['/case-study-list']" class="buttons allCaseB">לסיפורי השת"פ</button>
+                <span class="Mytooltip">
+                    <button class="buttons CollaborationB "
+                        [disabled]="!(this._wrapperSearchService.LoginStatus$|async) || !(this._acct.currentBusiness|async)"
+                        [routerLink]="['/collaboration-report']">ספרי על השת"פ שלך
+                    </button>
+                    <span
+                        *ngIf="!(this._wrapperSearchService.LoginStatus$|async) || !(this._acct.currentBusiness|async)"
+                        class="tooltiptext">
+                        אין אפשרות לדווח על שיתוף פעולה אם אינך מחוברת או שעדיין לא עידכנת את העסק</span></span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <div *ngIf="this._wrapperCollaborationsService.listLastPicCS.length" class="picDiv halfHome">
+        <div *ngFor="let pic of this._wrapperCollaborationsService.listLastPicCS let index=index" [class]="'pic'+index">
+            <img class="cursorCsPic" [routerLink]="['/case-study-form/'+ pic.Id]"
+                [src]="!(pic.PicGuid) || pic.PicGuid=='00000000-0000-0000-0000-000000000000'?'../../assets/windo-images/MaskGroup38.png':( '../../../../../assets/CaseStudy/'+pic.Id+'/MainPicture/'+ pic.PicGuid+'.jpg?w=400') "
+                alt="תמונת קייס סטדי">
+        </div>
+    </div> -->
+    <div *ngIf="this._wrapperCollaborationsService.listLastPicCS.length" class="wrap-cards flex section-2">
+        <div *ngFor="let cs of this._wrapperCollaborationsService.listLastPicCS let index=index" class="card"
+            [routerLink]="['/case-study-form/'+ cs.Id]">
+            <img [src]="!(cs.PicGuid) || cs.PicGuid=='00000000-0000-0000-0000-000000000000'?'../../assets/windo-images/MaskGroup38.png':( '../../../../../assets/CaseStudy/'+cs.Id+'/MainPicture/'+ cs.PicGuid+'.jpg?w=400') "
+                alt="תמונת קייס סטדי" class="card-img">
+            <div class="contents">
+                <h3>{{cs.MarketingTitle}}</h3>
+                <h6>{{cs.BusinessTitle}}</h6>
+                <hr>
+                <label *ngIf="cs.FromTable == 1">
+                    <img src="../../../../assets/icons/תשלום אייקון.svg" alt="אייקון תשלום" class="col-type-img">
+                    עסקת תשלום</label>
+                <label *ngIf="cs.FromTable  == 2"><img src="../../../../assets/icons/ברטר אייקון.svg" alt="אייקון ברטר"
+                        class="col-type-img">
+                    עסקת ברטר</label>
+                <label *ngIf="cs.FromTable  == 3"><img src="../../../../assets/icons/שתפ אייקון.svg"
+                        alt="אייקון שתוף פעולה" class="col-type-img">
+                    עסקת שת&quot;פ</label>
+                <div class="flex wrap-business">
+                    <div class="business" *ngFor="let b of cs.BusinessesInCaseStudy">
+                        <div class="wrap-business-logo">
+                            <app-business-template [business]="b.Business" size="40"></app-business-template>
+                        </div>
+                        <!-- <span>{{b.Business.buisnessName}}</span> -->
+                    </div>
+
+                </div>
+                <br>
+                <button class="buttons allCaseB">לסיפור השת"פ</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!this._wrapperCollaborationsService.listLastPicCS.length" class="no-case-studies"><span>אין עדיין קייס
+            סטדי</span></div>
+
+</div>

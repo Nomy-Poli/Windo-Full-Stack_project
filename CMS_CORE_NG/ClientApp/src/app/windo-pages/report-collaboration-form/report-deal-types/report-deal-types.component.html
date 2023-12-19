@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סוגי עסקה</title>
+</head>
+
+<body>
+    <section class="main">
+        <h3>נהדר שבחרת לשת"ף!</h3>
+        <span>בחרי את סוג השת"פ</span>
+        <div class="cards-wrapper flex">
+            <div class="card-button" (click)="optionClicked(1)" [ngClass]="{'active':optionIndex==1}">
+                <!-- <i class="fa fa-plus icon-budge-light" (click)="optionClicked(1)"></i> -->
+                <img src="../../../../assets/icons/paid-transaction.png" class="iconImg" alt="בתשלום">
+                <h4>שירות בתשלום</h4>
+            </div>
+            <div class="card-button" (click)="optionClicked(2)" [ngClass]="{'active':optionIndex==2}">
+                <!-- <i class="fa fa-plus icon-budge-light"></i> -->
+                <img src="../../../../assets/icons/barter.png" class="iconImg" alt="בארטר">
+                <h4>עסקת ברטר</h4>
+            </div>
+            <div class="card-button" (click)="optionClicked(3)" [ngClass]="{'active':optionIndex==3}"
+                style="position: relative;">
+                <!-- <i class="fa fa-plus icon-budge-light"></i> -->
+                <img src="../../../../assets/icons/שתפ.png" class="iconImg" alt="שיתוף פעולה">
+                <h4>שיתוף פעולה</h4>
+                <div *ngIf="showCollaborationOptions" class="wrap-absolut">
+                    <div class="p-field-checkbox">בחירה</div>
+                    <div class="p-field-checkbox" *ngFor="let opt of CollaborationOptions"
+                        (click)="collaborationOptionChoosed(opt)">
+                        <p-radioButton name="opt" [inputId]="opt.Id" [value]="opt" [(ngModel)]="selectedOption">
+                        </p-radioButton>
+                        <label [for]="opt.Id">{{opt.Description? opt.Description : opt.description }}</label>
+                    </div>
+                    <!-- <div *ngFor="let category of categories" class="p-field-checkbox">
+                    <p-radioButton [inputId]="category.key" name="category" [value]="category" [(ngModel)]="selectedCategory" [disabled]="category.key === 'R'"></p-radioButton>
+                    <label [for]="category.key">{{category.name}}</label>
+                </div> -->
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <!-- <div *ngIf="showCollaborationOptions" class="options-container" [ngStyle]="getStyles()">
+        <div class="p-field-checkbox">בחירה</div>
+        <div class="p-field-checkbox" *ngFor="let opt of CollaborationOptions">
+             <p-radioButton name="option" [inputId]="opt.Id" [value]="opt" (onClick)="collaborationOptionChoosed.emit(opt)"></p-radioButton>
+            <label [for]="opt.Id">{{opt.Description}}</label>
+        </div>
+       
+    </div> -->
+
+        <button class="next-button" (click)="next()" [ngClass]="{'disable':!optionIndex}">הבא</button><br>
+        <span *ngIf="(!optionIndex && showError)||(optionIndex==3 && showError)">
+            <img *ngIf="errorMessage" class="small-error-img" src="../../../../assets/icons/error.png"
+                alt="שגיאה">{{errorMessage}} </span>
+    </section>
+
+</body>
+
+</html>

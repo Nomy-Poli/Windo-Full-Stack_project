@@ -1,0 +1,72 @@
+﻿@*לא צריך להשתמש במודל כי אנחנו שולחים את זה דרך IFRAME*@
+@model ModelService.busoftModels.FileModel
+
+<style>
+    .DownloarFileB {
+        padding:5% !important;
+        align-items: start;
+        color: #007bff;
+        align-self: end;
+       
+    }
+    .flex_c {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .FileName {
+        height: 3rem;
+        width: 20%;
+    }
+
+    .btn-primary {
+        width: 20%;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    .btn-success {
+        height: 50px;
+        font-size: 1.5rem;
+    }
+</style>
+
+<div class="row">
+    <div class="col">
+        <div class="card mt-3 text-center mb-5">
+            <div class="card-header">
+                <div class="float-right"><h4>יצירת עסקים ומשתמשים חדשים</h4></div>
+
+            </div>
+          
+            <div class="card-body">
+                <form asp-action="CreatBusinesses" method="POST" asp-route-returnurl="" enctype="multipart/form-data">
+                    <div class="flex_c">
+                        <div >
+                            <a href="~/ImportFile/uploadBussinusExampleSheet .xlsx" class="DownloarFileB"><i class="fa fa-download"></i> להורדת הקובץ לדוגמא</a>
+                            <input class="DownloarFileB" id="uploadFile" asp-for="file" type="file" placeholder="העלאת קובץ" />
+                            @*<label for="uploadFile" class="btn btn-success">בחר קובץ</label>*@
+                        </div>
+                        <input class="FileName" asp-for="FileName" placeholder="שם הקובץ" />
+                        <input type="submit" class="btn btn-primary" name="Createsubmit" id="Createsubmit" value="שלח קובץ" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@*<form enctype="multipart/form-data" id="importRequest" class="flex" name="importRequest" method="post" action="@Url.Action("CreatBusinesses", "BuildBusiness")">*@
+<!--<form asp-action="CreatBusinesses" method="POST" asp-route-returnurl="" enctype="multipart/form-data">
+    <input asp-for="file" type="file" />העלאת הקובץ
+    <input asp-for="FileName" /> שם הקובץ
+    <div class="form-group">
+        <input type="submit" name="Createsubmit" id="Createsubmit" class="form-submit" value="שלח קובץ" />
+    </div>-->
+@*<button type="submit">לשמירה הקובץ</button>*@
+<!--</form>-->

@@ -1,0 +1,126 @@
+{
+  "userId": "20",
+  "buisnessName": "this is business",
+  "phoneNumber1": "0583290187",
+  "phoneNumber2": "0504171147",
+  "address": "yyyyyyu!!!",
+  "actionDiscription": "thats my..............!!!!",
+  "discription": "good business",
+  "buisnessWebSiteLink": "https://localhost:5001/api/Buisness/GetListOfBuisnesses",
+  "isdisplayBusinessOwnerName": true,
+  "ispayingBuisness": false,
+  "isburterBuisness": true,
+  "iscollaborationBuisness": true,
+  "isburterPossibleInAllCategory": true,
+  "isopenToSuggestionsForBarter": false,
+  "coverPicture": "hghjg",
+  "logoPicture": "nnnnnn",
+  "product1": "ggggg",
+  "product2": "kkkkk",
+  "barterProduct1": "jjjj",
+  "barterProduct2": "ppppp",
+  "UpdatedBusinessStatus": 0,
+  "views": 2,
+  "tags": "hhh",
+  "ownerName": "vvvv",
+  "BuisnessCategory1": [
+    {
+      "businessId": 1,
+      "categoryId": 1,
+      "subCategoryId": 1,
+      "combinationtId": 4,
+      "isPossibleInBarter": false
+    },
+    {
+      "businessId": 1,
+      "categoryId": 1,
+      "subCategoryId": 2,
+      "combinationtId": 5,
+      "isPossibleInBarter": true
+    }
+  ],
+  "BuisnessCategory2": [
+    {
+      "businessId": 1,
+      "categoryId": 2,
+      "subCategoryId": 3,
+      "combinationtId": 3,
+      "isPossibleInBarter": false
+    },
+    {
+      "businessId": 1,
+      "categoryId": 2,
+      "subCategoryId": 4,
+      "combinationtId": 6,
+      "isPossibleInBarter": true
+    }
+  ],
+  "BuisnessCategory3": [
+    {
+      "businessId": 1,
+      "categoryId": 1,
+      "subCategoryId": 1,
+      "combinationtId": 7,
+      "isPossibleInBarter": false
+    },
+    {
+      "businessId": 1,
+      "categoryId": 1,
+      "subCategoryId": 1,
+      "combinationtId": 8,
+      "isPossibleInBarter": true
+    }
+  ],
+  "BuisnessCategory4": [
+    {
+      "businessId": 1,
+      "categoryId": 1,
+      "subCategoryId": 1,
+      "combinationtId": 9,
+      "isPossibleInBarter": false
+    },
+    {
+      "businessId": 1,
+      "categoryId": 1,
+      "subCategoryId": 1,
+      "combinationtId": 10,
+      "isPossibleInBarter": true
+    }
+  ],
+  "BuisnessBarterCategory1": [
+    {
+      "businessId": 1,
+      "categoryId": 1,
+      "subCategoryId": 1,
+      "combinationtId": 11,
+      "isPossibleInBarter": true
+    },
+    {
+      "businessId": 1,
+      "categoryId": 1,
+      "subCategoryId": 1,
+      "combinationtId": 12,
+      "isPossibleInBarter": false
+    }
+  ],
+  "BuisnessBarterCategory2": [
+    {
+      "businessId": 1,
+      "categoryId": 1,
+      "subCategoryId": 1,
+      "combinationtId": 13,
+      "isPossibleInBarter": true
+    },
+    {
+      "businessId": 1,
+      "categoryId": 1,
+      "subCategoryId": 1,
+      "combinationtId": 14,
+      "isPossibleInBarter": false
+    }
+  ],
+  "BuisnessAreaList1": [
+    { "areaId": 2 },
+    { "areaId": 3 }
+  ]
+}

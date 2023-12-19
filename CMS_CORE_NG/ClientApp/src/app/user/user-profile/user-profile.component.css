@@ -1,0 +1,135 @@
+.badge.badge-outline.badge-dark {
+    border-color: #324148;
+    color: #1e2b31;
+}
+.badge.badge-outline {
+    background: transparent;
+    border: 2px solid;
+}
+.badge {
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 5px 7px;
+    font-size: 72%;
+    letter-spacing: 0.3px;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: center;
+    text-transform: capitalize;
+}
+.flex_c{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.flex_right{
+    justify-content: end;
+    gap: 3rem;
+    width: 85%;
+}
+
+.returnHome{
+    border-radius: 1.2rem;
+    /* width:10%; */
+    /* padding: 0.1%,0.2%; */
+    /* font-size: small; */
+    background-color: #0c446e !important;
+    background: #3b3939;
+    /* padding: 3%; */
+    border-color: #007bff !important;
+    color: white;
+    font-size: 1rem;
+    padding: .30rem .90rem;
+    border: 1px solid transparent;
+}
+.card {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#note{
+    margin: 2px 100px;
+    font-size: 16px;
+}
+
+.form-control {
+    color: #324148;
+    border-width: 2px;
+    border-color: #eaecec;
+    padding: 0.375rem 0.75rem;
+    height: calc(2.25rem + 4px);
+}
+:host ::ng-deep.p-inputtext{
+    color: #324148;
+    border-width: 2px;
+    border-color: #eaecec;
+    padding: 0.375rem 0.75rem;
+    height: calc(2.25rem + 4px);
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem 0.25rem;
+}
+:host ::ng-deep.p-datepicker-trigger{
+    border-bottom-right-radius:  0.25rem;;
+  border-top-right-radius:  0.25rem;;
+}
+:host ::ng-deep.p-datepicker-trigger:hover
+        {
+           background: white;
+        }
+
+
+    
+
+ 
+#datepickeDob:hover {
+    cursor: pointer;
+}
+
+#profpicfile {
+    display: none;
+}
+
+.loading {
+    margin: auto;
+    max-width: 15%;
+    max-height: 15%;
+}
+
+#profile-img-btn {
+    margin: 5px 0 0 auto;
+    border: 2px solid #000;
+}
+
+#profile-img-btn input {
+    display: none;
+}
+
+.color-red{
+    color: red;
+}
+
+@media all and (max-width: 480px) {
+    .btn-custom-class {
+        width: 100%;
+        display: block;
+    }
+    img {
+        width: 100%;
+    }
+    #profile-img-btn a {
+        width: 100%;
+    }
+}
+.btn-primary{
+    border-radius: 1rem;
+}
+.form-control-label > span:nth-of-type(1){
+    color:red;
+}
+.text-center{
+    margin-left: 284.5px;
+}

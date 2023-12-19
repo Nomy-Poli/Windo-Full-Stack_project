@@ -1,0 +1,54 @@
+/*גודל האיקונים*/
+i {
+  width: 1.2rem;
+}
+.btn-primary {
+  background-color: #19294d;
+}
+.btn-text {
+  color: white;
+}
+.flex_c{
+  display: flex;
+  flex-direction: column;
+  
+}
+.flex_right{
+  justify-content: end;
+  gap: 3rem;
+  width: 85%;
+  margin-bottom: 1rem;
+}
+
+.returnHome{
+  border-radius: 1.2rem;
+    /* width:10%; */
+    /* padding: 0.1%,0.2%; */
+    /* font-size: small; */
+    background-color: #0c446e !important;
+    background: #3b3939;
+    /* padding: 3%; */
+    border-color: #007bff !important;
+    color: white;
+    font-size: 1rem;
+    padding: .30rem .90rem;
+    border: 1px solid transparent;
+}
+.linkForgetPass{
+  color:black;
+  text-decoration: none;
+  margin-top: 1rem;
+  
+}
+.a-forget {
+  border-bottom: solid 1px gray;
+  font-weight: bold;
+}
+
+.color-red{
+  color: red;
+}
+
+.btn-primary{
+  border-radius: 1rem;
+}

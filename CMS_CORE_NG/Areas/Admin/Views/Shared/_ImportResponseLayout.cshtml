@@ -1,0 +1,150 @@
+﻿@model ModelService.AdminBaseViewModel
+@{
+    ViewData["Title"] = "ImportResponse";
+    Layout = "_AdminUserLayout.cshtml";
+}
+<style>
+    .flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .table {
+        display: table;
+        border-collapse: separate;
+        border-spacing: 2px;
+        border-color: gray;
+        width: 90%;
+        text-align: center;
+        margin: auto;
+        direction: rtl;
+    }
+
+    th {
+        background-color: #a2e4a9;
+        height: 4rem;
+        font-weight: bold;
+        vertical-align: middle !important;
+        /*        border: 0.2rem black solid;*/
+    }
+    tr:nth-child(1) {
+        font-size:1.2rem;
+        font-weight: bold;
+    }
+    td {
+        /*        border-bottom: 0.1rem black solid;
+        border-left: 0.1rem black solid;*/
+        height: 3rem;
+        background-color: #ffcbda;
+        vertical-align: middle !important;
+    }
+
+       
+</style>
+<!--<section class="flex">-->
+<section>
+    <div class="row">
+        <div class="col">
+            <div class="card mt-3 text-center mb-5">
+                <div class="card-header">
+                    <div class="float-right"><h4>תוצאות תוכנית העלאת עסקים חדשים</h4></div>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>מס' טעינה</th>
+                                <th>שם הטעינה</th>
+                                <th>שם הקובץ</th>
+                                <th>תאריך התחלה</th>
+                                <th>תאריך סיום</th>
+                                <th>מס' הרשומות שהיו בקובץ</th>
+                                <th> מס' הרשומות הפעילות שנטענו </th>
+                                <th>מס' הרשומות שנטענו בהצלחה</th>
+                                <th>מס' הרשומות שהיו קיימות(ולא למחיקה)</th>
+                                <th>מס' הרשומות שסומנו למחיקה</th>
+                                <th>מס' הרשומות שהיו מחוקות</th>
+                                <th>מס' הרשומות שנמחקו</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var ResponseItem in Model.IResponse)
+                            {
+
+                                <tr>
+                                    <td>@Model.IResponse.IndexOf(ResponseItem)</td>
+                                    <td ng-class="@Model.IResponse.IndexOf(ResponseItem)=='0' ? 'bold': 'bold'">@ResponseItem.ImporterName</td>
+                                    @*שם הטעינה*@
+                                    <td>@ResponseItem.ImportFileName</td>
+                                    @*שם הקובץ*@
+                                    <td>@ResponseItem.StartTime</td>
+                                    @*תאריך התחלה*@
+                                    <td>@ResponseItem.EndTime</td>
+                                    @*תאריך יום*@
+                                    <td>@ResponseItem.TotalRecords</td>
+                                    @*מס' רשומות שהיו בקובץ'*@
+                                    <td>@ResponseItem.MarkForNew</td>
+                                    @*מס' הרשומות שסומנו להוספה*@
+                                    <td>@ResponseItem.NewRecordsNotInDataBase</td>
+                                    @*מס' הרשומות שנטענו בהצלחה*@
+                                    <td>@ResponseItem.NotUpdated</td>
+                                    @*מס' הרשומות שהיו קיימות*@
+                                    <td>@ResponseItem.MarkForDelete</td>
+                                    @*מס' הרשומות שסומנו למחיקה*@
+                                    <td>@ResponseItem.DeletedRecords</td>
+                                    @*מס' הרשומות שהיו מחוקות*@
+                                    <td>@ResponseItem.DeletedLength</td>
+                                    @*כמה נמחקו בסוף*@
+
+                                    @*<td>@Model.IResponse.ImporterName</td>
+                                        <td>@Model.IResponse.ImportFileName</td>
+                                        <td>@Model.IResponse.StartTime</td>
+                                        <td>@Model.IResponse.EndTime</td>
+                                        <td>@Model.IResponse.TotalRecords</td>
+                                        <td>@Model.IResponse.MarkForNew</td>
+                                        <td>@Model.IResponse.NewRecordsNotInDataBase</td>
+                                        <td>@Model.IResponse.NotUpdated</td>
+                                        <td>@Model.IResponse.MarkForDelete</td>
+                                        <td>@Model.IResponse.DeletedRecords</td>
+
+                                        <td>@Model.IResponse.DeletedRecords</td>*@
+
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div>
+            <span>ColumnsFound</span>
+            @Model.IResponse.ColumnsFound
+        </div>
+        <div>
+            <span>כמה היו מחוקים:</span>
+
+        </div>
+
+        <div>
+            <span>סומנו להוספה</span>
+            @Model.IResponse.LoadedRecords
+        </div>
+        <div>
+            <span>התוספו:</span>
+            @Model.IResponse.NewLoaded
+        </div>
+        <div>
+            <span>טעויות:</span>
+            @Model.IResponse.ErroredRecords
+        </div>
+
+
+         <div>
+            <span>כמה התוספו:</span>
+            @Model.IResponse.Added
+        </div>*@
+</section>
+

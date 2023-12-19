@@ -1,0 +1,339 @@
+// @import url(../../../../styles/_notes.scss);
+.main {
+    // display: flex;
+    // gap: 1rem;
+    // justify-content: space-between;
+    // height: 100%;
+    width: 80%;
+    margin: auto;
+
+    section#search {
+        padding-left: 0.5%;
+    }
+    .board {
+        margin-bottom: 2rem;
+        h3 {
+            font-weight: 900;
+        }
+    }
+}
+
+// .imgbackgroundup{
+//     // background-image: url(../../../../assets/img-pages/שתפ.png);
+//     // background-size: cover;
+//     // background-position: center;
+//     position: relative;
+//     width: 100vw;
+//     height: fit-content;
+    
+// }
+// .blue_header {
+//     position: absolute;
+//     height: 17rem;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+  
+
+
+
+.imgbackgroundup {
+    // background-image: url(../../../../assets/img-pages/share.png);
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 17rem;
+    position: relative;
+}
+.image-container {
+    height: 250px; /* שנה לגובה הרצוי */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blue_header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    * {
+        color:black;
+    }
+    h1 {
+        font-weight: 700;
+        font-size: 4.5rem;
+        margin-bottom: 0;
+    }
+    h4 {
+        margin-bottom: 2rem;
+    }
+}
+
+/*******************************************Actions buttons*********************************************/
+.left-side {
+    // display: grid !important;
+    // justify-content: end !important;
+    margin-bottom: 30px;
+    width: max-content;
+}
+.btn-board {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 1.9rem;
+    border: none;
+    margin: 0 0.5rem;
+    min-width: 9 rem;
+    border: 2px solid;
+    background-color: transparent;
+}
+.btn-board#all.active {
+    background-color: #19294d;
+    color: white;
+}
+.btn-board#board1.active {
+    background-color: rgb(241, 107, 126);
+}
+
+.btn-board#board2.active {
+    background-color: rgb(249, 175, 116);
+}
+.btn-board#board3.active {
+    background-color:#44BE99 !important;
+}
+// networking esti
+.btn-board#groups.active {
+    background-color: #fcd998;
+}
+.btn-board#temech.active {
+    background-color: #47caeb;
+}
+.btn-board#manager.active {
+    background-color: rgb(226, 228, 43);
+}
+
+.btn-board#personal.active {
+    background-color: #01C8F9;
+}
+.btn-board.active {
+    color: #19294d;
+    border: none;
+}
+.btn-board:first-child {
+    margin-right: 0;
+}
+.btn-board:last-child {
+    margin-left: 0;
+}
+div#header-note{
+    background-color:#fcd998 ;
+}
+/**********************************************************************************************/
+.wrap-header-board {
+    padding-left: 0.5%;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.btn-create {
+    background-color: #5ff8f3;
+    border: none;
+    i {
+        border: 1px solid;
+        border-radius: 50%;
+        font-size: 0.6rem;
+        font-weight: 700;
+        padding: 0.2rem;
+        margin-right: 0.3rem;
+    }
+}
+.tooltiptext {
+    right: 9rem;
+    top: 1.5rem;
+    border-radius: 1rem 0 1rem 1rem;
+    width: 11rem;
+    padding: 0.5rem;
+    height: auto;
+    background-color: #f16b7e;
+}
+.blue-link {
+    font-size: 1.3rem;
+    text-decoration: underline;
+    color: #373cf4;
+    cursor: pointer;
+}
+
+section#search {
+    position: relative;
+}
+.search-input-close {
+    border: 2px solid #19294d;
+    border-radius: 12px;
+    background-color: transparent;
+}
+.search-input-open {
+    border: 2px solid #19294d;
+    border-radius: 12px 12px 0 0;
+    background-color: transparent;
+}
+i.pi.pi-search {
+    font-size: 1.3rem;
+    position: absolute;
+    top: 30%;
+    left: 1.5rem;
+}
+.wrap-search {
+    border: 2px solid #19294d;
+    border-radius: 0 0 12px 12px;
+    padding: 1rem;
+    z-index: 10;
+    background-color: #fff;
+    // position: absolute;
+    width: 100%;
+    top: 2.65rem;
+    .flex {
+        gap: 1rem;
+    }
+}
+.input {
+    // width: 716px
+    margin: 0;
+    width: 100%;
+}
+section {
+    margin-bottom: 1rem;
+}
+
+.img-radius {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+}
+
+.first-letter {
+    width: 40px !important;
+    min-width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0 !important;
+}
+img.loading-spinner {
+    width: 300px;
+    height: 300px;
+}
+
+:host ::ng-deep.multiselect-dropdown .dropdown-btn .selected-item {
+    gap: 0.5rem;
+    flex-direction: row-reverse;
+    float: right !important;
+    background: #f16b7e !important;
+    border: none !important;
+    color: #495057;
+    border-radius: 0.5rem !important;
+}
+::ng-deep.multiselect-dropdown .dropdown-btn {
+    border-radius: 7px !important;
+    border: 1px solid #19294d !important;
+    padding: 0.8rem !important;
+    text-align: start !important;
+    // width: 350px!important;
+}
+::ng-deep.dropdown-multiselect__caret::before {
+    display: none;
+}
+
+.first-letter {
+    border: 2px solid #5ff8f3;
+    border-radius: 50%;
+    background-color: white;
+    padding: 0.2rem 0.6rem 0.4rem 0.5rem;
+    text-align: center;
+    min-width: 40px;
+    min-height: 40px;
+    color: #5ff8f3;
+    margin: 0 0 0 5px !important;
+    font-weight: bold;
+    line-height: 1.2 !important;
+}
+
+:host ::ng-deep.dropdown-list li {
+    text-align: right !important;
+    .first-letter {
+        width: 30px;
+        height: 30px;
+        margin-left: 0.3rem !important;
+    }
+}
+.w-350 {
+    width: 350px;
+}
+//p-calendar
+:host ::ng-deep.p-calendar-w-btn .p-inputtext {
+    border-left: none;
+    border-radius: 0 7px 7px 0;
+}
+:host ::ng-deep.p-calendar-w-btn .p-inputtext {
+    border-radius: 0 7px 7px 0 !important;
+    border: 1px solid #19294d !important;
+    border-left: none !important;
+    padding: 0.8rem !important;
+}
+:host ::ng-deep.p-inputtext:enabled:hover {
+    border-color: #ced4da;
+}
+:host ::ng-deep.p-datepicker-trigger.p-ripple.p-button.p-component.p-button-icon-only {
+    background-color: #fff;
+    border-radius: 7px 0 0 7px;
+    border: 1px solid #19294d !important;
+    border-right: none !important;
+}
+:host ::ng-deep.p-calendar.p-calendar-w-btn {
+    width: 350px;
+}
+.next-button:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+/* הגדרות כלליות לכל הכפתורים */
+.btn-board {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 1.9rem;
+    border: none;
+    margin: 0 0.5rem;
+    min-width: 9rem;
+    border: 2px solid;
+    background-color: transparent;
+    font-size: 1rem; // גודל טקסט קבוע לכל הכפתורים
+}
+
+/* הגדרות ספציפיות לכפתורים שלמעלה */
+// .double-word-btn {
+//     /* כאן תוסיפי הגדרות ספציפיות לכפתורים שהם עם שתי מילים */
+//     font-size: 0.8rem; // לדוגמה, ניתן לשנות את הגודל ל 0.8rem אם רצוי
+// }
+// .small-btn{
+//     padding:0.5rem 4rem !important;
+// }
+@media (max-width: 600px) {
+    .buttons-container {
+      flex-wrap: wrap; /* כאשר יש מעט מקום, הכפתורים ירדו לשורות שניות */
+    }
+  
+    .buttons-container button {
+      margin-right: 10px; /* הוסף מרווח בין כפתורים */
+      margin-bottom: 10px; /* הוסף מרווח למעלה ולמטה במידה והם בשורה שנייה */
+    }
+   
+  }

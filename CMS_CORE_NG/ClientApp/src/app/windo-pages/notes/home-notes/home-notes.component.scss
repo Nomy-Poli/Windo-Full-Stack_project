@@ -1,0 +1,128 @@
+.img-radius {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-bottom: 0;
+}
+.first-letter {
+    width: 50px !important;
+    min-width: 50px;
+    height: 50px;
+    padding: 0;
+    font-size: 2rem;
+    margin: 0 !important;
+}
+
+.header-board {
+    padding: 1rem 0 0;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 1rem;
+    h4 {
+        color: #fff;
+        font-weight: 700;
+    }
+}
+.container .card {
+    width: 48%;
+    height: 100px;
+    margin-bottom: 2%;
+}
+.board {
+    background-color: #19294d;
+    margin: 0 auto;
+    width: 320px;
+    min-width: 25rem;
+    padding: 1rem;
+    i.pi.pi-star {
+        color: #19294d;
+        background-color: #fff;
+        padding: 0.2rem 0.3rem 0.3rem;
+        border-radius: 50%;
+        margin-left: 0.4rem;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+}
+.board:first-child {
+    border-radius: 1rem 1rem 0 0;
+}
+.board:last-child {
+    border-radius: 0 0 1rem 1rem;
+}
+.note {
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #fff;
+    padding: 0.9rem 1rem;
+    border-radius: 5px;
+    margin: 0.5rem 0;
+}
+
+h5 {
+    font-weight: var(--clear-font-weight);
+    margin-bottom: 0;
+}
+mark {
+    font-size: 0.9rem;
+    background-color: lightgray;
+    // border-radius: 0.5rem;
+    padding: 0.1rem 0.5rem;
+    margin-left: 0.2rem;
+}
+.blue-big-button {
+    // width: 47%;
+    margin: 1rem 0;
+    // box-shadow: none;
+}
+.transparent-big-button {
+    width: 47%;
+    margin: 1rem 0;
+    border-radius: 1.9rem;
+    padding: 0.6rem;
+    font-weight: 700;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    i.pi.pi-plus-circle {
+        margin-top: -0.1rem;
+    }
+}
+.transparent-big-button:disabled {
+    opacity: 0.5;
+}
+
+h4 {
+    font-weight: 900;
+    font-size: 35px;
+    margin: auto;
+}
+.pd{
+    padding: 0px;
+  }
+// .newTEmech-notes{
+//     background-color:#44BE99;
+//     border-top-left-radius: 12px;
+//     border-top-right-radius: 12px;
+//     padding: 1rem;
+//   }
+  .new-notes {
+    background-color:#F9AF74;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 1rem;
+    // margin-bottom: 1rem;
+    // width: 100%;
+    // height: 4rem;
+   
+  }
+  .temech{
+    background-color:#44BE99 !important;
+}
+  .pd-top{
+    padding-top: 2rem;
+  }

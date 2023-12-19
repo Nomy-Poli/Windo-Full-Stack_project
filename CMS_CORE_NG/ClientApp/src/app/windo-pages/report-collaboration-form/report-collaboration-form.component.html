@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דווח על שת"פ</title>
+</head>
+
+<body>
+    <!-- <app-header></app-header> -->
+    <!--<div class="after-header dark-font"></div>-->
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <div class="container main-container">
+        <section class="header-container flex">
+            <div class="header-wrapper flex">
+                <img src="../../../assets/icons/logo-colorful.png" class="img-logo" alt="תמונת לוגו">
+                <!-- <i class="fa fa-question-circle-o icon-image"></i> -->
+                <div>
+                    <small class="blue-color">{{activeIndex<5?'שלב '+activeIndex+' /4':'שות"פ בהצלחה!'}}</small>
+                            <h4>כאן משת"פים!</h4>
+                </div>
+            </div>
+            <div class="steps-wrapper">
+                <div class="steps flex" [ngClass]="{'completed':activeIndex == 5}">
+                    <div class="step">
+                        <img *ngIf="activeIndex >0" src="../../../assets/icons/cog-dark.png" alt="סוג שיתוף פעולה"
+                            class="icon-dark-image">
+                        <!-- <div *ngIf="activeIndex == 5" class="wrap-icon-light" ><img src="../../../assets/icons/cog-light.png" alt="" ></div>  -->
+                        <!-- <div [ngClass]="{'active':activeIndex >0 && activeIndex < 5}">
+                            <i class="fa fa-cog badge-icon"></i></div> -->
+                        <span>סוג השת"פ</span>
+                    </div>
+                    <div class="line-between" [ngClass]="{'active':activeIndex>1 && activeIndex < 5}"></div>
+                    <div class="step">
+                        <img *ngIf="activeIndex>1" src="../../../assets/icons/info-dark.png" alt="פרטי שיתוף פעולה"
+                            class="icon-dark-image">
+                        <div *ngIf="activeIndex<2" class="wrap-icon-light">
+                            <img src="../../../assets/icons/info-light.png" alt="פרטי שיתוף פעולה"
+                                class="icon-light-image">
+                        </div>
+                        <!-- <div [ngClass]="{'active':activeIndex>1 && activeIndex < 5}"><i class="fa fa-info-circle badge-icon"></i></div> -->
+                        <span>פרטי השת"פ</span>
+                    </div>
+                    <div class="line-between" [ngClass]="{'active':activeIndex>2 && activeIndex < 5}"></div>
+                    <div class="step">
+                        <img *ngIf="activeIndex>2" src="../../../assets/icons/details-dark.png" alt="פרטים"
+                            class="icon-dark-image">
+                        <div *ngIf="activeIndex<3" class="wrap-icon-light"><img
+                                src="../../../assets/icons/detailslight.png" alt="פרטים" class="icon-light-image"></div>
+                        <!-- <div [ngClass]="{'active':activeIndex>2 && activeIndex < 5}">
+                            <i class="fa fa-commenting-o badge-icon"></i>
+                        </div> -->
+                        <span>מידע נוסף</span>
+                    </div>
+                    <div class="line-between" [ngClass]="{'active':activeIndex> 3 && activeIndex < 5}"></div>
+                    <div class="step">
+                        <img *ngIf="activeIndex> 3" src="../../../assets/icons/star-dark.png" alt="כוכב כהה"
+                            class="icon-dark-image">
+                        <div *ngIf="activeIndex<4" class="wrap-icon-light"><img
+                                src="../../../assets/icons/star-light.png" alt="כוכב בהיר" class="icon-light-image">
+                        </div>
+                        <!-- <div [ngClass]="{'active':activeIndex> 3 && activeIndex < 5}">
+                            <i class="fa fa-star-o badge-icon"></i>
+                        </div> -->
+                        <span>פידבק</span>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </section>
+        <section class="card">
+            <app-report-deal-types *ngIf="activeIndex==1" (submited)="choosed($event)"></app-report-deal-types>
+            <app-deal-details *ngIf="activeIndex==2" [dealType]="dealType" [reporterBusiness]="reporterBusiness"
+                (submited)="dealDetailsSubmited($event)">
+            </app-deal-details>
+            <app-deal-more-details *ngIf="activeIndex==3" [dealType]="dealType" [partnerBusiness]="partnerBusiness"
+                [reporterBusiness]="reporterBusiness"
+                [businessInCollaboration]="JointProject?.BusinessesInCollaboration"
+                (submited)="dealMoreDetailsSubmited($event)">
+            </app-deal-more-details>
+            <app-feedback *ngIf="activeIndex==4" [dealType]="dealType" (submited)="feedbackSubmited($event)">
+            </app-feedback>
+            <app-thank-you *ngIf="activeIndex==5" [dealType]="dealType" (moreCollaboration)="moreCollaboration()">
+            </app-thank-you>
+        </section>
+        <!-- <div><p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps></div> -->
+    </div>
+    <main>
+
+    </main>
+
+</body>
+
+</html>

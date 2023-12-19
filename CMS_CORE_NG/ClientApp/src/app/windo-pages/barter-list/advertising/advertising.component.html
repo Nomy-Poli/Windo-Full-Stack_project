@@ -1,0 +1,10 @@
+<div class="container_ad">
+    <h3 class="h3-1">פרסמי עכשיו חינם!</h3>
+    <div class="myt-1">
+    <img *ngFor="let item of randomPictures" [src]="'../../../../../assets/BusinessImages/' +
+    item.id + '/Logo/'
+    + item.logoPictureId + '/' +
+    item.logoPictureId
+    + '.jpg?w=100'" class="advertising-img-radius" pTooltip="{{item.buisnessName}}">
+    </div>
+</div>

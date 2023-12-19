@@ -1,0 +1,83 @@
+main{
+    margin-bottom: 5rem;
+    h1{
+        font-size: 3rem;
+    }
+    .first-part-blue{
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        min-height: 400px;
+        height: 60vh;
+        padding: 3rem 0 2rem;
+        background-color: #19294d;
+        margin-bottom: 3rem;
+        *{
+            color: #fff;
+        }
+        
+    }
+    .second-part{
+        padding: 1rem 10%;
+    }
+}
+video {
+    width: 450px;
+    border: 2px solid;
+}
+:host ::ng-deep.p-accordion{
+    // border: 1px solid ;
+}
+:host ::ng-deep.p-accordion-header{
+}
+:host ::ng-deep.p-accordion .p-accordion-header .p-accordion-header-link{
+    border-radius: 12px!important;
+    background: #FFFFFF!important;
+    box-shadow: 0px 3px 6px #00000029;
+    margin-top: 1rem;
+    span{
+        margin-right: 1rem;
+    }
+}
+:host ::ng-deep.p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link{
+    // border: 2px solid #19294d;
+    // margin-bottom: 0.1rem;
+    border-radius: 12px 12px 0 0 !important;
+    box-shadow: none;
+    border: none;
+    background-color: #19294d!important;
+    
+    *{
+        color: #fff!important;
+    }
+}
+:host ::ng-deep.p-accordion .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus{
+    box-shadow: none;
+    background: #FFFFFF;
+}
+// :host ::ng-deep.p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon{
+//     display: none;
+// }
+:host ::ng-deep.p-accordion-header-link:hover{
+    text-decoration: none;
+}
+:host ::ng-deep.p-accordion-content{
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid #19294D;
+    border-radius: 0 0 12px  12px !important;
+    padding: 0!important;
+    .ques {
+        background-color: #19294D;
+        color: #fff;
+        padding: 1rem;
+        border-radius: 12px 12px 0 0;
+        span{
+            color: #fff;
+            margin-right: 1rem;
+        }
+    }
+    .ans{
+        padding: 1rem 3rem 1rem 1rem;
+    }
+}

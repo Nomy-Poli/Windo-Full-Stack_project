@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רשימת הזמנות</title>
+</head>
+
+<body>
+    <div class="">
+        <button class="blue-big-button" (click)="addOperition()">הוסיפי פעולה</button>
+        <p-table [value]="scoringOperition" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>שם פעולה</th>
+                    <th>ניקוד</th>
+                    <th>מתאריך</th>
+                    <th>עד תאריך</th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-scoring>
+                <tr>
+                    <td>{{scoring.ScoringAction.ActionName}}</td>
+                    <td>{{scoring.Count }}</td>
+                    <td>{{scoring.FromDate | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{scoring.TillDate | date: 'dd/MM/yyyy'}}</td>
+                    <td>
+                        <div class="flex space-around">
+                            <div class="action-col" (click)="editOperition(scoring)">
+                                <i class="pi pi-pencil"></i>
+                                <span class="icon_p">ערכי</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+@import url("../../../../styles/_primeng-table.scss");
+
+.icon{
+  height: 30px;
+}
+
+.icon_p{
+font-size: 70%;
+margin-bottom:0;
+}
+.position-abs{
+  z-index: 100;
+}
+.long-text{
+  top:1rem;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 3px 11px 12px #00000029;
+  border-radius: 13px;
+}
+.statuses-options{
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background-color: #fff;
+  top: 1rem;
+  margin-right: 1.3rem;
+  border-radius: 13px;
+}
+.card{
+  border:none;
+}
+
+
+
+.status-1{
+  background-color: #F59E0Bdd;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 5px;
+  padding: .2rem 1rem;
+}
+
+.status-2{
+  background-color: #22C55E;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 5px;
+  padding: .2rem 1rem;
+}
+.status-3{
+  background-color: #EF4444;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 5px;
+  padding: .2rem 1rem;
+}

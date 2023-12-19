@@ -1,0 +1,10 @@
+C:\TFS\WINDO\busoftBase\CookieService\bin\Debug\netcoreapp3.1\CookieService.deps.json
+C:\TFS\WINDO\busoftBase\CookieService\bin\Debug\netcoreapp3.1\CookieService.dll
+C:\TFS\WINDO\busoftBase\CookieService\bin\Debug\netcoreapp3.1\CookieService.pdb
+C:\TFS\WINDO\busoftBase\CookieService\obj\Debug\netcoreapp3.1\CookieService.csproj.AssemblyReference.cache
+C:\TFS\WINDO\busoftBase\CookieService\obj\Debug\netcoreapp3.1\CookieService.GeneratedMSBuildEditorConfig.editorconfig
+C:\TFS\WINDO\busoftBase\CookieService\obj\Debug\netcoreapp3.1\CookieService.AssemblyInfoInputs.cache
+C:\TFS\WINDO\busoftBase\CookieService\obj\Debug\netcoreapp3.1\CookieService.AssemblyInfo.cs
+C:\TFS\WINDO\busoftBase\CookieService\obj\Debug\netcoreapp3.1\CookieService.csproj.CoreCompileInputs.cache
+C:\TFS\WINDO\busoftBase\CookieService\obj\Debug\netcoreapp3.1\CookieService.dll
+C:\TFS\WINDO\busoftBase\CookieService\obj\Debug\netcoreapp3.1\CookieService.pdb

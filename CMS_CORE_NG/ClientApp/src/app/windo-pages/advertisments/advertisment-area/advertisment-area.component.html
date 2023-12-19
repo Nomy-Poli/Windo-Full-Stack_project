@@ -1,0 +1,5 @@
+<div *ngIf="bannerObject" class="wrap-image">
+    <a target="_blank" [href]="[bannerObject.AdvertismentServiceOrder? bannerObject.AdvertismentServiceOrder.LinkToSite: bannerObject.DefaultLink+'?makat='+makat]" >
+        <img [src]="srcImg" [alt]="bannerObject.Title">
+    </a>
+</div>

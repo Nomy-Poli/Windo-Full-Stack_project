@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,OAAO,CAAC,6CAAI",
+    "sources": [
+        "services-list.component.scss"
+    ],
+    "names": [],
+    "file": "services-list.component.css"
+}

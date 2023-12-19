@@ -1,0 +1,7 @@
+@import url("../../../../styles/_primeng-table.scss");
+:host ::ng-deep.p-button.p-button-success.p-button-text:enabled:hover{
+    background: rgba(104, 159, 56, 0.2);
+}
+:host ::ng-deep.p-button.p-button-danger.p-button-text:enabled:hover{
+    background: rgba(211, 47, 47, 0.2);
+}

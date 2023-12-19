@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אזור שירותים</title>
+</head>
+
+<body>
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <br>
+    <div class="grid-home">
+        <p-tabView [(activeIndex)]="tabIndex">
+            <p-tabPanel header="פעולות במערכת">
+                <app-system-operations-list></app-system-operations-list>
+            </p-tabPanel>
+            <p-tabPanel header="רשימת עסקים">
+                <app-buisness-scoring-list #orderComp></app-buisness-scoring-list>
+            </p-tabPanel>
+            <p-tabPanel header="רשימת פעולות ידניות במערכת">
+                <app-system-manuel-operition></app-system-manuel-operition>
+            </p-tabPanel>
+            <p-tabPanel header="חלוקת  ניקוד ידני">
+                <app-manual-scoring></app-manual-scoring>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+
+// $dark-blue-color: #19294d;
+// $light-blue: #373CF5;
+// $light-red: #F16B7E;
+
+// .first-blue-part {
+//   min-height: 360px;
+//   height: 50vh;
+//   padding: 2rem;
+//   background-color: $dark-blue-color;
+//   color: white;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: flex-end;
+//   color: white;
+
+//   .small-red-title {
+//     font-size: 2rem;
+//     background-color: $light-red;
+//     padding: 0 1.4rem;
+//     border-radius: 1.9rem;
+//     margin-bottom: 1rem;
+//   }
+
+//   h1 {
+//     font-size: 5rem;
+//     font-weight: bolder;
+//   }
+
+//   * {
+//     color: white;
+//   }
+// }
+
+// /* Rest of your SCSS styles here */
+
+// .square {
+//   width: 10px; /* Set the width of the square */
+//   height: 10px; /* Set the height of the square */
+//   background-color: rgb(28, 28, 36);
+// }
+
+
+
+
+$dark-blue-color:#19294d;
+$light-blue:#373CF5;
+$light-red:#F16B7E;
+.first-blue-part{
+    min-height: 360px;
+    height: 50vh;
+    padding: 2rem;
+    background-color: $dark-blue-color;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    .small-red-title{
+        font-size: 2rem;
+        background-color: $light-red;
+        padding: 0 1.4rem;
+        border-radius: 1.9rem;
+        margin-bottom: 1rem;
+    }
+    h1{
+        font-size: 5rem;
+        font-weight: bolder;
+    }
+    *{
+        color: white;
+    }
+}
+
+.nav{
+    width: 20%;
+    padding: 2.2rem 1rem ;
+    text-align: center;
+    background-color: $dark-blue-color;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    .wrap-link{
+        width: 100%;
+    }
+    a{
+        color: white;
+        font-size: 2.5rem;
+        text-decoration: none;
+        text-decoration: none;
+        border-bottom: 2px solid;
+        padding: 0 1rem;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+
+
+}
+
+.text-section{
+    padding: 4rem 1rem 8rem;
+    width: 80%;
+    p{
+        width: 65%;
+        margin: 2rem auto 0.1rem;
+        font-size: 1.5rem;
+        padding: 0 2.5rem;
+    }
+    p.blue-border {
+        padding: 2.5rem!important;
+        border: 2px solid $light-blue;
+        border-radius: 1rem;
+    }
+    .red-stroke{
+        position: relative;
+    }
+    .red-stroke::before{
+        content: "";
+        width: 2px;
+        height: 100%;
+        background-color: $light-red;
+        position: absolute;
+        right: 10px;
+    }
+    .wrap-card{
+        width: 60%;
+        gap: 1rem;
+        margin: 3.5rem auto;
+    }
+    .card{
+        box-shadow: 1px 1px 5px 3px lightgray;
+        border-top: 3px solid $light-red;
+        padding: 1.5rem 1rem .5rem 1rem;
+        font-size: 1.5rem;
+        width: 50%;
+    }
+}
+
+.boldText{
+    font-weight: bold;
+}
+
+.last-section{
+    padding: 2rem;
+    background-color: $dark-blue-color;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    button.light-red{
+        
+    }
+}
+
+.flexsq {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+  }
+  
+  .square {
+    margin-left: 8px;
+    width: 10px !important; /* רוחב */
+    height: 10px !important; /* גובה */
+    background-color: rgb(28, 28, 36); /* צבע רקע */
+  }
+//   .rightsize1{
+//     width: 17px;
+//     height: 10px;
+//   }
+//   .rightsize{
+//     width: 13px; /* רוחב */
+//     height: 10px; /* גובה */
+//   }
+
+.circleul{
+    list-style-type: circle;
+   li{
+    font-size: 1.25rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+   }
+}
+
+
+.slider {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .slide {
+    display: none;
+    text-align: center;
+  }
+  
+  /* הצג רק את הקומפוננטה הנוכחית */
+  .slide.active {
+    display: block;
+  }
+  
+// .filled-circle {
+  
+//   }
+ 
+
+.content {
+    img {
+//         width: 100vw;
+//   height: 258vh;
+    object-fit: cover;
+  }
+  }

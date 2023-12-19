@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FQA</title>
+</head>
+<body>
+    <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb>
+    <main>
+        <div class="first-part-blue">
+            <h1>שאלות נפוצות</h1>
+            <h4>כאן תוכלנה למצוא את התשובות לשאלות שלכן</h4>
+            <h6>סרטון הדגמה כיצד נרשמים לאתר וכיצד יוצרים כרטיס עסק</h6>
+            <video controls controlsList="nodownload">
+                <source src="../../../assets/images/windo - וידאו הדגמת הרשמה והתחברות.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="second-part">
+            <p-accordion expandIcon="pi pi-fw pi-chevron-left">
+                <p-accordionTab [transitionOptions]="'5ms'" [header]="ques.q" *ngFor="let ques of questions">
+                    <!-- <ng-template pTemplate="header">
+                        <i class="pi pi-chevron-left"></i>
+                        <span>{{ques.q}}</span>
+                    </ng-template>    -->
+                    <ng-template pTemplate="content">
+                        <!-- <div class="ques">
+                            <i class="pi pi-chevron-down"></i>
+                            <span>{{ques.q}}</span>
+                        </div> -->
+                        <div class="ans">
+                            {{ques.a}}
+                        </div>
+                    </ng-template>
+                </p-accordionTab>                
+                <br>
+            </p-accordion>
+        </div>
+    </main>
+</body>
+</html>

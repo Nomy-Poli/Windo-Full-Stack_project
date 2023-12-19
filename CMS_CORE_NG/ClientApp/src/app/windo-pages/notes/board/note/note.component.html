@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פרטי מודעה</title>
+</head>
+<body>
+    <!-- <p-breadcrumb [model]="breadcrumbService.breadcrumbs$.source | async"></p-breadcrumb> 
+     class="card"-->
+    <div class="note" *ngIf="note;else spinner">
+        <div class="Mytooltip">
+            <img (click)="close()" src="../../../../../assets/icons/x.png" class="icon_s" alt="סגירת מודעה">
+        </div>
+        <div class="flex wrap-note-header">
+            <app-business-template [business]="note.Business" size="50"></app-business-template>
+            <h4>{{note.Business.buisnessName}}</h4>
+        </div>
+        <button class="btn-board smaller active" *ngIf="note.Boards[0]" [name]="note.Boards[0].Name"
+            [id]="'board'+(note.Boards[0].Id)" pRipple>לוח {{note.Boards[0].Name}}</button>
+        <br>
+        <!-- <label>למודעה זו {{note.ReplayNoteMessages?.length}} תגובות</label> -->
+        <div class="flex">
+            <mark>{{note.CategorySubCategory? note.CategorySubCategory.subCategoryName: "כללי"}}</mark>
+            <!-- נטורקינג -->
+            <mark *ngIf="note.GroupId" class="background-networking">{{note.NetworkingGroup.GroupName}}</mark>
+        </div>
+
+        <br>
+        <h5>{{note.Header}}</h5>
+        <strong>{{note.CreatetionDate | whenItWas : true}}</strong>
+        <div [innerHTML]="note.Text"></div>
+        <div *ngIf="!sucsessReplay; else success">
+            <div *ngIf="isReplayOpen" class="wrap-form">
+                <form [formGroup]="form">
+                    <p-editor formControlName="Text" [style]="{'height':'130px','direction':'rtl'}"
+                        styleClass="p-editor-container">
+                        <ng-template pTemplate="header">
+                            <span class="ql-formats">
+                                <button type="button" class="ql-bold" aria-label="Bold"></button>
+                                <button type="button" class="ql-italic" aria-label="Italic"></button>
+                                <button type="button" class="ql-underline" aria-label="Underline"></button>
+                            </span>
+
+                            <span class="ql-formats">
+                                <select class="ql-color"></select>
+                            </span>
+                            <span class="ql-formats">
+                                <button type="button" class="ql-link" aria-label="Link" ></button>
+                            </span>
+                        </ng-template>
+                    </p-editor>
+                    <span class="errorMessage" *ngIf="form.get('Text').hasError('maxlength')">
+                        מותר עד 300 תווים לתגובה
+                    </span>
+                </form>
+            </div>
+        </div>
+
+        <ng-template #success>
+            <div class="bbb">
+                <img class="picV" src="../../../../assets/icons/v.png" alt="">
+                <h4 class="sucText">{{ "התגובה שלך נקלטה בהצלחה"}}</h4>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script>
+                    $(function () {
+                        setTimeout(function () {
+                            $('.bbb').hide();
+                        }, 5000);
+                    });
+                </script>
+            </div>
+        </ng-template>
+        <!-- <div *ngIf="sucsessReplay" class="card">
+            <p-messages [(value)]="messages"  [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'"  [enableService]="false" [closable]="false"></p-messages>
+        </div> -->
+        <div class="text-align-center Mytooltip">
+            <!-- <button [disabled]="!this._acct.currentBusiness.value" (click)="replayToOwner()" class="blue-big-button">הגיבי ליוצרת המודעה</button> -->
+            <button *ngIf="!isReplayOpen" [disabled]="!this._acct.currentBusiness.value" (click)="openReplay()"
+                class="blue-big-button">הגיבי</button>
+            <button *ngIf="isReplayOpen" [disabled]="!form.valid" (click)="replay()" class="blue-big-button">שלחי
+                תגובה</button>
+            <span *ngIf="!this._acct.currentBusiness.value" class="tooltiptext">רק משתמשת רשומה יכולה להגיב
+                למודעות</span>
+        </div>
+
+        <br>
+        <section *ngIf="note.ReplayToNotes" class="replay-section">
+            <div class="replay-header flex space-between align-items-center" (click)="ToggleAndChangeTheIcon(collapse)"
+                [attr.aria-expanded]="isCollapsed">
+                <div class="flex business-part align-items-center">
+                    <div class="d-flex justify-content-between">
+                        <div class="wrap-business" *ngFor="let r of note.ReplayToNotes | slice:0:5">
+                            <app-business-template [business]="r.Business" size="40"></app-business-template>
+                        </div>
+                        <div class="pluse pt-2 bg-white border border-4 border-info rounded-circle text-info"
+                            *ngIf="note.ReplayToNotes.length>5">
+                            {{note.ReplayToNotes.length-5+"+"}}
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <span class="rep-count">{{note.ReplayToNotes.length}} תגובות</span>
+                <span *ngIf="note.ReplayToNotes.length">{{note.ReplayToNotes[0].CreationDate | whenItWas:
+                    true}}</span>
+                <i *ngIf="isCollapsed || note.ReplayToNotes.length==0" class="pi pi-chevron-left"
+                    [ngClass]="{'disabled':note.ReplayToNotes.length==0}"></i>
+                <i *ngIf="!isCollapsed && note.ReplayToNotes.length!=0" class="pi pi-chevron-down"></i>
+            </div>
+            <section #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                <div class="second-part">
+                    <p-accordion expandIcon="pi pi-fw pi-chevron-left">
+                        <p-accordionTab [transitionOptions]="'5ms'" *ngFor="let rep of note.ReplayToNotes">
+                            <ng-template pTemplate="header">
+                                <div class="flex business-part align-items-center">
+                                    <app-business-template [business]="rep.Business" [size]="40">
+                                    </app-business-template>
+                                    <span>{{rep.Business.buisnessName}} הגיבה {{rep.CreationDate| whenItWas:true}}
+                                    </span>
+                                    <span
+                                        *ngIf="this._acct.currentBusiness.value && this._acct.currentBusiness.value?.id == rep.Business.id || this.area == 'manager'">
+                                        <i class="pi pi-trash" id="trash" (click)="deleteReplayNote(rep)">
+
+                                        </i>
+
+                                    </span>
+                                    <span
+                                        *ngIf="this._acct.currentBusiness.value && this._acct.currentBusiness.value?.id == rep.Business.id || this.area == 'manager'">
+                                        <i class="pi pi-pencil" id="pencil" (click)="updateReplayNote(rep)">
+
+                                        </i>
+
+                                    </span>
+                                </div>
+
+
+
+                            </ng-template>
+                            <div class="card card-body border border-0" [innerHTML]="rep.Text"></div>
+                        </p-accordionTab>
+                    </p-accordion>
+                </div>
+            </section>
+
+        </section>
+    </div>
+    <ng-template #spinner>
+        <div class="text-align-center Mytooltip">
+            <img class="loading-spinner" src="../../../../assets/images/spinner.gif" alt="ספינר">
+        </div>
+    </ng-template>
+
+</body>
+
+</html>
